@@ -1,3 +1,1 @@
 # Drinkers
-
-# Get Started
