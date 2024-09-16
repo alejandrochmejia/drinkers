@@ -9,5 +9,21 @@ font-family: san-ferif y font-size: 14px ya que voy a utilizar em*/
     font-size: 14px;
 }
 header{
-    
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #000;
+}
+header .Content__header{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 65px;
+    box-shadow: 2px 1px 10px #000;
+}
+header .Content__header img{
+    width: 35px;
+    margin: 0;
 }
