@@ -146,7 +146,7 @@ main .Avisos--panel .Panel table caption{
     letter-spacing: 1.5px;
 }
 main .Avisos--panel .Panel table tr{
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: var(--ColorNavigatorBar);
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -265,24 +265,59 @@ main .panel--Estadistica .Content--panel--Estadistica .Grafica--Estadistica{
     top: -2px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 main .Panel--pedidos{
     position: relative;
     top: 185px;
-    left: -355px;
-    width: 540px;
-    height: 230px;
+    left: -820px;
+    width: 680px;
+    height: 160px;
     border: 2px solid #000;
+    background-color: var(--SecondaryColor);
+}
+main .Panel--pedidos .Pedidos{
+    width: 620px;
+    display: flex;
+    flex-direction: column wrap;
+    gap: 15px;
+    padding: 15px;
+    margin: 0 15px;
+}
+main .Panel--pedidos .Pedidos h3{
+    color: var(--PrimaryColor);
+    font-size: 1.3em;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+main .Panel--pedidos .Pedidos .Container--1{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    position: relative;
+    top: 30px;
+    left: -85px;
+}
+main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container{
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--PrimaryColor);
+    border-radius: 10px;
+    font-weight: 700;
+}
+main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container span{
+    font-size: 1.4em;
+}
+main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container{
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--PrimaryColor);
+    border-radius: 10px;
+    font-weight: 700;
+}
+main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container span{
+    font-size: 1.4em;
 }
