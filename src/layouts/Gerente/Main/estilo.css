@@ -67,7 +67,7 @@ header .List{
 }
 header .List img{
     border-radius: 40px;
-    width: 50px;
+    width: 45px;
     outline: 2px solid var(--SecondaryColor);
     outline-offset: 2px;
     padding: 3px 3px;
@@ -75,7 +75,7 @@ header .List img{
 header .List img:hover{
     background-color: #001752;
     outline: 2px solid var(--PrimaryColor);
-    padding: 4px 5px;
+    padding: 2px 5px;
 }
 main{
     position: absolute;
@@ -90,10 +90,11 @@ main{
 main .Avisos--panel{
     position: relative;
     left: -185px;
-    top: -65px;
+    top: -70px;
     width: 280px;
     height: 400px;
-    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #000;
     padding: 15px;
 }
 main .Avisos--panel .Content--avisos{
@@ -159,22 +160,27 @@ main .Avisos--panel .Panel table td{
 main .panel--Estadistica{
     background-color: var(--SecondaryColor);
     position: relative;
-    top: -75px;
-    width: 620px;
+    top: -70px;
+    border-radius: 15px;
+    left: -120px;
+    width: 650px;
     height: 230px;
-    border: 2px solid #000;
+    box-shadow: 0 0 15px #000;
     padding: 15px;
+    display: flex;
+    flex-flow: column wrap;
 }
 main .panel--Estadistica .Content--panel--Estadistica{
     display: flex;
     gap: 20px;
     flex-flow: row wrap;
     margin-top: 10px;
+    width: 650px;
 }
 main .panel--Estadistica .Content--panel--Estadistica h3{
-    font-size: 1.4em;
+    font-size: 1.3em;
     letter-spacing: 1px;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--PrimaryColor);
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1{
@@ -182,7 +188,8 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1
     flex-flow: column wrap;
     gap: 10px;
     position: relative;
-    top: -2px;
+    top: 30px;
+    left: -125px;
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1 .Historia--Ventas{
     background-color: var(--PrimaryColor);
@@ -191,7 +198,7 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1
     text-align: center;
     border: 2px solid #000;
     border-radius: 10px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 700;
     color: var(--ColorNavigatorBar);
 }
@@ -213,10 +220,13 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2
     display: flex;
     flex-flow: column wrap;
     gap: 10px;
+    position: relative;
+    left: -135px;
+    top: 35px;
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2 .Ingresos--Container{
     background-color: var(--PrimaryColor);
-    width: 105px;
+    width: 135px;
     padding: 10px;
     text-align: center;
     border: 2px solid #000;
@@ -230,7 +240,7 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2 .Egresos--Container{
     background-color: var(--PrimaryColor);
-    width: 105px;
+    width: 135px;
     padding: 10px;
     text-align: center;
     border: 2px solid #000;
@@ -241,6 +251,18 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2 .Egresos--Container span{
     font-size: 1.4em;
+}
+main .panel--Estadistica .Content--panel--Estadistica .Grafica--Estadistica{
+    width: 240px;
+    height: 190px;
+    background-color: var(--PrimaryColor);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -125px;
+    top: -2px;
 }
 
 
