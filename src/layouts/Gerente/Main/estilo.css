@@ -89,10 +89,10 @@ main{
 }
 main .Avisos--panel{
     position: relative;
-    left: -155px;
-    top: -25px;
+    left: -185px;
+    top: -65px;
     width: 280px;
-    height: 350px;
+    height: 400px;
     border: 2px solid #000;
     padding: 15px;
 }
@@ -138,5 +138,21 @@ main .Avisos--panel .Panel table{
     padding: 10px;
 }
 main .Avisos--panel .Panel table caption{
-    
+    margin-bottom: 25px;
+    font-size: 1.6em;
+    color: var(--SecondaryColor);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+main .Avisos--panel .Panel table tr{
+    font-size: 1.5em;
+    color: var(--ColorNavigatorBar);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+main .Avisos--panel .Panel table td{
+    font-size: 0.7em;
+    border-bottom: 1px solid #aaa;
+    padding: 5px;
+    letter-spacing: 1px;
 }
