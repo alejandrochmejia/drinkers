@@ -87,3 +87,6 @@ main{
     padding: 12px;
     margin: 5px 10px 0 15px;
 }
+main .Avisos--panel{
+    position: relative;
+}
