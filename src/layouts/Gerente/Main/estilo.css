@@ -17,7 +17,6 @@ header{
     width: 100%;
     height: 100vh;
     padding: 5px;
-    border: 2px solid #000;
 }
 header .Content__header{
     width: 100%;
@@ -140,7 +139,7 @@ main .Avisos--panel .Panel table{
 }
 main .Avisos--panel .Panel table caption{
     margin-bottom: 25px;
-    font-size: 1.6em;
+    font-size: 1.1em;
     color: var(--SecondaryColor);
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -188,7 +187,7 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1
     flex-flow: column wrap;
     gap: 10px;
     position: relative;
-    top: 30px;
+    top: 40px;
     left: -125px;
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1 .Historia--Ventas{
