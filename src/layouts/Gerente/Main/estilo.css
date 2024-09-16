@@ -1,0 +1,13 @@
+/*Por el momento voy a utilizar
+font-family: san-ferif y font-size: 14px ya que voy a utilizar em*/
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+header{
+    
+}
