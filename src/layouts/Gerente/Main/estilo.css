@@ -90,7 +90,7 @@ main{
 main .Avisos--panel{
     position: relative;
     left: -185px;
-    top: -70px;
+    top: -50px;
     width: 280px;
     height: 400px;
     border-radius: 15px;
@@ -160,9 +160,9 @@ main .Avisos--panel .Panel table td{
 main .panel--Estadistica{
     background-color: var(--SecondaryColor);
     position: relative;
-    top: -70px;
+    top: -80px;
     border-radius: 15px;
-    left: -120px;
+    left: -75px;
     width: 650px;
     height: 230px;
     box-shadow: 0 0 15px #000;
@@ -268,10 +268,12 @@ main .panel--Estadistica .Content--panel--Estadistica .Grafica--Estadistica{
 main .Panel--pedidos{
     position: relative;
     top: 185px;
-    left: -820px;
+    left: -770px;
     width: 680px;
-    height: 160px;
-    border: 2px solid #000;
+    height: 210px;
+    border-radius: 15px;
+    padding: 5px;
+    box-shadow: 0 0 15px #000;
     background-color: var(--SecondaryColor);
 }
 main .Panel--pedidos .Pedidos{
@@ -288,16 +290,24 @@ main .Panel--pedidos .Pedidos h3{
     font-weight: 500;
     letter-spacing: 1px;
 }
-main .Panel--pedidos .Pedidos .Container--1{
+main .Panel--pedidos .Container--pedidos{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+main .Panel--pedidos .Container--pedidos .Container--1{
     width: 250px;
     display: flex;
     justify-content: center;
     gap: 25px;
+    margin-top: 2px;
+    margin-left: px;
+    align-items: center;
     position: relative;
-    top: 30px;
-    left: -85px;
 }
-main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container{
+main .Panel--pedidos .Container--pedidos .Container--1 .Solicitudes--container{
     width: 200px;
     height: 60px;
     text-align: center;
@@ -306,10 +316,10 @@ main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container{
     border-radius: 10px;
     font-weight: 700;
 }
-main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container span{
+main .Panel--pedidos .Container--pedidos .Container--1 .Solicitudes--container span{
     font-size: 1.4em;
 }
-main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container{
+main .Panel--pedidos .Container--pedidos .Container--1 .Procesados--Container{
     width: 200px;
     height: 60px;
     text-align: center;
@@ -318,6 +328,86 @@ main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container{
     border-radius: 10px;
     font-weight: 700;
 }
-main .Panel--pedidos .Pedidos .Container--1 .Solicitudes--container span{
+main .Panel--pedidos .Container--pedidos .Container--1 .Procesados--Container span{
     font-size: 1.4em;
+}
+main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales{
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--PrimaryColor);
+    border-radius: 10px;
+    font-weight: 700;
+}
+main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales span{
+    font-size: 1.4em;
+    text-wrap: nowrap;
+    font-weight: 500;
+}
+main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales span .Title{
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-left: 5px;
+}
+main .Panel--pedidos .Container--pedidos .Container--2{
+    width: 500px;
+    padding: 5px;
+    display: flex;
+    gap: 25px;
+    margin-top: 2px;
+    position: relative;
+    left: 0px;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Via--container{
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    position: relative;
+    left: 2px;
+    padding: 10px;
+    background-color: var(--PrimaryColor);
+    border-radius: 10px;
+    font-weight: 700;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Via--container span{
+    font-size: 1.4em;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Via--container span .Title{
+    text-wrap: nowrap;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Completados--Container{
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--PrimaryColor);
+    border-radius: 10px;
+    font-weight: 700;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Completados--Container span{
+    font-size: 1.4em;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales{
+    width: 290px;
+    height: 60px;
+    text-align: center;
+    position: relative;
+    left: -4px;
+    padding: 10px;
+    background-color: var(--PrimaryColor);
+    border-radius: 10px;
+    font-weight: 700;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales span{
+    font-size: 1.4em;
+    text-wrap: nowrap;
+    font-weight: 500;
+}
+main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales span .Title{
+    display: inline-block;
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-left: 5px;
 }
