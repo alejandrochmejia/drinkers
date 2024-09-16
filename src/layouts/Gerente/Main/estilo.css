@@ -15,6 +15,7 @@ font-family: san-ferif y font-size: 14px ya que voy a utilizar em*/
 }
 header{
     width: 100%;
+    height: 100vh;
     padding: 5px;
     border: 2px solid #000;
 }
@@ -26,7 +27,7 @@ header .Content__header{
     align-items: center;
     padding-left: 15px;
     padding-right: 65px;
-    box-shadow: 2px 1px 25px var(--ColorNavigatorBar);
+    box-shadow: 2px 2px 45px var(--ColorNavigatorBar);
 }
 header .Content__header img{
     width: 40px;
@@ -51,7 +52,8 @@ header .Content__header a:hover{
 }
 header .Navigator--bar{
     width: 5%;
-    height: 590px;
+    height: 93%;
+    margin-top: 3px;
     background-color: var(--ColorNavigatorBar);
     padding: 5px;
 }
@@ -74,4 +76,14 @@ header .List img:hover{
     background-color: #001752;
     outline: 2px solid var(--PrimaryColor);
     padding: 4px 5px;
+}
+main{
+    position: absolute;
+    left: 310px;
+    top: 180px;
+    width: 65%;
+    border: 1px solid #000;
+    display: flex;
+    padding: 12px;
+    margin: 5px 10px 0 15px;
 }
