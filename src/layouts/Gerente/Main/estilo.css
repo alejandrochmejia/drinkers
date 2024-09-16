@@ -49,4 +49,29 @@ header .Content__header a:hover{
     color: var(--ColorNavigatorBar);
     border: 2px solid #aaa;
 }
-header 
+header .Navigator--bar{
+    width: 5%;
+    height: 590px;
+    background-color: var(--ColorNavigatorBar);
+    padding: 5px;
+}
+header .List{
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    gap: 25px;
+    margin-top: 5px;
+}
+header .List img{
+    border-radius: 40px;
+    width: 50px;
+    outline: 2px solid var(--SecondaryColor);
+    outline-offset: 2px;
+    padding: 3px 3px;
+}
+header .List img:hover{
+    background-color: #001752;
+    outline: 2px solid var(--PrimaryColor);
+    padding: 4px 5px;
+}
