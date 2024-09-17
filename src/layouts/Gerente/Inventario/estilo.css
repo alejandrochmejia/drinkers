@@ -74,3 +74,8 @@ header .List img:hover{
     outline: 2px solid var(--PrimaryColor);
     padding: 5px 5px;
 }
+main{
+    position: absolute;
+    top: 105px;
+    left: 150px;
+}
