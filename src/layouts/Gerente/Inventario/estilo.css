@@ -77,10 +77,11 @@ header .List img:hover{
 main{
     position: absolute;
     top: 105px;
-    left: 150px;
-    border: 2px solid #000;
+    left: 185px;
     width: 80%;
     display: flex;
+    box-shadow: 0 0 5px #000;
+    border-radius: 10px;
     flex-flow: column wrap;
     justify-content: center;
     margin: auto;
@@ -88,7 +89,6 @@ main{
 }
 main .Content{
     width: 855px;
-    border: 1px solid #000;
     margin: auto;
     padding: 10px;
     display: flex;
@@ -98,7 +98,6 @@ main .Content{
 main .Content .Inputs--seleccionados{
     display: flex;
     gap: 5px;
-    border: 1px solid #000;
     padding: 5px;
 }
 main .Content .Inputs--seleccionados .Input--Container{
@@ -135,7 +134,6 @@ main .Content .icon{
     align-items: center;
     gap: 25px;
     padding: 5px;
-    border: 1px solid #000;
 }
 main .Content .icon img{
     width: 35px;
@@ -145,7 +143,30 @@ main .Table--inventario{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000;
     margin-top: 25px;
     padding: 10px;
+}
+main .Table--inventario table{
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+main .Table--inventario table caption{
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 1.4em;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+main .Table--inventario table th{
+    padding: 0 35px;
+    border: 1px solid #aaa;
+    font-weight: 600;
+}
+main .Table--inventario table td{
+    padding: 0 35px;
+    text-align: center;
+    font-weight: 500;
 }
