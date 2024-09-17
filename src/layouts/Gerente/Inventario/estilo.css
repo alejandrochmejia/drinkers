@@ -114,7 +114,7 @@ main .Content .Inputs--seleccionados .Input--Container input{
     font-size: 1.1em;
 }
 main .Content .Inputs--seleccionados .Input--Container img{
-    width: 30px;
+    width: 25px;
     position: relative;
     left: -35px;
 }
@@ -132,18 +132,25 @@ main .Content .icon{
     margin-left: 145px;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 10px;
     padding: 5px;
 }
 main .Content .icon img{
-    width: 35px;
+    width: 25px;
     filter: drop-shadow(0 0 2px #fdfd);
+    cursor: pointer;
+    transition: .1s linear;
+}
+main .Content .icon img:hover{
+    outline: 2px solid var(--ColorNavigatorBar);
+    border-radius: 30px;
+    outline-offset: 1px;
 }
 main .Table--inventario{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 25px;
+    margin-top: 10px;
     padding: 10px;
 }
 main .Table--inventario table{
