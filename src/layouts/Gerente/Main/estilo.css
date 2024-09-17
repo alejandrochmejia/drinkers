@@ -136,7 +136,7 @@ main .Avisos--panel .Panel table{
     padding: 15px;
 }
 main .Avisos--panel .Panel table caption{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-size: 1.4em;
     color: var(--SecondaryColor);
     font-weight: 700;
@@ -199,7 +199,7 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1
     border: 2px solid #000;
     border-radius: 10px;
     font-size: 1.2em;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ColorNavigatorBar);
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1 .Ventas--container{
@@ -210,7 +210,7 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1
     border: 2px solid #000;
     border-radius: 10px;
     font-size: 1.2em;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--ColorNavigatorBar);
 }
 main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1 .Ventas--container span{
@@ -349,7 +349,6 @@ main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales{
 main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales span{
     font-size: 1.4em;
     text-wrap: nowrap;
-    font-weight: 500;
 }
 main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales span .Title{
     display: inline-block;
@@ -404,7 +403,6 @@ main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales{
 main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales span{
     font-size: 1.4em;
     text-wrap: nowrap;
-    font-weight: 500;
 }
 main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales span .Title{
     display: inline-block;
