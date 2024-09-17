@@ -54,13 +54,14 @@ header .Navigator--bar{
     height: 92%;
     margin-top: 1px;
     background-color: var(--ColorNavigatorBar);
-    padding: 10px;
+    padding: 7px;
 }
 header .List{
     list-style: none;
     display: flex;
     flex-flow: column wrap;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
     gap: 25px;
     margin-top: 5px;
 }
@@ -72,9 +73,9 @@ header .List img{
     padding: 3px 3px;
 }
 header .List img:hover{
-    background-color: #001752;
+    background-color: #000;
     outline: 2px solid var(--PrimaryColor);
-    padding: 2px 5px;
+    padding: 5px 5px;
 }
 main{
     position: absolute;

@@ -1,0 +1,77 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+}
+header .Content__header{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    padding-right: 65px;
+    box-shadow: 2px 2px 45px var(--ColorNavigatorBar);
+}
+header .Content__header img{
+    width: 40px;
+    margin: 0;
+}
+header .Content__header a{
+    width: 75px;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: .1s linear;
+}
+header .Content__header a:hover{
+    background-color: var(--HoverColor);
+    color: var(--ColorNavigatorBar);
+    border: 2px solid #aaa;
+}
+header .Navigator--bar{
+    width: 6%;
+    height: 92%;
+    margin-top: 1px;
+    background-color: var(--ColorNavigatorBar);
+    padding: 7px;
+}
+header .List{
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    margin-top: 5px;
+}
+header .List img{
+    border-radius: 40px;
+    width: 45px;
+    outline: 2px solid var(--SecondaryColor);
+    outline-offset: 2px;
+    padding: 3px 3px;
+}
+header .List img:hover{
+    background-color: #000;
+    outline: 2px solid var(--PrimaryColor);
+    padding: 5px 5px;
+}
