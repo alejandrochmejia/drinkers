@@ -150,6 +150,8 @@ main .Table--inventario{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    left: -5px;
     margin-top: 10px;
     padding: 10px;
 }
@@ -168,12 +170,12 @@ main .Table--inventario table caption{
     letter-spacing: 1px;
 }
 main .Table--inventario table th{
-    padding: 0 35px;
+    padding: 5px 5px;
     border: 1px solid #aaa;
     font-weight: 600;
 }
 main .Table--inventario table td{
-    padding: 0 35px;
+    padding: 0 30px;
     text-align: center;
     font-weight: 500;
 }
