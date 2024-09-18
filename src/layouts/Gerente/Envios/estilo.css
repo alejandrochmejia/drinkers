@@ -76,15 +76,44 @@ header .List img:hover{
     padding: 5px 5px;
 }
 main{
-    width: 65%;
+    width: 75%;
     border: 2px solid #000;
     position: absolute;
-    top: 185px;
-    left: 195px;
+    top: 155px;
+    left: 215px;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
 }
-main .C
+main .Content--page{
+    border: 2px solid #000;
+    width: 850px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+main .Content--page .input--Container{
+    border: 2px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+main .Content--page .input--Container input{
+    width: 220px;
+    padding: 6px 5px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    outline: none;
+}
+main .Content--page .input--Container img{
+    width: 30px;
+    position: relative;
+    left: -45px;
+}
