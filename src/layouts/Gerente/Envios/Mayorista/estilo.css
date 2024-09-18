@@ -1,0 +1,189 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+}
+header .Content__header{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    padding-right: 65px;
+    box-shadow: 2px 2px 45px var(--ColorNavigatorBar);
+}
+header .Content__header img{
+    width: 40px;
+    margin: 0;
+}
+header .Content__header a{
+    width: 75px;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: .1s linear;
+}
+header .Content__header a:hover{
+    background-color: var(--HoverColor);
+    color: var(--ColorNavigatorBar);
+    border: 2px solid #aaa;
+}
+header .Navigator--bar{
+    width: 6%;
+    height: 92%;
+    margin-top: 1px;
+    background-color: var(--ColorNavigatorBar);
+    padding: 7px;
+}
+header .List{
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    margin-top: 5px;
+}
+header .List img{
+    border-radius: 40px;
+    width: 45px;
+    outline: 2px solid var(--SecondaryColor);
+    outline-offset: 2px;
+    padding: 3px 3px;
+}
+header .List img:hover{
+    background-color: #000;
+    outline: 2px solid var(--PrimaryColor);
+    padding: 5px 5px;
+}
+main{
+    width: 75%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #000;
+    position: absolute;
+    top: 125px;
+    left: 215px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+main .Content--page{
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+main .Content--page .input--Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+main .Content--page .input--Container input{
+    width: 270px;
+    padding: 7px 10px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid #aaa;
+    outline: none;
+}
+main .Content--page .input--Container img{
+    width: 30px;
+    position: relative;
+    left: -45px;
+}
+main .Content--page .Minorista--Mayorista{
+    display: flex;
+    gap: 5px;
+    border: 2px solid #000;
+    padding: 5px 0 5px 0;
+    border-radius: 15px;
+}
+main .Content--page .Minorista--Mayorista a{
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 2px;
+    color: var(--ColorNavigatorBar);
+    transition: .1s linear;
+}
+main .Content--page .Minorista--Mayorista .Minorista{
+    padding: 5px;
+}
+main .Content--page .Minorista--Mayorista .Minorista a:hover{
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-left: 0;
+    position: relative;
+    border: none;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    left: -5px;
+    font-weight: 600;
+}
+main .Content--page .Minorista--Mayorista .Mayorista{
+    padding: 5px;
+    position: relative;
+    left: -5px;
+}
+main .Content--page .Minorista--Mayorista .Mayorista span{
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-left: 0;
+    position: relative;
+    border: none;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    left: 10px;
+    font-weight: 700;
+}
+main .Table--Container{
+    margin-top: 20px;
+    padding: 10px;
+}
+main .Table--Container table{
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    padding: 5px;
+}
+main .Table--Container table caption{
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+main .Table--Container th{
+    padding: 0 25px;
+    border: 2px solid #aaa;
+}
+main .Table--Container td{
+    text-align: center;
+    padding: 5px 30px;
+}
