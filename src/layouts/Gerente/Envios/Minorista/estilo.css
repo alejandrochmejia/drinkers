@@ -134,7 +134,7 @@ main .Content--page .Minorista--Mayorista a{
 main .Content--page .Minorista--Mayorista .Minorista{
     padding: 5px;
 }
-main .Content--page .Minorista--Mayorista .Minorista a{
+main .Content--page .Minorista--Mayorista .Minorista span{
     border-radius: 10px;
     padding: 10px 15px;
     margin-left: 0;
@@ -143,7 +143,7 @@ main .Content--page .Minorista--Mayorista .Minorista a{
     background-color: var(--SecondaryColor);
     color: var(--PrimaryColor);
     left: -5px;
-    font-weight: 500;
+    font-weight: 600;
 }
 main .Content--page .Minorista--Mayorista .Mayorista{
     padding: 5px;
@@ -159,7 +159,7 @@ main .Content--page .Minorista--Mayorista .Mayorista a:hover{
     background-color: var(--SecondaryColor);
     color: var(--PrimaryColor);
     left: 10px;
-    font-weight: 500;
+    font-weight: 700;
 }
 main .Table--Container{
     margin-top: 20px;
