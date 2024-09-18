@@ -103,12 +103,12 @@ main .Content--page .input--Container{
     gap: 10px;
 }
 main .Content--page .input--Container input{
-    width: 220px;
-    padding: 6px 5px;
+    width: 270px;
+    padding: 7px 10px;
     font-size: 1.1em;
     font-weight: 500;
     border-radius: 5px;
-    border: 1px solid #aaa;
+    border: 2px solid #aaa;
     outline: none;
 }
 main .Content--page .input--Container img{
@@ -118,11 +118,10 @@ main .Content--page .input--Container img{
 }
 main .Content--page .Minorista--Mayorista{
     display: flex;
-    gap: 2px;
+    gap: 5px;
     border: 2px solid #000;
-    padding: 5px;
-    padding-left: 0;
-    border-radius: 25px;
+    padding: 5px 0 5px 0;
+    border-radius: 15px;
 }
 main .Content--page .Minorista--Mayorista a{
     font-size: 1em;
@@ -136,7 +135,7 @@ main .Content--page .Minorista--Mayorista .Minorista{
     padding: 5px;
 }
 main .Content--page .Minorista--Mayorista .Minorista a{
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 10px 15px;
     margin-left: 0;
     position: relative;
@@ -148,6 +147,19 @@ main .Content--page .Minorista--Mayorista .Minorista a{
 }
 main .Content--page .Minorista--Mayorista .Mayorista{
     padding: 5px;
+    position: relative;
+    left: -5px;
+}
+main .Content--page .Minorista--Mayorista .Mayorista a:hover{
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-left: 0;
+    position: relative;
+    border: none;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    left: 10px;
+    font-weight: 500;
 }
 main .Table--Container{
     margin-top: 20px;
