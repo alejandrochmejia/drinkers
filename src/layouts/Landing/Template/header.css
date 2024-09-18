@@ -96,7 +96,12 @@ header nav ul{
 }
 
 header nav ul li{
-    padding: 0 1vmin;
+    padding: 1vmin;
+    cursor: pointer;
+}
+
+header nav ul li:hover{
+    background-color: #cdcdcd;
 }
 
 main{
