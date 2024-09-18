@@ -134,3 +134,54 @@ main .Content .aviso .Button--Container button:hover{
     background-color: var(--HoverColor);
     color: var(--ColorNavigatorBar);
 }
+main .Content .Table--Container{
+    border: 1px solid #000;
+    margin-top: 10px;
+    padding: 10px;
+}
+main .Content .Table--Container table{
+    border: 1px solid #aaa;
+    padding: 5px;
+    border-radius: 10px;
+}
+main .Content .Table--Container table caption{
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 1.4em;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+main .Content .Table--Container table th{
+    padding: 0 115px;
+    border: 1px solid #aaa;
+}
+main .Content .Table--Container table th:nth-child(1){
+    padding: 0 155px;
+    border: 1px solid #aaa;
+}
+main .Content .Table--Container table th:nth-child(2){
+    padding: 0 55px;
+    border: 1px solid #aaa;
+}
+main .Content .Table--Container table th:nth-child(3){
+    padding: 0 55px;
+    border: 1px solid #aaa;
+}
+main .Content .Table--Container table tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container table td{
+    text-align: center;
+    padding: 3px 0px;
+    font-size: 1.1em;
+}
+main .Content .Table--Container table td:nth-child(1){
+    text-align: left;
+    padding-left: 5px;
+}
+main .Content .Table--Container table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+}
+
