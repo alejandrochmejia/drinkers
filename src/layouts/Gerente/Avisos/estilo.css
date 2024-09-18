@@ -11,3 +11,126 @@
     font-family: sans-serif;
     font-size: 14px;
 }
+main{
+    position: absolute;
+    top: 155px;
+    left: 200px;
+    width: 80%;
+    border: 1px solid #000;
+    padding: 10px;
+}
+main .Content{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-flow: column wrap;
+    border: 1px solid #000;
+    padding: 10px;
+}
+main .Content .Reportes--Container{
+    border: 2px solid #000;
+    width: 990px;
+    padding: 10px;
+}
+main .Content .Reportes--Container .aviso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+}
+main .Content .Reportes--Container .aviso .Input--Container{
+    display: flex;
+    width: 425px;
+    justify-content: flex-start;
+    flex-flow: column;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #F4F4F4;
+    border: 1px solid var(--SecondaryColor);
+}
+main .Content .Reportes--Container .aviso .Input--Container span{
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: var(--SecondaryColor);
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input input{
+    padding: 2px 0px;
+    margin-left: 0;
+    width: 365px;
+    font-size: 1.1em;
+    border: none;
+    outline: none;
+    transition: .1s linear;
+    background-color: #F4F4F4;
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input input::placeholder{
+    color: var(--ColorNavigatorBar);
+    font-weight: 600;
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input img{
+    width: 25px;
+    position: relative;
+    top: -5px;
+}
+main .Content .Reportes--Container .aviso .Tipo--aviso{
+    border: 1px solid var(--SecondaryColor);
+    padding: 10px;
+    border-radius: 5px;
+}
+main .Content .Reportes--Container .aviso .Tipo--aviso select{
+    padding: 5px 0px;
+    width: 120px;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+main .Content .Reportes--Container .aviso .Fecha--reporte{
+    border: 1px solid var(--SecondaryColor);
+    padding: 8px;
+    border-radius: 5px;
+}
+main .Content .Reportes--Container .aviso .Fecha--reporte input{
+    padding: 6px 5px;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+main .Content .aviso .Button--Container{
+    border: 1px solid var(--SecondaryColor);
+    padding: 15px;
+    border-radius: 5px;
+    background-color: var(--SecondaryColor);
+    transition: .1s linear;
+}
+main .Content .aviso .Button--Container:hover{
+    background-color: var(--HoverColor);
+}
+main .Content .aviso .Button--Container button{
+    padding: 0px 5px;
+    color: #F4F4F4;
+    background-color: var(--SecondaryColor);
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: .1s linear;
+    cursor: pointer;
+}
+main .Content .aviso .Button--Container button:hover{
+    background-color: var(--HoverColor);
+    color: var(--ColorNavigatorBar);
+}
