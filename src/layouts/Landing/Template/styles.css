@@ -1,0 +1,21 @@
+:root{
+
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header{
+    position: fixed;
+    width: 100dvw;
+    height: 15dvh;
+    background-color: red;
+}
+
+main{
+    width: 100dvw;
+    min-height: 100dvh;
+}
