@@ -36,22 +36,56 @@
     <main>
         <section class="Content">
             <article class="Reportes--Container">
-                <div class="aviso">
+                <form class="aviso">
                     <span>Nuevo reporte</span>
                     <div class="Input--Container">
-                        <input type="text" placeholder="Escribir el reporte">
+                        <input type="text" placeholder="Escribir el reporte" required>
                         <img src="" alt="icon">
                     </div>
-                </div>
-                <div class="Tipo--aviso">
-                    <select>
-                        <option value="Envio">Envio</option>
-                        <option value="Proveedor">Proveedor</option>
-                        <option value="Personal">Personal</option>
-                        <option value="Producto">Producto</option>
-                    </select>
-                </div>
-
+                    <div class="Tipo--aviso">
+                        <select required>
+                            <option value="Envio">Envio</option>
+                            <option value="Proveedor">Proveedor</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Producto">Producto</option>
+                        </select>
+                    </div>
+                    <div class="Fecha--reporte">
+                        <input type="date" required>
+                    </div>
+                    <div class="Button--Container">
+                        <button value="Crear Aviso" type="submit">Crear Aviso</button>
+                    </div>
+                </form>
+            </article>
+            <article class="Table--Container">
+                <table>
+                    <caption>Reportes de la empresa</caption>
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Tipo</th>
+                            <th>Fecha de aviso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cesar es mrk</td>
+                            <td>Personal</td>
+                            <td>22/09/2024</td>
+                        </tr>
+                        <tr>
+                            <td>Alejandro no trajo las niñas</td>
+                            <td>Proveedor</td>
+                            <td>23/09/2024</td>
+                        </tr>
+                        <tr>
+                            <td>Lai no trajo el informe</td>
+                            <td>Stock</td>
+                            <td>24/09/2024</td>
+                        </tr>
+                    </tbody>
+                </table>
             </article>
         </section>
     </main>
