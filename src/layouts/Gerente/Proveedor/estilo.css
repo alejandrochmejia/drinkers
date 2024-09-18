@@ -77,9 +77,68 @@ header .List img:hover{
 }
 main{
     position: absolute;
-    top: 125px;
+    top: 105px;
     left: 155px;
     border: 2px solid #000;
     width: 85%;
     padding: 10px;
 }
+main .Content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 10px;
+    gap: 25px;
+}
+main .Content .Info--Proveedor{
+    border: 1px solid #000;
+    width: 350px;
+    padding: 10px;
+    background-color: var(--SecondaryColor);
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+main .Content .Info--Proveedor h1{
+    font-size: 1.3em;
+    padding-left: 6px;
+    text-transform: capitalize;
+    color: var(--PrimaryColor);
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+main .Content .Info--Proveedor article{
+    display: flex;
+    justify-content: left;
+    flex-flow: column wrap;
+    margin: 3px;
+    border: 2px solid #000;
+    background-color: var(--PrimaryColor);
+    padding: 5px;
+}
+main .Content .Info--Proveedor article span{
+    font-size: 0.9em;
+    color: var(--SecondaryColor);
+    letter-spacing: 1px;
+    padding: 1px;
+}
+main .Content .Info--Proveedor article h3{
+    font-size: 1.2em;
+    text-shadow: 0 0 2px #aaa;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 2px;
+}
+main .Content .Info--Proveedor .Icon--proveedor{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: right;
+    gap: 12px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: transparent;
+}
+main .Content .Info--Proveedor .Icon--proveedor img{
+    width: 36px;
+}      
