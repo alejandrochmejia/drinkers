@@ -187,3 +187,10 @@ main .Table--Container td{
     text-align: center;
     padding: 5px 30px;
 }
+main .Table--Container tbody tr{
+    transition: .1s linear;
+}
+main .Table--Container tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+}

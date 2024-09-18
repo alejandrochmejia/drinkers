@@ -79,7 +79,8 @@ main{
     position: absolute;
     top: 105px;
     left: 155px;
-    border: 2px solid #000;
+    box-shadow: 0 0 3px #000;
+    border-radius: 10px;
     width: 85%;
     padding: 10px;
 }
@@ -92,13 +93,18 @@ main .Content{
     gap: 25px;
 }
 main .Content .Info--Proveedor{
-    border: 1px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 0 3px var(--ColorNavigatorBar);
     width: 350px;
+    height: 380px;
     padding: 10px;
     background-color: var(--SecondaryColor);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-flow: column wrap;
+    position: relative;
+    gap: 5px;
+    left: -380px;
 }
 main .Content .Info--Proveedor h1{
     font-size: 1.3em;
@@ -112,8 +118,8 @@ main .Content .Info--Proveedor article{
     display: flex;
     justify-content: left;
     flex-flow: column wrap;
-    margin: 3px;
-    border: 2px solid #000;
+    margin: 5px;
+    border-radius: 10px;
     background-color: var(--PrimaryColor);
     padding: 5px;
 }
@@ -124,7 +130,7 @@ main .Content .Info--Proveedor article span{
     padding: 1px;
 }
 main .Content .Info--Proveedor article h3{
-    font-size: 1.2em;
+    font-size: 1em;
     text-shadow: 0 0 2px #aaa;
     letter-spacing: 1px;
     font-weight: 500;
@@ -138,7 +144,69 @@ main .Content .Info--Proveedor .Icon--proveedor{
     margin-top: 5px;
     padding: 10px;
     background-color: transparent;
+    border: none;
 }
 main .Content .Info--Proveedor .Icon--proveedor img{
-    width: 36px;
-}      
+    width: 26px;
+    cursor: pointer;
+    transition: .1s linear;
+}
+main .Content .Info--Proveedor .Icon--proveedor img:hover{
+    padding: 1px 0px;
+    outline: 2px solid #aaa;
+    outline-offset: 2px;
+    border-radius: 40px;
+}
+main .Content .Table--Container{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    padding: 10px;
+    position: absolute;
+    top: 5px;
+    left: 380px;
+}
+main .Content .Table--Container .Input--Container{
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+main .Content .Table--Container .Input--Container input{
+    width: 230px;
+    padding: 4px 8px;
+    border: 2px solid #aaa;
+    outline: none;
+    border-radius: 10px;
+}
+main .Content .Table--Container .Input--Container img{
+    width: 30px;
+    position: relative;
+    left: -35px;
+}
+main .Content .Table--Container table{
+    margin-top: 15px;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+}
+main .Content .Table--Container table caption{
+    font-size: 1.3em;
+    font-weight: 600;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+}
+main .Content .Table--Container table th{
+    padding: 0 10px;
+    border: 1px solid #aaa;
+}           
+main .Content .Table--Container table td{
+    text-align: center;
+    padding: 5px 0;
+}
+main .Content .Table--Container table tbody tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+}       

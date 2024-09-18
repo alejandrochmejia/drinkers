@@ -180,3 +180,10 @@ main .Table--inventario table td{
     text-align: center;
     font-weight: 500;
 }
+main .Table--inventario table tbody tr{
+    transition: .1s linear;
+}
+main .Table--inventario table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+}
