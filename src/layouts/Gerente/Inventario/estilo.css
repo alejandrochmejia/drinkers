@@ -176,7 +176,7 @@ main .Table--inventario table th{
     font-weight: 600;
 }
 main .Table--inventario table td{
-    padding: 0 30px;
+    padding: 5px 30px;
     text-align: center;
     font-weight: 500;
 }

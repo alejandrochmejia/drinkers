@@ -77,7 +77,8 @@ header .List img:hover{
 }
 main{
     width: 75%;
-    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #000;
     position: absolute;
     top: 125px;
     left: 215px;
@@ -88,15 +89,13 @@ main{
     flex-flow: column wrap;
 }
 main .Content--page{
-    border: 2px solid #000;
-    width: 850px;
+    width: 980px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
 }
 main .Content--page .input--Container{
-    border: 2px solid #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -119,9 +118,10 @@ main .Content--page .input--Container img{
 }
 main .Content--page .Minorista--Mayorista{
     display: flex;
-    gap: 5px;
+    gap: 2px;
     border: 2px solid #000;
-    padding: 10px;
+    padding: 5px;
+    padding-left: 0;
     border-radius: 25px;
 }
 main .Content--page .Minorista--Mayorista a{
@@ -136,19 +136,42 @@ main .Content--page .Minorista--Mayorista .Minorista{
     padding: 5px;
 }
 main .Content--page .Minorista--Mayorista .Minorista a{
-    background-color: var(--SecondaryColor);
-    color: var(--PrimaryColor);
-    padding: 5px;
-}
-main .Content--page .Minorista--Mayorista .Minorista a:hover{
-    border: 1px solid #000;
     border-radius: 25px;
-    padding: 15px 15px;
+    padding: 10px 15px;
     margin-left: 0;
     position: relative;
-    left: -15px;
+    border: none;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    left: -5px;
     font-weight: 500;
 }
 main .Content--page .Minorista--Mayorista .Mayorista{
     padding: 5px;
+}
+main .Table--Container{
+    margin-top: 20px;
+    padding: 10px;
+}
+main .Table--Container table{
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    padding: 5px;
+}
+main .Table--Container table caption{
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+main .Table--Container th{
+    padding: 0 25px;
+    border: 2px solid #aaa;
+}
+main .Table--Container td{
+    text-align: center;
+    padding: 5px 30px;
 }
