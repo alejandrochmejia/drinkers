@@ -5,7 +5,7 @@ import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
 import {methods as auth} from './controllers/auth.js'
-import {methods as authorization} from "./middlewares/authorization.js";
+import {methods as authorization} from './middleware/authorization.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -18,17 +18,24 @@ app.use(express.json())
 app.listen(app.get('port'),()=>{
     console.log('http://localhost:'+app.get('port')+'/')
 })
-app.use(express.static(resolve(__dirname, '..')));
+
+//Configurando EJS
+app.set('views',resolve(__dirname, './routes'))
+app.set('view engine','ejs')
 
 //Rutas
 app.get('/',(req,res)=>{
-    res.sendFile(resolve(__dirname, '../index.html'))
+    res.render('index');
 })
 
 app.get('/login',(req,res)=>{
-    res.sendFile(resolve(__dirname, './routes/login.html'))
+    res.render('login');
 })
 
 app.get('/register',(req,res)=>{
-    res.sendFile(resolve(__dirname, './routes/register.html'))
+    res.render('register');
 })
+
+app.get('/dashboard', (req, res) => {
+    res.render('admin/dashboard');
+});
