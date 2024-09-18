@@ -1,0 +1,100 @@
+:root{
+    --blue: #040C5D;
+    --white: #F8F7F2;
+    --black: #232326;
+    --cyan: #B1CEF4;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    position: fixed;
+    width: 100dvw;
+    height: 15dvh;
+}
+
+header section{
+    width: 100dvw;
+    height: 10dvh;
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+}
+
+header section img{
+    scale: 0.8;
+    cursor: pointer;
+}
+
+header section input[type=search]{
+    color: var(--black);
+    width: 70vmin;
+    height: 4vmin;
+    border: none;
+    border-radius: 20px;
+    background-image: url("../../../../public/images/icons/Search.png");
+    background-position-x: 0.5vmin; 
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    padding: 1vmin;
+    padding-left: 5vmin;
+
+}
+
+header section input:focus{
+    outline: none;
+}
+
+header section section{
+    width: 40vmin;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 3vmin;
+}
+
+header section section button{
+    background-color: #010744;
+    border: none;
+    border-radius: 5px;
+    padding: 1vmin;
+    color: var(--white);
+    cursor: pointer;
+}
+
+header section section img{
+    cursor: pointer;
+}
+
+header nav{
+    width: 100dvw;
+    height: 5dvh;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav ul{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+    color: var(--blue);
+}
+
+main{
+    width: 100dvw;
+    min-height: 100dvh;
+}
