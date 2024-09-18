@@ -75,3 +75,16 @@ header .List img:hover{
     outline: 2px solid var(--PrimaryColor);
     padding: 5px 5px;
 }
+main{
+    width: 65%;
+    border: 2px solid #000;
+    position: absolute;
+    top: 185px;
+    left: 195px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+main .C
