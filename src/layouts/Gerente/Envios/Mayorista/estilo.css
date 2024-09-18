@@ -18,13 +18,14 @@ header{
 }
 header .Content__header{
     width: 100%;
-    height: 55px;
+    height: 65px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
     padding-right: 65px;
-    box-shadow: 2px 2px 45px var(--ColorNavigatorBar);
+    border: 2px solid #000;
+    border-left: none;
 }
 header .Content__header img{
     width: 40px;
@@ -49,8 +50,8 @@ header .Content__header a:hover{
 }
 header .Navigator--bar{
     width: 6%;
-    height: 92%;
-    margin-top: 1px;
+    height: 91%;
+    margin-top: 0.5px;
     background-color: var(--ColorNavigatorBar);
     padding: 7px;
 }
