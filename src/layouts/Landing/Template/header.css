@@ -92,6 +92,11 @@ header nav ul{
     padding: 0;
     list-style: none;
     color: var(--blue);
+    height: 100%;
+}
+
+header nav ul li{
+    padding: 0 1vmin;
 }
 
 main{
