@@ -1,3 +1,4 @@
+//Importaciones
 import express from 'express';
 import dotenv from 'dotenv'
 
@@ -15,9 +16,9 @@ dotenv.config()
 const app = express();
 app.set('port',process.env.PORT)
 app.use(express.json())
-app.listen(app.get('port'),()=>{
-    console.log('http://localhost:'+app.get('port')+'/')
-})
+app.listen(app.get('port'), async () => {
+    console.log('http://localhost:'+app.get('port')+'/');
+});
 
 //Configurando EJS
 app.set('views',resolve(__dirname, './routes'))
@@ -29,11 +30,11 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/login',(req,res)=>{
-    res.render('login');
+    res.render('auth/login');
 })
 
 app.get('/register',(req,res)=>{
-    res.render('register');
+    res.render('auth/register');
 })
 
 app.get('/dashboard', (req, res) => {
