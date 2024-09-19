@@ -32,6 +32,11 @@ header section{
 header section img{
     scale: 0.8;
     cursor: pointer;
+    transition: scale 0.3s linear;
+}
+
+header section img:hover{
+    scale: 0.9;
 }
 
 header section input[type=search]{
@@ -69,6 +74,11 @@ header section section button{
     padding: 1vmin;
     color: var(--white);
     cursor: pointer;
+    transition: padding 0.3s linear;
+}
+
+header section section button:hover{
+    padding: 1vmin 3vmin;
 }
 
 header section section img{
