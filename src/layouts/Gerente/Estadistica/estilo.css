@@ -14,16 +14,17 @@
 main{
     position: absolute;
     top: 120px;
-    left: 195px;
+    left: 155px;
     border: 1px solid #000;
-    width: 80%;
+    width: 85%;
+    height: 450px;
     padding: 10px;
 }
 main .Content{
     border: 1px solid #000;
     display: flex;
     justify-content: center;
-    gap: 95px;
+    gap: 65px;
     padding: 10px;
 }
 main .Content .Table--Container{
@@ -75,7 +76,7 @@ main .Content .Table--Container .Table table caption{
     letter-spacing: 1px;
 }
 main .Content .Table--Container .Table table th{
-    padding: 0 22px;
+    padding: 0 20px;
     text-wrap: nowrap;
     border: 2px solid #aaa;
     text-transform: capitalize;
@@ -92,4 +93,107 @@ main .Content .Table--Container .Table table td{
     text-align: center;
     padding: 3px 0px;
     font-weight: 500;
+}
+main .Content .Coversiones{
+    border: 1px solid #000;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+main .Content .Coversiones .Coversion--Container{
+    border: 1px solid #000;
+    padding: 15px;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    width: 285px;
+    height: 140px;
+    border-radius: 25px;
+    
+}
+main .Content .Coversiones .Coversion--Container form{
+    height: 105px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+main .Content .Coversiones .Coversion--Container form div{
+    padding: 3px;
+    height: 30px;
+    border-radius: 25px;
+}
+main .Content .Coversiones .Coversion--Container form input{
+    width: 90px;
+    border: none;
+    border: 2px solid var(--ColorNavigatorBar);
+    text-align: center;
+    padding: 2px 5px;
+    font-size: 1.3em;
+    border-radius: 15px;
+    outline: none;
+}
+main .Content .Coversiones .Coversion--Container form input::placeholder{
+    color: var(--ColorNavigatorBar);
+}
+main .Content .Coversion--Container form span{
+    font-size: 1.3em;
+    position: relative;
+    top: 5px;
+    color: #aaa;
+    left: 85px;
+}
+main .Content .Coversiones .Coversion--Container form .Dolar{
+    position: relative;
+    left: 75px;
+    width: 80px;
+}
+main .Content .Coversiones .Coversion--Container form .Dolar input{
+    width: 55px;
+}
+main .Content .Coversiones .Coversion--Container form .Bolivares{
+    position: relative;
+    left: 90px;
+    width: 110px;
+}
+main .Content .Coversiones .Coversion--Container form .Porcentaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 40px;
+    left: -120px;
+    border: none;
+}
+main .Content .Coversiones .Coversion--Container form .Porcentaje .Resultado{
+    position: relative;
+    left: 30px;
+    background-color: var(--PrimaryColor);
+    height: none;
+    width: 80px;
+    border-radius: 0;
+}
+main .Content .Coversiones .Coversion--Container .Container{
+    width: 285px;
+    position: relative;
+    left: -15px;
+    border: 1px solid #000;
+    height: 140px;
+    margin-top: 10px;
+    border-radius: 25px;
+    background-color: var(--ColorNavigatorBar);
+}
+
+
+
+
+
+
+main .Content .Container--Ventas{
+    position: absolute;
+    top: 365px;
+    left: 665px;
+    border: 1px solid #000;
+    width: 475px;
 }
