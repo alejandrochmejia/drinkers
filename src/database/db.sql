@@ -1,0 +1,59 @@
+DROP DATABASE IF EXISTS drinkers;
+
+CREATE DATABASE IF NOT EXISTS drinkers;
+
+USE drinkers;
+
+CREATE TABLE INVENTARIO (
+  id INT PRIMARY KEY,
+  nombre_producto VARCHAR(255) NOT NULL,
+  tipo VARCHAR(255) NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,
+  litros INT NOT NULL,
+  grados INT NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
+  paquete INT NOT NULL,
+  iva INT NOT NULL,
+  precio_detal INT NOT NULL,
+  precio_mayorista INT NOT NULL,
+  stock INT NOT NULL
+);
+
+CREATE TABLE USUARIO (
+  id INT PRIMARY KEY,
+  username VARCHAR(255) NOT NULL UNIQUE,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  nacimiento DATE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  lastname VARCHAR(255) NOT NULL,
+  status VARCHAR(255) NOT NULL DEFAULT 'active'
+);
+
+CREATE TABLE FACTURA (
+  id INT PRIMARY KEY,
+  fecha DATE NOT NULL,
+  id_user INT NOT NULL,
+  total INT NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES USUARIO(id)
+);
+
+CREATE TABLE PRODUCTOS_FACTURADOS (
+  id_factura INT NOT NULL,
+  id_producto INT NOT NULL,
+  cantidad INT NOT NULL,
+  PRIMARY KEY (id_factura, id_producto),
+  FOREIGN KEY (id_factura) REFERENCES FACTURA(id),
+  FOREIGN KEY (id_producto) REFERENCES INVENTARIO(id)
+);
+
+CREATE TABLE ENVIOS (
+  id INT PRIMARY KEY,
+  id_user INT NOT NULL,
+  destino TEXT NOT NULL,
+  id_factura INT NOT NULL,
+  monto INT NOT NULL,
+  entrega DATE NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES USUARIO(id),
+  FOREIGN KEY (id_factura) REFERENCES FACTURA(id)
+);
