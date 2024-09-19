@@ -184,7 +184,12 @@ main .Content .Coversiones .Coversion--Container .Container{
     border-radius: 25px;
     background-color: var(--ColorNavigatorBar);
 }
-
+main .Content .Coversiones .Productos--Populares{
+    border: 1px solid #000;
+    padding: 20px;
+    width: 230px;
+    height: 285px;
+}
 
 
 
