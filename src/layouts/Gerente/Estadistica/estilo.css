@@ -11,3 +11,85 @@
     font-family: sans-serif;
     font-size: 14px;
 }
+main{
+    position: absolute;
+    top: 120px;
+    left: 195px;
+    border: 1px solid #000;
+    width: 80%;
+    padding: 10px;
+}
+main .Content{
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    gap: 95px;
+    padding: 10px;
+}
+main .Content .Table--Container{
+    border: 1px solid #000;
+    width: 540px;
+    padding: 10px;
+    display: flex;
+    align-items:flex-start;
+    gap: 8px;
+    flex-flow: column wrap;
+}
+main .Content .Table--Container .Input--Container{
+    border: 1px solid #000;
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+main .Content .Table--Container .Input--Container input{
+    padding: 4px 7px;
+    width: 295px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    outline: none;
+    transition: .1s linear;
+}
+main .Content .Table--Container .Input--Container img{
+    width: 26px;
+    position: relative;
+    left: -30px;
+}
+main .Content .Table--Container .Table{
+    border: 1px solid #000;
+    padding: 10px;
+    margin-top: 3px;
+}
+main .Content .Table--Container .Table table{
+    border: 2px solid #aaa;
+    padding: 5px;
+    border-radius: 5px;
+}
+main .Content .Table--Container .Table table caption{
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+main .Content .Table--Container .Table table th{
+    padding: 0 22px;
+    text-wrap: nowrap;
+    border: 2px solid #aaa;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+main .Content .Table--Container .Table table tbody tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container .Table table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+}
+main .Content .Table--Container .Table table td{
+    text-align: center;
+    padding: 3px 0px;
+    font-weight: 500;
+}
