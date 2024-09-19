@@ -13,10 +13,11 @@
 }
 main{
     position: absolute;
-    top: 155px;
+    top: 105px;
     left: 200px;
     width: 80%;
-    border: 1px solid #000;
+    box-shadow: 0 0 5px #000;
+    border-radius: 15px;
     padding: 10px;
 }
 main .Content{
@@ -24,11 +25,9 @@ main .Content{
     justify-content: left;
     align-items: center;
     flex-flow: column wrap;
-    border: 1px solid #000;
     padding: 10px;
 }
 main .Content .Reportes--Container{
-    border: 2px solid #000;
     width: 990px;
     padding: 10px;
 }
@@ -36,7 +35,7 @@ main .Content .Reportes--Container .aviso{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     padding: 5px;
 }
 main .Content .Reportes--Container .aviso .Input--Container{
@@ -135,14 +134,13 @@ main .Content .aviso .Button--Container button:hover{
     color: var(--ColorNavigatorBar);
 }
 main .Content .Table--Container{
-    border: 1px solid #000;
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 5px;
+    padding: 15px;
 }
 main .Content .Table--Container table{
     border: 1px solid #aaa;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 main .Content .Table--Container table caption{
     border: 1px solid #aaa;
@@ -153,21 +151,10 @@ main .Content .Table--Container table caption{
     letter-spacing: 1px;
 }
 main .Content .Table--Container table th{
-    padding: 0 115px;
+    padding: 0 120px;
     border: 1px solid #aaa;
 }
-main .Content .Table--Container table th:nth-child(1){
-    padding: 0 155px;
-    border: 1px solid #aaa;
-}
-main .Content .Table--Container table th:nth-child(2){
-    padding: 0 55px;
-    border: 1px solid #aaa;
-}
-main .Content .Table--Container table th:nth-child(3){
-    padding: 0 55px;
-    border: 1px solid #aaa;
-}
+
 main .Content .Table--Container table tr{
     transition: .1s linear;
 }
