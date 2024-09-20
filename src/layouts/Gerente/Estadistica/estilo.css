@@ -67,18 +67,22 @@ main .Content .Table--Container .Table table{
     border: 2px solid #aaa;
     padding: 5px;
     border-radius: 5px;
+    border-top: none;
+    border-collapse: collapse;
 }
 main .Content .Table--Container .Table table caption{
     border: 2px solid #aaa;
+    border-bottom: none;
     border-radius: 5px;
     font-size: 1.5em;
     font-weight: 600;
     letter-spacing: 1px;
 }
 main .Content .Table--Container .Table table th{
-    padding: 0 20px;
+    padding: 4px 20px;
     text-wrap: nowrap;
-    border: 2px solid #aaa;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
     text-transform: capitalize;
     letter-spacing: 1px;
 }
@@ -88,11 +92,13 @@ main .Content .Table--Container .Table table tbody tr{
 main .Content .Table--Container .Table table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
     color: var(--HoverColor);
+    cursor: pointer;
 }
 main .Content .Table--Container .Table table td{
     text-align: center;
     padding: 3px 0px;
     font-weight: 500;
+    font-size: 1.1em;
 }
 main .Content .Coversiones{
     border: 1px solid #000;
@@ -140,30 +146,22 @@ main .Content .Coversiones .Coversion--Container form input::placeholder{
 main .Content .Coversion--Container form span{
     font-size: 1.3em;
     position: relative;
-    top: 5px;
+    top: 6px;
     color: #aaa;
-    left: 85px;
+    left: 1px;
 }
-main .Content .Coversiones .Coversion--Container form .Dolar{
-    position: relative;
-    left: 75px;
-    width: 80px;
-}
+
 main .Content .Coversiones .Coversion--Container form .Dolar input{
     width: 55px;
 }
-main .Content .Coversiones .Coversion--Container form .Bolivares{
-    position: relative;
-    left: 90px;
-    width: 110px;
-}
+
 main .Content .Coversiones .Coversion--Container form .Porcentaje{
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     top: 40px;
-    left: -120px;
+    left: -185px;
     border: none;
 }
 main .Content .Coversiones .Coversion--Container form .Porcentaje .Resultado{
@@ -171,7 +169,7 @@ main .Content .Coversiones .Coversion--Container form .Porcentaje .Resultado{
     left: 30px;
     background-color: var(--PrimaryColor);
     height: none;
-    width: 80px;
+    width: 100px;
     border-radius: 0;
 }
 main .Content .Coversiones .Coversion--Container .Container{
@@ -194,6 +192,7 @@ main .Content .Coversiones .Productos--Populares table{
     border: 2px solid #aaa;
     padding: 20px;
     border-radius: 5px;
+    border-spacing: 0;
 }
 main .Content .Coversiones .Productos--Populares table caption{
     font-size: 1.5em;
@@ -208,9 +207,10 @@ main .Content .Coversiones .Productos--Populares table tr:hover{
     background-color: var(--ColorNavigatorBar);
     color: var(--HoverColor);
     font-weight: 500;
+    cursor: pointer;
 }
 main .Content .Coversiones .Productos--Populares table tbody td{
-    padding: 3px;
+    padding: 5px;
     border-bottom: 1px solid #aaa;
     text-align: left;
     font-size: 1em;
