@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
 :root{
     --blue: #040C5D;
     --white: #F8F7F2;
@@ -125,4 +127,72 @@ footer{
     width: 100dvw;
     height: 30dvh;
     background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white);
+    padding-top: 2vmin;
+}
+
+footer h3{
+    font-size: 2vmin;
+}
+
+footer ul{
+    font-size: 1.9vmin;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.5vmin;
+    justify-content: center;
+    padding: 0;
+}
+
+footer ul li{
+    cursor: pointer;
+}
+
+footer section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer section article{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 2vmin;
+    width: 50%;
+    padding-right: 3vmin;
+}
+
+footer section article img{
+    width: 7vmin;
+    height: 6vmin;
+    scale: 0.8;
+}
+
+footer section article h2{
+    font-family: "Zen Dots";
+    letter-spacing: 1px;
+}
+
+footer section section{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.8vmin;
+    width: 50%;
+    padding-left: 2vmin;
+}
+
+footer section section div{
+    border-radius: 100%;
+    background-color: var(--white);
+    width: 3vmin;
+    height: 3vmin;
 }
