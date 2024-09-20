@@ -1,7 +1,7 @@
 let Nombre = document.getElementById('Nombre');
-let Apellido = document.getElementById('apellido');
-let email = document.getElementById('Email');
-let contraseña = document.getElementById('password');
+let Apellido = document.getElementById('Apellido');
+let email = document.getElementById('Correo');
+let contraseña = document.getElementById('Password');
 const Button = document.getElementsByClassName('Submit--From')[0];
 
 // Funcion que valida el correo
@@ -30,10 +30,10 @@ contraseña.addEventListener('input',()=>{
 
 Button.addEventListener('click', (e)=>{
     e.preventDefault()
-    if (Nombre.valeu == 0 && Apellido.value && 0 && email.value == 0 && contraseña.value) {
+    if (Nombre.value == 0 && Apellido.value == 0 && email.value == 0 && contraseña.value == 0) {
         alert("Tienque llenar todos los campos para poder crear la cuenta")
     } else {
         alert("Se ha creado la cuenta")
-        window.location.href = "../index.html"
+        window.location.href = "../Login/index.html"
     }
 })
