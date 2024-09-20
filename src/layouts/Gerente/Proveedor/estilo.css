@@ -29,7 +29,6 @@ main .Content{
     gap: 25px;
 }
 main .Content .Info--Proveedor{
-    border-radius: 15px;
     box-shadow: 0 0 3px var(--ColorNavigatorBar);
     width: 350px;
     height: 380px;
@@ -41,6 +40,7 @@ main .Content .Info--Proveedor{
     position: relative;
     gap: 5px;
     left: -380px;
+    border-radius: 10px;
 }
 main .Content .Info--Proveedor h1{
     font-size: 1.3em;
@@ -55,7 +55,6 @@ main .Content .Info--Proveedor article{
     justify-content: left;
     flex-flow: column wrap;
     margin: 5px;
-    border-radius: 10px;
     background-color: var(--PrimaryColor);
     padding: 5px;
 }
@@ -123,21 +122,27 @@ main .Content .Table--Container .Input--Container img{
 main .Content .Table--Container table{
     margin-top: 15px;
     border: 2px solid #aaa;
-    border-radius: 5px;
+    border-top: none;
+    border-radius: 10px;
+    border-collapse: collapse;
 }
 main .Content .Table--Container table caption{
+    border-radius: 5px;
     font-size: 1.3em;
     font-weight: 600;
+    padding: 5px;
     border: 2px solid #aaa;
-    border-radius: 5px;
+    border-bottom: none;
 }
 main .Content .Table--Container table th{
-    padding: 0 10px;
-    border: 1px solid #aaa;
+    padding: 0 15px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 }           
 main .Content .Table--Container table td{
     text-align: center;
     padding: 5px 0;
+    text-wrap: balance;
 }
 main .Content .Table--Container table tbody tr{
     transition: .1s linear;
@@ -145,4 +150,5 @@ main .Content .Table--Container table tbody tr{
 main .Content .Table--Container table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
     color: var(--HoverColor);
+    cursor: pointer;
 }       
