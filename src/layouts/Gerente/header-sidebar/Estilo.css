@@ -1,6 +1,5 @@
 header{
     width: 100%;
-    height: 100vh;
 }
 header .Content__header{
     width: 100%;
@@ -14,8 +13,8 @@ header .Content__header{
     border-left: none;
 }
 header .Content__header img{
-    width: 40px;
-    margin: 0;
+    width: 50px;
+    margin-left: 4px;
 }
 header .Content__header a{
     width: 75px;
@@ -34,30 +33,29 @@ header .Content__header a:hover{
     color: var(--ColorNavigatorBar);
     border: 2px solid #aaa;
 }
-header .Navigator--bar{
-    width: 6%;
-    height: 91%;
-    
+nav .Navigator--bar{
+    width: 7%;
+    height: 89.8vh;
     background-color: var(--ColorNavigatorBar);
-    padding: 7px;
+    padding: 15px;
 }
-header .List{
+nav .List{
+    padding: 15px;
     list-style: none;
     display: flex;
     flex-flow: column wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 25px;
-    margin-top: 5px;
 }
-header .List img{
+nav .List  img{
     border-radius: 40px;
-    width: 45px;
+    width: 50px;
     outline: 2px solid var(--SecondaryColor);
     outline-offset: 2px;
     padding: 3px 3px;
 }
-header .List img:hover{
+.List img:hover{
     background-color: #000;
     outline: 2px solid var(--PrimaryColor);
     padding: 5px 5px;
