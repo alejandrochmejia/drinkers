@@ -24,10 +24,20 @@ const dbconfig = mysql.createConnection({
         return;
     }
 
-    console.log(sql)
+    sql.split(';').forEach((query) => {
+        dbconfig.query(query, (err,
+            result) => {
+            if (err) {
+                console.error('Error al ejecutar la query:', err);
+                return;
+            }
+            console.log('Query ejecutada con éxito:', result);
+        }
+        );
+    })
+        
+    
 
 });
-
-
 
 dbconfig.end()
