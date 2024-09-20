@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login || Drinkers</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../../font/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="Content">
+            <div class="Login__Title">
+                <img src="../../../../public/images/Logo/Logo.png" alt="Logo">
+                <h2>Bienvenido a Drinkers</h2>
+            </div>
+            <form class="Form__page">
+                <div class="Input--container">
+                    <label for="Nombre">Nombre</label>
+                    <div class="Container">
+                        <input type="text"  placeholder="Ingrese su Nombre" required id="Nombre">
+                        <img src="../../../../public/images/icons/Pencil--white.png" alt="Nombre">
+                    </div>
+                </div>
+                <div class="Input--container">
+                    <label for="Apellido">Apellido</label>
+                    <div class="Container">
+                        <input type="text"  placeholder="Ingrese su Apellido" required id="Apellido">
+                        <img src="" alt="Nombre">
+                    </div>
+                </div>
+                <div class="Input--container">
+                    <label for="Email">Email</label>
+                    <div class="Container">
+                        <input type="email"  placeholder="Ingrese su correo" required id="Correo">
+                        <img src="../../../../public/images/icons/person.png" alt="Nombre">
+                    </div>
+                </div>
+                <div class="Input--container">
+                    <label for="password">Contraseña</label>
+                    <div class="Container">
+                        <input type="password"  placeholder="Ingrese su correo" required id="Password" required maxlength="8">
+                        <img src="../../../../public/images/icons/lock.png" alt="Nombre">
+                    </div>
+                </div>
+                <div class="Buttons">
+                    <a href="../../Gerente/Main/Main.html" id="link"><input class="Submit--From" value="Crear Cuenta"></a>
+                    <a href="../../Gerente/Login/index.html"><input class="Submit--From" value="Volver al inicio"></a>
+                </div>
+            </form>
+        </div>
+    </header>
+</body>
+<script src="app.js"></script>
+</html>

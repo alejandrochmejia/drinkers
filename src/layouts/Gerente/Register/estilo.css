@@ -17,7 +17,7 @@ header{
 }
 header .Content{
     width: 350px;
-    height: 480px;
+    height: 540px;
     padding: 10px;
     border: 2px solid #000;
     backdrop-filter: blur(20px);
@@ -39,7 +39,8 @@ header .Content .Login__Title img{
     transition: .1s linear;
 }
 header .Content .Login__Title h2{
-    font-size: 1.9em;
+    font-size: 1.3em;
+    text-wrap: wrap;
     letter-spacing: 3px;
     font-weight: 500;
     color: #F8F7F2;
@@ -52,13 +53,15 @@ header .Content .Form__page{
     padding: 5px;
 }
 header .Content .Form__page .Input--container{
-    margin: 5px 4px 10px 4px;
     font-size: 14px;
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
 }
 header .Content .Form__page .Input--container label{
     display: block;
-    margin: 4px;
-    font-size: 1.1em;
+    margin: 2px;
+    font-size: 0.9em;
     letter-spacing: 2px;
     color: #ffffff;
     text-shadow: 2px 0 5px #000;
@@ -70,7 +73,8 @@ header .Content .Form__page .Input--container .Container{
     gap: 5px;
 }
 header .Content .Form__page .Input--container .Container input{
-    padding: 6px 5px;
+    padding: 5px 10px;
+    margin: 2px;
     width: 300px;
     border: none;
     outline: none;
@@ -93,7 +97,7 @@ header .Content .Buttons{
     margin: auto;
     position: relative;
     left: 5px;
-    margin-top: 25px;
+    top: 10px;
 }
 header .Content .Buttons .Submit--From{
     width: 300px;
