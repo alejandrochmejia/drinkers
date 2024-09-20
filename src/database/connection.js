@@ -1,6 +1,6 @@
 import mysql from 'mysql'
 import dotenv from 'dotenv'
-import fs from 'fs';
+import createDB from './createDB.js'
 
 dotenv.config()
 
@@ -18,26 +18,6 @@ const dbconfig = mysql.createConnection({
     console.log('Connected to MYSQL as id ' + dbconfig.threadId)
 })
 
- fs.readFile('./db.sql', 'utf8', (err, sql) =>  {
-    if (err) {
-        console.error('Error al leer el archivo .sql:', err);
-        return;
-    }
+createDB()
 
-    sql.split(';').forEach((query) => {
-        dbconfig.query(query, (err,
-            result) => {
-            if (err) {
-                console.error('Error al ejecutar la query:', err);
-                return;
-            }
-            console.log('Query ejecutada con éxito:', result);
-        }
-        );
-    })
-        
-    
-
-});
-
-dbconfig.end()
+export default dbconfig
