@@ -107,18 +107,10 @@ main .Content .Reportes--Container .aviso .Fecha--reporte input{
     font-size: 1.1em;
     letter-spacing: 1px;
 }
-main .Content .aviso .Button--Container{
-    border: 1px solid var(--SecondaryColor);
-    padding: 15px;
-    border-radius: 5px;
-    background-color: var(--SecondaryColor);
-    transition: .1s linear;
-}
-main .Content .aviso .Button--Container:hover{
-    background-color: var(--HoverColor);
-}
-main .Content .aviso .Button--Container button{
-    padding: 0px 5px;
+main .Content .aviso button{
+    padding: 15px 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
     color: #F4F4F4;
     background-color: var(--SecondaryColor);
     border: none;
@@ -129,7 +121,7 @@ main .Content .aviso .Button--Container button{
     transition: .1s linear;
     cursor: pointer;
 }
-main .Content .aviso .Button--Container button:hover{
+main .Content .aviso  button:hover{
     background-color: var(--HoverColor);
     color: var(--ColorNavigatorBar);
 }
