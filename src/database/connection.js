@@ -18,6 +18,7 @@ const dbconfig = mysql.createConnection({
     console.log('Connected to MYSQL as id ' + dbconfig.threadId)
 })
 
-createDB()
+//Para crear la base de datos o reiniciarla descomentar la siguiente línea
+//createDB()
 
 export default dbconfig
