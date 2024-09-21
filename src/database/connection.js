@@ -1,6 +1,5 @@
 import mysql from 'mysql'
 import dotenv from 'dotenv'
-import createDB from './createDB.js'
 
 dotenv.config()
 
@@ -17,8 +16,5 @@ const dbconfig = mysql.createConnection({
     }
     console.log('Connected to MYSQL as id ' + dbconfig.threadId)
 })
-
-//Para crear la base de datos o reiniciarla descomentar la siguiente línea
-//createDB()
 
 export default dbconfig

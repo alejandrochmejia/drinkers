@@ -16,7 +16,6 @@ export default function createDB () {
                     console.error('Error al ejecutar la query:', err);
                     return;
                 }
-                console.log('Query ejecutada con éxito:', result);
             }
             );
         })
