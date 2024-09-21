@@ -19,7 +19,7 @@
             <section>
                 <button>Iniciar sesión</button>
                 <div>0</div>
-                <img src="../../../../public/images/icons/store.svg">
+                <img id="cart" src="../../../../public/images/icons/store.svg">
             </section>
         </section>
         <nav>
@@ -74,8 +74,15 @@
 
     </footer>
 
-    <script>
-
+    <script type="text/javascript">
+        document.getElementById("cart").addEventListener("click",function(){
+            cartMenu = document.querySelector("aside");
+            if (cartMenu.style.right === '-31%'){
+                cartMenu.style.right = '0%'
+            } else {
+                cartMenu.style.right = '-31%'
+            }
+        });
     </script>
 </body>
 </html>

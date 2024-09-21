@@ -133,9 +133,10 @@ header nav ul li:hover{
 
 aside{
     position: fixed;
-    height: 100dvh;
+    height: 88dvh;
     width: 30dvw;
     right: -31%;
+    bottom: 0%;
     background-color: var(--white);
     z-index: 20;
 }
