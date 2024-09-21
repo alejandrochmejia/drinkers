@@ -153,11 +153,16 @@ footer ul li{
     cursor: pointer;
 }
 
+footer ul li:hover{
+    text-decoration: underline;
+}
+
 footer section {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 7vmin;
 }
 
 footer section article{
