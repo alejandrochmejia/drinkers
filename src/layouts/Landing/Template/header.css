@@ -2,7 +2,7 @@
 
 :root{
     --blue: #040C5D;
-    --white: #F8F7F2;
+    --white: #f7f7f7;
     --black: #232326;
     --cyan: #B1CEF4;
 }
@@ -94,7 +94,7 @@ header section section div{
     position: absolute;
     z-index: -10;
     background-color: var(--cyan);
-    width: 1vmax;
+    padding: 0 0.2vmax;
     text-align: center;
     border-radius: 3px;
     top: 10%;
