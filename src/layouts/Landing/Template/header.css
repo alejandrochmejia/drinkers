@@ -139,6 +139,7 @@ aside{
     bottom: 0%;
     background-color: var(--white);
     z-index: 20;
+    transition: right 0.3s linear;
 }
 
 main{
