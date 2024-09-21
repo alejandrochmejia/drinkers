@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-import {methods as auth} from './controllers/auth.js'
+import {login} from './controllers/auth.js'
 import {methods as authorization} from './middleware/authorization.js'
 import {getAll} from './database/querys.js'
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -27,9 +27,7 @@ app.set('view engine','ejs')
 
 //Rutas
 app.get('/', async (req,res)=>{
-    const usuarios = await getAll('drinkers.usuario');
-    console.log(usuarios);
-    res.render('index', {usuarios});
+    res.render('index');
 })
 
 app.get('/login',(req,res)=>{
