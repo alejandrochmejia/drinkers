@@ -146,7 +146,7 @@ aside{
     justify-content: space-around;
 }
 
-aside div{
+aside button{
     cursor: pointer;
     width: 20vmin;
     height: 5vmin;
@@ -162,15 +162,15 @@ aside div{
     transition: background-color 0.2s linear;
 }
 
-aside div:hover{
+aside button:hover{
     background-color: var(--cyan);
 }
 
-aside div span{
+aside button span{
     font-size: 2vmin;
 }
 
-aside div img{
+aside button img{
     width: 1.5vmax;
     height: 1.5vmax;
 }
@@ -178,12 +178,36 @@ aside div img{
 aside ul{
     list-style: none;
     height: 60%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+    flex-wrap: nowrap;
+}
+
+aside ul li{
+    width: 95%;
+    height: 25%;
+    border-radius: 5px;
+    border: var(--black) solid 1px;
+    flex: 0 0 auto;
 }
 
 aside section{
     border-top: solid 0.5px var(--cyan);
     height: 20%;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1vmin;
+    gap: 1vmin;
+}
+
+aside section div{
+    display: flex;
+    flex-direction: column;
 }
 
 main{
