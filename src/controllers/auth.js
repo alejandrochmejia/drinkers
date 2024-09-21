@@ -1,19 +1,15 @@
 import bcryptjs from "bcryptjs";
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from "dotenv";
+import {getAll} from "../database/querys.js";
 
 dotenv.config();
 
 //Query de Base de datos falta implementar
-export const usuarios = [ {
-  user: 'Calo',
-  email: 'contacto@puntojson.com',
-  password: '$2a$05$0viEwcPX3mZcB6BNkVZzcea8ouNS60mDlzxgxjwFgX7E/LrVr3PO.',
-  verificado: false
-}]
-
+export const usuarios = await getAll('drinkers.usuario');
 
 async function login(req,res){
+  //Acomodar el user y password
   console.log(req.body);
   const user = req.body.user;
   const password = req.body.password;
@@ -42,6 +38,7 @@ async function login(req,res){
 }
 
 async function register(req,res){
+  //Acomodar el user y password
   const user = req.body.user;
   const password = req.body.password;
   const email = req.body.email;
@@ -55,7 +52,6 @@ async function register(req,res){
   const salt = await bcryptjs.genSalt(5);
   const hashPassword = await bcryptjs.hash(password,salt);
 
-  //Enviar el mail de verificación al cliente
   const tokenVerificacion = jsonwebtoken.sign(
     {user:user},
     process.env.JWT_SECRET,
@@ -70,6 +66,7 @@ async function register(req,res){
 }
 
 function verificarCuenta(req,res){
+  //Acomodar el user y password
   try{
     if(!req.params.token){
       return res.redirect("/")

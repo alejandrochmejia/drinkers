@@ -12,7 +12,6 @@ export const getAll = (tabla) => {
                 resolve(results);
             }
         })
-        dbconfig.end()
     })
 };
 
@@ -28,7 +27,6 @@ export const getOne = (tabla, id) => {
                 resolve(results);
             }
         });
-        dbconfig.end();
     });
 };
 
@@ -44,7 +42,6 @@ export const create = (tabla, data) => {
                 resolve(results);
             }
         });
-        dbconfig.end();
     });
 };
 
@@ -60,6 +57,6 @@ export const update = (tabla, id, data) => {
                 resolve(results);
             }
         });
-        dbconfig.end();
     });
 };
+
