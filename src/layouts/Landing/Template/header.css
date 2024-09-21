@@ -22,7 +22,7 @@ header{
 
 header section{
     width: 100dvw;
-    height: 10dvh;
+    height: 12dvh;
     background-color: var(--blue);
     display: flex;
     flex-direction: row;
@@ -30,6 +30,7 @@ header section{
     justify-content: space-around;
     padding-left: 2vmin;
     padding-right: 2vmin;
+    z-index: 30;
 }
 
 header section img{
@@ -65,9 +66,10 @@ header section input:focus{
 header section section{
     width: 40vmin;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: flex-end;
     gap: 3vmin;
+    align-items: center;
 }
 
 header section section button{
@@ -86,6 +88,17 @@ header section section button:hover{
 
 header section section img{
     cursor: pointer;
+}
+
+header section section div{
+    position: absolute;
+    z-index: -10;
+    background-color: var(--cyan);
+    width: 1vmax;
+    text-align: center;
+    border-radius: 3px;
+    top: 10%;
+    cursor: default;
 }
 
 header nav{
@@ -116,6 +129,15 @@ header nav ul li{
 
 header nav ul li:hover{
     background-color: #cdcdcd;
+}
+
+aside{
+    position: fixed;
+    height: 100dvh;
+    width: 30dvw;
+    right: -31%;
+    background-color: var(--white);
+    z-index: 20;
 }
 
 main{
