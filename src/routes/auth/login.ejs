@@ -47,5 +47,23 @@
         </div>
         <button type="submit">Login</button>
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const email = document.querySelector('#email').value;
+                const password = document.querySelector('#password').value;
+
+                const url = await fetch('/login', {
+                    method: 'POST',
+                    body: JSON.stringify({ email, password })
+                })
+
+                console.log(url.url);
+            });
+        });
+    </script>
 </body>
 </html>

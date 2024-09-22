@@ -20,10 +20,11 @@ dotenv.config()
 const app = express();
 app.set('port',process.env.PORT)
 app.use(express.static(resolve(__dirname, './public')));
-app.disable('x-powered-by')
 app.listen(app.get('port'), async () => {
     console.log('http://localhost:'+app.get('port')+'/');
 });
+
+app.use(express.json());
 
 //Configurando EJS
 app.set('views',resolve(__dirname, './routes'))
@@ -33,6 +34,19 @@ app.set('view engine','ejs')
 //Rutas
 app.get('/', async (req,res)=>{
     res.render('index');
+})
+
+app.post('/login', async (req,res)=>{
+    for (let user of await getAll('drinkers.usuario')){
+        if(req.body.email == user.email){
+            res.send('/dashboard')
+            return
+        }
+    }
+    res.send({
+        url: '/login',
+        error: 'Usuario no encontrado'
+    })
 })
 
 app.get('/login',(req,res)=>{
