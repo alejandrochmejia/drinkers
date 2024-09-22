@@ -19,15 +19,15 @@ dotenv.config()
 //Configurando Server
 const app = express();
 app.set('port',process.env.PORT)
+app.use(express.static(resolve(__dirname, './public')));
+app.disable('x-powered-by')
 app.listen(app.get('port'), async () => {
     console.log('http://localhost:'+app.get('port')+'/');
 });
 
-
 //Configurando EJS
 app.set('views',resolve(__dirname, './routes'))
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/public/CSS'));
+
 app.set('view engine','ejs')
 
 //Rutas

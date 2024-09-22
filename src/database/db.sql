@@ -1,9 +1,6 @@
 DROP DATABASE IF EXISTS drinkers;
-
 CREATE DATABASE IF NOT EXISTS drinkers;
-
 USE drinkers;
-
 CREATE TABLE INVENTARIO (
   id INT PRIMARY KEY,
   nombre_producto VARCHAR(255) NOT NULL,
@@ -18,7 +15,6 @@ CREATE TABLE INVENTARIO (
   precio_mayorista INT NOT NULL,
   stock INT NOT NULL
 );
-
 CREATE TABLE USUARIO (
   id INT PRIMARY KEY,
   username VARCHAR(255) NOT NULL UNIQUE,
@@ -29,7 +25,6 @@ CREATE TABLE USUARIO (
   lastname VARCHAR(255) NOT NULL,
   status VARCHAR(255) NOT NULL DEFAULT 'active'
 );
-
 CREATE TABLE FACTURA (
   id INT PRIMARY KEY,
   fecha DATE NOT NULL,
@@ -37,7 +32,6 @@ CREATE TABLE FACTURA (
   total INT NOT NULL,
   FOREIGN KEY (id_user) REFERENCES USUARIO(id)
 );
-
 CREATE TABLE PRODUCTOS_FACTURADOS (
   id_factura INT NOT NULL,
   id_producto INT NOT NULL,
@@ -46,7 +40,6 @@ CREATE TABLE PRODUCTOS_FACTURADOS (
   FOREIGN KEY (id_factura) REFERENCES FACTURA(id),
   FOREIGN KEY (id_producto) REFERENCES INVENTARIO(id)
 );
-
 CREATE TABLE ENVIOS (
   id INT PRIMARY KEY,
   id_user INT NOT NULL,
@@ -57,7 +50,6 @@ CREATE TABLE ENVIOS (
   FOREIGN KEY (id_user) REFERENCES USUARIO(id),
   FOREIGN KEY (id_factura) REFERENCES FACTURA(id)
 );
-
 -- Insertar datos en la tabla INVENTARIO
 INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock) VALUES
 (1, 'Whisky Escocés', 'Whisky', 'Whisky de malta premium', 0.75, 40, 'whisky_escoces.jpg', 1, 19, 50000, 45000, 100),
@@ -70,7 +62,6 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (8, 'Licor de Café', 'Licor', 'Licor cremoso de café', 0.7, 17, 'licor_cafe.jpg', 1, 19, 25000, 20000, 110),
 (9, 'Cognac VSOP', 'Cognac', 'Cognac VSOP francés', 0.7, 40, 'cognac_vsop.jpg', 1, 19, 70000, 65000, 60),
 (10, 'Mezcal Artesanal', 'Mezcal', 'Mezcal artesanal de Oaxaca', 0.75, 45, 'mezcal_artesanal.jpg', 1, 19, 65000, 60000, 50);
-
 -- Insertar datos en la tabla USUARIO
 INSERT INTO USUARIO (id, username, email, nacimiento, password, name, lastname, status) VALUES
 (1, 'juan123', 'juan@email.com', '1990-05-15', 'hash_password1', 'Juan', 'Pérez', 'active'),
@@ -83,7 +74,6 @@ INSERT INTO USUARIO (id, username, email, nacimiento, password, name, lastname, 
 (8, 'sofia_b', 'sofia@email.com', '1987-11-12', 'hash_password8', 'Sofía', 'Blanco', 'active'),
 (9, 'javier_h', 'javier@email.com', '1994-06-05', 'hash_password9', 'Javier', 'Hernández', 'active'),
 (10, 'elena_t', 'elena@email.com', '1989-04-22', 'hash_password10', 'Elena', 'Torres', 'active');
-
 -- Insertar datos en la tabla FACTURA
 INSERT INTO FACTURA (id, fecha, id_user, total) VALUES
 (1, '2023-05-01', 1, 150000),
@@ -96,7 +86,6 @@ INSERT INTO FACTURA (id, fecha, id_user, total) VALUES
 (8, '2023-05-08', 8, 135000),
 (9, '2023-05-09', 9, 110000),
 (10, '2023-05-10', 10, 160000);
-
 -- Insertar datos en la tabla PRODUCTOS_FACTURADOS
 INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
 (1, 1, 2),
@@ -120,7 +109,6 @@ INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
 (9, 7, 1),
 (10, 9, 1),
 (10, 10, 1);
-
 -- Insertar datos en la tabla ENVIOS
 INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega) VALUES
 (1, 1, 'Calle 123, Ciudad A', 1, 10000, '2023-05-03'),
@@ -133,4 +121,3 @@ INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega) VALUES
 (8, 8, 'Avenida 246, Ciudad H', 8, 13000, '2023-05-10'),
 (9, 9, 'Plaza 357, Ciudad I', 9, 10000, '2023-05-11'),
 (10, 10, 'Calle 468, Ciudad J', 10, 14000, '2023-05-12');
-
