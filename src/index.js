@@ -28,7 +28,8 @@ app.set('view engine','ejs')
 
 //Rutas
 app.get('/', async (req,res)=>{
-    res.render('index');
+    const users = await getAll(process.env.MYSQL_DATABASE+'.usuario')
+    res.render('index',{users});
 })
 
 app.get('/login',(req,res)=>{

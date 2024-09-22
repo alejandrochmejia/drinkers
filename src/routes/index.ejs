@@ -9,5 +9,8 @@
   <body>
     <a href="/login">Login</a>
     <a href="/register">Register</a>
+    <% for (const user of users) { %>
+      <p><%= user.name %></p>
+    <% } %>
   </body>
 </html>
