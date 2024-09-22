@@ -5,9 +5,13 @@ import dotenv from 'dotenv'
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-import {login} from './controllers/auth.js'
 import {methods as authorization} from './middleware/authorization.js'
-import {getAll} from './database/querys.js'
+//Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
+import {
+    getAll,
+    getOne
+} from './database/querys.js'
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 dotenv.config()
@@ -28,8 +32,7 @@ app.set('view engine','ejs')
 
 //Rutas
 app.get('/', async (req,res)=>{
-    const users = await getAll(process.env.MYSQL_DATABASE+'.usuario')
-    res.render('index',{users});
+    res.render('index');
 })
 
 app.get('/login',(req,res)=>{
