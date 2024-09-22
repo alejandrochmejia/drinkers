@@ -55,6 +55,7 @@ main .Content .Inputs--seleccionados .Input--Container img{
     width: 30px;
     position: relative;
     left: -35px;
+    cursor: pointer;
 }
 main .Content .Inputs--seleccionados .Input--Container select{
     width: 200px;
@@ -77,9 +78,10 @@ main .Content .icon img{
     width: 25px;
     filter: drop-shadow(0 0 2px #fdfd);
     cursor: pointer;
-    transition: .1s linear;
+    transition: outline .1s 0.1s, border-radius .1s 0.1s, padding .1s 0.1s;
 }
 main .Content .icon img:hover{
+    padding: 1px 0;
     outline: 2px solid var(--ColorNavigatorBar);
     border-radius: 30px;
     outline-offset: 1px;

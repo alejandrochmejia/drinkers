@@ -57,6 +57,7 @@ main .Content .Table--Container .Input--Container img{
     width: 26px;
     position: relative;
     left: -30px;
+    cursor: pointer;
 }
 main .Content .Table--Container .Table{
     border: 1px solid #000;

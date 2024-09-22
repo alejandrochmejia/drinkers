@@ -16,14 +16,17 @@
     </header>
     <nav class="Navigator--bar">
         <ul class="Navigator--bar List">
+            <a href="../Main/Main.html" class="Link">
+                <Li class="List--cont"><img alt="Proveedores" src="../../../../public/images/icons/Home.png" title="Home"></Li>
+            </a>
             <a href="../Inventario/Inventario.html" class="Link">
                 <Li class="List--cont"><img alt="Inventario" src="../../../../public/images/icons/Inventario.png" title="Inventario"></Li>
             </a>
             <a href="../Estadistica/Estadistica.html" class="Link">
                 <Li class="List--cont"><img alt="Estadistica" src="../../../../public/images/icons/Estadistica.png" title="Estadistica"></Li>
             </a>
-            <a href="../Main/Main.html" class="Link">
-                <Li class="List--cont"><img alt="Proveedores" src="../../../../public/images/icons/Home.png" title="Proveedores"></Li>
+            <a href="Proveedor.html" class="Link">
+                <Li class="List--cont"><img alt="Proveedores" src="../../../../public/images/icons/proveedor.png" title="Proveedores"></Li>
             </a>
             <a href="../Envios/Minorista/Minorista.html" class="Link">
                 <Li class="List--cont"><img alt="Envios/pedidos" src="../../../../public/images/icons/Envios.png" title="Envios/pedidos"></Li>
@@ -61,8 +64,10 @@
             </section>
             <section class="Table--Container">
                 <div class="Input--Container">
-                    <input type="search" placeholder="Buscar proveedor">
-                    <img src="../../../../public/images/icons/search.png" alt="Lupa">
+                    <input type="search" placeholder="Buscar proveedor" id="Lupa">
+                    <label for="Lupa">
+                        <img src="../../../../public/images/icons/search.png" alt="Lupa" id="Lupa">
+                    </label>
                 </div>
                 <table>
                     <caption>Lista de Proveedores</caption>

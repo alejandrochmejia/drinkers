@@ -52,6 +52,7 @@ main .Content--page .input--Container img{
     width: 30px;
     position: relative;
     left: -45px;
+    cursor: pointer;
 }
 main .Content--page .Minorista--Mayorista{
     display: flex;

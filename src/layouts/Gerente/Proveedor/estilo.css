@@ -84,7 +84,7 @@ main .Content .Info--Proveedor .Icon--proveedor{
 main .Content .Info--Proveedor .Icon--proveedor img{
     width: 26px;
     cursor: pointer;
-    transition: .1s linear;
+    transition: padding .1s 0.1s, outline .1s 0.1s, border-radius .1s 0.1s;
 }
 main .Content .Info--Proveedor .Icon--proveedor img:hover{
     padding: 1px 0px;
