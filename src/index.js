@@ -15,7 +15,6 @@ dotenv.config()
 //Configurando Server
 const app = express();
 app.set('port',process.env.PORT)
-app.use(express.json())
 app.listen(app.get('port'), async () => {
     console.log('http://localhost:'+app.get('port')+'/');
 });
@@ -23,6 +22,8 @@ app.listen(app.get('port'), async () => {
 
 //Configurando EJS
 app.set('views',resolve(__dirname, './routes'))
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/CSS'));
 app.set('view engine','ejs')
 
 //Rutas
