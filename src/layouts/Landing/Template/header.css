@@ -199,9 +199,9 @@ aside ul li{
 }
 
 aside ul li input[type=number]{
-    width: 4vmin;
+    width: 7vmin;
     height: 7vmin;
-    font-size: large;
+    font-size: 3vmin;
     background-color: var(--white);
 }
 
@@ -226,7 +226,7 @@ aside ul li div{
     flex-direction: column;
     gap: 1px;
     height: 8vmin;
-    width: 28vmin;
+    width: 25vmin;
 }
 
 aside ul li span{
