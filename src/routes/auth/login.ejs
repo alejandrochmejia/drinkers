@@ -3,67 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drinkers</title>
-    <style>
-        form{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        div{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-        input{
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button{
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        label{
-            margin-bottom: 5px;
-        }
-    </style>
+    <title>Login || Drinkers</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../font/fonts.css">
 </head>
 <body>
-    <form>
-        <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+    <header>
+        <div class="Content">
+            <div class="Login__Title">
+                <img src="../../../public/images/Logo/Logo.png" alt="Logo">
+                <h2>Login</h2>
+            </div>
+            <form class="Form__page" action="">
+                <div class="Input--container">
+                    <label for="Email">Email</label>
+                    <div class="Container">
+                        <input type="email"  placeholder="Ingrese su email" required id="Email">
+                        <img src="../../../public/images/icons/person.png" alt="Logo">
+                    </div>
+                </div>
+                <div class="Input--container">
+                    <label for="Contraseña">Contraseña</label>
+                    <div class="Container">
+                        <input type="password"  placeholder="Ingrese su contraseña" required id="Contraseña">
+                        <img src="../../../public/images/icons/lock.png" alt="Logo">
+                    </div>
+                </div>
+                <div class="Buttons">
+                    <a href="../../Gerente/Main/Main.html" id="link"><input class="Submit--From" value="Ingresar"></a>
+                    <a href="../Register/Index.html"><input class="Submit--From" value="Crear Cuenta"></a>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-        </div>
-        <button type="submit">Login</button>
-    </form>
-    <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            const form = document.querySelector('form');
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                const email = document.querySelector('#email').value;
-                const password = document.querySelector('#password').value;
-
-                const url = await fetch('/login', {
-                    method: 'POST',
-                    body: JSON.stringify({ email, password })
-                })
-
-                console.log(url.url);
-            });
-        });
-    </script>
+    </header>
 </body>
+<script src="app.js"></script>
 </html>

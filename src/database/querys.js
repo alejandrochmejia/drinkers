@@ -30,6 +30,23 @@ export const getOne = (tabla, id) => {
     });
 };
 
+//Obtener un registro por una columna específica
+export const getOneBy = (tabla, column, value) => {
+    return new Promise((resolve, reject) => {
+        const query = `SELECT * FROM ${tabla} WHERE ${column} = ?`;
+        dbconfig.query(query, [value], (err, results) => {
+            if (err) {
+                console.error("Error fetching data: " + err.stack);
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+};
+
+
+
 //Crear un registro
 export const create = (tabla, data) => {
     return new Promise((resolve, reject) => {

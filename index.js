@@ -5,12 +5,12 @@ import dotenv from 'dotenv'
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-import {methods as authorization} from './middleware/authorization.js'
+import {methods as authorization} from './src/middleware/authorization.js'
 //Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
 import {
     getAll,
     getOne
-} from './database/querys.js'
+} from './src/database/querys.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -24,10 +24,10 @@ app.listen(app.get('port'), async () => {
     console.log('http://localhost:'+app.get('port')+'/');
 });
 
-app.use(express.json());
+app.use(express.json())
 
 //Configurando EJS
-app.set('views',resolve(__dirname, './routes'))
+app.set('views',resolve(__dirname, './src/routes'))
 
 app.set('view engine','ejs')
 
