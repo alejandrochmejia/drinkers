@@ -40,8 +40,8 @@
     <img id="whatsappIcon" src="../../../../public/images/icons/whatsapp.svg">
 
     <div id="values">
-        <section id="dolars"><span>$</span></section>
-        <section id="bs"><span>bs</span></section>
+        <section id="dolars" class="value">$</section>
+        <section id="bs" class="value">bs</section>
     </div>
 
     <aside>
@@ -150,6 +150,25 @@
                 cartMenu.style.right = '-31%'
             }
         });
+
+        let values = document.getElementsByClassName('value');
+        let selected = document.getElementById('dolars');
+        let unselected = NaN;
+
+        for (let value of values) {
+            value.addEventListener("click", e => {
+                if (selected == e.target){
+                    return;
+                }
+                unselected = selected;
+                selected = e.target;
+                selected.style.background = "var(--black)";
+                selected.style.color = "var(--white)";
+                unselected.style.background = "var(--white)";
+                unselected.style.color = "var(--black)";
+            });
+        }
+
 
         document.addEventListener('DOMContentLoaded', function() {
         // Selecciona todos los inputs de tipo number con una clase específica
