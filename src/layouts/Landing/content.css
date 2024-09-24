@@ -15,6 +15,40 @@ body{
     box-sizing: border-box;
 }
 
+#values{
+    position: fixed;
+    width: 5vmin;
+    height: 10vmin;
+    z-index: 20;
+    right: 0;
+    bottom: 50%;
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#dolars{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vmin;
+    height: 5vmin;
+    background-color: var(--black);
+    border-radius: 3px 0 0 0;
+    color: var(--white);
+}
+
+#bs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vmin;
+    height: 5vmin;
+    background-color: var(--white);
+    border-radius: 0 0 0 3px;
+    color: var(--black);
+}
+
 #whatsappIcon{
     position: fixed;
     width: 5.5vmin;
@@ -149,7 +183,7 @@ aside{
     right: -31%;
     bottom: 0%;
     background-color: var(--white);
-    z-index: 20;
+    z-index: 30;
     transition: right 0.3s linear;
     display: flex;
     flex-direction: column;
