@@ -195,12 +195,12 @@ aside ul li{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 4vmin;
+    gap: 0.5vmin;
 }
 
 aside ul li input[type=number]{
-    width: 7vmin;
-    height: 7vmin;
+    width: 5vmin;
+    height: 5vmin;
     font-size: 3vmin;
     background-color: var(--white);
 }
@@ -214,7 +214,7 @@ aside ul li input[type=number]::-webkit-inner-spin-button{
     opacity: 1;
 }
 
-aside ul li img{
+.productImage{
     width: 9vmin;
     height: 9vmin;
     border: solid 2px black;
@@ -222,22 +222,34 @@ aside ul li img{
 }
 
 aside ul li div{
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
     height: 8vmin;
-    width: 25vmin;
+    width: 19vmin;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 aside ul li span{
     font-weight: bold;
-    font-size: 3vmin;
+    font-size: 2.3vmin;
     padding: 0;
+    max-width: 22vmin;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
 }
 
 aside ul li p{
+    font-size: 0.7vmax;
     padding: 0;
     margin: 0;
+    max-width: 22vmin;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+}
+
+aside ul li img:not(.productImage){
+    cursor: pointer;
 }
 
 aside section{
