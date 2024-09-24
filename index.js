@@ -24,12 +24,13 @@ app.listen(app.get('port'), async () => {
     console.log('http://localhost:'+app.get('port')+'/');
 });
 
-app.use(express.json())
-
 //Configurando EJS
 app.set('views',resolve(__dirname, './src/routes'))
 
 app.set('view engine','ejs')
+
+//Configurando Body-Parser
+app.use(express.json())
 
 //Rutas
 app.get('/', async (req,res)=>{
@@ -37,18 +38,19 @@ app.get('/', async (req,res)=>{
 })
 
 app.post('/login', async (req,res)=>{
-    for (let user of await getAll('drinkers.usuario')){
-        if(req.body.email == user.email){
-            res.send('/dashboard')
-            return
+    const {email, password} = req.body
+    const usuarios = await getAll('drinkers.usuario')
+    const usuario = usuarios.find(usuario => usuario.email === email)
+    if(usuario){
+        if(usuario.password === password){
+            res.redirect('/dashboard')
+        }else{
+            res.redirect('/login')
         }
+    }else{
+        res.redirect('/login')
     }
-    res.send({
-        url: '/login',
-        error: 'Usuario no encontrado'
-    })
 })
-
 app.get('/login',(req,res)=>{
     res.render('auth/login');
 })

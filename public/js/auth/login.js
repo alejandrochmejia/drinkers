@@ -27,12 +27,21 @@ Contraseña.addEventListener('input',()=>{
     }
 })
 
-
-Button.addEventListener('click',(e) =>{
-    e.preventDefault()
-    if (Email.value == 0 && Contraseña.value == 0) {
-        alert("No ha rellenado los campos de texto")
-    }else{
-        window.location.href = "Formulario/index.html"
-    }
+document.addEventListener('DOMContentLoaded', ()=>{
+    const form = document.getElementsByClassName('Form__page')[0]
+    form.addEventListener('submit', async (e)=>{
+        e.preventDefault()
+        const email = document.getElementById('Email').value
+        const password = document.getElementById('Contraseña').value
+        await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+    })
 })
