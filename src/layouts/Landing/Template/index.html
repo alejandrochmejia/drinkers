@@ -43,9 +43,46 @@
             <span>Vaciar Carrito</span>
         </button>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>
+                <input type="number" class="productCant">
+                <img src="../../../../public/images/Licores/ron-cacique.jpg">
+                <div>
+                    <span>Ron Cacique</span>
+                    <p>10.00$ (10.00$ c/u)</p>
+                </div>
+            </li>
+            <li>
+                <input type="number" class="productCant">
+                <img src="../../../../public/images/Licores/ron-cacique.jpg">
+                <div>
+                    <span>Ron Cacique</span>
+                    <p>10.00$ (10.00$ c/u)</p>
+                </div>
+            </li>
+            <li>
+                <input type="number" class="productCant">
+                <img src="../../../../public/images/Licores/ron-cacique.jpg">
+                <div>
+                    <span>Ron Cacique</span>
+                    <p>10.00$ (10.00$ c/u)</p>
+                </div>
+            </li>
+            <li>
+                <input type="number" class="productCant">
+                <img src="../../../../public/images/Licores/ron-cacique.jpg">
+                <div>
+                    <span>Ron Cacique</span>
+                    <p>10.00$ (10.00$ c/u)</p>
+                </div>
+            </li>
+            <li>
+                <input type="number" class="productCant">
+                <img src="../../../../public/images/Licores/ron-cacique.jpg">
+                <div>
+                    <span>Ron Cacique</span>
+                    <p>10.00$ (10.00$ c/u)</p>
+                </div>
+            </li>
         </ul>
         <section>
             <div>
@@ -101,6 +138,31 @@
                 cartMenu.style.right = '-31%'
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        // Selecciona todos los inputs de tipo number con una clase específica
+        const inputs = document.querySelectorAll('input[type="number"].productCant');
+
+        inputs.forEach(input => {
+            // Establece el valor inicial en 1
+            input.value = 1;
+
+            // Evita que el valor sea menor a 1
+            input.addEventListener('input', function() {
+                if (input.value < 1) {
+                    input.value = 1;
+                }
+            });
+
+            // Evita que se use la flecha abajo para bajar de 1
+            input.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowDown' && input.value <= 1) {
+                    event.preventDefault();
+                }
+            });
+        });
+    });
+
     </script>
 </body>
 </html>
