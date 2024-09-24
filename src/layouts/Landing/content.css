@@ -63,6 +63,7 @@ header{
     position: fixed;
     width: 100dvw;
     height: 15dvh;
+    transition: top 0.5s ease-out;
 }
 
 header section{
