@@ -92,6 +92,9 @@ main .Content--page .Minorista--Mayorista span{
     padding: 10px;
     display: flex;
     font-weight: 700;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: background-color 0.5s 0.1s;
 }
 main .Table--Container{
     margin-top: 20px;
