@@ -55,9 +55,9 @@
                 </div>
             </form>
             <article class="icon">
-                <img src="../../../../public/images/icons/delete.png" alt="Eliminar">
-                <img src="../../../../public/images/icons/pencil.png" alt="Modificar">
-                <img src="../../../../public/images/icons/add.png" alt="Añadir">
+                <img src="../../../../public/images/icons/delete.png" alt="Eliminar" title="Eliminar producto" id="Eliminar">
+                <img src="../../../../public/images/icons/pencil.png" alt="Modificar" title="Modificar producto" id="Modificar">
+                <img src="../../../../public/images/icons/add.png" alt="Añadir" title="Añadir producto" id="Añadir">
             </article>
         </section>
         <section class="Table--inventario">
@@ -134,6 +134,55 @@
                 </tbody>
             </table>
         </section>
+        <dialog id="Agregar">
+            <form>
+                <div class="input--Container">
+                    <label for="NombreProducto">Nombre del Producto</label>
+                    <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" required>
+                    <label for="NombreProducto">
+                        <img src="" alt="Producto" id="NombreProducto">
+                    </label>
+                </div>
+                <div class="input--Container">
+                    <div class="tipo">
+                        <select required>
+                            <option value="">Bebida</option>
+                            <option value="">Alcoholica</option>
+                            <option value="">Energetica</option>
+                            <option value="">Te</option>
+                        </select>
+                        <label for="Litros">Litros</label>
+                        <input placeholder="Ingreso los litros de la bebida" required type="text" id="Litros">
+                        <label for="Litros">
+                            <img src="" alt="Litros" id="Litros">
+                        </label>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <label for="Imagen">Imagen del producto</label>
+                </div>
+                <div class="input--Container">
+                    <div>
+                        <label for="Paquetes">Paquetes</label>
+                        <input placeholder="Ingrese los paquetes" type="text" id="Paquetes">
+                        <label for="Paquetes">
+                            <img src="" alt="Paquete" id="Paquetes">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="Iva">Iva</label>
+                        <input placeholder="Ingrese el iva del producto" type="text" id="Iva">
+                        <label for="Iva">
+                            <img src="" alt="Paquete" id="Iva">
+                        </label>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    
+                </div>
+            </form>
+        </dialog>
     </main>
 </body>
+<script src="Inventario.js"></script>
 </html>
