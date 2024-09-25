@@ -136,6 +136,7 @@
         </section>
         <dialog id="Agregar">
             <form>
+                <span>X</span>
                 <div class="input--Container">
                     <label for="NombreProducto">Nombre del Producto</label>
                     <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" required>
@@ -178,8 +179,29 @@
                     </div>
                 </div>
                 <div class="input--Container">
-                    
+                    <div>
+                        <label for="Precio--detal">Precio detal</label>
+                        <input placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal">
+                        <label for="Precio--detal">
+                            <img src="" alt="Paquete" id="Precio--detal">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="Precio--mayorista">Precio mayorista</label>
+                        <input placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista">
+                        <label for="Precio--mayorista">
+                            <img src="" alt="Paquete" id="Precio--mayorista">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="stock">Cantidad de stock</label>
+                        <input placeholder="Ingrese la Cantidad de stock" type="text" id="stock">
+                        <label for="stock">
+                            <img src="" alt="Paquete" id="stock">
+                        </label>
+                    </div>
                 </div>
+                <input type="submit" value="Agregar"></input>
             </form>
         </dialog>
     </main>
