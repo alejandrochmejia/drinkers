@@ -11,6 +11,7 @@
     font-family: sans-serif;
     font-size: 14px;
 }
+/*Main de la view*/
 main{
     position: absolute;
     top: 105px;
@@ -91,7 +92,7 @@ main .Table--inventario{
     justify-content: center;
     align-items: center;
     position: relative;
-    left: -5px;
+    left: -20px;
     margin-top: 10px;
     padding: 10px;
 }
@@ -131,3 +132,117 @@ main .Table--inventario table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
     color: var(--HoverColor);
 }
+/*Ventana Modal*/
+dialog{
+    margin: auto;
+    width: 650px;
+    height: 450px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 5px #000;
+    display: flex;
+    justify-content: left;
+    flex-flow: column wrap;
+}
+dialog[open]{
+    animation: openModal 0.5s forwards;
+}
+/* Animación para abrir el modal */
+@keyframes openModal {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+dialog h2{
+    font-size: 2em;
+    letter-spacing: 1px;
+    padding-left: 15px;
+    color: var(--SecondaryColor);
+    font-weight: 500;
+}
+dialog form{
+    padding: 20px;
+    display: flex;
+    flex-flow: column wrap;
+}
+dialog form .input--Container{
+    display: flex;
+    align-items: center;
+    width: 550px;
+    padding: 5px;
+}
+dialog form .input--Container div{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 5px;
+}
+dialog .input--Container div label{
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+dialog .input--Container div input{
+    width: 300px;
+    padding: 7px 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    border-right:2px solid #aaa;
+    font-size: 0.9em;
+    color: var(--ColorNavigatorBar);
+    border-radius: 12px;
+    transition: .1s linear;
+}
+dialog .input--Container div input::placeholder{
+    color: var(--ColorNavigatorBar);
+}
+dialog .input--Container div input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+    border-right:2px solid var(--SecondaryColor);
+}
+dialog .input--Container div select{
+    width: 130px;
+    padding: 2px 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    border-right:2px solid #aaa;
+}
+dialog .input--Container .item img{
+    width: 25px;
+    position: relative;
+    left: 265px;
+    top: -35px;
+}
+dialog .input--Container .Items img{
+    width: 25px;
+    position: relative;
+    left: -35px;
+}
+dialog form button{
+    width: 280px;
+    margin: auto;
+    margin-top: 35px;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    color: var(--ColorNavigatorBar);
+    border: none;
+    border-radius: 15px;
+    outline: 1px solid #000;
+    background-color: var(--PrimaryColor);
+    font-weight: 600;
+    transition: .1s linear;
+}
+dialog form button:hover{
+    background-color: var(--HoverColor);
+    cursor: pointer;
+    outline: 2px solid #000;
+    padding: 6px 10px;
+}
+
