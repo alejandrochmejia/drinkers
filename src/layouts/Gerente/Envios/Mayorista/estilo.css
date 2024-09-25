@@ -13,13 +13,13 @@
 }
 
 main{
-    width: 75%;
+    width: 85%;
     border-radius: 15px;
     box-shadow: 0 0 5px #000;
     position: absolute;
     top: 125px;
-    left: 215px;
-    padding: 10px;
+    left: 145px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;

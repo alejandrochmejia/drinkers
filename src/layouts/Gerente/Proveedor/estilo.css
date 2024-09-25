@@ -22,11 +22,10 @@ main{
 }
 main .Content{
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     flex-flow: row wrap;
     padding: 10px;
-    gap: 25px;
+    gap: 15px;
 }
 main .Content .Info--Proveedor{
     box-shadow: 0 0 3px var(--ColorNavigatorBar);
@@ -37,9 +36,7 @@ main .Content .Info--Proveedor{
     display: flex;
     justify-content: flex-start;
     flex-flow: column wrap;
-    position: relative;
     gap: 5px;
-    left: -380px;
     border-radius: 10px;
 }
 main .Content .Info--Proveedor h1{

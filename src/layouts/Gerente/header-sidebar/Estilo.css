@@ -35,12 +35,12 @@ header .Content__header a:hover{
 }
 nav .Navigator--bar{
     width: 6%;
-    height: 89.8vh;
+    height: 88.6vh;
     background-color: var(--ColorNavigatorBar);
-    padding: 15px;
+    padding: 12px;
 }
 nav .List{
-    padding: 15px;
+    padding: 12px;
     list-style: none;
     display: flex;
     flex-flow: column wrap;
