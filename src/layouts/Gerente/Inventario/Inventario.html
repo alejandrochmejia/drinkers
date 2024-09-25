@@ -135,13 +135,13 @@
             </table>
         </section>
     </main>
-    <dialog id="Agregar">
+    <dialog id="dialog--1">
         <h2>Agregar Producto</h2>
         <form>
             <div class="input--Container">
                 <div class="Items">
                     <label for="NombreProducto">Nombre del Producto</label>
-                    <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" required/>
+                    <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" required>
                 </div>
             </div>
             <div class="input--Container">
@@ -190,8 +190,76 @@
             <button type="submit" id="submit">Agregar</button>
         </form>
     </dialog>
-    <dialog id="Eliminar">
-        
+    <dialog id="dialog--2" class="Eliminar--producto">
+        <h2>Eliminar Producto</h2>
+        <form>
+            <div>
+                <label for="Eliminar--producto">Id</label>
+                <input type="text" placeholder="Ingrese el id del producto a eliminar" id="Eliminar--producto" required>
+            </div>
+            <button id="delete" type="submit">Eliminar</button>
+        </form>
+    </dialog>
+    <dialog id="dialog--3">
+        <h2>Modificar Producto</h2>
+        <form>
+            <div class="input--Container">
+                <div>
+                    <label for="Modificar--producto">Id</label>
+                    <input type="text" placeholder="Ingrese el id del producto Modificar" id="Modificar--producto" required>
+                </div>
+            </div>
+            <div class="input--Container">
+                <div class="Items">
+                    <label for="NombreProducto">Nombre del Producto</label>
+                    <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" required>
+                </div>
+            </div>
+            <div class="input--Container">
+                <div class="Items">
+                    <select required>
+                        <option value="">Bebida</option>
+                        <option value="">Alcoholica</option>
+                        <option value="">Energetica</option>
+                        <option value="">Te</option>
+                    </select>
+                </div>
+                <div class="Items">
+                    <label for="Litros">Litros</label>
+                    <input placeholder="Ingreso los litros de la bebida" required type="text" id="Litros">
+                </div>
+            </div>
+            <div class="input--Container">
+                <label for="Imagen">Imagen del producto</label>
+            </div>
+            <div class="input--Container">
+                <div class="item">
+                    <label for="Paquetes">Paquetes</label>
+                    <input placeholder="Ingrese los paquetes" type="text" id="Paquetes" required>
+                </div>
+                <div class="item">
+                    <label for="Iva">Iva</label>
+                    <input placeholder="Ingrese el iva del producto" type="text" id="Iva" required>
+                </div>
+            </div>
+            <div class="input--Container">
+                <div class="item">
+                    <label for="Precio--detal">Precio detal</label>
+                    <input placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal" required>
+                </div>
+                <div class="item">
+                    <label for="Precio--mayorista">Precio mayorista</label>
+                    <input placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista" required>
+                </div>
+            </div>
+            <div class="input--Container">
+                <div class="Items">
+                    <label for="stock">Cantidad de stock</label>
+                    <input placeholder="Ingrese la Cantidad de stock" type="text" id="stock" required>
+                </div>
+            </div>
+            <button type="submit" id="modified">Modificar</button>
+        </form>
     </dialog>
 </body>
 <script src="Inventario.js"></script>
