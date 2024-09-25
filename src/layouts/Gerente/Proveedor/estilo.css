@@ -138,8 +138,9 @@ main .Content .Table--Container table th{
 }           
 main .Content .Table--Container table td{
     text-align: center;
-    padding: 5px 0;
+    padding: 3px 3px;
     text-wrap: balance;
+    font-size: 1.1em;
 }
 main .Content .Table--Container table tbody tr{
     transition: .1s linear;

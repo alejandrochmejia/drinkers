@@ -120,7 +120,7 @@ main .Table--Container th{
 }
 main .Table--Container td{
     text-align: center;
-    padding: 5px 30px;
+    padding: 5px 15px;
     font-size: 1.1em;
 }
 main .Table--Container tbody tr{
