@@ -31,6 +31,7 @@ app.set('view engine','ejs')
 
 //Configurando Body-Parser
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 //Rutas
 app.get('/', async (req,res)=>{
@@ -40,17 +41,24 @@ app.get('/', async (req,res)=>{
 app.post('/login', async (req,res)=>{
     const {email, password} = req.body
     const usuarios = await getAll('drinkers.usuario')
-    const usuario = usuarios.find(usuario => usuario.email === email)
-    if(usuario){
-        if(usuario.password === password){
-            res.redirect('/dashboard')
-        }else{
-            res.redirect('/login')
+    let ruta = ''
+    console.log(email)
+
+    for (const usuario of usuarios) {
+        if(usuario.email == email){
+            if(usuario.password == password){
+                ruta = '/dashboard'
+            }else{
+                ruta = '/register'
+            }
         }
-    }else{
-        res.redirect('/login')
+        else {
+            ruta = '/register'
+        }
     }
+    res.send(JSON.stringify({ruta: ruta}))
 })
+
 app.get('/login',(req,res)=>{
     res.render('auth/login');
 })
@@ -59,6 +67,6 @@ app.get('/register',(req,res)=>{
     res.render('auth/register');
 })
 
-app.get('/dashboard',authorization.soloAdmin, (req, res) => {
+app.get('/dashboard', (req, res) => {
     res.render('admin/dashboard');
 });

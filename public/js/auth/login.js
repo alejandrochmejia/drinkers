@@ -33,15 +33,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
         e.preventDefault()
         const email = document.getElementById('Email').value
         const password = document.getElementById('Contraseña').value
-        await fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
+
+        try {
+            const response = await fetch('/login', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
             })
-        })
+            const data = await response.json()
+            location.href = data.ruta
+        } catch (error) {
+            console.log(error)
+        }
     })
 })
