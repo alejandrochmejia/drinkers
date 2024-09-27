@@ -62,7 +62,6 @@ app.post('/login', async (req,res)=>{
 })
 
 app.post('/register', async (req,res)=>{
-    //Cambiar por Claves del body
     const {nombre, apellido, email, password} = req.body
     const usuario = await exist('drinkers.usuario', 'email', email)
     if(usuario){
@@ -102,6 +101,6 @@ app.get('/admin/proveedor', async (req, res) => {
 });
 
 app.get('/admin/avisos', async (req, res) => {
-    res.render('admin/avisos');
+    res.render('admin/avisos', {avisos: await getAll('drinkers.avisos')});
 });
 

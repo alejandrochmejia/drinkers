@@ -73,21 +73,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Cesar es mrk</td>
-                            <td>Personal</td>
-                            <td>22/09/2024</td>
-                        </tr>
-                        <tr>
-                            <td>Alejandro no trajo las niñas</td>
-                            <td>Proveedor</td>
-                            <td>23/09/2024</td>
-                        </tr>
-                        <tr>
-                            <td>Lai no trajo el informe</td>
-                            <td>Stock</td>
-                            <td>24/09/2024</td>
-                        </tr>
+                        <% avisos.forEach(aviso => { %>
+                            <tr>
+                                <td><%= aviso.descripcion %></td>
+                                <td><%= aviso.tipo %></td>
+                                <td><%= aviso.fecha %></td>
+                            </tr>
+                        <% }); %>
                     </tbody>
                 </table>
             </article>
