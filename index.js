@@ -59,6 +59,31 @@ app.post('/login', async (req,res)=>{
     res.send(JSON.stringify({ruta: ruta}))
 })
 
+app.post('/register', async (req,res)=>{
+    //Cambiar por Claves del body
+    const {email, password} = req.body
+    const usuarios = await getAll('drinkers.usuario')
+    let ruta = ''
+    console.log(email)
+
+    //Algoritmo de Busqueda y de registrar en el SQL
+    for (const usuario of usuarios) {
+        if(usuario.email == email){
+            if(usuario.password == password){
+                ruta = '/admin/dashboard'
+            }else{
+                ruta = '/register'
+            }
+        }
+        else {
+            ruta = '/register'
+        }
+    }
+    res.send(JSON.stringify({ruta: ruta}))
+})
+
+
+
 app.get('/login',(req,res)=>{
     res.render('auth/login');
 })

@@ -1,0 +1,171 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+main{
+    position: absolute;
+    top: 105px;
+    left: 145px;
+    width: 85%;
+    box-shadow: 0 0 5px #000;
+    border-radius: 15px;
+    padding: 10px;
+}
+main .Content{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-flow: column wrap;
+    padding: 10px;
+}
+main .Content .Reportes--Container{
+    width: 990px;
+    padding: 10px;
+}
+main .Content .Reportes--Container .aviso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 5px;
+}
+main .Content .Reportes--Container .aviso .Input--Container{
+    display: flex;
+    width: 425px;
+    justify-content: flex-start;
+    flex-flow: column;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #F4F4F4;
+    border: 1px solid var(--SecondaryColor);
+}
+main .Content .Reportes--Container .aviso .Input--Container span{
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: var(--SecondaryColor);
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input input{
+    padding: 2px 0px;
+    margin-left: 0;
+    width: 365px;
+    font-size: 1.1em;
+    border: none;
+    outline: none;
+    transition: .1s linear;
+    background-color: #F4F4F4;
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input input::placeholder{
+    color: var(--ColorNavigatorBar);
+    font-weight: 600;
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+    border-radius: 5px;
+}
+main .Content .Reportes--Container .aviso .Input--Container .Input img{
+    width: 25px;
+    position: relative;
+    top: -5px;
+}
+main .Content .Reportes--Container .aviso .Tipo--aviso{
+    border: 1px solid var(--SecondaryColor);
+    padding: 15px;
+    border-radius: 15px;
+}
+main .Content .Reportes--Container .aviso .Tipo--aviso select{
+    padding: 5px 0px;
+    width: 120px;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+main .Content .Reportes--Container .aviso .Fecha--reporte{
+    border: 1px solid var(--SecondaryColor);
+    padding: 15px;
+    border-radius: 15px;
+}
+main .Content .Reportes--Container .aviso .Fecha--reporte input{
+    padding: 6px 5px;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+main .Content .aviso button{
+    padding: 22px 10px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    color: #F4F4F4;
+    background-color: var(--SecondaryColor);
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: .1s linear;
+    cursor: pointer;
+}
+main .Content .aviso  button:hover{
+    background-color: var(--HoverColor);
+    color: var(--ColorNavigatorBar);
+}
+main .Content .Table--Container{
+    margin-top: 5px;
+    padding: 10px;
+}
+main .Content .Table--Container table{
+    border: 1px solid #aaa;
+    border-top: none;
+    padding: 5px;
+    border-radius: 5px;
+    border-spacing: 0;
+}
+main .Content .Table--Container table caption{
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    border-bottom: none;
+    font-size: 1.4em;
+    text-transform: capitalize;
+    font-weight: 600;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+main .Content .Table--Container table th{
+    padding: 5px 122px;
+    border: 1px solid #aaa;
+}
+
+main .Content .Table--Container table tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container table td{
+    text-align: center;
+    padding: 3px 0px;
+    font-size: 1.2em;
+}
+main .Content .Table--Container table td:nth-child(1){
+    text-align: left;
+    padding-left: 5px;
+}
+main .Content .Table--Container table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+}
+
