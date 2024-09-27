@@ -88,13 +88,11 @@ main .Content .icon img:hover{
     outline-offset: 1px;
 }
 main .Table--inventario{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
-    left: -20px;
     margin-top: 10px;
     padding: 10px;
+    height: 500px;
+    overflow-y: auto;
 }
 main .Table--inventario table{
     border: 2px solid #aaa;

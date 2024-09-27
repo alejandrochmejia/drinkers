@@ -16,7 +16,7 @@
     </header>
     <nav class="Navigator--bar">
         <ul class="Navigator--bar List">
-            <a href="/dashboard" class="Link">
+            <a href="/admin/dashboard" class="Link">
                 <Li class="List--cont"><img alt="Proveedores" src="/images/icons/Home.png" title="Home"></Li>
             </a>
             <a href="/admin/inventario" class="Link">
@@ -70,23 +70,22 @@
                         <th>Tipo</th>
                         <th>Litros</th>
                         <th>Grados de alcohol</th>
-                        <th>Imagen</th>
                         <th>Paquete</th>
                         <th>iva</th>
                         <th>Precio_detal</th>
                         <th>Precio_mayorista</th>
-                        <th>stock</th>
+                        <th>Stock</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% inventario.forEach(producto => { %>
                         <tr>
                             <td><%= producto.id %></td>
-                            <td><%= producto.nombre %></td>
+                            <td><%= producto.nombre_producto %></td>
                             <td><%= producto.tipo %></td>
                             <td><%= producto.litros %></td>
-                            <td><%= producto.grados_alcohol %></td>
-                            <td><%= producto.paquetes %></td>
+                            <td><%= producto.grados %></td>
+                            <td><%= producto.paquete %></td>
                             <td><%= producto.iva %></td>
                             <td><%= producto.precio_detal %></td>
                             <td><%= producto.precio_mayorista %></td>
