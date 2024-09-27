@@ -9,7 +9,9 @@ import {methods as authorization} from './src/middleware/authorization.js'
 //Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
 import {
     getAll,
-    getOne
+    getOne,
+    create,
+    exist
 } from './src/database/querys.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -61,28 +63,15 @@ app.post('/login', async (req,res)=>{
 
 app.post('/register', async (req,res)=>{
     //Cambiar por Claves del body
-    const {email, password} = req.body
-    const usuarios = await getAll('drinkers.usuario')
-    let ruta = ''
-    console.log(email)
-
-    //Algoritmo de Busqueda y de registrar en el SQL
-    for (const usuario of usuarios) {
-        if(usuario.email == email){
-            if(usuario.password == password){
-                ruta = '/admin/dashboard'
-            }else{
-                ruta = '/register'
-            }
-        }
-        else {
-            ruta = '/register'
-        }
+    const {nombre, apellido, email, password} = req.body
+    const usuario = await exist('drinkers.usuario', 'email', email)
+    if(usuario){
+        res.send(JSON.stringify({ruta: '/register'}))
+    }else{
+        await create('drinkers.usuario', {nombre, apellido, email, password})
+        res.send(JSON.stringify({ruta: '/login'}))
     }
-    res.send(JSON.stringify({ruta: ruta}))
 })
-
-
 
 app.get('/login',(req,res)=>{
     res.render('auth/login');
@@ -109,7 +98,7 @@ app.get('/admin/estadistica', async (req, res) => {
 });
 
 app.get('/admin/proveedor', async (req, res) => {
-    res.render('admin/proveedor');
+    res.render('admin/proveedor', {proveedor: await getAll('drinkers.proveedores')});
 });
 
 app.get('/admin/avisos', async (req, res) => {

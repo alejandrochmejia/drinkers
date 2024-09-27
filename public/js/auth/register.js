@@ -2,7 +2,7 @@ let Nombre = document.getElementById('Nombre');
 let Apellido = document.getElementById('Apellido');
 let email = document.getElementById('Correo');
 let contraseña = document.getElementById('Password');
-const Button = document.getElementsByClassName('Submit--From')[0];
+const button = document.getElementsByClassName('Submit--From')[0];
 
 // Funcion que valida el correo
 function IsvalidEmail(Email) {
@@ -28,31 +28,37 @@ contraseña.addEventListener('input',()=>{
     }
 })
 
-Button.addEventListener('click', (e)=>{
-    e.preventDefault()
-    if (Nombre.value == 0 && Apellido.value == 0 && email.value == 0 && contraseña.value == 0) {
-        alert("Tienque llenar todos los campos para poder crear la cuenta")
-    } else {
-        const form = document.getElementsByClassName('Form__page')[0]
-        form.addEventListener('submit', async (e)=>{
-            e.preventDefault()
-            //Extraer elementos del DOM
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
     
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        //Creo que me tira vacio porque faltan datos respecto a la base de datos
+        if (Nombre.value && Apellido.value && email.value && contraseña.value) {
+
+            const data = {
+                nombre: Nombre.value,
+                apellido: Apellido.value,
+                email: email.value,
+                password: contraseña.value
+            };
+
             try {
                 const response = await fetch('/register', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        //Ingresar Claves del DOM
-                    })
-                })
-                const data = await response.json()
-                location.href = data.ruta
+                    body: JSON.stringify(data)
+                });
+                const responseData = await response.json();
+                location.href = responseData.ruta
             } catch (error) {
-                console.log(error)
+                console.error("Error en el registro:", error);
             }
-        })
-    }
-})
+        } else {
+            console.log("Tienes que llenar todos los campos para poder crear la cuenta");
+        }
+    });
+});
