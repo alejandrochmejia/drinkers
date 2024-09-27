@@ -18,7 +18,7 @@ main{
     box-shadow: 0 0 5px #000;
     position: absolute;
     top: 125px;
-    left: 155px;
+    left: 145px;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -97,18 +97,19 @@ main .Content--page .Minorista--Mayorista span{
     transition: background-color 0.5s 0.1s;
 }
 main .Table--Container{
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 10px;
 }
 main .Table--Container table{
     border: 2px solid #aaa;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px;
-    border-top: none;
+    height: 250px;
     border-spacing: 0;
+    display: block;
+    overflow-y: auto;
 }
 main .Table--Container table caption{
-    border: 2px solid #aaa;
     border-radius: 5px;
     border-bottom: none;
     padding: 10px;
@@ -118,7 +119,7 @@ main .Table--Container table caption{
     text-align: center;
 }
 main .Table--Container th{
-    padding: 0 25px;
+    padding: 5px 25px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
 }
