@@ -1,29 +1,33 @@
 let añadir = document.getElementById('Añadir');
-let modificar = document.getElementById('Modificar');
-let eliminar = document.getElementById('Eliminar');
-let modalAñadir = document.getElementById('dialog--1')
-let button = document.getElementById('submit')
-let eliminarProducto = document.getElementById('dialog--2')
-let buttonEliminar = document.getElementById('delete')
-let modificarproducto = document.getElementById('dialog--3')
-let buttonModificar = document.getElementById('modified')
-
+let modalAgregar = document.getElementById('dialog--1');
+let cerrar = document.getElementById('Cerrar');
+//Evento que abre la ventana modal
 añadir.addEventListener('click',()=>{
-    modalAñadir.showModal();
+    modalAgregar.showModal();
 })
-button.addEventListener('click',()=>{
-    modalAñadir.close()
+//Evento qeu cierra la ventana modal
+cerrar.addEventListener('click',()=>{
+    modalAgregar.close();
 })
+let eliminar = document.getElementById('Eliminar');
+let modalEliminar = document.getElementById('dialog--2');
+let cerrarVenta = document.getElementById('Cerrar--venta');
+//Evento que abre la ventana modal de eliminar producto del inventario
 eliminar.addEventListener('click',()=>{
-    eliminarProducto.showModal();
+    modalEliminar.showModal();
 })
-buttonEliminar.addEventListener('click',()=>{
-    eliminarProducto.close();
+//Evento que cierra la ventana modal de eliminar
+cerrarVenta.addEventListener('click',()=>{
+    modalEliminar.close();
 })
-
+let modificar = document.getElementById('Modificar');
+let modalModificar = document.getElementById('dialog--3');
+let cerrarVentana = document.getElementById('Cerrar--ventana');
+//Evento que abre la ventana modal de modificar un producto del inventario
 modificar.addEventListener('click',()=>{
-    modificarproducto.showModal();
+    modalModificar.showModal();
 })
-buttonModificar.addEventListener('click',()=>{
-    modificarproducto.close();
+//Evento que cierra la ventana modal de modificar producto
+cerrarVentana.addEventListener('click',()=>{
+    modalModificar.close();
 })
