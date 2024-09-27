@@ -132,13 +132,14 @@ main .Content .Table--Container{
 }
 main .Content .Table--Container table{
     border: 1px solid #aaa;
-    border-top: none;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 15px;
     border-spacing: 0;
+    height: 300px;
+    display: block;
+    overflow-y: auto;
 }
 main .Content .Table--Container table caption{
-    border: 1px solid #aaa;
     border-radius: 5px;
     border-bottom: none;
     font-size: 1.4em;
@@ -148,8 +149,10 @@ main .Content .Table--Container table caption{
     letter-spacing: 1px;
 }
 main .Content .Table--Container table th{
-    padding: 5px 122px;
+    padding: 10px 120px;
     border: 1px solid #aaa;
+    border-left: none;
+    border-right: none;
 }
 
 main .Content .Table--Container table tr{
@@ -157,12 +160,8 @@ main .Content .Table--Container table tr{
 }
 main .Content .Table--Container table td{
     text-align: center;
-    padding: 3px 0px;
+    padding: 5px 15px;
     font-size: 1.2em;
-}
-main .Content .Table--Container table td:nth-child(1){
-    text-align: left;
-    padding-left: 5px;
 }
 main .Content .Table--Container table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
