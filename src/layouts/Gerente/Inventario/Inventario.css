@@ -244,7 +244,8 @@ dialog form button:hover{
 }
 .Eliminar--producto{
     width: 450px;
-    height: 200px;
+    height: 145px;
+    text-align: center;
 }
 .Eliminar--producto form div{
     justify-content: center;
