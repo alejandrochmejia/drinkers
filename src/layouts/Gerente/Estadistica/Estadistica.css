@@ -182,6 +182,9 @@ main .Content .Coversiones .Productos--Populares table{
     padding: 20px;
     border-radius: 5px;
     border-spacing: 0;
+    height: 250px;
+    display: block;
+    overflow-y: auto;
 }
 main .Content .Coversiones .Productos--Populares table caption{
     font-size: 1.5em;

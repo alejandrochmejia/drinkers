@@ -74,7 +74,12 @@ main .Avisos--panel .Panel table{
     border: 1px solid #aaa;
     padding: 15px;
     border-radius: 15px;
-    border-collapse: collapse;
+    border-spacing: 0;
+    width: 450px;
+    height: 250px;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 main .Avisos--panel .Panel table caption{
     margin-bottom: 5px;
@@ -92,7 +97,7 @@ main .Avisos--panel .Panel table tr{
 main .Avisos--panel .Panel table td{
     font-size: 0.9em;
     border-bottom: 1px solid #aaa;
-    padding: 10px;
+    padding: 9px 4px;
     letter-spacing: 1px;
 }
 main .panel--Estadistica{
