@@ -94,7 +94,7 @@ main .Table--inventario {
   
 main .Table--inventario table {
     border: 1px solid #aaa;
-    border-radius: 5px;
+    border-radius: 15px;
     height: 250px;
     padding: 5px 5px;
     border-collapse: collapse;
@@ -104,7 +104,6 @@ main .Table--inventario table {
 }
   
 main .Table--inventario table caption {
-    border: px solid #aaa;
     border-bottom: none;
     border-radius: 5px;
     padding: 8px;

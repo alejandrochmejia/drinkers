@@ -106,7 +106,8 @@ main .Content .Table--Container .Input--Container{
 }
 main .Content .Table--Container .Input--Container input{
     width: 230px;
-    padding: 4px 8px;
+    padding: 7px 8px;
+    width: 300px;
     border: 2px solid #aaa;
     outline: none;
     border-radius: 10px;
@@ -117,29 +118,34 @@ main .Content .Table--Container .Input--Container img{
     left: -35px;
 }
 main .Content .Table--Container table{
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    height: 300px;
     margin-top: 15px;
-    border: 2px solid #aaa;
-    border-top: none;
-    border-radius: 10px;
+    padding: 5px 5px;
     border-collapse: collapse;
+    overflow-y: auto;
+    display: block;
 }
 main .Content .Table--Container table caption{
-    border-radius: 5px;
-    font-size: 1.3em;
-    font-weight: 600;
-    padding: 5px;
-    border: 2px solid #aaa;
     border-bottom: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 1.4em;
+    text-transform: capitalize;
+    letter-spacing: 1px;
 }
 main .Content .Table--Container table th{
-    padding: 0 15px;
+    padding: 3px 5px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
+    font-weight: 600;
 }           
 main .Content .Table--Container table td{
+    padding: 5px 10px;
     text-align: center;
-    padding: 3px 3px;
-    text-wrap: balance;
+    font-weight: 500;
     font-size: 1.1em;
 }
 main .Content .Table--Container table tbody tr{
