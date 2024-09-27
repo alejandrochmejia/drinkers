@@ -3,9 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Drinkers || Gerente</title>
+    <link rel="stylesheet" href="/css/admin/dashboard.css">
+    <link rel="stylesheet" href="/css/admin/header.css">
 </head>
 <body>
-    <h1>Dashboard</h1>
+    <header>
+        <div class="Content__header">
+            <img alt="Logo" src="/images/Logo/Logo.png">
+            <a href="#">Salir</a>
+        </div>
+    </header>
+    <nav class="Navigator--bar">
+        <ul class="Navigator--bar List">
+            <a href="../Inventario/Inventario.html" class="Link">
+                <Li class="List--cont"><img alt="Inventario" src="/images/icons/Inventario.png" title="Inventario"></Li>
+            </a>
+            <a href="../Estadistica/Estadistica.html" class="Link">
+                <Li class="List--cont"><img alt="Estadistica" src="/images/icons/Estadistica.png" title="Estadistica"></Li>
+            </a>
+            <a href="../Proveedor/Proveedor.html" class="Link">
+                <Li class="List--cont"><img alt="Proveedores" src="/images/icons/proveedor.png" title="Proveedores"></Li>
+            </a>
+            <a href="../Envios/Minorista/Minorista.html" class="Link">
+                <Li class="List--cont"><img alt="Envios/pedidos" src="/images/icons/Envios.png" title="Envios/pedidos"></Li>
+            </a>
+            <a href="../Avisos/Avisos.html" class="Link">
+                <Li class="List--cont"><img alt="Avisos" src="/images/icons/Reporte.png" title="Avisos"></Li>
+            </a>
+        </ul>
+    </nav>
+    <main>
+        <section class="Avisos--panel">
+            <div class="Content--avisos">
+                <div class="Hora--avisos">12:12 PM</div>
+                <div class="Fecha--avisos">12/09/2024</div>
+            </div>
+            <div class="Panel">
+                <table>
+                    <caption>Avisos</caption>
+                    <tr>
+                        <td>Hora</td>
+                        <td>12/09/2024</td>
+                    </tr>
+                    <tr>
+                        <td>Minutos</td>
+                        <td>11/10/2024</td>
+                    </tr>
+                    <tr>
+                        <td>Segundos</td>
+                        <td>12/12/2024</td>
+                    </tr>
+                    <tr>
+                        <td>Milisegundos</td>
+                        <td>11/06/2024</td>
+                    </tr>
+                    <tr>
+                        <td>nanosegundos</td>
+                        <td>12/08/2024</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel--Estadistica">
+            <div class="Content--panel--Estadistica">
+                <h3>Estadistica</h3>
+                <div class="Container--Estadisitca__1">
+                    <article class="Historia--Ventas">Historia de ventas</article>
+                    <article class="Ventas--container">
+                        <span>
+                            100
+                            <div class="Title">Ventas</div>
+                        </span>
+                    </article>
+                </div>
+
+                <div class="Container--Estadistica__2">
+                    <article class="Ingresos--Container">
+                        <span>
+                            10.000
+                            <div class="Title">Ingresos</div>
+                        </span>
+                    </article>
+                    <article class="Egresos--Container">
+                        <span>
+                            10.000
+                            <div class="Title">Egresos</div>
+                        </span>
+                    </article>
+                </div>
+
+                <article class="Grafica--Estadistica">
+                    grafica
+                    <!--Implementacion de Chartsjs-->
+                </article>
+            </div>
+        </section>
+
+        <section class="Panel--pedidos">
+            <article class="Pedidos">
+                <h3>Pedidos</h3> 
+            </article>
+            <div class="Container--pedidos">
+                <div class="Container--1">
+                    <article class="Solicitudes--container">
+                        <span>
+                            100
+                            <div class="Title">Solicitudes</div>
+                        </span>
+                    </article>
+                    <article class="Procesados--Container">
+                        <span>
+                            100
+                            <div class="Title">Procesados</div>
+                        </span>
+                    </article>
+                    <article class="Envios--Regionales">
+                        <span>
+                            Envios Regionales
+                            <div class="Title">100</div>
+                        </span>
+                    </article>
+                </div>
+    
+                <div class="Container--2">
+                    <articl class="Via--container">
+                        <span>
+                            100
+                            <div class="Title">En via</div>
+                        </span>
+                    </articl>
+                    <article class="Completados--Container">
+                        <span>
+                            100
+                            <div class="Title">Completados</div>
+                        </span>
+                    </article>
+                    <article class="Envios--Nacionales">
+                        <span>
+                            Envios Nacionales
+                            <div class="Title">100</div>
+                        </span>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

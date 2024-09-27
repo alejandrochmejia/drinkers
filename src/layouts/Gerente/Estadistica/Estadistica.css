@@ -122,7 +122,7 @@ main .Content .Coversiones .Coversion--Container form{
     height: 105px;
     padding: 10px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 5px;
 }
 main .Content .Coversiones .Coversion--Container form div{
