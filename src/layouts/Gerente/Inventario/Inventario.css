@@ -14,25 +14,21 @@
 /*Main de la view*/
 main{
     position: absolute;
-    top: 105px;
-    left: 185px;
+    top: 95px;
+    left: 165px;
     width: 80%;
     display: flex;
     border-radius: 15px;
     box-shadow: 0 0 5px #000;
     border-radius: 10px;
     flex-flow: column wrap;
-    justify-content: center;
-    margin: auto;
     padding: 20px;
 }
 main .Content{
-    width: 855px;
-    margin: auto;
-    padding: 10px;
+    width: 905px;
     display: flex;
     justify-content: space-between;
-    gap: 15px;
+    padding: 10px;
 }
 main .Content .Inputs--seleccionados{
     display: flex;
@@ -87,24 +83,28 @@ main .Content .icon img:hover{
     border-radius: 30px;
     outline-offset: 1px;
 }
-main .Table--inventario{
+main .Table--inventario {
     display: flex;
     justify-content: center;
-    align-items: center;
     position: relative;
     left: -20px;
     margin-top: 10px;
     padding: 10px;
 }
-main .Table--inventario table{
-    border: 2px solid #aaa;
+  
+main .Table--inventario table {
+    border: 1px solid #aaa;
     border-radius: 5px;
+    height: 250px;
     padding: 5px 5px;
-    border-top: none;
     border-collapse: collapse;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    display: block;
 }
-main .Table--inventario table caption{
-    border: 2px solid #aaa;
+  
+main .Table--inventario table caption {
+    border: px solid #aaa;
     border-bottom: none;
     border-radius: 5px;
     padding: 8px;
@@ -112,25 +112,29 @@ main .Table--inventario table caption{
     font-size: 1.4em;
     text-transform: capitalize;
     letter-spacing: 1px;
-}
-main .Table--inventario table th{
+  }
+  
+main .Table--inventario table th {
     padding: 3px 5px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
 }
-main .Table--inventario table td{
+  
+main .Table--inventario table td {
     padding: 5px 30px;
     text-align: center;
     font-weight: 500;
     font-size: 1.1em;
 }
-main .Table--inventario table tbody tr{
+  
+main .Table--inventario table tbody tr {
     transition: .1s linear;
 }
-main .Table--inventario table tbody tr:hover{
+  
+main .Table--inventario table tbody tr:hover {
     background-color: var(--ColorNavigatorBar);
-    color: var(--HoverColor);
+  color: var(--HoverColor);
 }
 /*Ventana Modal*/
 dialog{
