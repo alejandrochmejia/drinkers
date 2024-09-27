@@ -12,7 +12,31 @@ añadir.addEventListener('click',()=>{
     modalAñadir.showModal();
 })
 button.addEventListener('click',()=>{
-    modalAñadir.close()
+    modalAñadir.querySelector('form').addEventListener('submit', async(e)=>{
+        e.preventDefault()
+        console.log(modalAñadir.querySelector('form').elements)
+
+        const nombre = document.getElementById('NombreProducto').value
+        const descripcion = modalAñadir.querySelector('form').querySelector('select').value
+        const litros = document.querySelector('#Litros').value
+        
+        try {
+            const response = await fetch('/inventario/create', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+            const data = await response.json()
+            location.href = data.ruta
+        } catch (error) {
+            console.log(error)
+        }
+    })
 })
 eliminar.addEventListener('click',()=>{
     eliminarProducto.showModal();

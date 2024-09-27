@@ -97,7 +97,6 @@ app.get('/admin/dashboard', (req, res) => {
 });
 
 app.get('/admin/inventario', async (req, res) => {
-    console.log(await getAll('drinkers.inventario'))
     res.render('admin/inventario', {inventario: await getAll('drinkers.inventario')});
 });
 
