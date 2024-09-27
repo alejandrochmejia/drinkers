@@ -50,6 +50,37 @@ CREATE TABLE ENVIOS (
   FOREIGN KEY (id_user) REFERENCES USUARIO(id),
   FOREIGN KEY (id_factura) REFERENCES FACTURA(id)
 );
+
+CREATE TABLE AVISOS (
+  id INT PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,
+  tipo VARCHAR(255) NOT NULL,
+  fecha DATE NOT NULL
+);
+
+CREATE TABLE PROVEEDORES (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(255) NOT NULL,
+  direccion VARCHAR(255) NOT NULL,
+  telefono VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  contacto VARCHAR(255) NOT NULL
+);
+
+
+INSERT INTO AVISOS (id, titulo, descripcion, tipo, fecha) VALUES
+(1, 'Aviso 1', 'Descripción del aviso 1', 'Tipo 1', '2023-01-01'),
+(2, 'Aviso 2', 'Descripción del aviso 2', 'Tipo 2', '2023-01-02'),
+(3, 'Aviso 3', 'Descripción del aviso 3', 'Tipo 3', '2023-01-03');
+
+INSERT INTO PROVEEDORES (id, nombre, direccion, telefono, email, contacto) VALUES
+(1, 'Proveedor 1', 'Dirección 1', 'Teléfono 1', 'Email 1', 'Contacto 1'),
+(2, 'Proveedor 2', 'Dirección 2', 'Teléfono 2', 'Email 2', 'Contacto 2'),
+(3, 'Proveedor 3', 'Dirección 3', 'Teléfono 3', 'Email 3', 'Contacto 3');
+
+
+
 -- Insertar datos en la tabla INVENTARIO
 INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock) VALUES
 (1, 'Whisky Escocés', 'Whisky', 'Whisky de malta premium', 0.75, 40, 'whisky_escoces.jpg', 1, 19, 50000, 45000, 100),
@@ -62,6 +93,31 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (8, 'Licor de Café', 'Licor', 'Licor cremoso de café', 0.7, 17, 'licor_cafe.jpg', 1, 19, 25000, 20000, 110),
 (9, 'Cognac VSOP', 'Cognac', 'Cognac VSOP francés', 0.7, 40, 'cognac_vsop.jpg', 1, 19, 70000, 65000, 60),
 (10, 'Mezcal Artesanal', 'Mezcal', 'Mezcal artesanal de Oaxaca', 0.75, 45, 'mezcal_artesanal.jpg', 1, 19, 65000, 60000, 50);
+(11, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de cebada', 0.5, 5, 'cerveza_artesanal.jpg', 1, 19, 20000, 15000, 200);
+
+INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock) VALUES
+(12, 'Sake Premium', 'Sake', 'Sake japonés de arroz pulido', 0.72, 15, 'sake_premium.jpg', 1, 19, 55000, 50000, 80),
+(13, 'Absenta Verde', 'Absenta', 'Absenta tradicional francesa', 0.7, 68, 'absenta_verde.jpg', 1, 19, 75000, 70000, 40),
+(14, 'Brandy Español', 'Brandy', 'Brandy de Jerez reserva', 0.7, 36, 'brandy_espanol.jpg', 1, 19, 45000, 40000, 100),
+(15, 'Pisco Peruano', 'Pisco', 'Pisco puro de uva quebranta', 0.75, 42, 'pisco_peruano.jpg', 1, 19, 50000, 45000, 90),
+(16, 'Vermouth Italiano', 'Vermouth', 'Vermouth rojo italiano', 0.75, 16, 'vermouth_italiano.jpg', 1, 19, 35000, 30000, 120),
+(17, 'Aguardiente Colombiano', 'Aguardiente', 'Aguardiente sin azúcar', 0.75, 29, 'aguardiente_colombiano.jpg', 1, 19, 30000, 25000, 150),
+(18, 'Cachaça Brasileña', 'Cachaça', 'Cachaça artesanal de alambique', 0.7, 40, 'cachaca_brasilena.jpg', 1, 19, 40000, 35000, 80),
+(19, 'Grappa Italiana', 'Grappa', 'Grappa de Amarone', 0.5, 45, 'grappa_italiana.jpg', 1, 19, 65000, 60000, 60),
+(20, 'Soju Coreano', 'Soju', 'Soju tradicional coreano', 0.36, 20, 'soju_coreano.jpg', 1, 19, 25000, 20000, 200),
+(21, 'Ouzo Griego', 'Ouzo', 'Ouzo con sabor a anís', 0.7, 38, 'ouzo_griego.jpg', 1, 19, 45000, 40000, 70),
+(22, 'Limoncello Italiano', 'Licor', 'Licor de limón de la costa Amalfitana', 0.7, 30, 'limoncello_italiano.jpg', 1, 19, 40000, 35000, 100),
+(23, 'Bourbon Americano', 'Whiskey', 'Bourbon de Kentucky añejado', 0.75, 45, 'bourbon_americano.jpg', 1, 19, 60000, 55000, 85),
+(24, 'Sambuca Italiana', 'Licor', 'Licor de anís italiano', 0.7, 38, 'sambuca_italiana.jpg', 1, 19, 45000, 40000, 90),
+(25, 'Fernet Argentino', 'Amargo', 'Fernet de hierbas y especias', 0.75, 39, 'fernet_argentino.jpg', 1, 19, 35000, 30000, 110),
+(26, 'Amaretto Italiano', 'Licor', 'Licor de almendras italiano', 0.7, 28, 'amaretto_italiano.jpg', 1, 19, 40000, 35000, 95),
+(27, 'Pastis Francés', 'Anisado', 'Pastis de Marsella', 0.7, 45, 'pastis_frances.jpg', 1, 19, 50000, 45000, 75),
+(28, 'Shochu Japonés', 'Shochu', 'Shochu de batata', 0.72, 25, 'shochu_japones.jpg', 1, 19, 55000, 50000, 65),
+(29, 'Rakia Balcánica', 'Rakia', 'Rakia de ciruela', 0.7, 40, 'rakia_balcanica.jpg', 1, 19, 45000, 40000, 70),
+(30, 'Genever Holandés', 'Ginebra', 'Genever estilo antiguo', 0.7, 35, 'genever_holandes.jpg', 1, 19, 55000, 50000, 60),
+(31, 'Baijiu Chino', 'Baijiu', 'Baijiu de sorgo', 0.5, 53, 'baijiu_chino.jpg', 1, 19, 70000, 65000, 50);
+
+
 -- Insertar datos en la tabla USUARIO
 INSERT INTO USUARIO (id, username, email, nacimiento, password, name, lastname, status) VALUES
 (1, 'juan123', 'juan@email.com', '1990-05-15', 'hash_password1', 'Juan', 'Pérez', 'active'),

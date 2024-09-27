@@ -70,3 +70,7 @@ app.get('/register',(req,res)=>{
 app.get('/dashboard', (req, res) => {
     res.render('admin/dashboard');
 });
+
+app.get('/admin/inventario', async (req, res) => {
+    res.render('admin/inventario', {inventario: await getAll('drinkers.inventario')});
+});

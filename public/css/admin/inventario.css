@@ -1,0 +1,282 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+/*Main de la view*/
+main{
+    position: absolute;
+    top: 105px;
+    left: 185px;
+    width: 80%;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #000;
+    border-radius: 10px;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
+}
+main .Content{
+    width: 855px;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+main .Content .Inputs--seleccionados{
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+}
+main .Content .Inputs--seleccionados .Input--Container{
+    margin-left: 0px;
+    display: flex;
+}
+main .Content .Inputs--seleccionados .Input--Container input{
+    width: 250px;
+    margin-top: 0;
+    padding: 5px 10px;
+    border: 2px solid #aaa;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+main .Content .Inputs--seleccionados .Input--Container img{
+    width: 30px;
+    position: relative;
+    left: -35px;
+    cursor: pointer;
+}
+main .Content .Inputs--seleccionados .Input--Container select{
+    width: 200px;
+    margin-top: 0;
+    padding: 5px 10px;
+    border: 2px solid #aaa;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+main .Content .icon{
+    display: flex;
+    margin-left: 145px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+main .Content .icon img{
+    width: 25px;
+    filter: drop-shadow(0 0 2px #fdfd);
+    cursor: pointer;
+    transition: outline .1s 0.1s, border-radius .1s 0.1s, padding .1s 0.1s;
+}
+main .Content .icon img:hover{
+    padding: 1px 0;
+    outline: 2px solid var(--ColorNavigatorBar);
+    border-radius: 30px;
+    outline-offset: 1px;
+}
+main .Table--inventario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -20px;
+    margin-top: 10px;
+    padding: 10px;
+}
+main .Table--inventario table{
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    padding: 5px 5px;
+    border-top: none;
+    border-collapse: collapse;
+}
+main .Table--inventario table caption{
+    border: 2px solid #aaa;
+    border-bottom: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 1.4em;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+main .Table--inventario table th{
+    padding: 3px 5px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    font-weight: 600;
+}
+main .Table--inventario table td{
+    padding: 5px 30px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+main .Table--inventario table tbody tr{
+    transition: .1s linear;
+}
+main .Table--inventario table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+}
+/*Ventana Modal*/
+dialog{
+    margin: auto;
+    width: 650px;
+    height: 450px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 5px #000;
+}
+dialog[open]{
+    animation: openModal 0.5s forwards;
+}
+/* Animación para abrir el modal */
+@keyframes openModal {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+dialog h2{
+    font-size: 2em;
+    letter-spacing: 1px;
+    padding-left: 15px;
+    color: var(--SecondaryColor);
+    font-weight: 500;
+}
+dialog form{
+    padding: 5px;
+    display: flex;
+    flex-flow: column wrap;
+}
+dialog form .input--Container{
+    display: flex;
+    align-items: center;
+    width: 550px;
+    padding: 5px;
+}
+dialog form .input--Container div{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 5px;
+}
+dialog .input--Container div label{
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+dialog .input--Container div input{
+    width: 300px;
+    padding: 7px 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    border-right:2px solid #aaa;
+    font-size: 0.9em;
+    color: var(--ColorNavigatorBar);
+    border-radius: 12px;
+    transition: .1s linear;
+}
+dialog .input--Container div input::placeholder{
+    color: var(--ColorNavigatorBar);
+}
+dialog .input--Container div input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+    border-right:2px solid var(--SecondaryColor);
+}
+dialog .input--Container div select{
+    width: 130px;
+    padding: 2px 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    border-right:2px solid #aaa;
+}
+dialog .input--Container .item img{
+    width: 25px;
+    position: relative;
+    left: 265px;
+    top: -35px;
+}
+dialog .input--Container .Items img{
+    width: 25px;
+    position: relative;
+    left: -35px;
+}
+dialog form button{
+    width: 280px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    color: var(--ColorNavigatorBar);
+    border: none;
+    border-radius: 15px;
+    outline: 1px solid #000;
+    background-color: var(--PrimaryColor);
+    font-weight: 600;
+    transition: .1s linear;
+}
+dialog form button:hover{
+    background-color: var(--HoverColor);
+    cursor: pointer;
+    outline: 2px solid #000;
+    padding: 6px 10px;
+}
+.Eliminar--producto{
+    width: 450px;
+    height: 200px;
+}
+.Eliminar--producto form div{
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+.Eliminar--producto form div label{
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+.Eliminar--producto form div input{
+    width: 300px;
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    border-right: 2px solid #aaa;
+    border-radius: 15px;
+    outline: none;
+    font-size: 0.9em;
+}
+.Eliminar--producto form div input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+    border-right: 2px solid var(--SecondaryColor);
+}
+.Eliminar--producto form div input::placeholder{
+    width: 300px;
+    color: var(--ColorNavigatorBar);
+}
+
+.Eliminar--producto form button{
+    width: 350px;
+}
+
+
