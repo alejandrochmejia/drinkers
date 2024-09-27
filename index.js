@@ -47,7 +47,7 @@ app.post('/login', async (req,res)=>{
     for (const usuario of usuarios) {
         if(usuario.email == email){
             if(usuario.password == password){
-                ruta = '/dashboard'
+                ruta = '/admin/dashboard'
             }else{
                 ruta = '/register'
             }
@@ -67,10 +67,27 @@ app.get('/register',(req,res)=>{
     res.render('auth/register');
 })
 
-app.get('/dashboard', (req, res) => {
+app.get('/admin/dashboard', (req, res) => {
     res.render('admin/dashboard');
 });
 
 app.get('/admin/inventario', async (req, res) => {
     res.render('admin/inventario', {inventario: await getAll('drinkers.inventario')});
 });
+
+app.get('/admin/envios', async (req, res) => {
+    res.render('admin/envios');
+});
+
+app.get('/admin/estadistica', async (req, res) => {
+    res.render('admin/estadistica');
+});
+
+app.get('/admin/proveedor', async (req, res) => {
+    res.render('admin/proveedor');
+});
+
+app.get('/admin/avisos', async (req, res) => {
+    res.render('admin/avisos');
+});
+

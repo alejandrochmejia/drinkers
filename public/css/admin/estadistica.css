@@ -1,0 +1,272 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+main{
+    position: absolute;
+    top: 75px;
+    left: 145px;
+    border: 2px solid #aaa;
+    width: 85%;
+    height: 475px;
+    padding: 5px;
+    border-radius: 15px;
+}
+main .Content{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    height: 445px;
+}
+main .Content .Table--Container{
+    width: 540px;
+    padding: 10px;
+    height: 250px;
+    display: flex;
+    align-items:flex-start;
+    gap: 8px;
+    flex-flow: column wrap;
+}
+main .Content .Table--Container .Input--Container{
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+main .Content .Table--Container .Input--Container input{
+    padding: 4px 7px;
+    width: 295px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    outline: none;
+    transition: .1s linear;
+}
+main .Content .Table--Container .Input--Container img{
+    width: 26px;
+    position: relative;
+    left: -30px;
+    cursor: pointer;
+}
+main .Content .Table--Container .Table{
+    padding: 10px;
+    border-radius: 15px;
+    
+}
+main .Content .Table--Container .Table table{
+    border: 2px solid #aaa;
+    padding: 5px;
+    border-radius: 5px;
+    border-top: none;
+    border-collapse: collapse;
+}
+main .Content .Table--Container .Table table caption{
+    border: 2px solid #aaa;
+    border-bottom: none;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+main .Content .Table--Container .Table table th{
+    padding: 4px 20px;
+    text-wrap: nowrap;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+main .Content .Table--Container .Table table tbody tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container .Table table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+    cursor: pointer;
+}
+main .Content .Table--Container .Table table td{
+    text-align: center;
+    padding: 3px 0px;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+main .Content .Coversiones{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: 430px;
+    justify-content: center;
+}
+main .Content .Coversiones .Coversion--Container{
+    padding: 15px;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    width: 285px;
+    height: 140px;
+    border-radius: 25px;
+    
+}
+main .Content .Coversiones .Coversion--Container form{
+    height: 105px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+main .Content .Coversiones .Coversion--Container form div{
+    padding: 3px;
+    height: 30px;
+    border-radius: 25px;
+}
+main .Content .Coversiones .Coversion--Container form input{
+    width: 90px;
+    border: none;
+    border: 2px solid var(--ColorNavigatorBar);
+    text-align: center;
+    padding: 2px 5px;
+    font-size: 1.3em;
+    border-radius: 15px;
+    outline: none;
+}
+main .Content .Coversiones .Coversion--Container form input::placeholder{
+    color: var(--ColorNavigatorBar);
+}
+main .Content .Coversion--Container form span{
+    font-size: 1.3em;
+    position: relative;
+    top: 6px;
+    color: #aaa;
+    left: 1px;
+}
+
+main .Content .Coversiones .Coversion--Container form .Dolar input{
+    width: 55px;
+}
+
+main .Content .Coversiones .Coversion--Container form .Porcentaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 40px;
+    left: -185px;
+    border: none;
+}
+main .Content .Coversiones .Coversion--Container form .Porcentaje .Resultado{
+    position: relative;
+    left: 30px;
+    background-color: var(--PrimaryColor);
+    height: none;
+    width: 100px;
+    border-radius: 0;
+}
+main .Content .Coversiones .Coversion--Container .Container{
+    width: 285px;
+    position: relative;
+    left: -15px;
+    height: 140px;
+    margin-top: 10px;
+    border-radius: 25px;
+    background-color: var(--ColorNavigatorBar);
+}
+main .Content .Coversiones .Productos--Populares{
+    border: 2px solid #aaa;
+    border-radius: 15px;
+    padding: 20px;
+    width: 210px;
+    height: 285px;
+}
+main .Content .Coversiones .Productos--Populares table{
+    border: 2px solid #aaa;
+    padding: 20px;
+    border-radius: 5px;
+    border-spacing: 0;
+}
+main .Content .Coversiones .Productos--Populares table caption{
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    color: var(--SecondaryColor);
+    font-weight: 600;
+}
+main .Content .Coversiones .Productos--Populares table tr{
+    transition: .1s linear;
+}
+main .Content .Coversiones .Productos--Populares table tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+    font-weight: 500;
+    cursor: pointer;
+}
+main .Content .Coversiones .Productos--Populares table tbody td{
+    padding: 5px;
+    border-bottom: 1px solid #aaa;
+    text-align: left;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+main .Content .Container--Ventas{
+    position: absolute;
+    top: 320px;
+    left: 520px;
+    width: 505px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 5px;
+    gap: 10px;
+    background-color: var(--SecondaryColor);
+    border-radius: 15px;
+}
+main .Content .Container--Ventas .Container--1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 5px;
+    padding: 5px;
+}
+main .Content .Container--Ventas .Container--1 div{
+    border: 1px solid #000;
+    width: 230px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: var(--PrimaryColor);
+}
+main .Content .Container--Ventas .Container--2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 5px;
+    padding: 5px;
+}
+main .Content .Container--Ventas .Container--2 div{
+    border: 1px solid #000;
+    width: 230px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: var(--PrimaryColor);
+}
+main .Content .Container--Ventas div span{
+    font-size: 1.3em;
+    color: var(--SecondaryColor);
+    letter-spacing: 1px;
+    font-weight: 500;
+}

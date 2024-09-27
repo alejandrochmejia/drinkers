@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Estadistica</title>
+    <link rel="stylesheet" href="/css/admin/estadistica.css">
+    <link rel="stylesheet" href="/css/admin/header.css">
+</head>
+<body>
+    <header>
+        <div class="Content__header">
+            <img alt="Logo" src="/images/Logo/Logo.png">
+            <a href="#">Salir</a>
+        </div>
+        <nav class="Navigator--bar">
+            <ul class="Navigator--bar List">
+                <a href="/admin/dashboard" class="Link">
+                    <Li class="List--cont"><img alt="Proveedores" src="/images/icons/Home.png" title="Home"></Li>
+                </a>
+                <a href="/admin/inventario" class="Link">
+                    <Li class="List--cont"><img alt="Inventario" src="/images/icons/Inventario.png" title="Inventario"></Li>
+                </a>
+                <a href="/admin/estadistica" class="Link">
+                    <Li class="List--cont"><img alt="Estadistica" src="/images/icons/Estadistica.png" title="Estadistica"></Li>
+                </a>
+                <a href="/admin/proveedor" class="Link">
+                    <Li class="List--cont"><img alt="Proveedores" src="/images/icons/proveedor.png" title="Proveedores"></Li>
+                </a>
+                <a href="/admin/envios" class="Link">
+                    <Li class="List--cont"><img alt="Envios/pedidos" src="/images/icons/Envios.png" title="Envios/pedidos"></Li>
+                </a>
+                <a href="/admin/avisos" class="Link">
+                    <Li class="List--cont"><img alt="Avisos" src="/images/icons/Reporte.png" title="Avisos"></Li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="Content">
+            <article class="Table--Container">
+                <div class="Input--Container">
+                    <input type="search" placeholder="00000" id="Lupa">
+                    <label for="Lupa">
+                        <img src="/images/icons/search.png" alt="Lupa" id="Lupa">
+                    </label>
+                </div>
+                <div class="Table">
+                    <table>
+                        <caption>Tabla de Ventas</caption>
+                        <thead>
+                            <tr>
+                                <th>Id Venta</th>
+                                <th>Id Bebida</th>
+                                <th>Cantidad</th>
+                                <th>Ingresos $</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>5</td>
+                                <td>25$</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>8</td>
+                                <td>45$</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>10</td>
+                                <td>55$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+            <article class="Coversiones">
+                <div class="Coversion--Container">
+                    <h2>Conversion Monetaria</h2>
+                    <form>
+                        <div class="Dolar">
+                            <input type="text" placeholder="$">
+                        </div>
+                        <span>=</span>
+                        <div class="Bolivares">
+                            <input type="text" placeholder="Bs">
+                        </div>
+                        <div class="Porcentaje">
+                            <h2>Porcentaje de Ganancia</h2>
+                            <div class="Resultado"></div>
+                        </div>
+                    </form>
+                    <div class="Container"></div>
+                </div>
+                <div class="Productos--Populares">
+                    <table>
+                        <caption>Popular</caption>
+                        <tbody>
+                            <tr>
+                                <td>Ron</td>
+                                <td>95%</td>
+                            </tr>
+                            <tr>
+                                <td>Voodka</td>
+                                <td>75%</td>
+                            </tr>
+                            <tr>
+                                <td>Vulcana</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Black Label</td>
+                                <td>85%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+            <article class="Container--Ventas">
+                <div class="Container--1">
+                    <div class="Ventas--dia">
+                        <span>Ventas del Dia</span>
+                        <span>002</span>
+                    </div>
+                    <div class="Ventas--mes">
+                        <span>Ventas del Mes</span>
+                        <span>002</span>
+                    </div>
+                </div>
+                <div class="Container--2">
+                    <div class="Ingresos">
+                        <span>Ingresos</span>
+                        <span>1.000.000</span>
+                    </div>
+                    <div class="Egresos">
+                        <span>Egresos</span>
+                        <span>1.000.000</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,152 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+main{
+    position: absolute;
+    top: 105px;
+    left: 155px;
+    box-shadow: 0 0 3px #000;
+    border-radius: 10px;
+    width: 85%;
+    padding: 10px;
+}
+main .Content{
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 10px;
+    gap: 15px;
+}
+main .Content .Info--Proveedor{
+    box-shadow: 0 0 3px var(--ColorNavigatorBar);
+    width: 350px;
+    height: 380px;
+    padding: 10px;
+    background-color: var(--SecondaryColor);
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column wrap;
+    gap: 5px;
+    border-radius: 10px;
+}
+main .Content .Info--Proveedor h1{
+    font-size: 1.3em;
+    padding-left: 6px;
+    text-transform: capitalize;
+    color: var(--PrimaryColor);
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+main .Content .Info--Proveedor article{
+    display: flex;
+    justify-content: left;
+    flex-flow: column wrap;
+    margin: 5px;
+    background-color: var(--PrimaryColor);
+    padding: 5px;
+}
+main .Content .Info--Proveedor article span{
+    font-size: 0.9em;
+    color: var(--SecondaryColor);
+    letter-spacing: 1px;
+    padding: 1px;
+}
+main .Content .Info--Proveedor article h3{
+    font-size: 1em;
+    text-shadow: 0 0 2px #aaa;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 2px;
+}
+main .Content .Info--Proveedor .Icon--proveedor{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: right;
+    gap: 12px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+}
+main .Content .Info--Proveedor .Icon--proveedor img{
+    width: 26px;
+    cursor: pointer;
+    transition: padding .1s 0.1s, outline .1s 0.1s, border-radius .1s 0.1s;
+}
+main .Content .Info--Proveedor .Icon--proveedor img:hover{
+    padding: 1px 0px;
+    outline: 2px solid #aaa;
+    outline-offset: 2px;
+    border-radius: 40px;
+}
+main .Content .Table--Container{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    padding: 10px;
+    position: absolute;
+    top: 5px;
+    left: 380px;
+}
+main .Content .Table--Container .Input--Container{
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+main .Content .Table--Container .Input--Container input{
+    width: 230px;
+    padding: 4px 8px;
+    border: 2px solid #aaa;
+    outline: none;
+    border-radius: 10px;
+}
+main .Content .Table--Container .Input--Container img{
+    width: 25px;
+    position: relative;
+    left: -35px;
+}
+main .Content .Table--Container table{
+    margin-top: 15px;
+    border: 2px solid #aaa;
+    border-top: none;
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+main .Content .Table--Container table caption{
+    border-radius: 5px;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 5px;
+    border: 2px solid #aaa;
+    border-bottom: none;
+}
+main .Content .Table--Container table th{
+    padding: 0 15px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}           
+main .Content .Table--Container table td{
+    text-align: center;
+    padding: 3px 3px;
+    text-wrap: balance;
+    font-size: 1.1em;
+}
+main .Content .Table--Container table tbody tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--HoverColor);
+    cursor: pointer;
+}       
