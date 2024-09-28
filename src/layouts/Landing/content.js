@@ -58,6 +58,7 @@ window.addEventListener("scroll", function() {
     if (currentScroll > lastScroll){
         // scroll down
         document.querySelector("header").style.top = '-20%';
+        document.querySelector("aside").style.right = '-31%';
     } else if (currentScroll < lastScroll) {
         // scroll up
         document.querySelector("header").style.top = '0%';
