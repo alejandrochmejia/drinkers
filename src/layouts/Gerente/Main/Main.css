@@ -42,9 +42,9 @@ main .Avisos--panel .Content--avisos{
 main .Avisos--panel .Hora--avisos{
     font-size: 1.3em;
     text-align: center;
-    width: 105px;
+    width: 115px;
     border: 1px solid #000;
-    padding: 5px;
+    padding: 10px;
     border-radius: 15px;
     background-color: var(--SecondaryColor);
     color: var(--PrimaryColor);
@@ -52,13 +52,13 @@ main .Avisos--panel .Hora--avisos{
     font-weight: 600;
 }
 main .Avisos--panel .Fecha--avisos{
-    display: inline-block;
-    width: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 115px;
     text-align: center;
     border: 1px solid #000;
     font-size: 1.3em;
-    width: 105px;
-    padding: 5px;
     border-radius: 15px;
     background-color: var(--SecondaryColor);
     color: var(--PrimaryColor);
