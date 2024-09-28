@@ -407,7 +407,7 @@ footer section section div{
 }
 
 
-#productSection{
+.productSection{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -415,7 +415,7 @@ footer section section div{
     margin-bottom: 10vmin;
 }
 
-#productSection li{
+.productSection li{
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -423,20 +423,20 @@ footer section section div{
     gap: 1vmin;
 }
 
-#productSection li h4, #productSection li h5{
+.productSection li h4, .productSection li h5{
     height: 2vmin;
     margin: 0;
     font-weight: normal;
     cursor: pointer;
 }
 
-#subtitle{
+.subtitle{
     padding-left: 10vmin;
     font-weight: normal;
     color: var(--blue);
 }
 
-#productView{
+.productView{
     background-image: url(../../../public/images/Licores/anis-cartujo.png);
     background-position: center center;
     background-repeat: no-repeat;
@@ -450,7 +450,7 @@ footer section section div{
     gap: 1vmin;
 }
 
-#productView input[type=number]{
+.productView input[type=number]{
     width: 5vmin;
     height: 5vmin;
     font-size: 2vmin;
@@ -458,16 +458,16 @@ footer section section div{
     transition: opacity 0.3s linear;
 }
 
-#productView input[type=number]::-webkit-inner-spin-button{
+.productView input[type=number]::-webkit-inner-spin-button{
     opacity: 1;
     scale: 1.3;
 }
 
-#productView:hover input[type=number]{
+.productView:hover input[type=number]{
     opacity: 1;
 }
 
-#productView button{
+.productView button{
     width: 8vmin;
     height: 4vmin;
     display: flex;
@@ -482,6 +482,6 @@ footer section section div{
     transition: opacity 0.3s linear;
 }
 
-#productView:hover button{
+.productView:hover button{
     opacity: 1;
 }
