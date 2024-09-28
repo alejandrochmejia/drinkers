@@ -14,28 +14,32 @@ font-family: san-ferif y font-size: 14px ya que voy a utilizar em*/
     font-size: 14px;
 }
 main{
+    display: flex;
+    flex-wrap: wrap;
     position: absolute;
     left: 150px;
     top: 80px;
     border-radius: 15px;
     box-shadow: 0 0 3px #000;
     width: 85%;
-    height: 480px;
-    display: flex;
-    gap: 45px;
+    gap: 15px;
     padding: 15px;
 }
 main .Avisos--panel{
     width: 280px;
-    height: 425px;
+    height: 455px;
     border-radius: 15px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
     box-shadow: 0 0 5px #000;
     padding: 15px;
+    flex: 1;
 }
 main .Avisos--panel .Content--avisos{
     display: flex;
-    justify-content: center;
-    gap: 35px;
+    justify-content: space-between;
+    gap: 75px;
     margin-top: 5px;
     margin-bottom: 35px;
 }
@@ -64,59 +68,62 @@ main .Avisos--panel .Fecha--avisos{
     color: var(--PrimaryColor);
     font-weight: 600;
 }
-main .Avisos--panel .Panel{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-main .Avisos--panel .Panel table{
-    margin-top: 5px;
+main .Avisos--panel table{
     border: 1px solid #aaa;
     padding: 15px;
     border-radius: 15px;
     border-spacing: 0;
-    width: 450px;
-    height: 250px;
+    width: 310px;
+    height: 320px;
     display: block;
     overflow-y: auto;
     overflow-x: hidden;
 }
-main .Avisos--panel .Panel table caption{
+main .Avisos--panel  table caption{
     margin-bottom: 5px;
     font-size: 1.4em;
     color: var(--SecondaryColor);
     font-weight: 700;
     letter-spacing: 1.5px;
+    text-align: center;
 }
-main .Avisos--panel .Panel table tr{
+main .Avisos--panel  table tr{
     font-size: 1.2em;
     color: var(--ColorNavigatorBar);
     font-weight: 700;
     letter-spacing: 1.5px;
 }
-main .Avisos--panel .Panel table td{
+main .Avisos--panel  table td{
     font-size: 0.9em;
     border-bottom: 1px solid #aaa;
-    padding: 9px 4px;
+    padding: 9px 20px;
     letter-spacing: 1px;
+}
+main .Content{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
 }
 main .panel--Estadistica{
     background-color: var(--SecondaryColor);
     border-radius: 15px;
     width: 650px;
-    height: 230px;
+    height: 250px;
     box-shadow: 0 0 5px #000;
     padding: 15px;
     display: flex;
+    flex: 1;
     flex-flow: column wrap;
 }
 main .panel--Estadistica .Content--panel--Estadistica{
     display: flex;
-    gap: 20px;
-    padding: 3px;
+    gap: 12px;
+    
+    width: 680px;
+    height: 200px;
+    padding: 4px;
     flex-flow: row wrap;
-    margin-top: 10px;
-    width: 710px;
+    
 }
 main .panel--Estadistica .Content--panel--Estadistica h3{
     font-size: 1.3em;
@@ -197,7 +204,7 @@ main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2
     font-size: 1.4em;
 }
 main .panel--Estadistica .Content--panel--Estadistica .Grafica--Estadistica{
-    width: 250px;
+    width: 240px;
     height: 140px;
     background-color: var(--PrimaryColor);
     border-radius: 5px;
@@ -212,9 +219,7 @@ main .panel--Estadistica .Content--panel--Estadistica .Grafica--Estadistica{
 
 main .Panel--pedidos{
     position: relative;
-    top: 245px;
-    left: -695px;
-    width: 675px;
+    width: 650px;
     height: 210px;
     border-radius: 15px;
     padding: 5px;
@@ -348,3 +353,4 @@ main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales span 
     font-weight: 500;
     margin-left: 7px;
 }
+
