@@ -9,25 +9,37 @@ añadir.addEventListener('click',()=>{
 cerrar.addEventListener('click',()=>{
     modalAgregar.close();
 })
-let eliminar = document.getElementById('Eliminar');
-let modalEliminar = document.getElementById('dialog--2');
-let cerrarVenta = document.getElementById('Cerrar--venta');
-//Evento que abre la ventana modal de eliminar producto del inventario
-eliminar.addEventListener('click',()=>{
-    modalEliminar.showModal();
-})
-//Evento que cierra la ventana modal de eliminar
-cerrarVenta.addEventListener('click',()=>{
-    modalEliminar.close();
-})
 let modificar = document.getElementById('Modificar');
-let modalModificar = document.getElementById('dialog--3');
-let cerrarVentana = document.getElementById('Cerrar--ventana');
-//Evento que abre la ventana modal de modificar un producto del inventario
+let modalModificar = document.getElementById('dialog--2');
+let cerrarModificar = document.getElementById('Cerrar--ventana');
+//Evento que abre la ventana modal de eliminar producto del inventario
 modificar.addEventListener('click',()=>{
     modalModificar.showModal();
 })
-//Evento que cierra la ventana modal de modificar producto
-cerrarVentana.addEventListener('click',()=>{
+//Evento que cierra la ventana modal de eliminar
+cerrarModificar.addEventListener('click',()=>{
     modalModificar.close();
 })
+
+// Evento para las tablas los cuales quede presionado
+let Eliminar = document.getElementById('Eliminar');
+let clickTabla = document.querySelectorAll('tr');
+
+clickTabla.forEach((fila)=>{
+    fila.addEventListener('click',()=>{
+        if(fila.classList.contains('presionado--bottom')){
+            fila.classList.remove('presionado--bottom');
+        }else{
+            fila.classList.add('presionado--bottom');
+        }
+    })
+})
+Eliminar.addEventListener('click',()=>{
+    clickTabla.forEach((fila)=>{
+        if(fila.classList.contains('presionado--bottom')){
+            fila.remove();
+        }
+    })
+})
+
+    

@@ -133,7 +133,11 @@ main .Table--inventario table tbody tr {
   
 main .Table--inventario table tbody tr:hover {
     background-color: var(--ColorNavigatorBar);
-  color: var(--PrimaryColor);
+    color: var(--PrimaryColor);
+}
+.presionado--bottom{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
 }
 /*Ventana Modal*/
 dialog{
@@ -164,7 +168,6 @@ dialog span{
     right: 10px;
     top: 5px;
     font-size: 1.3em;
-    border: 1px solid #000;
     padding: 5px;
     width: 30px;
     text-align: center;
@@ -172,7 +175,8 @@ dialog span{
     transition: background-color 500ms 0.1s;
 }
 dialog span:hover{
-    background-color: var(--HoverColor);
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
 }
 dialog h2{
     font-size: 2em;
@@ -191,6 +195,7 @@ dialog form .input--Container{
     align-items: center;
     width: 550px;
     padding: 5px;
+    gap: 10px;
 }
 dialog form .input--Container div{
     display: flex;
