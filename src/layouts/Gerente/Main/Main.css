@@ -16,6 +16,8 @@ font-family: san-ferif y font-size: 14px ya que voy a utilizar em*/
 main{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     left: 150px;
     top: 80px;
@@ -103,6 +105,7 @@ main .Content{
     display: flex;
     flex-flow: column wrap;
     gap: 10px;
+    flex: 1;
 }
 main .panel--Estadistica{
     background-color: var(--SecondaryColor);
@@ -118,7 +121,6 @@ main .panel--Estadistica{
 main .panel--Estadistica .Content--panel--Estadistica{
     display: flex;
     gap: 12px;
-    
     width: 680px;
     height: 200px;
     padding: 4px;
@@ -220,9 +222,10 @@ main .panel--Estadistica .Content--panel--Estadistica .Grafica--Estadistica{
 main .Panel--pedidos{
     position: relative;
     width: 650px;
-    height: 210px;
+    height: 230px;
     border-radius: 15px;
-    padding: 5px;
+    padding: 15px;
+    flex: 1;
     box-shadow: 0 0 5px #000;
     background-color: var(--SecondaryColor);
 }
@@ -244,10 +247,9 @@ main .Panel--pedidos .Container--pedidos{
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    width: 645px;
+    
     gap: 10px;
-    
-    
+      
 }
 main .Panel--pedidos .Container--pedidos .Container--1{
     width: 590px;
