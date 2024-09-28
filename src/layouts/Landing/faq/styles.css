@@ -1,0 +1,11 @@
+.faqs{
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+details, summary{
+    width: 75dvw;
+}
