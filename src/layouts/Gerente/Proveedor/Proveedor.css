@@ -153,6 +153,6 @@ main .Content .Table--Container table tbody tr{
 }
 main .Content .Table--Container table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
-    color: var(--HoverColor);
+    color: var(--PrimaryColor);
     cursor: pointer;
 }       

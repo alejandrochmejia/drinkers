@@ -127,6 +127,7 @@ main .Content .Coversiones .Coversion--Container form{
     align-items: center;
     justify-content: left;
     gap: 5px;
+    width: 220px;
     position:relative;
     left: -65px;
 }
@@ -174,6 +175,9 @@ main .Content .Coversiones .Productos--Populares{
     border: 2px solid #aaa;
     border-radius: 15px;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     width: 210px;
     height: 285px;
 }
@@ -182,13 +186,16 @@ main .Content .Coversiones .Productos--Populares table{
     padding: 20px;
     border-radius: 5px;
     border-spacing: 0;
-    height: 250px;
+    width: 320px;
+    height: 220px;
     display: block;
     overflow-y: auto;
 }
 main .Content .Coversiones .Productos--Populares table caption{
     font-size: 1.3em;
     letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 15px;
     color: var(--SecondaryColor);
     font-weight: 600;
 }
@@ -197,7 +204,7 @@ main .Content .Coversiones .Productos--Populares table tr{
 }
 main .Content .Coversiones .Productos--Populares table tr:hover{
     background-color: var(--ColorNavigatorBar);
-    color: var(--HoverColor);
+    color: var(--PrimaryColor);
     font-weight: 500;
     cursor: pointer;
 }

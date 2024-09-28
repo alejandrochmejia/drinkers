@@ -45,7 +45,7 @@ main .Content .Reportes--Container .aviso .Input--Container{
     flex-flow: column;
     padding: 10px;
     border-radius: 15px;
-    background-color: #F4F4F4;
+    background-color: var(--PrimaryColor);
     border: 1px solid var(--SecondaryColor);
 }
 main .Content .Reportes--Container .aviso .Input--Container span{
@@ -68,7 +68,7 @@ main .Content .Reportes--Container .aviso .Input--Container .Input input{
     border: none;
     outline: none;
     transition: .1s linear;
-    background-color: #F4F4F4;
+    background-color: var(--PrimaryColor);
 }
 main .Content .Reportes--Container .aviso .Input--Container .Input input::placeholder{
     color: var(--ColorNavigatorBar);
