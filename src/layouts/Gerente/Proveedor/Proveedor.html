@@ -20,19 +20,19 @@
                 <Li class="List--cont"><img alt="Proveedores" src="../../../../public/images/icons/Home.png" title="Home"></Li>
             </a>
             <a href="../Inventario/Inventario.html" class="Link">
-                <Li class="List--cont"><img alt="Inventario" src="../../../../public/images/icons/Inventario.png" title="Inventario"></Li>
+                <Li class="List--cont"></Li>
             </a>
             <a href="../Estadistica/Estadistica.html" class="Link">
-                <Li class="List--cont"><img alt="Estadistica" src="../../../../public/images/icons/Estadistica.png" title="Estadistica"></Li>
+                <Li class="List--cont"></Li>
             </a>
             <a href="Proveedor.html" class="Link">
-                <Li class="List--cont"><img alt="Proveedores" src="../../../../public/images/icons/proveedor.png" title="Proveedores"></Li>
+                <Li class="List--cont"></Li>
             </a>
             <a href="../Envios/Minorista/Minorista.html" class="Link">
-                <Li class="List--cont"><img alt="Envios/pedidos" src="../../../../public/images/icons/Envios.png" title="Envios/pedidos"></Li>
+                <Li class="List--cont"></Li>
             </a>
             <a href="../Avisos/Avisos.html" class="Link">
-                <Li class="List--cont"><img alt="Avisos" src="../../../../public/images/icons/Reporte.png" title="Avisos"></Li>
+                <Li class="List--cont"></Li>
             </a>
         </ul>
     </nav>
@@ -57,9 +57,9 @@
                     <h3>V-316088291</h3>
                 </article>
                 <article class="Icon--proveedor">
-                    <img src="../../../../public/images/icons/Añadir--white.png" alt="Agregar" title="Agregar proveedor">
-                    <img src="../../../../public/images/icons/Eliminar--white.png" alt="Eliminar" title="Eliminar proveedor">
-                    <img src="../../../../public/images/icons/Pencil--white.png" alt="Modificar" title="Modificar proveedor">
+                    <img src="../../../../public/images/icons/Añadir--white.png" alt="Agregar" title="Agregar proveedor" id="Agregar">
+                    <img src="../../../../public/images/icons/Eliminar--white.png" alt="Eliminar" title="Eliminar proveedor" id="Eliminar">
+                    <img src="../../../../public/images/icons/Pencil--white.png" alt="Modificar" title="Modificar proveedor" id="Modificar">
                 </article>
             </section>
             <section class="Table--Container">
@@ -127,8 +127,44 @@
                     </tbody>
                 </table>
             </section>
-            
         </div>
+        <dialog id="dialog--1">
+            <span>X</span>
+            <h2>Agregar Proveedor</h2>
+            <form>
+                <div class="Input--Container">
+                    <div>
+                        <label for="Nombre--proveedor">Nombre del Proveedor</label>
+                        <input placeholder="Ingrese el nombre del proveedor" required id="Nombre--proveedor">
+                    </div>
+                    <div>
+                        <label for="Apellido--proveedor">Apellido del Proveedor</label>
+                        <input placeholder="Ingrese el apellido del proveedor" required id="Apellido--proveedor">
+                    </div>
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="RIF">RIF</label>
+                        <input placeholder="Ingrese el RIF del proveedor" required id="RIF">
+                    </div>
+                    <div>
+                        <label for="Bebida">Producto del Proveedor</label>
+                        <input placeholder="Ingrese el producto que vended el proveedor" required id="Bebida">
+                    </div>
+                </div>
+                <div class="Input--Container">
+                    <label for="Ubicación">Ubicación del Proveedor</label>
+                    <input placeholder="Ingrese la ubcación del proveedor" required id="Ubicación">
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label>Fecha de Entrega</label>
+                        <input type="date">
+                    </div>
+                </div>
+            </form>
+        </dialog>
     </main>
 </body>
+<script src="Proveedor.js"></script>
 </html>
