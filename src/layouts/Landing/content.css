@@ -412,6 +412,7 @@ footer section section div{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 10vmin;
 }
 
 #productSection li{
@@ -430,7 +431,7 @@ footer section section div{
 }
 
 #subtitle{
-    padding-left: 5vmin;
+    padding-left: 10vmin;
     font-weight: normal;
     color: var(--blue);
 }
