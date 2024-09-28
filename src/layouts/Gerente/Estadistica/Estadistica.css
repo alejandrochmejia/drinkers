@@ -76,7 +76,7 @@ main .Content .Table--Container .Table table{
 main .Content .Table--Container .Table table caption{
     border-bottom: none;
     border-radius: 5px;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 600;
     letter-spacing: 1px;
 }
@@ -93,7 +93,7 @@ main .Content .Table--Container .Table table tbody tr{
 }
 main .Content .Table--Container .Table table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
-    color: var(--HoverColor);
+    color: var(--PrimaryColor);
     cursor: pointer;
 }
 main .Content .Table--Container .Table table td{
@@ -187,7 +187,7 @@ main .Content .Coversiones .Productos--Populares table{
     overflow-y: auto;
 }
 main .Content .Coversiones .Productos--Populares table caption{
-    font-size: 1.5em;
+    font-size: 1.3em;
     letter-spacing: 1px;
     color: var(--SecondaryColor);
     font-weight: 600;

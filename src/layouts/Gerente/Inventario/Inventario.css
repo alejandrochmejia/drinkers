@@ -108,7 +108,7 @@ main .Table--inventario table caption {
     border-radius: 5px;
     padding: 8px;
     font-weight: 600;
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-transform: capitalize;
     letter-spacing: 1px;
   }
@@ -133,7 +133,7 @@ main .Table--inventario table tbody tr {
   
 main .Table--inventario table tbody tr:hover {
     background-color: var(--ColorNavigatorBar);
-  color: var(--HoverColor);
+  color: var(--PrimaryColor);
 }
 /*Ventana Modal*/
 dialog{
