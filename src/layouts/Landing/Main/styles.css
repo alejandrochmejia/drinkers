@@ -3,7 +3,7 @@
 #background-main{
     background-image: url(../../../../public/images/background/bg.png);
     width: 95dvw;
-    height: 100dvh;
+    height: 90dvh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,6 +12,7 @@
     justify-content: center;
     gap: 0;
     padding-left: 5dvw;
+    margin-bottom: 10vmin;
 }
 
 h1{
@@ -28,4 +29,8 @@ h1{
     width: 45%;
     font-weight: lighter;
     margin: 0;
+}
+
+#space{
+    height: 10vmin;
 }
