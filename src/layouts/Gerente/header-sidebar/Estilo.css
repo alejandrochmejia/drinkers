@@ -48,15 +48,17 @@ nav .List{
     justify-content: flex-start;
     gap: 25px;
 }
-nav .List  img{
+nav .List svg{
     border-radius: 40px;
     width: 50px;
-    outline: 2px solid var(--SecondaryColor);
+    background-color: var(--PrimaryColor);
+    fill: var(--SecondaryColor);
     outline-offset: 2px;
     padding: 3px 3px;
 }
-.List img:hover{
-    background-color: #000;
-    outline: 2px solid var(--PrimaryColor);
+.List svg:hover{
+    background-color: var(--HoverColor);
+    fill: var(--PrimaryColor);
+    outline: 2px solid var(--SecondaryColor);
     padding: 5px 5px;
 }
