@@ -91,3 +91,17 @@ export const update = (tabla, id, data) => {
     });
 };
 
+//Eliminar un registro
+export const deleteOne = (tabla, id) => {
+    return new Promise((resolve, reject) => {
+        const query = `DELETE FROM ${tabla} WHERE id = ${id}`;
+        dbconfig.query(query, (err, results) => {
+            if (err) {
+                console.error("Error deleting data: " + err.stack);
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+};

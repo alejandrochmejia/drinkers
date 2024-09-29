@@ -11,7 +11,9 @@ import {
     getAll,
     getOne,
     create,
-    exist
+    exist,
+    update,
+    deleteOne
 } from './src/database/querys.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -36,40 +38,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 //Rutas
+
+//METODOS GET
+
 app.get('/', async (req,res)=>{
     res.render('index');
-})
-
-app.post('/login', async (req,res)=>{
-    const {email, password} = req.body
-    const usuarios = await getAll('drinkers.usuario')
-    let ruta = ''
-    console.log(email)
-
-    for (const usuario of usuarios) {
-        if(usuario.email == email){
-            if(usuario.password == password){
-                ruta = '/admin/dashboard'
-            }else{
-                ruta = '/register'
-            }
-        }
-        else {
-            ruta = '/register'
-        }
-    }
-    res.send(JSON.stringify({ruta: ruta}))
-})
-
-app.post('/register', async (req,res)=>{
-    const {nombre, apellido, email, password} = req.body
-    const usuario = await exist('drinkers.usuario', 'email', email)
-    if(usuario){
-        res.send(JSON.stringify({ruta: '/register'}))
-    }else{
-        await create('drinkers.usuario', {nombre, apellido, email, password})
-        res.send(JSON.stringify({ruta: '/login'}))
-    }
 })
 
 app.get('/login',(req,res)=>{
@@ -111,3 +84,57 @@ app.get('/admin/avisos', async (req, res) => {
     res.render('admin/avisos', {avisos: await getAll('drinkers.avisos')});
 });
 
+//METODOS POST 
+
+app.post('/login', async (req,res)=>{
+    const {email, password} = req.body
+    const usuarios = await getAll('drinkers.usuario')
+    let ruta = ''
+    console.log(email)
+
+    for (const usuario of usuarios) {
+        if(usuario.email == email){
+            if(usuario.password == password){
+                ruta = '/admin/dashboard'
+            }else{
+                ruta = '/register'
+            }
+        }
+        else {
+            ruta = '/register'
+        }
+    }
+    res.send(JSON.stringify({ruta: ruta}))
+})
+
+app.post('/register', async (req,res)=>{
+    const {nombre, apellido, email, password} = req.body
+    const usuario = await exist('drinkers.usuario', 'email', email)
+    if(usuario){
+        res.send(JSON.stringify({ruta: '/register'}))
+    }else{
+        await create('drinkers.usuario', {nombre, apellido, email, password})
+        res.send(JSON.stringify({ruta: '/login'}))
+    }
+})
+
+app.post('/admin/inventario/crear', async (req, res) => {
+    //Falta Valores Respecto a la DB
+    //const {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock} = req.body
+    //await create('drinkers.inventario', {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock})
+    //res.send(JSON.stringify({ruta: '/admin/inventario'}))
+    console.log(req.body)
+})
+
+app.post('/admin/inventario/modificar', async (req, res) => {
+    //Falta Valores Respecto a la DB
+    //const {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock} = req.body
+    //await create('drinkers.inventario', {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock})
+    //res.send(JSON.stringify({ruta: '/admin/inventario'}))
+    console.log(req.body)
+})
+
+app.post('/admin/inventario/eliminar', async (req, res) => {
+    await update('drinkers.inventario', req.body.id, {status: 'inactive'})
+    res.send('Eliminado')
+})
