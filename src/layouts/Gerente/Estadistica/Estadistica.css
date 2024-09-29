@@ -13,11 +13,11 @@
 }
 main{
     position: absolute;
-    top: 105px;
+    top: 95px;
     left: 145px;
-    border: 1px solid #000;
+    box-shadow: 0 0 5px var(--ColorNavigatorBar);
     width: 85%;
-    height: 430px;
+    height: 450px;
     padding: 5px;
     display: flex;
     flex-flow: row wrap;
@@ -33,7 +33,6 @@ main .Content--table .Table--Container{
     flex-flow: column wrap;
     gap: 10px;
     padding: 10px;
-    border:1px solid #000;
     width: 390px;
     height: 395px;
 }
@@ -97,15 +96,14 @@ main .Content--table .Table--Container div table td{
     border-bottom: 1px solid #aaa;
 }
 main .Content--Container{
-    border: 1px solid #000;
     height: 410px;
     width: 620px;
     display: flex;
     flex-flow: row wrap;
-    padding: 10px;
+    gap: 5px;
+    
 }
 main .Content--Container .Conversiones--Grafica{
-    border: 1px solid #000;
     height: 335px;
     display: flex;
     flex-flow: column wrap;
@@ -119,7 +117,7 @@ main .Content--Container .Conversiones--Grafica article{
     border-radius: 15px;
 }
 main .Content--Container .Conversiones--Grafica article:nth-child(1){
-    border: 1px solid #000;
+    
     width: 260px;
     height: 140px;
     background-color: var(--SecondaryColor);
@@ -180,4 +178,82 @@ main .Content--Container .Conversiones--Grafica article:nth-child(2){
     width: 260px;
     height: 155px;
     background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
 }
+main .Content--Container .Table--Popular{
+    height: 335px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -5px;
+}
+.Table--Popular table{
+    border: 2px solid #aaa;
+    display: block;
+    text-align: center;
+    overflow-y: auto;
+    height: 300px;
+    border-spacing: 0;
+    padding: 5px;
+    border-radius: 15px;
+}
+.Table--Popular table caption{
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 5px;
+    text-wrap: nowrap;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 1px solid #aaa;
+}
+.Table--Popular table tr{
+    transition: .1s linear;
+}
+.Table--Popular table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
+    cursor: pointer;
+}
+.Table--Popular table tbody tr td{
+    padding: 5px 0;
+    font-size: 1.1em;
+    border-bottom: 1px solid #aaa;
+}
+main .Ventas{
+    border: 2px solid #000;
+    width: 540px;
+    position: relative;
+    left: 175px;
+    top: -90px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: var(--SecondaryColor);
+}
+main .Ventas article{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+}
+main .Ventas article div{
+    text-align: center;
+}
+main .Ventas article .Container--1 div{
+    border: 2px solid #000;
+    width: 250px;
+    padding: 10px;
+    margin: 3px;
+    font-size: 1.3em;
+    border-radius: 10px;
+    background-color: var(--PrimaryColor);
+}
+main .Ventas article .Container--2 div{
+    border: 2px solid #000;
+    width: 240px;
+    padding: 10px;
+    margin: 3px;
+    font-size: 1.3em;
+    border-radius: 10px;
+    background-color: var(--PrimaryColor);
+}
+
