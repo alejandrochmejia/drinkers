@@ -56,3 +56,39 @@ Eliminar.addEventListener('click',()=>{
         }
     })
 })
+
+let tipo = document.querySelector('select[name="tipo"]');
+
+tipo.addEventListener('change',()=>{
+    let tipoSeleccionado = tipo.value;
+    let tabla = document.querySelector('.Table--inventario table tbody');
+    let filas = tabla.querySelectorAll('tr');
+    filas.forEach((fila)=>{
+        let tipoFila = fila.children[2].textContent;
+        if(tipoSeleccionado === ''){
+            fila.style.display = 'table-row';
+        }else if(tipoFila === tipoSeleccionado){
+            fila.style.display = 'table-row';
+        }else{
+            fila.style.display = 'none';
+        }
+    })
+})
+
+let lupa = document.getElementById('Lupa');
+
+lupa.addEventListener('click',()=>{
+    let search = document.getElementById('Buscar').value;
+    let tabla = document.querySelector('.Table--inventario table tbody');
+    let filas = tabla.querySelectorAll('tr');
+    filas.forEach((fila)=>{
+        let nombre = fila.children[1].textContent;
+        if(search === ''){
+            fila.style.display = 'table-row';
+        }else if(nombre.includes(search)){
+            fila.style.display = 'table-row';
+        }else{
+            fila.style.display = 'none';
+        }
+    })
+})
