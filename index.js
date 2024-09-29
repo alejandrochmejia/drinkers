@@ -80,8 +80,10 @@ app.get('/register',(req,res)=>{
     res.render('auth/register');
 })
 
-app.get('/admin/dashboard', (req, res) => {
-    res.render('admin/dashboard');
+app.get('/admin/dashboard', async (req, res) => {
+    res.render('admin/dashboard', {
+        avisos: await getAll('drinkers.avisos')
+    });
 });
 
 app.get('/admin/inventario', async (req, res) => {

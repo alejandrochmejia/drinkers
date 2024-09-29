@@ -1,53 +1,45 @@
 let añadir = document.getElementById('Añadir');
-let modificar = document.getElementById('Modificar');
-let eliminar = document.getElementById('Eliminar');
-let modalAñadir = document.getElementById('dialog--1')
-let button = document.getElementById('submit')
-let eliminarProducto = document.getElementById('dialog--2')
-let buttonEliminar = document.getElementById('delete')
-let modificarproducto = document.getElementById('dialog--3')
-let buttonModificar = document.getElementById('modified')
-
+let modalAgregar = document.getElementById('dialog--1');
+let cerrar = document.getElementById('Cerrar');
+//Evento que abre la ventana modal
 añadir.addEventListener('click',()=>{
-    modalAñadir.showModal();
+    modalAgregar.showModal();
 })
-button.addEventListener('click',()=>{
-    modalAñadir.querySelector('form').addEventListener('submit', async(e)=>{
-        e.preventDefault()
-        console.log(modalAñadir.querySelector('form').elements)
+//Evento qeu cierra la ventana modal
+cerrar.addEventListener('click',()=>{
+    modalAgregar.close();
+})
+let modificar = document.getElementById('Modificar');
+let modalModificar = document.getElementById('dialog--2');
+let cerrarModificar = document.getElementById('Cerrar--ventana');
+//Evento que abre la ventana modal de eliminar producto del inventario
+modificar.addEventListener('click',()=>{
+    modalModificar.showModal();
+})
+//Evento que cierra la ventana modal de eliminar
+cerrarModificar.addEventListener('click',()=>{
+    modalModificar.close();
+})
 
-        const nombre = document.getElementById('NombreProducto').value
-        const descripcion = modalAñadir.querySelector('form').querySelector('select').value
-        const litros = document.querySelector('#Litros').value
-        
-        try {
-            const response = await fetch('/inventario/create', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            })
-            const data = await response.json()
-            location.href = data.ruta
-        } catch (error) {
-            console.log(error)
+// Evento para las tablas los cuales quede presionado
+let Eliminar = document.getElementById('Eliminar');
+let clickTabla = document.querySelectorAll('tr');
+
+clickTabla.forEach((fila)=>{
+    fila.addEventListener('click',()=>{
+        if(fila.classList.contains('presionado--bottom')){
+            fila.classList.remove('presionado--bottom');
+        }else{
+            fila.classList.add('presionado--bottom');
         }
     })
 })
-eliminar.addEventListener('click',()=>{
-    eliminarProducto.showModal();
-})
-buttonEliminar.addEventListener('click',()=>{
-    eliminarProducto.close();
+Eliminar.addEventListener('click',()=>{
+    clickTabla.forEach((fila)=>{
+        if(fila.classList.contains('presionado--bottom')){
+            fila.remove();
+        }
+    })
 })
 
-modificar.addEventListener('click',()=>{
-    modificarproducto.showModal();
-})
-buttonModificar.addEventListener('click',()=>{
-    modificarproducto.close();
-})
+    

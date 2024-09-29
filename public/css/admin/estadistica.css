@@ -13,260 +13,249 @@
 }
 main{
     position: absolute;
-    top: 75px;
+    top: 95px;
     left: 145px;
-    border: 2px solid #aaa;
+    box-shadow: 0 0 5px var(--ColorNavigatorBar);
     width: 85%;
-    height: 475px;
+    height: 450px;
     padding: 5px;
-    border-radius: 15px;
-}
-main .Content{
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
-    gap: 5px;
-    padding: 10px;
-    height: 445px;
+    align-items: center;
 }
-main .Content .Table--Container{
-    width: 540px;
+main .Content--table{
+    height: 415px;
     padding: 10px;
-    height: 250px;
+}
+main .Content--table .Table--Container{
     display: flex;
-    align-items:flex-start;
-    gap: 8px;
     flex-flow: column wrap;
+    gap: 10px;
+    padding: 10px;
+    width: 390px;
+    height: 395px;
 }
-main .Content .Table--Container .Input--Container{
-    padding: 5px;
+main .Content--table .Table--Container div{
     display: flex;
     justify-content: left;
     align-items: center;
+    
 }
-main .Content .Table--Container .Input--Container input{
-    padding: 4px 7px;
+main .Content--table .Table--Container div input{
+    padding: 4px 8px;
     width: 295px;
     font-size: 1.1em;
-    font-weight: 500;
-    border: 2px solid #aaa;
-    border-radius: 10px;
+    border-radius: 15px;
     outline: none;
+    border: 2px solid #aaa;
     transition: .1s linear;
 }
-main .Content .Table--Container .Input--Container img{
-    width: 26px;
+main .Content--table .Table--Container div input:hover{
+    border: 2px solid var(--SecondaryColor);
+}
+main .Content--table .Table--Container div input::placeholder{
+    color: var(--ColorNavigatorBar)
+}
+main .Content--table .Table--Container div label img{
+    width: 30px;
     position: relative;
-    left: -30px;
+    left: -35px;
+}
+main .Content--table .Table--Container div table{
+    border: 1px solid #aaa;
+    height: 325px;
+    display: block;
+    border-radius: 15px;
+    border-spacing: 0;
+    overflow-y: auto;
+    padding: 5px;
+}
+main .Content--table .Table--Container div table caption{
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #aaa;
+    font-weight: 600;
+}
+main .Content--table .Table--Container div table th{
+    padding: 2px 20px;
+    border-bottom: 1px solid #aaa;
+}
+main .Content--table .Table--Container div table tr{
+    transition: .1s linear;
+}
+main .Content--table .Table--Container div table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
     cursor: pointer;
 }
-main .Content .Table--Container .Table{
-    padding: 10px;
-    border-radius: 15px;
+main .Content--table .Table--Container div table td{
+    font-size: 1.1em;
+    text-align: center;
+    padding: 3px 10px;
+    border-bottom: 1px solid #aaa;
+}
+main .Content--Container{
+    height: 410px;
+    width: 620px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
     
 }
-main .Content .Table--Container .Table table{
-    border: 2px solid #aaa;
-    padding: 5px;
-    border-radius: 5px;
-    border-top: none;
-    border-collapse: collapse;
-}
-main .Content .Table--Container .Table table caption{
-    border: 2px solid #aaa;
-    border-bottom: none;
-    border-radius: 5px;
-    font-size: 1.5em;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-main .Content .Table--Container .Table table th{
-    padding: 4px 20px;
-    text-wrap: nowrap;
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-}
-main .Content .Table--Container .Table table tbody tr{
-    transition: .1s linear;
-}
-main .Content .Table--Container .Table table tbody tr:hover{
-    background-color: var(--ColorNavigatorBar);
-    color: var(--HoverColor);
-    cursor: pointer;
-}
-main .Content .Table--Container .Table table td{
-    text-align: center;
-    padding: 3px 0px;
-    font-weight: 500;
-    font-size: 1.1em;
-}
-main .Content .Coversiones{
-    padding: 10px;
+main .Content--Container .Conversiones--Grafica{
+    height: 335px;
     display: flex;
-    flex-direction: row;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
     gap: 10px;
-    height: 430px;
-    justify-content: center;
+    padding: 10px;
 }
-main .Content .Coversiones .Coversion--Container{
-    padding: 15px;
+main .Content--Container .Conversiones--Grafica article{
+    padding: 5px;
+    border-radius: 15px;
+}
+main .Content--Container .Conversiones--Grafica article:nth-child(1){
+    
+    width: 260px;
+    height: 140px;
     background-color: var(--SecondaryColor);
     color: var(--PrimaryColor);
-    width: 285px;
-    height: 140px;
-    border-radius: 25px;
-    
 }
-main .Content .Coversiones .Coversion--Container form{
-    height: 105px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 5px;
+main .Content--Container .Conversiones--Grafica h2{
+    padding-left: 5px;
+    font-size: 1.2em;
 }
-main .Content .Coversiones .Coversion--Container form div{
-    padding: 3px;
-    height: 30px;
-    border-radius: 25px;
-}
-main .Content .Coversiones .Coversion--Container form input{
-    width: 90px;
-    border: none;
-    border: 2px solid var(--ColorNavigatorBar);
+main .Content--Container .Conversiones--Grafica article div{
+    margin: 10px;
     text-align: center;
-    padding: 2px 5px;
-    font-size: 1.3em;
-    border-radius: 15px;
-    outline: none;
 }
-main .Content .Coversiones .Coversion--Container form input::placeholder{
+main .Content--Container .Conversiones--Grafica article div input{
+    text-align: center;
+    width: 70px;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 1.1em;
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid #aaa;
+    transition: .1s linear;
     color: var(--ColorNavigatorBar);
 }
-main .Content .Coversion--Container form span{
+main .Content--Container .Conversiones--Grafica article div input::placeholder{
+    color: var(--ColorNavigatorBar);
+}
+main .Content--Container .Conversiones--Grafica article div input:hover{
+    border: 2px solid var(--ColorNavigatorBar);
+}
+main .Content--Container .Conversiones--Grafica article div span{
     font-size: 1.3em;
-    position: relative;
-    top: 6px;
     color: #aaa;
-    left: 1px;
 }
-
-main .Content .Coversiones .Coversion--Container form .Dolar input{
-    width: 55px;
+main .Content--Container .Conversiones--Grafica article .Porcentaje{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 15px;
 }
-
-main .Content .Coversiones .Coversion--Container form .Porcentaje{
+main .Content--Container .Conversiones--Grafica article .Porcentaje p{
+    font-size: 1.1em;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.Porcentaje #Resultado{
+    width: 80px;
+    border: 1px solid #fff;
+    padding: 5px;
+    background-color: var(--PrimaryColor);
+    position: relative;
+    top: -4px;
+    border-radius: 15px;
+}
+main .Content--Container .Conversiones--Grafica article:nth-child(2){
+    border: 1px solid #aaa;
+    width: 260px;
+    height: 155px;
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
+}
+main .Content--Container .Table--Popular{
+    height: 335px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 40px;
-    left: -185px;
-    border: none;
+    top: -5px;
 }
-main .Content .Coversiones .Coversion--Container form .Porcentaje .Resultado{
-    position: relative;
-    left: 30px;
-    background-color: var(--PrimaryColor);
-    height: none;
-    width: 100px;
-    border-radius: 0;
-}
-main .Content .Coversiones .Coversion--Container .Container{
-    width: 285px;
-    position: relative;
-    left: -15px;
-    height: 140px;
-    margin-top: 10px;
-    border-radius: 25px;
-    background-color: var(--ColorNavigatorBar);
-}
-main .Content .Coversiones .Productos--Populares{
+.Table--Popular table{
     border: 2px solid #aaa;
-    border-radius: 15px;
-    padding: 20px;
-    width: 210px;
-    height: 285px;
-}
-main .Content .Coversiones .Productos--Populares table{
-    border: 2px solid #aaa;
-    padding: 20px;
-    border-radius: 5px;
+    display: block;
+    text-align: center;
+    overflow-y: auto;
+    height: 300px;
     border-spacing: 0;
+    padding: 5px;
+    border-radius: 15px;
 }
-main .Content .Coversiones .Productos--Populares table caption{
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    color: var(--SecondaryColor);
+.Table--Popular table caption{
+    font-size: 1.3em;
     font-weight: 600;
+    padding: 5px;
+    text-wrap: nowrap;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 1px solid #aaa;
 }
-main .Content .Coversiones .Productos--Populares table tr{
+.Table--Popular table tr{
     transition: .1s linear;
 }
-main .Content .Coversiones .Productos--Populares table tr:hover{
+.Table--Popular table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
-    color: var(--HoverColor);
-    font-weight: 500;
+    color: var(--PrimaryColor);
     cursor: pointer;
 }
-main .Content .Coversiones .Productos--Populares table tbody td{
-    padding: 5px;
+.Table--Popular table tbody tr td{
+    padding: 5px 0;
+    font-size: 1.1em;
     border-bottom: 1px solid #aaa;
-    text-align: left;
-    font-size: 1em;
-    font-weight: 600;
+}
+main .Ventas{
+    border: 2px solid #000;
+    width: 540px;
+    position: relative;
+    left: 175px;
+    top: -90px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: var(--SecondaryColor);
+}
+main .Ventas article{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+}
+main .Ventas article div{
+    text-align: center;
+}
+main .Ventas article .Container--1 div{
+    border: 2px solid #000;
+    width: 250px;
+    padding: 10px;
+    margin: 3px;
+    font-size: 1.3em;
+    border-radius: 10px;
+    background-color: var(--PrimaryColor);
+}
+main .Ventas article .Container--2 div{
+    border: 2px solid #000;
+    width: 240px;
+    padding: 10px;
+    margin: 3px;
+    font-size: 1.3em;
+    border-radius: 10px;
+    background-color: var(--PrimaryColor);
 }
 
-main .Content .Container--Ventas{
-    position: absolute;
-    top: 320px;
-    left: 520px;
-    width: 505px;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row wrap;
-    padding: 5px;
-    gap: 10px;
-    background-color: var(--SecondaryColor);
-    border-radius: 15px;
-}
-main .Content .Container--Ventas .Container--1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-    gap: 5px;
-    padding: 5px;
-}
-main .Content .Container--Ventas .Container--1 div{
-    border: 1px solid #000;
-    width: 230px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: var(--PrimaryColor);
-}
-main .Content .Container--Ventas .Container--2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-    gap: 5px;
-    padding: 5px;
-}
-main .Content .Container--Ventas .Container--2 div{
-    border: 1px solid #000;
-    width: 230px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: var(--PrimaryColor);
-}
-main .Content .Container--Ventas div span{
-    font-size: 1.3em;
-    color: var(--SecondaryColor);
-    letter-spacing: 1px;
-    font-weight: 500;
-}
+
+
