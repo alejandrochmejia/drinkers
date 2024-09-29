@@ -37,11 +37,13 @@
         </nav>
     </header>
     <main>
-        <div class="Content">
+        <div class="Content--table">
             <section class="Table--Container">
                 <div>
-                    <input type="text" placeholder="0000">
-                    <img src="../../../../public/images/icons/Search.png" alt="lupa">
+                    <input type="text" placeholder="0000" id="Search">
+                    <label for="Search">
+                        <img src="../../../../public/images/icons/Search.png" alt="lupa" id="Search">
+                    </label>
                 </div>
                 <div>
                     <table>
@@ -82,6 +84,25 @@
                         </tbody>
                     </table>
                 </div>
+            </section>
+        </div>
+        <div class="Content--Container">
+            <section class="Conversiones--Grafica">
+                <article>
+                    <h2>Conversion Monetaria</h2>
+                    <div>
+                        <input placeholder="$" id="Dolar">
+                        <span>=</span>
+                        <input placeholder="Bs" id="Bolivares">
+                    </div>
+                    <div class="Porcentaje">
+                        <p>Porcentaje de <br>ganancia</p>
+                        <div id="Resultado">Grafica</div>
+                    </div>
+                </article>
+                <article>
+                    <div class="Grafica">Grafica</div>
+                </article>
             </section>
         </div>
     </main>

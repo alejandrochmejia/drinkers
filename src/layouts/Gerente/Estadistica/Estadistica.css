@@ -19,14 +19,16 @@ main{
     width: 85%;
     height: 430px;
     padding: 5px;
-}
-main .Content{
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+main .Content--table{
     height: 415px;
     padding: 10px;
 }
-main .Content .Table--Container{
+main .Content--table .Table--Container{
     display: flex;
     flex-flow: column wrap;
     gap: 10px;
@@ -35,13 +37,13 @@ main .Content .Table--Container{
     width: 390px;
     height: 395px;
 }
-main .Content .Table--Container div{
+main .Content--table .Table--Container div{
     display: flex;
     justify-content: left;
     align-items: center;
     
 }
-main .Content .Table--Container div input{
+main .Content--table .Table--Container div input{
     padding: 4px 8px;
     width: 295px;
     font-size: 1.1em;
@@ -50,48 +52,132 @@ main .Content .Table--Container div input{
     border: 2px solid #aaa;
     transition: .1s linear;
 }
-main .Content .Table--Container div input:hover{
+main .Content--table .Table--Container div input:hover{
     border: 2px solid var(--SecondaryColor);
 }
-main .Content .Table--Container div input::placeholder{
+main .Content--table .Table--Container div input::placeholder{
     color: var(--ColorNavigatorBar)
 }
-main .Content .Table--Container div img{
+main .Content--table .Table--Container div label img{
     width: 30px;
     position: relative;
     left: -35px;
 }
-main .Content .Table--Container div table{
+main .Content--table .Table--Container div table{
     border: 1px solid #aaa;
-    height: 330px;
+    height: 325px;
     display: block;
     border-radius: 15px;
     border-spacing: 0;
     overflow-y: auto;
     padding: 5px;
 }
-main .Content .Table--Container div table caption{
+main .Content--table .Table--Container div table caption{
     font-size: 1.2em;
     letter-spacing: 1px;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
 }
-main .Content .Table--Container div table th{
+main .Content--table .Table--Container div table th{
     padding: 2px 20px;
     border-bottom: 1px solid #aaa;
 }
-main .Content .Table--Container div table tr{
+main .Content--table .Table--Container div table tr{
     transition: .1s linear;
 }
-main .Content .Table--Container div table tbody tr:hover{
+main .Content--table .Table--Container div table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
     color: var(--PrimaryColor);
     cursor: pointer;
 }
-main .Content .Table--Container div table td{
+main .Content--table .Table--Container div table td{
     font-size: 1.1em;
     text-align: center;
     padding: 3px 10px;
     border-bottom: 1px solid #aaa;
-
+}
+main .Content--Container{
+    border: 1px solid #000;
+    height: 410px;
+    width: 620px;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+}
+main .Content--Container .Conversiones--Grafica{
+    border: 1px solid #000;
+    height: 335px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+main .Content--Container .Conversiones--Grafica article{
+    padding: 5px;
+    border-radius: 15px;
+}
+main .Content--Container .Conversiones--Grafica article:nth-child(1){
+    border: 1px solid #000;
+    width: 260px;
+    height: 140px;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+}
+main .Content--Container .Conversiones--Grafica h2{
+    padding-left: 5px;
+    font-size: 1.2em;
+}
+main .Content--Container .Conversiones--Grafica article div{
+    margin: 10px;
+    text-align: center;
+}
+main .Content--Container .Conversiones--Grafica article div input{
+    text-align: center;
+    width: 70px;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 1.1em;
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid #aaa;
+    transition: .1s linear;
+    color: var(--ColorNavigatorBar);
+}
+main .Content--Container .Conversiones--Grafica article div input::placeholder{
+    color: var(--ColorNavigatorBar);
+}
+main .Content--Container .Conversiones--Grafica article div input:hover{
+    border: 2px solid var(--ColorNavigatorBar);
+}
+main .Content--Container .Conversiones--Grafica article div span{
+    font-size: 1.3em;
+    color: #aaa;
+}
+main .Content--Container .Conversiones--Grafica article .Porcentaje{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 15px;
+}
+main .Content--Container .Conversiones--Grafica article .Porcentaje p{
+    font-size: 1.1em;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.Porcentaje #Resultado{
+    width: 80px;
+    border: 1px solid #fff;
+    padding: 5px;
+    background-color: var(--PrimaryColor);
+    position: relative;
+    top: -4px;
+    border-radius: 15px;
+}
+main .Content--Container .Conversiones--Grafica article:nth-child(2){
+    border: 1px solid #aaa;
+    width: 260px;
+    height: 155px;
+    background-color: var(--ColorNavigatorBar);
 }
