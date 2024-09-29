@@ -11,3 +11,87 @@
     font-family: sans-serif;
     font-size: 14px;
 }
+main{
+    position: absolute;
+    top: 105px;
+    left: 145px;
+    border: 1px solid #000;
+    width: 85%;
+    height: 430px;
+    padding: 5px;
+}
+main .Content{
+    display: flex;
+    flex-flow: row wrap;
+    height: 415px;
+    padding: 10px;
+}
+main .Content .Table--Container{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+    padding: 10px;
+    border:1px solid #000;
+    width: 390px;
+    height: 395px;
+}
+main .Content .Table--Container div{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+}
+main .Content .Table--Container div input{
+    padding: 4px 8px;
+    width: 295px;
+    font-size: 1.1em;
+    border-radius: 15px;
+    outline: none;
+    border: 2px solid #aaa;
+    transition: .1s linear;
+}
+main .Content .Table--Container div input:hover{
+    border: 2px solid var(--SecondaryColor);
+}
+main .Content .Table--Container div input::placeholder{
+    color: var(--ColorNavigatorBar)
+}
+main .Content .Table--Container div img{
+    width: 30px;
+    position: relative;
+    left: -35px;
+}
+main .Content .Table--Container div table{
+    border: 1px solid #aaa;
+    height: 330px;
+    display: block;
+    border-radius: 15px;
+    border-spacing: 0;
+    overflow-y: auto;
+    padding: 5px;
+}
+main .Content .Table--Container div table caption{
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #aaa;
+    font-weight: 600;
+}
+main .Content .Table--Container div table th{
+    padding: 2px 20px;
+    border-bottom: 1px solid #aaa;
+}
+main .Content .Table--Container div table tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container div table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
+    cursor: pointer;
+}
+main .Content .Table--Container div table td{
+    font-size: 1.1em;
+    text-align: center;
+    padding: 3px 10px;
+    border-bottom: 1px solid #aaa;
+
+}
