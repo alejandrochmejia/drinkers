@@ -70,6 +70,16 @@ CREATE TABLE PROVEEDORES (
   fecha_entrega DATE NOT NULL
 );
 
+CREATE TABLE VENTAS (
+  id INT PRIMARY KEY,
+  id_producto INT NOT NULL,
+  id_user INT NOT NULL,
+  cantidad INT NOT NULL,
+  ingresos INT NOT NULL,
+  FOREIGN KEY (id_producto) REFERENCES INVENTARIO(id),
+  FOREIGN KEY (id_user) REFERENCES USUARIO(id)
+);
+
 INSERT INTO PROVEEDORES (id, nombre, direccion, telefono, rif, ubicacion, fecha_compra, fecha_entrega) VALUES
 (1, 'Proveedor 1', 'Dirección 1', 'Teléfono 1', 'RIF 1', 'Ubicación 1', '2023-01-01', '2023-01-02'),
 (2, 'Proveedor 2', 'Dirección 2', 'Teléfono 2', 'RIF 2', 'Ubicación 2', '2023-01-03', '2023-01-04'),
@@ -193,3 +203,13 @@ INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega) VALUES
 (8, 8, 'Avenida 246, Ciudad H', 8, 13000, '2023-05-10'),
 (9, 9, 'Plaza 357, Ciudad I', 9, 10000, '2023-05-11'),
 (10, 10, 'Calle 468, Ciudad J', 10, 14000, '2023-05-12');
+
+INSERT INTO VENTAS (id, id_producto, id_user, cantidad, ingresos) VALUES
+(1, 1, 1, 2, 20000),
+(2, 3, 2, 1, 12000),
+(3, 2, 3, 1, 15000),
+(4, 6, 4, 2, 30000),
+(5, 4, 5, 1, 15000),
+(6, 5, 6, 1, 10000),
+(7, 8, 7, 2, 25000),
+(8, 7, 8, 2, 20000);

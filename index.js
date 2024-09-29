@@ -91,11 +91,16 @@ app.get('/admin/inventario', async (req, res) => {
 });
 
 app.get('/admin/envios', async (req, res) => {
-    res.render('admin/envios');
+    res.render('admin/envios', {
+        envios: await getAll('drinkers.envios')
+    });
 });
 
 app.get('/admin/estadistica', async (req, res) => {
-    res.render('admin/estadistica');
+    res.render('admin/estadistica', {
+        ventas: await getAll('drinkers.ventas'),
+        inventario: await getAll('drinkers.inventario')
+    });
 });
 
 app.get('/admin/proveedor', async (req, res) => {
