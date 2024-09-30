@@ -158,3 +158,13 @@ app.post('/admin/inventario/eliminar', async (req, res) => {
     await update('drinkers.inventario', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
 })
+
+//Avisos
+
+app.post('/admin/avisos/create', async (req, res) => {
+    req.body.titulo = req.body.descripcion.split(' ')[0]
+    req.body.id = (await getAll('drinkers.avisos')).length + 1
+    console.log(req.body)
+    await create('drinkers.avisos', req.body);
+    res.redirect('/admin/avisos');
+});

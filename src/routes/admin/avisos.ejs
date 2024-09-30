@@ -12,16 +12,16 @@
     <main>
         <section class="Content">
             <article class="Reportes--Container">
-                <form class="aviso">
+                <form class="aviso" action="/admin/avisos/create" method="post">
                     <div class="Input--Container">
                         <span>Nuevo reporte</span>
                         <div class="Input">
-                            <input type="text" placeholder="Escribir el reporte" required>
+                            <input type="text" placeholder="Escribir el reporte" required name="descripcion">
                             <img src="/images/icons/Cancel.png" alt="icon">
                         </div>
                     </div>
                     <div class="Tipo--aviso">
-                        <select required>
+                        <select required name="tipo">
                             <option value="Envio">Envio</option>
                             <option value="Proveedor">Proveedor</option>
                             <option value="Personal">Personal</option>
@@ -29,7 +29,7 @@
                         </select>
                     </div>
                     <div class="Fecha--reporte">
-                        <input type="date" required>
+                        <input type="date" required name="fecha">
                     </div>
                     
                     <button value="Crear Aviso" type="submit">Crear Aviso</button>
@@ -58,5 +58,6 @@
             </article>
         </section>
     </main>
+    <script src="/js/admin/avisos.js"></script>
 </body>
 </html>
