@@ -16,8 +16,8 @@ header{
     align-items: center;
 }
 header .Content{
-    width: 350px;
-    height: 540px;
+    width: 460px;
+    height: 500px;
     padding: 10px;
     border: 2px solid #000;
     backdrop-filter: blur(20px);
