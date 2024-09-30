@@ -51,7 +51,7 @@ Eliminar.addEventListener('click',()=>{
                 body: JSON.stringify({id: fila.children[0].textContent})
             })
             .then(
-                window.location.reload()
+                window.location.href = '/admin/inventario'
             )
         }
     })

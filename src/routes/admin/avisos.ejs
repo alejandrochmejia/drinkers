@@ -50,7 +50,7 @@
                             <tr>
                                 <td><%= aviso.descripcion %></td>
                                 <td><%= aviso.tipo %></td>
-                                <td><%= aviso.fecha %></td>
+                                <td><%= aviso.fecha.toLocaleDateString() %></td>
                             </tr>
                         <% }); %>
                     </tbody>

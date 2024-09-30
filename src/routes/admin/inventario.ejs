@@ -25,16 +25,10 @@
                         <option value="Voodka">Vodka</option>
                         <option value="Cerveza">Cerveza</option>
                         <option value="Vulcana">Vulcana</option>
-                        <option value="Tequila">Tequila</option>
-                        <option value="Whisky">Whisky</option>
-                        <option value="Gin">Gin</option>
-                        <option value="Coctel">Coctel</option>
-                        <option value="Vodka">Vodka</option>
-                        <option value="Cerveza">Cerveza</option>
-                        <option value="Vulcana">Vulcana</option>
-                        <option value="Tequila">Tequila</option>
-                        <option value="Whisky">Whisky</option>
-                        <option value="Gin">Gin</option>
+                        <option value="Energetica">Energetica</option>
+                        <option value="Te">Te</option>
+                        <option value="Agua">Agua</option>
+                        <option value="Gaseosa">Gaseosa</option>
                     </select>
                 </div>
             </form>
@@ -57,86 +51,102 @@
                         <th>Imagen</th>
                         <th>Paquete</th>
                         <th>iva</th>
+                        <th>Descripción</th>
                         <th>Precio_detal</th>
                         <th>Precio_mayorista</th>
                         <th>stock</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(let i = 0; i < inventario.length; i++) { %>
-                        <% if(inventario[i].status == 'active') { %>
-                            <tr>
-                                <td><%= inventario[i].id %></td>
-                                <td><%= inventario[i].nombre_producto %></td>
-                                <td><%= inventario[i].tipo %></td>
-                                <td><%= inventario[i].litros %></td>
-                                <td><%= inventario[i].grados %></td>
-                                <td><%= inventario[i].imagen %></td>
-                                <td><%= inventario[i].paquete %></td>
-                                <td><%= inventario[i].iva %></td>
-                                <td><%= inventario[i].precio_detal %></td>
-                                <td><%= inventario[i].precio_mayorista %></td>
-                                <td><%= inventario[i].stock %></td>
-                            </tr>
-                        <% } %>
+                    <% inventario.forEach(producto => { %>
+                        <% if(producto.status === 'active'){ %>
+                        <tr>
+                            <td><%= producto.id %></td>
+                            <td><%= producto.nombre_producto %></td>
+                            <td><%= producto.tipo %></td>
+                            <td><%= producto.litros %></td>
+                            <td><%= producto.grados %></td>
+                            <td><%= producto.imagen %></td>
+                            <td><%= producto.paquete %></td>
+                            <td><%= producto.iva %></td>
+                            <td><%= producto.descripcion %></td>
+                            <td><%= producto.precio_detal %></td>
+                            <td><%= producto.precio_mayorista %></td>
+                            <td><%= producto.stock %></td>
+                        </tr>
                     <% } %>
+                    <% }); %>
                 </tbody>
             </table>
         </section>
         <dialog id="dialog--1">
             <span id="Cerrar">X</span>
             <h2>Agregar Producto</h2>
-            <form action="/admin/inventario/crear" method="POST">
+            <form action="/admin/inventario/create" method="POST">
                 <div class="input--Container">
                     <div class="Items">
                         <label for="NombreProducto">Nombre del Producto</label>
-                        <input name="NombreProducto" placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" required>
+                        <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" name="nombre_producto" required>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="Items">
-                        <select name="Tipo" required>
-                            <option value="">Bebida</option>
-                            <option value="">Alcoholica</option>
-                            <option value="">Energetica</option>
-                            <option value="">Te</option>
+                        <label for="tipo">Tipo de bebida</label>
+                        <select required name="tipo" id="tipo">
+                            <option value="">Seleccione un tipo</option>
+                            <option value="Ron">Ron</option>
+                            <option value="Vodka">Vodka</option>
+                            <option value="Cerveza">Cerveza</option>
+                            <option value="Vulcana">Vulcana</option>
+                            <option value="Energetica">Energética</option>
+                            <option value="Te">Té</option>
+                            <option value="Agua">Agua</option>
+                            <option value="Gaseosa">Gaseosa</option>
                         </select>
                     </div>
                     <div class="Items">
+                        <label for="Grados">Grados</label>
+                        <input placeholder="Grados del Producto" required type="text" id="Grados" name="grados">
+                    </div>
+                    <div class="Items">
                         <label for="Litros">Litros</label>
-                        <input name="Litros" placeholder="Ingreso los litros de la bebida" required type="text" id="Litros">
+                        <input placeholder="Ingreso los litros de la bebida" required type="text" id="Litros" name="litros">
                     </div>
                 </div>
                 <div class="input--Container">
                     <div>
                         <label for="Imagen">Imagen del producto</label>
-                        <input name="Imagen" type="file" id="Imagen"/>
+                        <input type="file" id="Imagen" name="imagen"/>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="item">
                         <label for="Paquetes">Paquetes</label>
-                        <input name="Paquetes" placeholder="Ingrese los paquetes" type="text" id="Paquetes" required>
+                        <input placeholder="Ingrese los paquetes" type="text" id="Paquetes" name="paquete" required>
                     </div>
                     <div class="item">
                         <label for="Iva">Iva</label>
-                        <input name="Iva" placeholder="Ingrese el iva del producto" type="text" id="Iva" required>
+                        <input placeholder="Ingrese el iva del producto" type="text" id="Iva" name="iva" required>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="item">
                         <label for="Precio--detal">Precio detal</label>
-                        <input name="PrecioDetal" placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal" required>
+                        <input placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal" name="precio_detal" required>
                     </div>
                     <div class="item">
                         <label for="Precio--mayorista">Precio mayorista</label>
-                        <input name="PrecioMayorista" placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista" required>
+                        <input placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista" name="precio_mayorista" required>
                     </div>
+                </div>
+                <div class="input--Container">
+                    <label for="Descripcion">Descripción</label>
+                    <textarea id="Descripcion" required cols="50" placeholder="Ingrese la Descripcion del Producto" name="descripcion"></textarea>
                 </div>
                 <div class="input--Container">
                     <div class="Items">
                         <label for="stock">Cantidad de stock</label>
-                        <input name="stock" placeholder="Ingrese la Cantidad de stock" type="text" id="stock" required>
+                        <input placeholder="Ingrese la Cantidad de stock" type="text" id="stock" name="stock" required>
                     </div>
                 </div>
                 <button type="submit" id="submit">Agregar</button>
@@ -149,62 +159,70 @@
                 <div class="input--Container">
                     <div>
                         <label for="Modificar--producto">Id</label>
-                        <input name="id" type="text" placeholder="Ingrese el id del producto Modificar" id="Modificar--producto" required>
+                        <input type="text" placeholder="Ingrese el id del producto Modificar" id="Modificar--producto" name="id" required>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="Items">
                         <label for="NombreProducto">Nombre del Producto</label>
-                        <input name="NombreProducto" placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" required>
+                        <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" name="nombre_producto" required>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="Items">
-                        <select name="Tipo" required>
-                            <option value="">Bebida</option>
-                            <option value="">Alcoholica</option>
-                            <option value="">Energetica</option>
-                            <option value="">Te</option>
+                        <select required name="tipo">
+                            <option value="Bebida">Bebida</option>
+                            <option value="Alcoholica">Alcoholica</option>
+                            <option value="Energetica">Energetica</option>
+                            <option value="Te">Te</option>
                         </select>
                     </div>
                     <div class="Items">
+                        <label for="Grados">Grados</label>
+                        <input placeholder="Grados del Producto" required type="text" id="Grados" name="grados">
+                    </div>
+                    <div class="Items">
                         <label for="Litros">Litros</label>
-                        <input name="Litros" placeholder="Ingreso los litros de la bebida" required type="text" id="Litros">
+                        <input placeholder="Ingreso los litros de la bebida" required type="text" id="Litros" name="litros">
                     </div>
                 </div>
                 <div class="input--Container">
                     <div>
                         <label for="Imagen">Imagen del producto</label>
-                        <input name="Imagen" type="file" id="Imagen"/>
+                        <input type="file" id="Imagen" name="imagen"/>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="item">
                         <label for="Paquetes">Paquetes</label>
-                        <input name="Paquetes" placeholder="Ingrese los paquetes" type="text" id="Paquetes" required>
+                        <input placeholder="Ingrese los paquetes" type="text" id="Paquetes" name="paquete" required>
                     </div>
                     <div class="item">
                         <label for="Iva">Iva</label>
-                        <input name="Iva" placeholder="Ingrese el iva del producto" type="text" id="Iva" required>
+                        <input placeholder="Ingrese el iva del producto" type="text" id="Iva" name="iva" required>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="item">
                         <label for="Precio--detal">Precio detal</label>
-                        <input name="PrecioDetal" placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal" required>
+                        <input placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal" name="precio_detal" required>
                     </div>
                     <div class="item">
                         <label for="Precio--mayorista">Precio mayorista</label>
-                        <input name="PrecioMayorista" placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista" required>
+                        <input placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista" name="precio_mayorista" required>
                     </div>
+                </div>
+                <div class="input--Container">
+                    <label for="Descripcion">Descripción</label>
+                    <textarea id="Descripcion" required cols="50" placeholder="Ingrese la Descripcion del Producto" name="descripcion"></textarea>
                 </div>
                 <div class="input--Container">
                     <div class="Items">
                         <label for="stock">Cantidad de stock</label>
-                        <input name="stock" placeholder="Ingrese la Cantidad de stock" type="text" id="stock" required>
+                        <input placeholder="Ingrese la Cantidad de stock" type="text" id="stock" name="stock" required>
                     </div>
                 </div>
-                <button type="submit" id="modified">Modificar</button>
+                <button type="submit" id="submit">Modificar</button>
             </form>
         </dialog>
     </main>

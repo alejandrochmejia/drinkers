@@ -118,20 +118,15 @@ app.post('/register', async (req,res)=>{
     }
 })
 
-app.post('/admin/inventario/crear', async (req, res) => {
-    //Falta Valores Respecto a la DB
-    //const {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock} = req.body
-    //await create('drinkers.inventario', {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock})
-    //res.send(JSON.stringify({ruta: '/admin/inventario'}))
-    console.log(req.body)
+app.post('/admin/inventario/create', async (req, res) => {
+    req.body.id = (await getAll('drinkers.inventario')).length + 1
+    await create('drinkers.inventario', req.body)
+    res.redirect('/admin/inventario')
 })
 
 app.post('/admin/inventario/modificar', async (req, res) => {
-    //Falta Valores Respecto a la DB
-    //const {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock} = req.body
-    //await create('drinkers.inventario', {NombreProducto, Descripcion, Grados, Imagen, Paquete, Iva, PrecioDetal, PrecioMayorista, Stock})
-    //res.send(JSON.stringify({ruta: '/admin/inventario'}))
-    console.log(req.body)
+    await update('drinkers.inventario', req.body.id, req.body)
+    res.redirect('/admin/inventario')
 })
 
 app.post('/admin/inventario/eliminar', async (req, res) => {
