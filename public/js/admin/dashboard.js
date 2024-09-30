@@ -1,12 +1,14 @@
+
 const ctx = document.getElementById('myChart');
+
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Producto 1', 'Producto 2', 'Producto 3', 'Producto 4', 'Producto 5'],
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Productos mas vendidos',
+        data: [12, 19, 3, 5, 2],
         borderWidth: 1
       }]
     },
@@ -18,3 +20,15 @@ const ctx = document.getElementById('myChart');
       }
     }
   });
+
+function actualizarHora() {
+  const horaActual = new Date();
+  const hora = horaActual.getHours();
+  const minutos = horaActual.getMinutes();
+  const segundos = horaActual.getSeconds();
+  const horaFormateada = `${hora}:${minutos}:${segundos}`;
+  document.querySelector('.Hora--avisos').textContent = horaFormateada;
+}
+
+setInterval(actualizarHora, 1000);
+actualizarHora();

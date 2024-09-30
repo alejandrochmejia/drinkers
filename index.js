@@ -69,7 +69,9 @@ app.get('/register',(req,res)=>{
 
 app.get('/admin/dashboard', async (req, res) => {
     res.render('admin/dashboard', {
-        avisos: await getAll('drinkers.avisos')
+        avisos: await getAll('drinkers.avisos'),
+        ventas: await getAll('drinkers.ventas'),
+        inventario: await getAll('drinkers.inventario')
     });
 });
 
@@ -168,3 +170,5 @@ app.post('/admin/avisos/create', async (req, res) => {
     await create('drinkers.avisos', req.body);
     res.redirect('/admin/avisos');
 });
+
+//Dashboard
