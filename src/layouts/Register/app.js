@@ -1,8 +1,10 @@
-let Nombre = document.getElementById('Nombre');
-let Apellido = document.getElementById('Apellido');
+let Nombre = document.getElementById('Nombre--persona');
+let Apellido = document.getElementById('Apellido--persona');
+let nacimiento = document.getElementById('Fecha--nacimiento');
 let email = document.getElementById('Correo');
 let contraseña = document.getElementById('Password');
-const Button = document.getElementsByClassName('Submit--From')[0];
+let user = document.getElementById('Username');
+const Button = document.getElementById('Cuenta');
 
 // Funcion que valida el correo
 function IsvalidEmail(Email) {
@@ -30,9 +32,11 @@ contraseña.addEventListener('input',()=>{
 
 Button.addEventListener('click', (e)=>{
     e.preventDefault()
-    if (Nombre.value == 0 && Apellido.value == 0 && email.value == 0 && contraseña.value == 0) {
-        alert("Tienque llenar todos los campos para poder crear la cuenta")
-    } else {
+    if (Nombre.value == 0 && Apellido.value == 0 && email.value == 0 && contraseña.value == 0 && nacimiento.value == 0 && user.value == 0) {
+        alert("Todos los campos esta vacios para hacer la cuenta rellene los campos")
+    } else if(Nombre.value == 0 || Apellido.value == 0 || email.value == 0 || contraseña.value == 0 || nacimiento.value == 0 || user.value == 0){
+        alert("Alguns campos no esta completos por favor complete los campos faltantes")
+    }else {
         alert("Se ha creado la cuenta")
         window.location.href = "../Login/index.html"
     }
