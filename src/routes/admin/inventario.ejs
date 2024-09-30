@@ -82,7 +82,7 @@
         <dialog id="dialog--1">
             <span id="Cerrar">X</span>
             <h2>Agregar Producto</h2>
-            <form action="/admin/inventario/create" method="POST">
+            <form action="/admin/inventario/create" method="POST" enctype="multipart/form-data">
                 <div class="input--Container">
                     <div class="Items">
                         <label for="NombreProducto">Nombre del Producto</label>
@@ -116,7 +116,7 @@
                 <div class="input--Container">
                     <div>
                         <label for="Imagen">Imagen del producto</label>
-                        <input type="file" id="Imagen" name="imagen"/>
+                        <input type="file" id="Imagen" name="imagen" accept="image/*"/>
                     </div>
                 </div>
                 <div class="input--Container">

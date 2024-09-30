@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
+import multer from 'multer';
+import path from 'path';
 
 import {methods as authorization} from './src/middleware/authorization.js'
 //Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
@@ -17,6 +19,16 @@ import {
 } from './src/database/querys.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, resolve(__dirname, './public/images/Licores/'))
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+const upload = multer({ storage: storage });
 
 dotenv.config()
 
@@ -39,7 +51,9 @@ app.use(express.urlencoded({ extended: true }))
 
 //Rutas
 
-//METODOS GET
+//////////////////
+// METODOS GET //
+//////////////////
 
 app.get('/', async (req,res)=>{
     res.render('index');
@@ -84,8 +98,11 @@ app.get('/admin/avisos', async (req, res) => {
     res.render('admin/avisos', {avisos: await getAll('drinkers.avisos')});
 });
 
-//METODOS POST 
+//////////////////
+// METODOS POST //
+//////////////////
 
+//Autenticacion
 app.post('/login', async (req,res)=>{
     const {email, password} = req.body
     const usuarios = await getAll('drinkers.usuario')
@@ -118,13 +135,21 @@ app.post('/register', async (req,res)=>{
     }
 })
 
-app.post('/admin/inventario/create', async (req, res) => {
-    req.body.id = (await getAll('drinkers.inventario')).length + 1
-    await create('drinkers.inventario', req.body)
-    res.redirect('/admin/inventario')
-})
+//Inventario
 
-app.post('/admin/inventario/modificar', async (req, res) => {
+app.post('/admin/inventario/create', upload.single('imagen'), async (req, res) => {
+    req.body.id = (await getAll('drinkers.inventario')).length + 1
+    if (req.file) {
+        req.body.imagen = '/images/Licores/' + req.file.filename;
+    }
+    await create('drinkers.inventario', req.body);
+    res.redirect('/admin/inventario');
+});
+
+app.post('/admin/inventario/modificar', upload.single('imagen'), async (req, res) => {
+    if (req.file) {
+        req.body.imagen = '/images/Licores/' + req.file.filename;
+    }
     await update('drinkers.inventario', req.body.id, req.body)
     res.redirect('/admin/inventario')
 })
