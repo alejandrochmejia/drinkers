@@ -85,6 +85,18 @@ app.get('/admin/envios', async (req, res) => {
     });
 });
 
+app.get('/admin/envios/minorista', async (req, res) => {
+    res.render('admin/minorista', {
+        envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
+    });
+});
+
+app.get('/admin/envios/mayorista', async (req, res) => {
+    res.render('admin/mayorista', {
+        envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
+    });
+});
+
 app.get('/admin/estadistica', async (req, res) => {
     res.render('admin/estadistica', {
         ventas: await getAll(process.env.MYSQL_DATABASE+'.ventas'),
@@ -173,10 +185,10 @@ app.post('/admin/avisos/create', async (req, res) => {
 
 //Dashboard
 
-app.get('/admin/dashboard/ventas', async (req, res) => {
+app.post('/admin/dashboard/ventas', async (req, res) => {
     res.send(await getAll(process.env.MYSQL_DATABASE+'.ventas'));
 });
 
-app.get('/admin/dashboard/inventario', async (req, res) => {
+app.post('/admin/dashboard/inventario', async (req, res) => {
     res.send(await getAll(process.env.MYSQL_DATABASE+'.inventario'));
 });
