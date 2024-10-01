@@ -96,10 +96,11 @@ main .Avisos--panel  table tr{
     letter-spacing: 1.5px;
 }
 main .Avisos--panel  table td{
-    font-size: 0.9em;
+    font-size: 1.1em;
     border-bottom: 1px solid #aaa;
     padding: 9px 20px;
     letter-spacing: 1px;
+    text-align: center;
 }
 main .Content{
     display: flex;
