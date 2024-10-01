@@ -1,0 +1,29 @@
+nav .Navigator--bar{
+    width: 6%;
+    height: 88.6vh;
+    background-color: var(--ColorNavigatorBar);
+    padding: 12px;
+}
+nav .List{
+    padding: 12px;
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 25px;
+}
+nav .List svg{
+    border-radius: 40px;
+    width: 50px;
+    background-color: var(--PrimaryColor);
+    fill: var(--SecondaryColor);
+    outline-offset: 2px;
+    padding: 3px 3px;
+}
+.List svg:hover{
+    background-color: var(--ColorNavigatorBar);
+    fill: var(--PrimaryColor);
+    outline: 2px solid var(--PrimaryColor);
+    padding: 5px 5px;
+}

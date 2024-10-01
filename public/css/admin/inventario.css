@@ -115,14 +115,14 @@ main .Table--inventario table caption {
   }
   
 main .Table--inventario table th {
-    padding: 10px 5px;
+    padding: 5px 5px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
 }
   
 main .Table--inventario table td {
-    padding: 10px 0px;
+    padding: 2px 3px;
     text-align: center;
     font-weight: 500;
     font-size: 1.1em;
