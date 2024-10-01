@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drinkers || Gerente</title>
     <link rel="stylesheet" href="/css/admin/minorista.css">
-    <link rel="stylesheet" href="../../../public/css/admin/header.css">
 </head>
 <body>
     <%- include('../partials/header'); %>
@@ -13,9 +12,9 @@
     <main>
         <section class="Content--page">
             <article class="input--Container">
-                <input type="search" placeholder="00000" id="Lupa">
+                <input type="search" placeholder="Destino" id="Destino">
                 <label for="Lupa">
-                    <img alt="Lupa" src="../../../../../public/images/icons/search.png" id="Lupa">
+                    <img alt="Lupa" src="/images/icons/search.png" id="Lupa">
                 </label>
             </article>
             <article class="Minorista--Mayorista">
@@ -33,8 +32,8 @@
                     <th>Id</th>
                     <th>Id__usuario</th>
                     <th>Destino</th>
-                    <th>Fecha de entrega</th>
                     <th>Monto</th>
+                    <th>Fecha de entrega</th>
                     <th>Id__factura</th>
                     <th>Status</th>
                 </tr>
@@ -46,8 +45,8 @@
                             <td><%= envios[i].id %></td>
                             <td><%= envios[i].id_user %></td>
                             <td><%= envios[i].destino %></td>
-                            <td><%= envios[i].entrega.toLocaleDateString() %></td>
                             <td><%= envios[i].monto %> $</td>
+                            <td><%= envios[i].entrega.toLocaleDateString() %></td>
                             <td><%= envios[i].id_factura %></td>
                             <td><%= envios[i].status %></td>
                             </tr>
