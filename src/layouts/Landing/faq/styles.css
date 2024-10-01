@@ -15,6 +15,7 @@ details{
 
 summary{
     padding: 1vmin;
+    cursor: pointer;
 }
 
 details[open] summary{
