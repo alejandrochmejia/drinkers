@@ -110,7 +110,7 @@ main .Content .Table--Container .Input--Container input{
     width: 300px;
     border: 2px solid #aaa;
     outline: none;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 main .Content .Table--Container .Input--Container img{
     width: 25px;

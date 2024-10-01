@@ -45,7 +45,7 @@ main .Content .Inputs--seleccionados .Input--Container input{
     padding: 5px 10px;
     border: 2px solid #aaa;
     outline: none;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1.1em;
 }
 main .Content .Inputs--seleccionados .Input--Container img{
@@ -60,7 +60,7 @@ main .Content .Inputs--seleccionados .Input--Container select{
     padding: 5px 10px;
     border: 2px solid #aaa;
     outline: none;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1.1em;
 }
 main .Content .icon{
