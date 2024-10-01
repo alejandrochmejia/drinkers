@@ -48,6 +48,8 @@ CREATE TABLE ENVIOS (
   id_factura INT NOT NULL,
   monto INT NOT NULL,
   entrega DATE NOT NULL,
+  tipo VARCHAR(255) NOT NULL DEFAULT 'minorista',
+  status VARCHAR(255) NOT NULL DEFAULT 'pending',
   FOREIGN KEY (id_user) REFERENCES USUARIO(id),
   FOREIGN KEY (id_factura) REFERENCES FACTURA(id)
 );
@@ -193,17 +195,17 @@ INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
 (10, 9, 1),
 (10, 10, 1);
 -- Insertar datos en la tabla ENVIOS
-INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega) VALUES
-(1, 1, 'Calle 123, Ciudad A', 1, 10000, '2023-05-03'),
-(2, 2, 'Avenida 456, Ciudad B', 2, 8000, '2023-05-04'),
-(3, 3, 'Plaza 789, Ciudad C', 3, 12000, '2023-05-05'),
-(4, 4, 'Calle 321, Ciudad D', 4, 15000, '2023-05-06'),
-(5, 5, 'Avenida 654, Ciudad E', 5, 9000, '2023-05-07'),
-(6, 6, 'Plaza 987, Ciudad F', 6, 11000, '2023-05-08'),
-(7, 7, 'Calle 135, Ciudad G', 7, 7000, '2023-05-09'),
-(8, 8, 'Avenida 246, Ciudad H', 8, 13000, '2023-05-10'),
-(9, 9, 'Plaza 357, Ciudad I', 9, 10000, '2023-05-11'),
-(10, 10, 'Calle 468, Ciudad J', 10, 14000, '2023-05-12');
+INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega, status, tipo) VALUES
+(1, 1, 'Calle 123, Ciudad A', 1, 10000, '2023-05-03', 'pending', 'minorista'),
+(2, 2, 'Avenida 456, Ciudad B', 2, 8000, '2023-05-04', 'pending', 'minorista'),
+(3, 3, 'Plaza 789, Ciudad C', 3, 12000, '2023-05-05', 'pending', 'minorista'),
+(4, 4, 'Calle 321, Ciudad D', 4, 15000, '2023-05-06', 'completado', 'mayorista'  ),
+(5, 5, 'Avenida 654, Ciudad E', 5, 9000, '2023-05-07', 'completado', 'minorista'),
+(6, 6, 'Plaza 987, Ciudad F', 6, 11000, '2023-05-08', 'completado', 'minorista'),
+(7, 7, 'Calle 135, Ciudad G', 7, 7000, '2023-05-09', 'pending', 'minorista'),
+(8, 8, 'Avenida 246, Ciudad H', 8, 13000, '2023-05-10', 'completado', 'minorista'),
+(9, 9, 'Plaza 357, Ciudad I', 9, 10000, '2023-05-11', 'completado', 'minorista'),
+(10, 10, 'Calle 468, Ciudad J', 10, 14000, '2023-05-12', 'completado', 'minorista');
 
 INSERT INTO VENTAS (id, id_producto, id_user, cantidad, ingresos) VALUES
 (1, 1, 1, 2, 20000),
