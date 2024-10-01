@@ -1,0 +1,135 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+main{
+    width: 85%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #000;
+    position: absolute;
+    top: 125px;
+    left: 145px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+main .Content--page{
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+main .Content--page .input--Container{
+    display: flex;
+    align-items: center;
+    
+}
+main .Content--page .input--Container input{
+    width: 280px;
+    padding: 7px 10px;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid #aaa;
+    outline: none;
+}
+main .Content--page .input--Container img{
+    width: 30px;
+    position: relative;
+    left: -45px;
+    cursor: pointer;
+}
+main .Content--page .Minorista--Mayorista{
+    display: flex;
+    justify-content: center;
+    border: 2px solid #000;
+    width: 190px;
+    border-radius: 15px;
+}
+main .Content--page .Minorista--Mayorista a{
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    padding: 5px;
+    color: var(--ColorNavigatorBar);
+    font-weight: 700;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+main .Content--page .Minorista--Mayorista a:hover{
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+}
+main .Content--page .Minorista--Mayorista div{
+    border: 1px solid #000;
+    width: 100px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+}
+main .Content--page .Minorista--Mayorista span{
+    text-decoration: none;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    font-weight: 700;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: background-color 0.5s 0.1s;
+}
+main .Table--Container{
+    margin-top: 5px;
+    padding: 10px;
+}
+main .Table--Container table{
+    border: 2px solid #aaa;
+    border-radius: 15px;
+    padding: 5px;
+    height: 250px;
+    border-spacing: 0;
+    display: block;
+    overflow-y: auto;
+}
+main .Table--Container table caption{
+    border-radius: 5px;
+    border-bottom: none;
+    padding: 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+main .Table--Container th{
+    padding: 5px 25px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+main .Table--Container td{
+    text-align: center;
+    padding: 5px 15px;
+    font-size: 1.1em;
+}
+main .Table--Container tbody tr{
+    transition: .1s linear;
+}
+main .Table--Container tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
+}

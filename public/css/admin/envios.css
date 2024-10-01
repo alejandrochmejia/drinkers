@@ -1,0 +1,72 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+main{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 145px;
+    left: 140px;
+    flex-flow: row wrap;
+    height: 300px;
+    width: 85%
+}
+main .Content{
+    width: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+main .Content .Content--Container{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    width: 650px;
+    height: 250px;
+    gap: 20px;
+}
+main .Content .Content a{
+    text-decoration: none;
+}
+main .Content .Content--Container  article{
+    border: 1px solid #000;
+    width: 550px;
+    padding: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 25px;
+    color: var(--SecondaryColor);
+    background-color: var(--PrimaryColor);
+    box-shadow: 2px 2px 5px var(--ColorNavigatorBar);
+    cursor: pointer;
+    transition: .1s linear;
+}
+main .Content .Content--Container article:hover {
+    color: var(--PrimaryColor);
+    background-color: var(--ColorNavigatorBar);
+}
+main .Content .Content--Container article:hover svg{
+    fill: var(--PrimaryColor);
+}
+main .Content .Content--Container article h3{
+    font-size: 2em;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+main .Content .Content--Container article svg{
+    fill: var(--SecondaryColor);
+}
