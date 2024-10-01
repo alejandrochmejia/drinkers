@@ -1,0 +1,32 @@
+*{box-sizing: border-box;}
+
+.principal-container{
+    width: 100dvw;
+    height: 90dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 5vmin;
+}
+
+.image-container{
+    position: relative;
+    width: 33dvw;
+    height: 33dvw;
+    z-index: -10;
+    left: 2%;
+    padding-top: 6vmin;
+}
+
+.info-container{
+    border-left: solid 1px #B1CEF4;
+    width: 60dvw;
+    height: 33dvw;
+    padding-left: 3vmin;
+}
+
+#example-liquor{
+    height: 100%;
+    width: 100%;
+}
