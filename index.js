@@ -71,7 +71,8 @@ app.get('/admin/dashboard', async (req, res) => {
     res.render('admin/dashboard', {
         avisos: await getAll(process.env.MYSQL_DATABASE+'.avisos'),
         ventas: await getAll(process.env.MYSQL_DATABASE+'.ventas'),
-        inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario')
+        inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
+        envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
     });
 });
 

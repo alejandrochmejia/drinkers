@@ -67,13 +67,13 @@
                     <div class="Container--1">
                         <article class="Solicitudes--container">
                             <span>
-                                100
+                                <%= envios.length %>
                                 <div class="Title">Solicitudes</div>
                             </span>
                         </article>
                         <article class="Procesados--Container">
                             <span>
-                                100
+                                <%= envios.filter(envio => envio.status === 'pending').length %>
                                 <div class="Title">Procesados</div>
                             </span>
                         </article>
@@ -88,13 +88,13 @@
                     <div class="Container--2">
                         <articl class="Via--container">
                             <span>
-                                100
+                                <%= envios.filter(envio => envio.status === 'pending').length %>
                                 <div class="Title">En via</div>
                             </span>
                         </articl>
                         <article class="Completados--Container">
                             <span>
-                                100
+                                <%= envios.filter(envio => envio.status === 'completado').length %>
                                 <div class="Title">Completados</div>
                             </span>
                         </article>

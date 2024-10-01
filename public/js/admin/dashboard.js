@@ -1,23 +1,3 @@
-
-let inventario = []
-let ventas = []
-
-async function actualizarVentas() {
-  const response = await fetch('/admin/dashboard/ventas');
-  const inventarioResponse = await fetch('/admin/dashboard/inventario');
-  const data = await response.json();
-  const inventarioData = await inventarioResponse.json();
-  console.log(data);
-  console.log(inventarioData);
-  inventario = inventarioData
-  ventas = data
-}
-
-actualizarVentas()
-
-console.log(inventario)
-console.log(ventas)
-
 const ctx = document.getElementById('myChart');
   new Chart(ctx, {
     type: 'bar',
@@ -25,7 +5,7 @@ const ctx = document.getElementById('myChart');
       labels: ['Producto 1', 'Producto 2', 'Producto 3', 'Producto 4', 'Producto 5'],
       datasets: [{
         label: 'Productos mas vendidos',
-        data: [12, 19, 3, 5, 2],
+        data: [1, 2, 3, 4, 5],
         borderWidth: 1
       }]
     },
