@@ -24,9 +24,17 @@
     width: 60dvw;
     height: 33dvw;
     padding-left: 3vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #example-liquor{
     height: 100%;
     width: 100%;
+}
+
+#price{
+    font-weight: bolder;
+    font-size: larger;
 }
