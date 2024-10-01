@@ -426,6 +426,7 @@ footer section section div{
     width: 100%;
     flex-wrap: wrap;
     padding: 0;
+    row-gap: 3vmin;
 }
 
 .productSection li{
