@@ -348,17 +348,27 @@ footer ul{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2.5vmin;
-    justify-content: center;
+    justify-content: space-around;
     padding: 0;
+    font-size: 1.5vmin;
+    row-gap: 5vmin;
 }
 
 footer ul li{
-    cursor: pointer;
+    text-align: center;
 }
 
-footer ul li:hover{
+footer ul li:nth-child(-n+4){
+    flex: 1 1 24%;
+}
+
+footer ul li:nth-child(n+5){
+    flex: 1 1 16.6%;
+}
+
+footer ul li:nth-child(n+5):hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 
 footer section {
