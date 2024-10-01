@@ -87,7 +87,7 @@ main .Table--inventario {
     display: flex;
     justify-content: center;
     position: relative;
-    left: -20px;
+    left: -10px;
     margin-top: 10px;
     padding: 10px;
     width: 100%;
@@ -115,7 +115,7 @@ main .Table--inventario table caption {
   }
   
 main .Table--inventario table th {
-    padding: 5px 5px;
+    padding: 5px 2px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
@@ -124,8 +124,9 @@ main .Table--inventario table th {
 main .Table--inventario table td {
     padding: 2px 3px;
     text-align: center;
+    word-wrap: break-word;
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: 1em;
 }
   
 main .Table--inventario table tbody tr {
