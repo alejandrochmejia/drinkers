@@ -35,7 +35,7 @@ main .Content .Content--Container{
     align-items: center;
     width: 650px;
     height: 250px;
-    gap: 20px;
+    gap: 30px;
 }
 main .Content .Content--Container article{
     border: 1px solid #000;

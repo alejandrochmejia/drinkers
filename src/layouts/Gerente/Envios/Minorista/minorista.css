@@ -42,7 +42,7 @@ main .Content--page .input--Container input{
     padding: 7px 10px;
     font-size: 1.1em;
     font-weight: 500;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 2px solid #aaa;
     outline: none;
 }
