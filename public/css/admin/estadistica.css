@@ -257,5 +257,6 @@ main .Ventas article .Container--2 div{
     background-color: var(--PrimaryColor);
 }
 
-
-
+#myChart{
+    background-color: var(--PrimaryColor);
+}
