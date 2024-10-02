@@ -1,15 +1,13 @@
 const ctx = document.getElementById('myChart');
 
-let etiq = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 const grafica = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: etiq,
+        labels: [],
   datasets: [{
-    label: 'Productos mas vendidos',
-    data: data,
+    label: 'Productos mas vendidos ($)',
+    data: [],
     borderWidth: 1
   }]
 },
@@ -18,7 +16,8 @@ options: {
     y: {
       beginAtZero: true
     }
-  }
+  },
+  indexAxis: 'y'
 }
 });
 
