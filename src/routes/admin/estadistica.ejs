@@ -61,21 +61,12 @@
                 <table>
                     <caption>Productos Populares</caption>
                     <tbody>
-                        <tr>
-                            <td>Ron</td>
-                        </tr>
-                        <tr>
-                            <td>Vulcana</td>
-                        </tr>
-                        <tr>
-                            <td>Voodka</td>
-                        </tr>
-                        <tr>
-                            <td>Blue Label</td>
-                        </tr>
-                        <tr>
-                            <td>Black Label</td>
-                        </tr>
+                        <% vendidos.forEach(producto => { %>
+                            <tr>
+                                <td><%= producto.nombre %></td>
+                                <td><%= producto.ingresos %></td>
+                            </tr>
+                        <% }); %>
                     </tbody>
                 </table>
             </section>

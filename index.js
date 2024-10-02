@@ -99,9 +99,29 @@ app.get('/admin/envios/mayorista', async (req, res) => {
 });
 
 app.get('/admin/estadistica', async (req, res) => {
+
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
+  
+    const inventario = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+
+    let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
+  
+    productosVentas.sort((a, b) => b.ingresos - a.ingresos);
+  
+    let top5ProductosVentas = productosVentas.slice(0, 5);
+  
+    let top5ProductosConNombres = top5ProductosVentas.map(pv => {
+      let producto = inventario.find(p => p.id == pv.id);
+      return {
+        nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
+        ingresos: pv.ingresos
+      };
+    });
+
     res.render('admin/estadistica', {
         ventas: await getAll(process.env.MYSQL_DATABASE+'.ventas'),
-        inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario')
+        inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
+        vendidos: top5ProductosConNombres
     });
 });
 
@@ -111,6 +131,30 @@ app.get('/admin/proveedor', async (req, res) => {
 
 app.get('/admin/avisos', async (req, res) => {
     res.render('admin/avisos', {avisos: await getAll(process.env.MYSQL_DATABASE+'.avisos')});
+});
+
+//Obtener los 5 productos mas vendidos
+app.get('/api/productos/vendidos', async (req, res) => {
+
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
+  
+    const inventario = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+
+    let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
+  
+    productosVentas.sort((a, b) => b.ingresos - a.ingresos);
+  
+    let top5ProductosVentas = productosVentas.slice(0, 5);
+  
+    let top5ProductosConNombres = top5ProductosVentas.map(pv => {
+      let producto = inventario.find(p => p.id == pv.id);
+      return {
+        nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
+        ingresos: pv.ingresos
+      };
+    });
+  
+    res.send(top5ProductosConNombres);
 });
 
 //////////////////

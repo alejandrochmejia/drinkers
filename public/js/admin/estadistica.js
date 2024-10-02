@@ -13,3 +13,18 @@ document.querySelector('#Bolivares').oninput = async () => {
 
     document.querySelector('#Dolar').value = (document.querySelector('#Bolivares').value / dolar).toFixed(2)
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const response = await fetch('/api/productos/vendidos', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const data = await response.json()
+
+    console.log(data)
+
+    
+    
+})

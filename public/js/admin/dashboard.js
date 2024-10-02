@@ -23,39 +23,16 @@ options: {
 
 document.addEventListener('DOMContentLoaded', async () => {
 
-  const data = await fetch('/admin/dashboard/ventas', {
-    method: 'POST',
+  const data = await fetch('/api/productos/vendidos', {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
   })
   const dataJson = await data.json()
 
-  const inventario = await fetch('/admin/dashboard/inventario', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  const inventarioJson = await inventario.json()
-
-
-  let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
-
-  productosVentas.sort((a, b) => b.ingresos - a.ingresos);
-
-  let top5ProductosVentas = productosVentas.slice(0, 5);
-
-  let top5ProductosConNombres = top5ProductosVentas.map(pv => {
-    let producto = inventarioJson.find(p => p.id == pv.id);
-    return {
-      nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
-      ingresos: pv.ingresos
-    };
-  });
-
-  grafica.data.labels = top5ProductosConNombres.map(p => p.nombre);
-  grafica.data.datasets[0].data = top5ProductosConNombres.map(p => p.ingresos);
+  grafica.data.labels = dataJson.map(p => p.nombre);
+  grafica.data.datasets[0].data = dataJson.map(p => p.ingresos);
 
   grafica.update();
 
