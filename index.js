@@ -237,3 +237,21 @@ app.post('/admin/dashboard/ventas', async (req, res) => {
 app.post('/admin/dashboard/inventario', async (req, res) => {
     res.send(await getAll(process.env.MYSQL_DATABASE+'.inventario'));
 });
+
+app.post('/admin/proveedor/create', async (req, res) => {
+    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.proveedores')).length + 1
+    req.body.status = 'active'
+    await create(process.env.MYSQL_DATABASE+'.proveedores', req.body);
+    res.redirect('/admin/proveedor');
+});
+
+app.post('/admin/proveedor/modificar', async (req, res) => {
+    req.body.status = 'active'
+    await update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, req.body)
+    res.redirect('/admin/proveedor')
+})
+
+app.post('/admin/proveedor/eliminar', async (req, res) => {
+    await update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, {status: 'inactive'})
+    res.send('Eliminado')
+});

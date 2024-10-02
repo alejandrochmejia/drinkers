@@ -33,10 +33,19 @@ clickTabla.forEach((fila)=>{
         }
     })
 })
-eliminar.addEventListener('click',()=>{
-    clickTabla.forEach((fila)=>{
+Eliminar.addEventListener('click',()=>{
+    clickTabla.forEach(async (fila)=>{
         if(fila.classList.contains('presionado--bottom')){
-            fila.remove();
+            await fetch('/admin/proveedor/eliminar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({id: fila.children[0].textContent})
+            })
+            .then(
+                window.location.href = '/admin/proveedor'
+            )
         }
     })
 })
