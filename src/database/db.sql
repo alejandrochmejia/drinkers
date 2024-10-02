@@ -96,19 +96,17 @@ INSERT INTO PROVEEDORES (id, nombre, direccion, telefono, rif, ubicacion, fecha_
 (10, 'Proveedor 10', 'Dirección 10', 'Teléfono 10', 'RIF 10', 'Ubicación 10', '2023-01-19', '2023-01-20');
 
 
-
 INSERT INTO AVISOS (id, titulo, descripcion, tipo, fecha) VALUES
-(1, 'Aviso 1', 'Descripción del aviso 1', 'Tipo 1', '2023-01-01'),
-(2, 'Aviso 2', 'Descripción del aviso 2', 'Tipo 2', '2023-01-02'),
-(3, 'Aviso 3', 'Descripción del aviso 3', 'Tipo 3', '2023-01-03'),
-(4, 'Aviso 4', 'Descripción del aviso 4', 'Tipo 4', '2023-01-04'),
-(5, 'Aviso 5', 'Descripción del aviso 5', 'Tipo 5', '2023-01-05'),
-(6, 'Aviso 6', 'Descripción del aviso 6', 'Tipo 6', '2023-01-06'),
-(7, 'Aviso 7', 'Descripción del aviso 7', 'Tipo 7', '2023-01-07'),
-(8, 'Aviso 8', 'Descripción del aviso 8', 'Tipo 8', '2023-01-08'),
-(9, 'Aviso 9', 'Descripción del aviso 9', 'Tipo 9', '2023-01-09'),
-(10, 'Aviso 10', 'Descripción del aviso 10', 'Tipo 10', '2023-01-10');
-
+(1, 'Whisky', 'Nuevo lote de whisky escocés disponible en inventario', 'Producto', '2023-01-01'),
+(2, 'Vinos', 'Promoción especial en vinos tintos reserva', 'Producto', '2023-01-02'),
+(3, 'Tequilas', 'Actualización de precios en la línea de tequilas', 'Producto', '2023-01-03'),
+(4, 'Capacitación', 'Reunión de personal para capacitación en atención al cliente', 'Personal', '2023-01-04'),
+(5, 'Ginebra', 'Nuevo acuerdo con proveedor de ginebra premium', 'Proveedor', '2023-01-05'),
+(6, 'Horarios', 'Cambio en el horario de turnos del personal de ventas', 'Personal', '2023-01-06'),
+(7, 'Evaluación', 'Evaluación de desempeño trimestral para el equipo de logística', 'Personal', '2023-01-07'),
+(8, 'Sommelier', 'Convocatoria para cubrir puesto de sommelier', 'Personal', '2023-01-08'),
+(9, 'Nómina', 'Recordatorio: entrega de documentos para actualización de nómina', 'Personal', '2023-01-09'),
+(10, 'Retraso', 'Retraso en envíos debido a condiciones climáticas adversas', 'Envio', '2023-01-10');
 
 -- Insertar datos en la tabla INVENTARIO
 INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock, status) VALUES
