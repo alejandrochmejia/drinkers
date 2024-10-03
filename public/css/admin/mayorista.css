@@ -15,7 +15,6 @@
 main{
     width: 85%;
     border-radius: 15px;
-    box-shadow: 0 0 5px #000;
     position: absolute;
     top: 125px;
     left: 145px;

@@ -5,21 +5,20 @@ nav .Navigator--bar{
     padding: 12px;
 }
 nav .List{
-    padding: 12px;
+    padding: 14px;
     list-style: none;
     display: flex;
     flex-flow: column wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 25px;
+    gap: 20px;
 }
 nav .List svg{
     border-radius: 40px;
-    width: 50px;
     background-color: var(--PrimaryColor);
     fill: var(--SecondaryColor);
     outline-offset: 2px;
-    padding: 3px 3px;
+    padding: 2px 2px;
 }
 .List svg:hover{
     background-color: var(--ColorNavigatorBar);

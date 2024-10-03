@@ -16,7 +16,6 @@ main{
     top: 85px;
     left: 145px;
     width: 85%;
-    box-shadow: 0 0 5px #000;
     border-radius: 15px;
     padding: 10px;
 }
@@ -36,7 +35,7 @@ main .Content .Reportes--Container .aviso{
     justify-content: center;
     align-items: center;
     gap: 25px;
-    padding: 5px;
+    padding: 5px 1px;
 }
 main .Content .Reportes--Container .aviso .Input--Container{
     display: flex;
@@ -161,7 +160,7 @@ main .Content .Table--Container table caption{
     letter-spacing: 1px;
 }
 main .Content .Table--Container table th{
-    padding: 5px 120px;
+    padding: 5px 88px;
     border: 1px solid #aaa;
     border-left: none;
     border-right: none;

@@ -73,11 +73,12 @@ main .Content--table .Table--Container div table{
 main .Content--table .Table--Container div table::-webkit-scrollbar{
     width: 10px;
     background-color: #aaa;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 main .Content .Table--Container div table::-webkit-scrollbar-thumb{
     border-radius: 15px;
     background-color: var(--ColorNavigatorBar);
+    cursor: pointer;
 }
 main .Content--table .Table--Container div table caption{
     font-size: 1.1em;
@@ -195,6 +196,7 @@ main .Content--Container .Table--Popular{
 .Table--Popular table::-webkit-scrollbar-thumb{
     border-radius: 15px;
     background-color: var(--ColorNavigatorBar);
+    cursor: pointer;
 }
 .Table--Popular table caption{
     font-size: 1.2em;

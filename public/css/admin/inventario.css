@@ -19,7 +19,6 @@ main{
     width: 80%;
     display: flex;
     border-radius: 15px;
-    box-shadow: 0 0 5px #000;
     border-radius: 10px;
     flex-flow: column wrap;
     padding: 20px;
@@ -92,8 +91,8 @@ main .Table--inventario {
 main .Table--inventario table {
     border: 1px solid #aaa;
     border-radius: 15px;
-    height: 250px;
-    padding: 5px 5px;
+    height: 280px;
+    padding: 0px 10px;
     border-collapse: collapse;
     overflow-y: auto;
     scroll-behavior: smooth;
@@ -107,6 +106,7 @@ main .Table--inventario table::-webkit-scrollbar{
 main .Table--inventario table::-webkit-scrollbar-thumb{
     background-color: var(--ColorNavigatorBar);
     border-radius: 15px;
+    cursor: pointer;
 }  
 main .Table--inventario table caption {
     border-bottom: none;
