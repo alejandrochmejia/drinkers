@@ -66,6 +66,7 @@
 }
 
 .productCant::-webkit-inner-spin-button{
+    z-index: 0;
     opacity: 1;
     scale: 1.3;
 }
@@ -75,6 +76,7 @@ details{
     border: 0.5px solid black;
     word-wrap: break-word;
     font-size: small;
+    line-height: 1.5;
 }
 
 summary{
@@ -86,4 +88,9 @@ summary{
 details[open] summary{
     border-bottom: 0.5px solid black;
     font-weight: bold;
+}
+
+hr{
+    color: #B1CEF4;
+    width: 95dvw;
 }
