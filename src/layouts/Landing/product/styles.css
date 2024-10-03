@@ -38,3 +38,34 @@
     font-weight: bolder;
     font-size: larger;
 }
+
+#units{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3vmin;
+}
+
+.addButton{
+    width: 8vmin;
+    height: 4vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #040C5D;
+}
+
+.productCant{
+    width: 5vmin;
+    height: 5vmin;
+    font-size: 2vmin;
+}
+
+.productCant::-webkit-inner-spin-button{
+    opacity: 1;
+    scale: 1.3;
+}
