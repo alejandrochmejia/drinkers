@@ -117,7 +117,7 @@ main .Avisos--panel  table td{
 main .Content{
     display: flex;
     flex-flow: column wrap;
-    gap: 35px;
+    gap: 15px;
     flex: 1;
 }
 main .panel--Estadistica{
