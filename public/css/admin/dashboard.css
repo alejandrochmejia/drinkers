@@ -84,6 +84,7 @@ main .Avisos--panel table{
 main .Avisos--panel table::-webkit-scrollbar{
     width: 12px;
     border-radius: 15px;
+    border-top-right-radius: 25px;
     background-color: #aaa;
 }
 main .Avisos--panel table::-webkit-scrollbar-thumb{

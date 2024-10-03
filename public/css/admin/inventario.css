@@ -99,22 +99,31 @@ main .Table--inventario table {
     scroll-behavior: smooth;
     display: block;
 }
-  
+main .Table--inventario table::-webkit-scrollbar{
+    width: 10px;
+    background-color: #aaa;
+    border-top-right-radius: 10px;
+}
+main .Table--inventario table::-webkit-scrollbar-thumb{
+    background-color: var(--ColorNavigatorBar);
+    border-radius: 25px;
+}  
 main .Table--inventario table caption {
     border-bottom: none;
     border-radius: 5px;
     padding: 8px;
     font-weight: 600;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-transform: capitalize;
     letter-spacing: 1px;
   }
   
 main .Table--inventario table th {
-    padding: 5px 2px;
+    padding: 5px 5px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
+    font-size: 0.9em;
 }
   
 main .Table--inventario table td {
@@ -122,7 +131,7 @@ main .Table--inventario table td {
     text-align: center;
     word-wrap: break-word;
     font-weight: 500;
-    font-size: 1em;
+    font-size: 0.9em;
 }
   
 main .Table--inventario table tbody tr {
