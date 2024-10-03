@@ -16,7 +16,7 @@ main{
     justify-content: center;
     position: absolute;
     top: 145px;
-    left: 140px;
+    left: 120px;
     flex-flow: row wrap;
     height: 300px;
     width: 85%
@@ -35,7 +35,7 @@ main .Content .Content--Container{
     align-items: center;
     width: 650px;
     height: 250px;
-    gap: 20px;
+    gap: 80px;
 }
 main .Content .Content a{
     text-decoration: none;
@@ -47,7 +47,7 @@ main .Content .Content--Container  article{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     border-radius: 25px;
     color: var(--SecondaryColor);
     background-color: var(--PrimaryColor);

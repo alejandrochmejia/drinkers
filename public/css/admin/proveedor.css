@@ -99,7 +99,7 @@ main .Content .Table--Container{
     left: 380px;
 }
 main .Content .Table--Container .Input--Container{
-    padding: 5px;
+    padding: 2px;
     display: flex;
     justify-content: left;
     align-items: center;
