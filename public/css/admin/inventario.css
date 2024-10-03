@@ -102,11 +102,11 @@ main .Table--inventario table {
 main .Table--inventario table::-webkit-scrollbar{
     width: 10px;
     background-color: #aaa;
-    border-top-right-radius: 10px;
+    border-radius: 20px;
 }
 main .Table--inventario table::-webkit-scrollbar-thumb{
     background-color: var(--ColorNavigatorBar);
-    border-radius: 25px;
+    border-radius: 15px;
 }  
 main .Table--inventario table caption {
     border-bottom: none;

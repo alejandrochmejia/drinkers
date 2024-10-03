@@ -127,6 +127,16 @@ main .Content .Table--Container table{
     overflow-y: auto;
     display: block;
 }
+main .Content .Table--Container table::-webkit-scrollbar{
+    background-color: #aaa;
+    width: 10px;
+    border-radius: 20px;
+}
+main .Content .Table--Container table::-webkit-scrollbar-thumb{
+    background-color: var(--ColorNavigatorBar);
+    border-radius: 15px;
+    cursor: pointer;
+}
 main .Content .Table--Container table caption{
     border-bottom: none;
     border-radius: 5px;

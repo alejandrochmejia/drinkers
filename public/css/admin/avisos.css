@@ -41,6 +41,7 @@ main .Content .Reportes--Container .aviso{
 main .Content .Reportes--Container .aviso .Input--Container{
     display: flex;
     width: 425px;
+    height: 60px;
     justify-content: flex-start;
     flex-flow: column;
     padding: 10px;
@@ -89,7 +90,7 @@ main .Content .Reportes--Container .aviso .Tipo--aviso{
     border-radius: 15px;
 }
 main .Content .Reportes--Container .aviso .Tipo--aviso select{
-    padding: 5px 0px;
+    padding: 3px 0px;
     width: 120px;
     border: none;
     outline: none;
@@ -102,14 +103,14 @@ main .Content .Reportes--Container .aviso .Fecha--reporte{
     border-radius: 15px;
 }
 main .Content .Reportes--Container .aviso .Fecha--reporte input{
-    padding: 6px 5px;
+    padding: 3px 5px;
     border: none;
     outline: none;
     font-size: 1.1em;
     letter-spacing: 1px;
 }
 main .Content .aviso button{
-    padding: 22px 10px;
+    padding: 20px 10px;
     border: 2px solid #000;
     border-radius: 15px;
     color: #F4F4F4;
@@ -140,17 +141,27 @@ main .Content .Table--Container table{
     display: block;
     overflow-y: auto;
 }
+main .Content .Table--Container table::-webkit-scrollbar{
+    background-color: #aaa;
+    width: 10px;
+    border-radius: 20px;
+}
+main .Content .Table--Container table::-webkit-scrollbar-thumb{
+    background-color: var(--ColorNavigatorBar);
+    cursor: pointer;
+    border-radius: 15px;
+}
 main .Content .Table--Container table caption{
     border-radius: 5px;
     border-bottom: none;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-transform: capitalize;
     font-weight: 600;
     padding: 5px;
     letter-spacing: 1px;
 }
 main .Content .Table--Container table th{
-    padding: 10px 120px;
+    padding: 5px 120px;
     border: 1px solid #aaa;
     border-left: none;
     border-right: none;
@@ -162,10 +173,11 @@ main .Content .Table--Container table tr{
 main .Content .Table--Container table td{
     text-align: center;
     padding: 5px 15px;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 main .Content .Table--Container table tbody tr:hover{
     background-color: var(--ColorNavigatorBar);
     color: var(--PrimaryColor);
+    cursor: pointer;
 }
 

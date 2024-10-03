@@ -105,6 +105,15 @@ main .Table--Container table{
     height: 250px;
     overflow-y: auto;
 }
+main .Table--Container table::-webkit-scrollbar{
+    background-color: #aaa;
+    border-radius: 20px;
+    width: 10px;
+}
+main .Table--Container table::-webkit-scrollbar-thumb{
+    background-color: var(--ColorNavigatorBar);
+    border-radius: 15px;
+}
 main .Table--Container table caption{
     border-radius: 5px;
     border-bottom: none;
