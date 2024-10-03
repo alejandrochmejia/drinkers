@@ -55,7 +55,7 @@ let lastScroll = window.scrollY;
 
 window.addEventListener("scroll", function() {
     const currentScroll = window.scrollY;
-    if(window.scrollY === 0){
+    if(window.scrollY >= 0 && window.scrollY <= 15){
         document.querySelector("header").style.top = '0%';
     }
     else if (currentScroll > lastScroll){
