@@ -141,6 +141,7 @@ main .Table--inventario table tbody tr {
 main .Table--inventario table tbody tr:hover {
     background-color: var(--ColorNavigatorBar);
     color: var(--PrimaryColor);
+    cursor: pointer;
 }
 .presionado--bottom{
     background-color: var(--ColorNavigatorBar);
