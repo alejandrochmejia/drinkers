@@ -132,7 +132,7 @@ main .Content .Table--Container table caption{
     border-radius: 5px;
     padding: 8px;
     font-weight: 600;
-    font-size: 1.3em;
+    font-size: 1.1em;
     text-transform: capitalize;
     letter-spacing: 1px;
 }
@@ -141,12 +141,13 @@ main .Content .Table--Container table th{
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
+    font-size: 0.9em;
 }           
 main .Content .Table--Container table td{
     padding: 5px 10px;
     text-align: center;
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: 0.9em;
 }
 main .Content .Table--Container table tbody tr{
     transition: .1s linear;
