@@ -32,27 +32,25 @@ main .Content{
 }
 main .Content .Inputs--seleccionados{
     display: flex;
-    gap: 5px;
-    padding: 5px;
+    gap: 30px;
 }
 main .Content .Inputs--seleccionados .Input--Container{
     margin-left: 0px;
     display: flex;
+    align-items: center;
 }
 main .Content .Inputs--seleccionados .Input--Container input{
-    width: 250px;
-    margin-top: 0;
-    padding: 5px 10px;
+    width: 230px;
+    padding: 7px 8px;
+    width: 300px;
     border: 2px solid #aaa;
     outline: none;
     border-radius: 15px;
-    font-size: 1.1em;
 }
 main .Content .Inputs--seleccionados .Input--Container img{
-    width: 30px;
+    width: 25px;
     position: relative;
     left: -35px;
-    cursor: pointer;
 }
 main .Content .Inputs--seleccionados .Input--Container select{
     width: 200px;
@@ -86,8 +84,6 @@ main .Content .icon img:hover{
 main .Table--inventario {
     display: flex;
     justify-content: center;
-    position: relative;
-    left: -10px;
     margin-top: 10px;
     padding: 10px;
     width: 100%;
