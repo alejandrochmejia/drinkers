@@ -55,7 +55,10 @@ let lastScroll = window.scrollY;
 
 window.addEventListener("scroll", function() {
     const currentScroll = window.scrollY;
-    if (currentScroll > lastScroll){
+    if(window.scrollY === 0){
+        document.querySelector("header").style.top = '0%';
+    }
+    else if (currentScroll > lastScroll){
         // scroll down
         document.querySelector("header").style.top = '-20%';
         document.querySelector("aside").style.right = '-31%';
