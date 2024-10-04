@@ -34,6 +34,7 @@ clickTabla.forEach((fila)=>{
     })
 })
 Eliminar.addEventListener('click',()=>{
+    confirm("Esta seguro que quieres eliminar este proveedor de la tabla?")
     clickTabla.forEach(async (fila)=>{
         if(fila.classList.contains('presionado--bottom')){
             await fetch('/admin/proveedor/eliminar', {

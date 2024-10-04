@@ -252,7 +252,11 @@ submit.addEventListener('click',()=>{
     if(Nombrebebida.value == 0 && TipoBebida.value == 0 && grados.value == 0 && Litros.value == 0 && Paquetes.value == 0 
         && Iva.value == 0 && Precio__detal.value == 0 && Precio__mayorista.value == 0 && descripcion.value == 0 && stock.value == 0){
             alert("Tiene que llenar todos los campos para poder agregar el producto")
-    }else{
+    }else if(Nombrebebida.value == 0 || TipoBebida.value == 0 || grados.value == 0 || Litros.value == 0 || Paquetes.value == 0 
+        || Iva.value == 0 || Precio__detal.value == 0 || Precio__mayorista.value == 0 || descripcion.value == 0 || stock.value == 0){
+            alert("No tiene todos los campos completos , por favor complete los campos que falta para pode continuar")
+        }
+    else{
         confirm("Esta seguro que quiere agregar este producto al inventario?")
     }
 })
@@ -386,9 +390,13 @@ submit_modificar.addEventListener('click',()=>{
     if(ID.value == 0 && Nombre__Modificar.value == 0 && tipo__modificar.value == 0 && Grados__modificar.value == 0 && Litros__modificar.value == 0
         && Paquetes__modificar.value == 0 && Iva__modificar.value == 0 && precio__detal__modificar.value == 0 && precio__mayorista__modificar.value == 0 
         && descripcion__modificar.value == 0 && stock__modificar.value == 0){
-        
         alert("Tiene que llenar todos los campos para poder modificar un producto")
-    }else{
+    }else if(ID.value == 0 || Nombre__Modificar.value == 0 || tipo__modificar.value == 0 || Grados__modificar.value == 0 || Litros__modificar.value == 0
+        || Paquetes__modificar.value == 0 || Iva__modificar.value == 0 || precio__detal__modificar.value == 0 || precio__mayorista__modificar.value == 0 
+        || descripcion__modificar.value == 0 || stock__modificar.value == 0){
+            alert("Hay algunos campos que no esta completos, por favor complete los campos faltantes para continuar")
+        }
+    else{
         confirm("Esta seguro que quiere modificar este producto del inventario")
     }
 })
