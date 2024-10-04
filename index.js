@@ -81,6 +81,13 @@ app.get('/', async (req,res)=>{
     });
 })
 
+app.get('/catalogo', async (req,res)=>{
+    res.render('partials/catalogo', {
+        productos: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
+        type: req.query.type
+    });
+})
+
 app.get('/login',(req,res)=>{
     res.render('auth/login');
 })

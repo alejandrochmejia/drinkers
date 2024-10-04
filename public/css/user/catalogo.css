@@ -1,0 +1,17 @@
+#topics{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#info{
+    display: flex;
+    width: 30dvw;
+    gap: 2vmin;
+    align-items: center;
+}
+
+#sorting{
+    height: 4vmin;
+    border-radius: 5px;
+}
