@@ -261,4 +261,42 @@ submit.addEventListener('click',()=>{
     }
 })
 //Validaciones para la ventana modal de modificar producto
+const ID = document.getElementById('Modificar--producto');
+const Nombre__Modificar = document.getElementById('Nombre--modificar');
+const tipo__modificar = document.getElementById('Tipo--modificar');
+const Grados__modificar = document.getElementById('Grados--modificar');
+const Litros__modificar = document.getElementById('Litros--modificar');
+const Paquetes__modificar = document.getElementById('Paquetes--modificar');
+const Iva__modificar = document.getElementById('Iva--modificar');
+const precio__detal__modificar = document.getElementById('Precio--detal--modificar');
+const precio__mayorista__modificar = document.getElementById('Precio--mayorista--modificar');
+const descripcion__modificar = document.getElementById('Descripcion--modificar');
+const stock__modificar = document.getElementById('stock--modificar');
+
+//validacion para si en el campo se ingresa palabras
+Nombre__Modificar.addEventListener('input',()=>{
+    let validar = ValidLetra(Nombre__Modificar.value);
+    if(validar){
+        Nombre__Modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(Nombre__Modificar.value == 0){
+            Nombre__Modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            Nombre__Modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+// validacion para el textarea
+descripcion__modificar.addEventListener('click',()=>{
+    let validar = ValidTextarea(descripcion__modificar.value)
+    if(validar){
+        descripcion__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(descripcion__modificar.value == 0){
+            descripcion__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            descripcion__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
 
