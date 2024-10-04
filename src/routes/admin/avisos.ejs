@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Avisos</title>
+    <link rel="stylesheet" href="/css/admin/avisos.css">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <section class="Content">
+            <article class="Reportes--Container">
+                <form class="aviso" action="/admin/avisos/create" method="post">
+                    <div class="Input--Container">
+                        <span>Nuevo reporte</span>
+                        <div class="Input">
+                            <input type="text" placeholder="Escribir el reporte" required name="descripcion">
+                            <img src="/images/icons/Cancel.png" alt="icon">
+                        </div>
+                    </div>
+                    <div class="Tipo--aviso">
+                        <select required name="tipo">
+                            <option selected value="">Todos</option>
+                            <option value="Envio">Envio</option>
+                            <option value="Proveedor">Proveedor</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Producto">Producto</option>
+                        </select>
+                    </div>
+                    <div class="Fecha--reporte">
+                        <input type="date" required name="fecha">
+                    </div>
+                    
+                    <button value="Crear Aviso" type="submit">Crear Aviso</button>
+                </form>
+            </article>
+            <article class="Table--Container">
+                <table>
+                    <caption>Reportes de la empresa</caption>
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Tipo</th>
+                            <th>Fecha de aviso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% avisos.forEach(aviso => { %>
+                            <tr>
+                                <td><%= aviso.descripcion %></td>
+                                <td><%= aviso.tipo %></td>
+                                <td><%= aviso.fecha.toLocaleDateString() %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </main>
+    <script src="/js/admin/avisos.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+*{
+    font-family: sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    background: url(../../../public/images/Logo/Fondo.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .Content{
+    width: 440px;
+    height: 500px;
+    padding: 10px;
+    border: 2px solid #000;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px #000;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column wrap;
+}
+header .Content .Login__Title{
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+}
+header .Content .Login__Title img{
+    width: 75px;
+    margin-bottom: 12px;
+    padding: 10px;
+    filter: drop-shadow(4px 4px 40px #000);
+    transition: .1s linear;
+}
+header .Content .Login__Title h2{
+    font-size: 1.3em;
+    text-wrap: wrap;
+    letter-spacing: 3px;
+    font-weight: 500;
+    color: #F8F7F2;
+}
+header .Content .Form__page{
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+}
+header .Content .Form__page .Input--Container{
+    font-size: 1.1em;
+    margin-left: 30px;
+}
+header .Content .Form__page .Input--Container:nth-child(2) div{
+    margin-right: 35px;
+}
+header .Content .Form__page .Input--Container:nth-child(2) div label{
+    margin-right: 20px;
+}
+header .Content .Form__page .Input--Container div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px;
+}
+header .Content .Form__page .Input--Container label{
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    letter-spacing: 0.2px;
+    font-size: 0.9em;
+    text-shadow: 0 0 5px #232326;
+    display: block;
+}
+header .Content .Form__page .Input--Container div input{
+    width: 240px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    background-color: transparent;
+    font-size: 0.9em;
+    transition: .1s linear;
+}
+header .Content .Form__page .Input--Container input:hover{
+    border-right:1px solid #001752;
+    border-bottom: 1px solid #001752;
+}
+header .Content .Form__page .Input--Container input::placeholder{
+    color: #F8F7F2;
+}
+header .Content .Form__page .Input--Container img{
+    width: 26px;
+    position: relative;
+    left: -40px;
+}
+#Nombre--persona{
+    width: 280px;
+}
+#Apellido--persona{
+    width: 280px;
+}
+#Correo{
+    width: 285px;
+}
+#Password{
+    width: 250px;
+}
+#Username{
+    width: 265px;
+}
+header .Content .Form__page .Submit--form{
+    width: 300px;
+    padding: 7px 12px;
+    margin-right: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #0D3871;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: .1s linear;
+}
+header .Content .Form__page .Submit--form:hover{
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    padding: 10px 15px;
+}

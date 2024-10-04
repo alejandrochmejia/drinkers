@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Gerente</title>
+    <link rel="stylesheet" href="/css/admin/dashboard.css">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <section class="Avisos--panel">
+            <div class="Content--avisos">
+                <div class="Hora--avisos"><%= new Date().toLocaleTimeString() %></div>
+                <div class="Fecha--avisos"><%= new Date().toLocaleDateString() %></div>
+            </div>
+                <table>
+                    <caption>Avisos</caption>
+                    <% avisos.forEach(aviso => { %>
+                        <tr>
+                            <td><%= aviso.titulo %></td>
+                            <td><%= aviso.fecha.toLocaleDateString() %></td>
+                        </tr>
+                    <% }); %>
+                </table>
+        </section>
+        <div class="Content">
+            <section class="panel--Estadistica">
+                <div class="Content--panel--Estadistica">
+                    <h3>Estadistica</h3>
+                    <div class="Container--Estadisitca__1">
+                        <article class="Historia--Ventas">Historia de ventas</article>
+                        <article class="Ventas--container">
+                            <span>
+                                <%= ventas.length %>
+                                <div class="Title">Ventas</div>
+                            </span>
+                        </article>
+                    </div>
+    
+                    <div class="Container--Estadistica__2">
+                        <article class="Ingresos--Container">
+                            <span>
+                                <% let total = 0; %>
+                                <% for (let i = 0; i < ventas.length; i++) { %>
+                                    <% total += Number(ventas[i].ingresos) || 0; %>
+                                <% } %>
+                                <%= parseInt(total.toFixed(2)) %>$
+                                <div class="Title">Ingresos</div>
+                            </span>
+                        </article>
+                    </div>
+    
+                    <article class="Grafica--Estadistica">
+                        <canvas id="myChart">
+                        </canvas>
+                    </article>
+                </div>
+            </section>
+    
+            <section class="Panel--pedidos">
+                <article class="Pedidos">
+                    <h3>Pedidos</h3> 
+                </article>
+                <div class="Container--pedidos">
+                    <div class="Container--1">
+                        <article class="Solicitudes--container">
+                            <span>
+                                <%= envios.length %>
+                                <div class="Title">Solicitudes</div>
+                            </span>
+                        </article>
+                    </div>
+        
+                    <div class="Container--2">
+                        <articl class="Via--container">
+                            <span>
+                                <%= envios.filter(envio => envio.status === 'pending').length %>
+                                <div class="Title">En via</div>
+                            </span>
+                        </articl>
+                        <article class="Completados--Container">
+                            <span>
+                                <%= envios.filter(envio => envio.status === 'completado').length %>
+                                <div class="Title">Completados</div>
+                            </span>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/admin/dashboard.js"></script>
+</body>
+</html>
