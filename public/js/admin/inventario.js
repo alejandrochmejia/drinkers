@@ -41,6 +41,7 @@ clickTabla.forEach((fila)=>{
     })
 })
 Eliminar.addEventListener('click',()=>{
+    confirm("Esta seguro que quiere eliminar este producto del inventario")
     clickTabla.forEach(async (fila)=>{
         if(fila.classList.contains('presionado--bottom')){
             await fetch('/admin/inventario/eliminar', {
@@ -91,4 +92,14 @@ lupa.addEventListener('click',()=>{
             fila.style.display = 'none';
         }
     })
+})
+//Evento para un alert cuando se quiere agregar un nuevo producto al inventario
+let submit = document.getElementById('submit--Agregar');
+submit.addEventListener('click',()=>{
+    confirm("Esta seguro que quiere agregar este producto al inventario?")
+})
+//Evento para un alert cuando se quiere modiicar un producto al inventario
+let submit_modificar = document.getElementById('submit');
+submit_modificar.addEventListener('click',()=>{
+    confirm("Esta seguro que quiere modifcar este producto del inventario?")
 })

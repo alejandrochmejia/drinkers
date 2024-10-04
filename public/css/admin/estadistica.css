@@ -15,7 +15,6 @@ main{
     position: absolute;
     top: 95px;
     left: 145px;
-    box-shadow: 0 0 5px var(--ColorNavigatorBar);
     width: 85%;
     height: 450px;
     padding: 5px;
