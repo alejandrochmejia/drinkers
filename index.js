@@ -7,7 +7,6 @@ import { fileURLToPath } from 'url';
 import multer from 'multer';
 import path from 'path';
 
-import {methods as authorization} from './src/middleware/authorization.js'
 //Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
 import {
     getAll,
@@ -18,7 +17,10 @@ import {
     deleteOne
 } from './src/database/querys.js'
 
+//Configurando Path
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+//Configurando almacenamiento del multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, resolve(__dirname, './public/images/Licores/'))
@@ -28,8 +30,10 @@ const storage = multer.diskStorage({
   }
 })
 
+//Configurando Multer para la subida de archivos
 const upload = multer({ storage: storage });
 
+//Configurando Dotenv para las variables de entorno
 dotenv.config()
 
 //Configurando Server
@@ -55,6 +59,7 @@ app.use(express.urlencoded({ extended: true }))
 // METODOS GET //
 //////////////////
 
+//Index
 app.get('/', async (req,res)=>{
 
     const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
@@ -81,6 +86,7 @@ app.get('/', async (req,res)=>{
     });
 })
 
+//Catalogo o Seccion de Productos
 app.get('/catalogo', async (req,res)=>{
 
 
@@ -94,18 +100,22 @@ app.get('/catalogo', async (req,res)=>{
     });
 })
 
+//Preguntas Frecuentes
 app.get('/faq', (req, res) => {
     res.render('user/faq');
 })
 
+//Login
 app.get('/login',(req,res)=>{
     res.render('auth/login');
 })
 
+//Register
 app.get('/register',(req,res)=>{
     res.render('auth/register');
 })
 
+//Dashboard
 app.get('/admin/dashboard', async (req, res) => {
     res.render('admin/dashboard', {
         avisos: await getAll(process.env.MYSQL_DATABASE+'.avisos'),
@@ -115,28 +125,33 @@ app.get('/admin/dashboard', async (req, res) => {
     });
 });
 
+//Inventario
 app.get('/admin/inventario', async (req, res) => {
     res.render('admin/inventario', {inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario')});
 });
 
+//Envios
 app.get('/admin/envios', async (req, res) => {
     res.render('admin/envios', {
         envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
     });
 });
 
+//Envios Minorista
 app.get('/admin/envios/minorista', async (req, res) => {
     res.render('admin/minorista', {
         envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
     });
 });
 
+//Envios Mayorista
 app.get('/admin/envios/mayorista', async (req, res) => {
     res.render('admin/mayorista', {
         envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
     });
 });
 
+//Estadistica
 app.get('/admin/estadistica', async (req, res) => {
 
     const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
@@ -165,10 +180,12 @@ app.get('/admin/estadistica', async (req, res) => {
     });
 });
 
+//Proveedor
 app.get('/admin/proveedor', async (req, res) => {
     res.render('admin/proveedor', {proveedor: await getAll(process.env.MYSQL_DATABASE+'.proveedores')});
 });
 
+//Avisos o Reportes
 app.get('/admin/avisos', async (req, res) => {
     res.render('admin/avisos', {avisos: await getAll(process.env.MYSQL_DATABASE+'.avisos')});
 });
