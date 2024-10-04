@@ -115,6 +115,7 @@ main .Content .Table--Container .Input--Container img{
     width: 25px;
     position: relative;
     left: -35px;
+    cursor: pointer;
 }
 main .Content .Table--Container table{
     border: 1px solid #aaa;

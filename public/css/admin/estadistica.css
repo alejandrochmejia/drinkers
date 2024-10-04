@@ -59,6 +59,7 @@ main .Content--table .Table--Container div label img{
     width: 25px;
     position: relative;
     left: -35px;
+    cursor: pointer;
 }
 main .Content--table .Table--Container div table{
     border: 1px solid #aaa;
