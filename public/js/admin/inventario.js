@@ -93,11 +93,7 @@ lupa.addEventListener('click',()=>{
         }
     })
 })
-//Evento para un alert cuando se quiere modiicar un producto al inventario
-let submit_modificar = document.getElementById('submit');
-submit_modificar.addEventListener('click',()=>{
-    confirm("Esta seguro que quiere modifcar este producto del inventario?")
-})
+
 //Validaciones
 //Valiación para la ventana-modal de agregar inventario
 const Nombrebebida = document.getElementById('NombreProducto');
@@ -287,7 +283,7 @@ Nombre__Modificar.addEventListener('input',()=>{
     }
 })
 // validacion para el textarea
-descripcion__modificar.addEventListener('click',()=>{
+descripcion__modificar.addEventListener('input',()=>{
     let validar = ValidTextarea(descripcion__modificar.value)
     if(validar){
         descripcion__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
@@ -297,6 +293,103 @@ descripcion__modificar.addEventListener('click',()=>{
         }else{
             descripcion__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
         }
+    }
+})
+// validaciones para los campos que contiene numeros
+ID.addEventListener('input',()=>{
+    let validar = ValidNum(ID.value)
+    if(validar){
+        ID.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(ID.value == 0){
+            ID.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            ID.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+Grados__modificar.addEventListener('input',()=>{
+    let validar = ValidNum(Grados__modificar.value)
+    if(validar){
+        Grados__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(Grados__modificar.value == 0){
+            Grados__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            Grados__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+Litros__modificar.addEventListener('input',()=>{
+    let validar = ValidNum(Litros__modificar.value)
+    if(validar){
+        Litros__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(Litros__modificar.value == 0){
+            Litros__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            Litros__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+Paquetes__modificar.addEventListener('input',()=>{
+    let validar = ValidNum(Paquetes__modificar.value)
+    if(validar){
+        Paquetes__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(Paquetes__modificar.value == 0){
+            Paquetes__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            Paquetes__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+precio__detal__modificar.addEventListener('input',()=>{
+    let validar = ValidNum(precio__detal__modificar.value)
+    if(validar){
+        precio__detal__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(ID.value == 0){
+            precio__detal__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            precio__detal__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+precio__mayorista__modificar.addEventListener('input',()=>{
+    let validar = ValidNum(precio__mayorista__modificar.value)
+    if(validar){
+        precio__mayorista__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(precio__mayorista__modificar.value == 0){
+            precio__mayorista__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            precio__mayorista__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+stock__modificar.addEventListener('input',()=>{
+    let validar = ValidNum(stock__modificar.value)
+    if(validar){
+        stock__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(stock__modificar.value == 0){
+            stock__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            stock__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
+//Evento para un alert cuando se quiere modiicar un producto al inventario
+let submit_modificar = document.getElementById('submit');
+submit_modificar.addEventListener('click',()=>{
+    if(ID.value == 0 && Nombre__Modificar.value == 0 && tipo__modificar.value == 0 && Grados__modificar.value == 0 && Litros__modificar.value == 0
+        && Paquetes__modificar.value == 0 && Iva__modificar.value == 0 && precio__detal__modificar.value == 0 && precio__mayorista__modificar.value == 0 
+        && descripcion__modificar.value == 0 && stock__modificar.value == 0){
+        
+        alert("Tiene que llenar todos los campos para poder modificar un producto")
+    }else{
+        confirm("Esta seguro que quiere modificar este producto del inventario")
     }
 })
 
