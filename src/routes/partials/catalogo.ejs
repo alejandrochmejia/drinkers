@@ -33,15 +33,13 @@
                     <option value="mayor">Precio de Mayor a Menor</option>
                     <option value="alfabetico">Alfabético (A-Z)</option>
                 </select>
-                <p>Articulos: 14</p>
+                <p>Articulos: <%= productos.length %></p>
             </div>
         </div>
 
         <ul class="productSection">
             <% productos.forEach(producto => { %>
-                <% if(producto.tipo == type) { %>
-                    <%- include('./product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
-                <% } %>
+                <%- include('./product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
             <% }) %>
         </ul>
     </section>
@@ -49,6 +47,6 @@
 
     <%- include('./footer') %>
 
-    <script src="../content.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html>

@@ -82,10 +82,20 @@ app.get('/', async (req,res)=>{
 })
 
 app.get('/catalogo', async (req,res)=>{
+
+
+    const productos = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+
+    const productosFiltrados = productos.filter(producto => producto.tipo == req.query.type)
+
     res.render('partials/catalogo', {
-        productos: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
+        productos: productosFiltrados,
         type: req.query.type
     });
+})
+
+app.get('/faq', (req, res) => {
+    res.render('user/faq');
 })
 
 app.get('/login',(req,res)=>{
