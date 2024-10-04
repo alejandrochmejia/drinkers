@@ -64,8 +64,8 @@
                                 <td><%= proveedor.telefono %></td>
                                 <td><%= proveedor.rif %></td>
                                 <td><%= proveedor.ubicacion %></td>
-                                <td><%= proveedor.fecha_compra.toLocaleDateString() %></td>
-                                <td><%= proveedor.fecha_entrega.toLocaleDateString() %></td>
+                                <td><%= (new Date(proveedor.fecha_compra)).toLocaleDateString() %></td>
+                                <td><%= (new Date(proveedor.fecha_entrega)).toLocaleDateString() %></td>
                             </tr>
                             <% } %>
                         <% }) %>
@@ -76,7 +76,7 @@
         <dialog id="dialog--1">
             <span id="CerrarAgregar">X</span>
             <h2>Agregar Proveedor</h2>
-            <form action="/admin/proveedor/create" method="POST" enctype="multipart/form-data">
+            <form action="/admin/proveedor/create" method="POST">
                 <div class="Input--Container">
                     <div>
                         <label for="Nombre--proveedor">Nombre del Proveedor</label>
@@ -128,14 +128,14 @@
                 </div>
                 <div class="Input--Container">
                     <div>
-                        <label for="Nombre--proveedor">Nombre del Proveedor</label>
-                        <input placeholder="Ingrese el nombre del proveedor" required id="Nombre--proveedor" name="nombre">
+                        <label for="Nombre--modificar">Nombre del Proveedor</label>
+                        <input placeholder="Ingrese el nombre del proveedor" required id="Nombre--modificar" name="nombre">
                     </div>
                 </div>
                 <div class="Input--Container">
                     <div>
-                        <label for="RIF">RIF</label>
-                        <input placeholder="Ingrese el RIF del proveedor" required id="RIF" name="rif">
+                        <label for="RIF--modificar">RIF</label>
+                        <input placeholder="Ingrese el RIF del proveedor" required id="RIF--modificar" name="rif">
                     </div>
                     <div>
                         <label for="Bebida">Producto del Proveedor</label>

@@ -247,6 +247,7 @@ dialog .Input--Container div input{
     width: 300px;
     padding: 7px 10px;
     border: none;
+    outline: none;
     border-bottom: 2px solid #aaa;
     border-right:2px solid #aaa;
     font-size: 0.9em;
