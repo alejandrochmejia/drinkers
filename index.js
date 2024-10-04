@@ -56,7 +56,29 @@ app.use(express.urlencoded({ extended: true }))
 //////////////////
 
 app.get('/', async (req,res)=>{
-    res.render('index');
+
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
+  
+    const inventario = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+
+    let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
+  
+    productosVentas.sort((a, b) => b.ingresos - a.ingresos);
+  
+    let top5ProductosVentas = productosVentas.slice(0, 5);
+  
+    let top5ProductosConNombres = top5ProductosVentas.map(pv => {
+      let producto = inventario.find(p => p.id == pv.id);
+      return {
+        nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
+        precio_detal: producto ? producto.precio_detal : 'Precio no disponible'
+      };
+    });
+    
+    res.render('index', {
+        productos: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
+        top5ProductosConNombres: top5ProductosConNombres
+    });
 })
 
 app.get('/login',(req,res)=>{
@@ -114,7 +136,8 @@ app.get('/admin/estadistica', async (req, res) => {
       let producto = inventario.find(p => p.id == pv.id);
       return {
         nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
-        ingresos: pv.ingresos
+        ingresos: pv.ingresos,
+        precio_detal: producto ? producto.precio_detal : 'Precio no disponible'
       };
     });
 
@@ -150,7 +173,8 @@ app.get('/api/productos/vendidos', async (req, res) => {
       let producto = inventario.find(p => p.id == pv.id);
       return {
         nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
-        ingresos: pv.ingresos
+        ingresos: pv.ingresos,
+        precio_detal: producto ? producto.precio_detal : 'Precio no disponible'
       };
     });
   

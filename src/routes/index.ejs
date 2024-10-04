@@ -12,30 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <section>
-            <img src="/images/Logo/logo-landing.png">
-            <input type="search">
-            <section>
-                <button>Iniciar sesión</button>
-                <div>0</div>
-                <img id="cart" src="/images/icons/store.svg">
-            </section>
-        </section>
-        <nav>
-            <ul>
-                <li><a href=""></a>RON</li>
-                <li><a href=""></a>WHISKY</li>
-                <li><a href=""></a>VINOS</li>
-                <li><a href=""></a>SIDRA</li>
-                <li><a href=""></a>BRANDY</li>
-                <li><a href=""></a>VODKA</li>
-                <li><a href=""></a>SANGRIA</li>
-                <li><a href=""></a>ANIS</li>
-                <li><a href=""></a>AGUARDIENTE</li>
-            </ul>
-        </nav>
-    </header>
+    <%- include('./partials/user-header') %>
 
     <img id="whatsappIcon" src="/images/icons/whatsapp.svg">
 
@@ -120,136 +97,30 @@
             <section>
                 <h3 class="subtitle">Popular en Drinkers</h3>
                     <ul class="productSection">
-                        <li>
-                            <div class="productView">
-                                <input type="number" class="productCant">
-                                <button>Agregar</button>
-                            </div>
-                            <h4>Anis Cartujo</h4>
-                            <h5>Desde 0.00$</h3>
-                        </li>
-                        <li>
-                            <div class="productView">
-                                <input type="number" class="productCant">
-                                <button>Agregar</button>
-                            </div>
-                            <h4>Anis Cartujo</h4>
-                            <h5>Desde 0.00$</h3>
-                        </li>
-                        <li>
-                            <div class="productView">
-                                <input type="number" class="productCant">
-                                <button>Agregar</button>
-                            </div>
-                            <h4>Anis Cartujo</h4>
-                            <h5>Desde 0.00$</h3>
-                        </li>
-                        <li>
-                            <div class="productView">
-                                <input type="number" class="productCant">
-                                <button>Agregar</button>
-                            </div>
-                            <h4>Anis Cartujo</h4>
-                            <h5>Desde 0.00$</h3>
-                        </li>
-                        <li>
-                            <div class="productView">
-                                <input type="number" class="productCant">
-                                <button>Agregar</button>
-                            </div>
-                            <h4>Anis Cartujo</h4>
-                            <h5>Desde 0.00$</h3>
-                        </li>
+                        <% top5ProductosConNombres.forEach(producto => { %>
+                            
+                            <%- include('./partials/product', {name: producto.nombre, price: producto.precio_detal}) %>
+                        <% }) %>
                     </ul>
             </section>
             <section>
                 <h3 class="subtitle">Ron</h3>
                 <ul class="productSection">
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
+                    <% productos.forEach(producto => { %>
+                        <% if(producto.tipo == "Ron") { %>
+                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                        <% } %>
+                    <% }) %>
                 </ul>
             </section>
             <section>
                 <h3 class="subtitle">Whisky</h3>
                 <ul class="productSection">
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
-                    <li>
-                        <div class="productView">
-                            <input type="number" class="productCant">
-                            <button>Agregar</button>
-                        </div>
-                        <h4>Anis Cartujo</h4>
-                        <h5>Desde 0.00$</h3>
-                    </li>
+                    <% productos.forEach(producto => { %>
+                        <% if(producto.tipo == "Whisky") { %>
+                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                        <% } %>
+                    <% }) %>
                 </ul>
             </section>
             <div id="space"></div>
