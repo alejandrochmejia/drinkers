@@ -129,6 +129,25 @@ Nombrebebida.addEventListener('input',()=>{
         }
     }
 })
+//Validacion para el textarea
+function ValidTextarea(validar) {
+    const regex = /^[a-zA-Z0-9\s.,!?@#$%^&*()_+-={}:<>?\/]+$/g
+    return regex.test(validar)
+}
+descripcion.addEventListener('input',()=>{
+    let Desc = descripcion.value
+    let validar = ValidTextarea(Desc)
+
+    if(validar){
+        descripcion.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
+    }else{
+        if(descripcion.value == 0){
+            descripcion.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
+        }else{
+            descripcion.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
+        }
+    }
+})
 //Validación si en el campo solo se esta ingresando numeros
 function ValidNum(validar) {
     const regex = /^-?\d+\.?\d*$/
@@ -205,7 +224,7 @@ Precio__detal.addEventListener('input',()=>{
     }
 })
 Precio__mayorista.addEventListener('input',()=>{
-    let precio_mayorista = Precio__mayorista.style
+    let precio_mayorista = Precio__mayorista.value
     let validar = ValidNum(precio_mayorista)
 
     if(validar){
@@ -232,22 +251,6 @@ stock.addEventListener('input',()=>{
         }
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let submit = document.getElementById('submit--Agregar');
 submit.addEventListener('click',()=>{
     if(Nombrebebida.value == 0 && TipoBebida.value == 0 && grados.value == 0 && Litros.value == 0 && Paquetes.value == 0 
@@ -257,3 +260,5 @@ submit.addEventListener('click',()=>{
         confirm("Esta seguro que quiere agregar este producto al inventario?")
     }
 })
+//Validaciones para la ventana modal de modificar producto
+
