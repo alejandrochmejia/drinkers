@@ -53,6 +53,18 @@ inputs.forEach(input => {
 document.addEventListener("DOMContentLoaded", function() {
 let lastScroll = window.scrollY;
 
+const product = document.querySelector('.productView button');
+product.addEventListener('click', async () => {
+    await fetch('/producto', {
+        method: 'POST',
+        body: JSON.stringify({
+            name: 'test',
+            price: 'test'
+        })
+    });
+    alert('Producto agregado');
+});
+
 window.addEventListener("scroll", function() {
     const currentScroll = window.scrollY;
     if(window.scrollY >= 0 && window.scrollY <= 15){
