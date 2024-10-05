@@ -168,7 +168,18 @@ submitAgregar.addEventListener('click',()=>{
         || fechaEntrega.value == 0){
             alert("Hay campos que no esta completos, por favor complete los campos faltantes para poder continuar")
     }else{
-        confirm("Esta seguro que quiere agregar este proveedor a la tabla?")
+        const pregunta = confirm("Esta seguro que quiere agregar este proveedor a la tabla?")
+        if(pregunta){
+            return
+        }else{
+            Nombreprov.value = ""
+            RIFprov.value = ""
+            Tlfprov.value = ""
+            Productoprov.value = ""
+            fechaCompra.value = ""
+            fechaEntrega.value = ""
+            Ubiprov.value = ""
+        }
     }
 })
 //Validaciones para la ventana modal de modificar un proveedor

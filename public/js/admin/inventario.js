@@ -257,7 +257,21 @@ submit.addEventListener('click',()=>{
             alert("No tiene todos los campos completos , por favor complete los campos que falta para pode continuar")
         }
     else{
-        confirm("Esta seguro que quiere agregar este producto al inventario?")
+        const pregunta = confirm("Esta seguro que quiere agregar este producto al inventario?")
+        if(pregunta){
+            return
+        }else{
+            Nombrebebida.value = ""
+            TipoBebida.value = ""
+            grados.value = ""
+            Litros.value = ""
+            Paquetes.value = ""
+            Iva.value = ""
+            Precio__detal.value = ""
+            Precio__mayorista.value = ""
+            descripcion.value = ""
+            stock.value = ""
+        }
     }
 })
 //Validaciones para la ventana modal de modificar producto
@@ -397,7 +411,22 @@ submit_modificar.addEventListener('click',()=>{
             alert("Hay algunos campos que no esta completos, por favor complete los campos faltantes para continuar")
         }
     else{
-        confirm("Esta seguro que quiere modificar este producto del inventario")
+        const pregunta = confirm("Esta seguro que quiere modificar este producto del inventario")
+        if(pregunta){
+            return
+        }else{
+            ID.value = ""
+            Nombre__Modificar.value = ""
+            tipo__modificar.value = ""
+            Grados__modificar.value = ""
+            Litros__modificar.value = ""
+            Paquetes__modificar.value = ""
+            Iva__modificar.value = ""
+            precio__detal__modificar.value = ""
+            precio__mayorista__modificar.value = ""
+            descripcion__modificar.value = ""
+            stock__modificar.value = ""
+        }
     }
 })
 
