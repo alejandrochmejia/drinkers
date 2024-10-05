@@ -16,12 +16,12 @@
                     <div class="Input--Container">
                         <span>Nuevo reporte</span>
                         <div class="Input">
-                            <input type="text" placeholder="Escribir el reporte" required name="descripcion">
-                            <img src="/images/icons/Cancel.png" alt="icon">
+                            <input type="text" placeholder="Escribir el reporte" required name="descripcion" id="Descripcion">
+                            <img src="/images/icons/Cancel.png" alt="icon" id="Borrar">
                         </div>
                     </div>
                     <div class="Tipo--aviso">
-                        <select required name="tipo">
+                        <select required name="tipo" id="Tipo">
                             <option selected value="">Todos</option>
                             <option value="Envio">Envio</option>
                             <option value="Proveedor">Proveedor</option>
@@ -51,7 +51,7 @@
                             <tr>
                                 <td><%= aviso.descripcion %></td>
                                 <td><%= aviso.tipo %></td>
-                                <td><%= aviso.fecha.toLocaleDateString() %></td>
+                                <td><%= (new Date(aviso.fecha)).toLocaleDateString() %></td>
                             </tr>
                         <% }); %>
                     </tbody>

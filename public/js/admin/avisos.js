@@ -13,5 +13,5 @@ document.querySelector('.Tipo--aviso select').addEventListener('change', (e) => 
             fila.style.display = 'none';
         }
     })
-
 })
+//Validaciones
