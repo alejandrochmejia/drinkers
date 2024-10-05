@@ -82,6 +82,7 @@ main .Content .Reportes--Container .aviso .Input--Container .Input img{
     width: 25px;
     position: relative;
     top: -5px;
+    cursor: pointer;
 }
 main .Content .Reportes--Container .aviso .Tipo--aviso{
     border: 1px solid var(--SecondaryColor);
@@ -119,13 +120,13 @@ main .Content .aviso button{
     font-size: 1.1em;
     font-weight: 600;
     letter-spacing: 1px;
-    transition: .1s linear;
     cursor: pointer;
+    transition: .1s linear;
 }
 main .Content .aviso  button:hover{
     background-color: var(--PrimaryColor);
     color: var(--SecondaryColor);
-    border: 2px solid var(--SecondaryColor)
+    border: 1px solid var(--SecondaryColor)
 }
 main .Content .Table--Container{
     margin-top: 5px;
