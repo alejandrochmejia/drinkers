@@ -49,9 +49,6 @@ main .Content--table .Table--Container div input{
     outline: none;
     border-radius: 15px;
 }
-main .Content--table .Table--Container div input:hover{
-    border: 2px solid var(--SecondaryColor);
-}
 main .Content--table .Table--Container div input::placeholder{
     color: var(--ColorNavigatorBar)
 }
