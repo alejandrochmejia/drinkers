@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Inventario</title>
+    <link rel="stylesheet" href="/css/admin/inventario.css">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <section class="Content">
+            <form class="Inputs--seleccionados">
+                <div class="Input--Container">
+                    <input type="search" placeholder="Buscar producto" id="Buscar">
+                    <label for="Lupa">
+                        <img src="/images/icons/Search.png" alt="Lupa" id="Lupa">
+                    </label>
+                </div>
+                <div class="Input--Container">
+                    <select name="tipo">
+                        <option selected value="">Todos</option>
+                        <option value="Ron">Ron</option>
+                        <option value="Voodka">Vodka</option>
+                        <option value="Cerveza">Cerveza</option>
+                        <option value="Vulcana">Vulcana</option>
+                        <option value="Energetica">Energetica</option>
+                        <option value="Te">Te</option>
+                        <option value="Agua">Agua</option>
+                        <option value="Gaseosa">Gaseosa</option>
+                    </select>
+                </div>
+            </form>
+            <article class="icon">
+                <img src="/images/icons/delete.png" alt="Eliminar" title="Eliminar producto" id="Eliminar">
+                <img src="/images/icons/pencil.png" alt="Modificar" title="Modificar producto" id="Modificar">
+                <img src="/images/icons/add.png" alt="Añadir" title="Añadir producto" id="Añadir">
+            </article>
+        </section>
+        <section class="Table--inventario">
+            <table>
+                <caption>Inventario de Bodega</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Producto</th>
+                        <th>Tipo</th>
+                        <th>Litros</th>
+                        <th>Grados de alcohol</th>
+                        <th>Imagen</th>
+                        <th>Paquete</th>
+                        <th>iva</th>
+                        <th>Descripción</th>
+                        <th>Precio_detal</th>
+                        <th>Precio_mayorista</th>
+                        <th>stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% inventario.forEach(producto => { %>
+                        <% if(producto.status === 'active'){ %>
+                        <tr>
+                            <td><%= producto.id %></td>
+                            <td><%= producto.nombre_producto %></td>
+                            <td><%= producto.tipo %></td>
+                            <td><%= producto.litros %></td>
+                            <td><%= producto.grados %></td>
+                            <td><%= producto.imagen %></td>
+                            <td><%= producto.paquete %></td>
+                            <td><%= producto.iva %></td>
+                            <td><%= producto.descripcion %></td>
+                            <td><%= producto.precio_detal %></td>
+                            <td><%= producto.precio_mayorista %></td>
+                            <td><%= producto.stock %></td>
+                        </tr>
+                    <% } %>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+        <dialog id="dialog--1">
+            <span id="Cerrar">X</span>
+            <h2>Agregar Producto</h2>
+            <form action="/admin/inventario/create" method="POST" enctype="multipart/form-data">
+                <div class="input--Container">
+                    <div class="Items">
+                        <label for="NombreProducto">Nombre del Producto</label>
+                        <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" name="nombre_producto" required>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div class="Items">
+                        <label for="tipo">Tipo de bebida</label>
+                        <select required name="tipo" id="tipo">
+                            <option value="">Seleccione un tipo</option>
+                            <option value="Ron">Ron</option>
+                            <option value="Vodka">Vodka</option>
+                            <option value="Cerveza">Cerveza</option>
+                            <option value="Vulcana">Vulcana</option>
+                            <option value="Energetica">Energética</option>
+                            <option value="Te">Té</option>
+                            <option value="Agua">Agua</option>
+                            <option value="Gaseosa">Gaseosa</option>
+                        </select>
+                    </div>
+                    <div class="Items">
+                        <label for="Grados">Grados</label>
+                        <input placeholder="Grados del Producto" required type="text" id="Grados" name="grados">
+                    </div>
+                    <div class="Items">
+                        <label for="Litros">Litros</label>
+                        <input placeholder="Ingreso los litros de la bebida" required type="text" id="Litros" name="litros">
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div>
+                        <label for="Imagen">Imagen del producto</label>
+                        <input type="file" id="Imagen" name="imagen" accept="image/*"/>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div class="item">
+                        <label for="Paquetes">Paquetes</label>
+                        <input placeholder="Ingrese los paquetes" type="text" id="Paquetes" name="paquete" required>
+                    </div>
+                    <div class="item">
+                        <label for="Iva">Iva</label>
+                        <input placeholder="Ingrese el iva del producto" type="text" id="Iva" name="iva" required>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div class="item">
+                        <label for="Precio--detal">Precio detal</label>
+                        <input placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal" name="precio_detal" required>
+                    </div>
+                    <div class="item">
+                        <label for="Precio--mayorista">Precio mayorista</label>
+                        <input placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista" name="precio_mayorista" required>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <label for="Descripcion">Descripción</label>
+                    <textarea id="Descripcion" required cols="50" placeholder="Ingrese la Descripcion del Producto" name="descripcion"></textarea>
+                </div>
+                <div class="input--Container">
+                    <div class="Items">
+                        <label for="stock">Cantidad de stock</label>
+                        <input placeholder="Ingrese la Cantidad de stock" type="text" id="stock" name="stock" required>
+                    </div>
+                </div>
+                <button type="submit" id="submit">Agregar</button>
+            </form>
+        </dialog>
+        <dialog id="dialog--2">
+            <span id="Cerrar--ventana">X</span>
+            <h2>Modificar Producto</h2>
+            <form action="/admin/inventario/modificar" method="POST">
+                <div class="input--Container">
+                    <div>
+                        <label for="Modificar--producto">Id</label>
+                        <input type="text" placeholder="Ingrese el id del producto Modificar" id="Modificar--producto" name="id" required>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div class="Items">
+                        <label for="NombreProducto">Nombre del Producto</label>
+                        <input placeholder="Ingrese el nombre del producto" type="text" id="NombreProducto" name="nombre_producto" required>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div class="Items">
+                        <select required name="tipo">
+                            <label for="tipo">Tipo de bebida</label>
+                            <option value="">Seleccione un tipo</option>
+                            <option value="Ron">Ron</option>
+                            <option value="Vodka">Vodka</option>
+                            <option value="Cerveza">Cerveza</option>
+                            <option value="Vulcana">Vulcana</option>
+                            <option value="Energetica">Energética</option>
+                            <option value="Te">Té</option>
+                            <option value="Agua">Agua</option>
+                            <option value="Gaseosa">Gaseosa</option>
+                        </select>
+                    </div>
+                    <div class="Items">
+                        <label for="Grados">Grados</label>
+                        <input placeholder="Grados del Producto" required type="text" id="Grados" name="grados">
+                    </div>
+                    <div class="Items">
+                        <label for="Litros">Litros</label>
+                        <input placeholder="Ingreso los litros de la bebida" required type="text" id="Litros" name="litros">
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div>
+                        <label for="Imagen">Imagen del producto</label>
+                        <input type="file" id="Imagen" name="imagen"/>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div class="item">
+                        <label for="Paquetes">Paquetes</label>
+                        <input placeholder="Ingrese los paquetes" type="text" id="Paquetes" name="paquete" required>
+                    </div>
+                    <div class="item">
+                        <label for="Iva">Iva</label>
+                        <input placeholder="Ingrese el iva del producto" type="text" id="Iva" name="iva" required>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <div class="item">
+                        <label for="Precio--detal">Precio detal</label>
+                        <input placeholder="Ingrese el precio detal del producto" type="text" id="Precio--detal" name="precio_detal" required>
+                    </div>
+                    <div class="item">
+                        <label for="Precio--mayorista">Precio mayorista</label>
+                        <input placeholder="Ingrese el precio mayorista del producto" type="text" id="Precio--mayorista" name="precio_mayorista" required>
+                    </div>
+                </div>
+                <div class="input--Container">
+                    <label for="Descripcion">Descripción</label>
+                    <textarea id="Descripcion" required cols="50" placeholder="Ingrese la Descripcion del Producto" name="descripcion"></textarea>
+                </div>
+                <div class="input--Container">
+                    <div class="Items">
+                        <label for="stock">Cantidad de stock</label>
+                        <input placeholder="Ingrese la Cantidad de stock" type="text" id="stock" name="stock" required>
+                    </div>
+                </div>
+                <button type="submit" id="submit">Modificar</button>
+            </form>
+        </dialog>
+    </main>
+    <script src="/js/admin/inventario.js"></script>
+</body>
+</html>

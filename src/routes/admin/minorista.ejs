@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Gerente</title>
+    <link rel="stylesheet" href="/css/admin/minorista.css">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <section class="Content--page">
+            <article class="input--Container">
+                <input type="search" placeholder="Destino" id="Destino">
+                <label for="Destino">
+                    <img alt="Lupa" src="/images/icons/search.png" id="Destino">
+                </label>
+            </article>
+            <article class="Minorista--Mayorista">
+                <div>
+                    <span id="Minorista">Minorista</span>
+                </div>
+                <a href="/admin/envios/mayorista" id="Mayorista">Mayorista</a>
+            </article>
+        </section>
+        <section class="Table--Container">
+            <table>
+                <caption>Envios Minoristas</caption>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Id__usuario</th>
+                    <th>Destino</th>
+                    <th>Monto</th>
+                    <th>Fecha de entrega</th>
+                    <th>Id__factura</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% for(let i = 0; i < envios.length; i++) { %>
+                        <% if(envios[i].tipo === 'minorista') { %>
+                        <tr>
+                            <td><%= envios[i].id %></td>
+                            <td><%= envios[i].id_user %></td>
+                            <td><%= envios[i].destino %></td>
+                            <td><%= envios[i].monto %> $</td>
+                            <td><%= envios[i].entrega.toLocaleDateString() %></td>
+                            <td><%= envios[i].id_factura %></td>
+                            <td><%= envios[i].status %></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="/js/admin/minorista.js"></script>
+</body>
+</html>

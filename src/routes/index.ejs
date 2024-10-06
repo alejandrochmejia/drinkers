@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers</title>
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('./partials/user-header') %>
+
+    <img id="whatsappIcon" src="/images/icons/whatsapp.svg">
+
+    <div id="values">
+        <section id="dolars" class="value">$</section>
+        <section id="bs" class="value">bs</section>
+    </div>
+
+    <%- include('./partials/cart') %>
+
+    <main>
+        <div id="background-main">
+        <h1>DRINKERS</h1>
+        <p id="slogan">
+            El elixir perfecto, la entrega perfecta
+        </p>
+        </div>
+
+        <div>
+            <section>
+                <h3 class="subtitle">Popular en Drinkers</h3>
+                    <ul class="productSection">
+                        <% top5ProductosConNombres.forEach(producto => { %>
+                            
+                            <%- include('./partials/product', {name: producto.nombre, price: producto.precio_detal}) %>
+                        <% }) %>
+                    </ul>
+            </section>
+            <section>
+                <h3 class="subtitle">Ron</h3>
+                <ul class="productSection">
+                    <% productos.forEach(producto => { %>
+                        <% if(producto.tipo == "Ron") { %>
+                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                        <% } %>
+                    <% }) %>
+                </ul>
+            </section>
+            <section>
+                <h3 class="subtitle">Whisky</h3>
+                <ul class="productSection">
+                    <% productos.forEach(producto => { %>
+                        <% if(producto.tipo == "Whisky") { %>
+                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                        <% } %>
+                    <% }) %>
+                </ul>
+            </section>
+            <div id="space"></div>
+        </div>
+    </main>
+
+
+    <%- include('./partials/footer') %>
+    
+    <script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+#background-main{
+    background-image: url(/images/background/bg.png);
+    width: 95dvw;
+    height: 90dvh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    padding-left: 5dvw;
+    margin-bottom: 10vmin;
+}
+
+h1{
+    font-family: Zen dots;
+    color: white;
+    font-size: 12vmin;
+    font-weight: normal;
+    margin: 0;
+}
+
+#slogan{
+    color: white;
+    font-size: 7vmin;
+    width: 45%;
+    font-weight: lighter;
+    margin: 0;
+}
+
+#space{
+    height: 20vmin;
+}

@@ -1,0 +1,22 @@
+<li>
+    <div class="productView">
+        <input type="number" class="productCant">
+        <button onclick="addProduct()">Agregar</button>
+    </div>
+    <h4><%= name %></h4>
+    <h5>Desde <%= price %></h3>
+</li>
+<script>
+    async function addProduct(){
+        await fetch('/producto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: '<%= name %>',
+                price: '<%= price %>'
+            })
+        });
+    }
+</script>

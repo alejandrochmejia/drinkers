@@ -1,0 +1,300 @@
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+main{
+    position: absolute;
+    top: 105px;
+    left: 155px;
+    border-radius: 10px;
+    width: 85%;
+    padding: 10px;
+}
+main .Content{
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 10px;
+    gap: 15px;
+}
+main .Content .Info--Proveedor{
+    box-shadow: 0 0 3px var(--ColorNavigatorBar);
+    width: 350px;
+    height: 380px;
+    padding: 10px;
+    background-color: var(--SecondaryColor);
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column wrap;
+    gap: 5px;
+    border-radius: 10px;
+}
+main .Content .Info--Proveedor h1{
+    font-size: 1.3em;
+    padding-left: 6px;
+    text-transform: capitalize;
+    color: var(--PrimaryColor);
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+main .Content .Info--Proveedor article{
+    display: flex;
+    justify-content: left;
+    flex-flow: column wrap;
+    margin: 5px;
+    background-color: var(--PrimaryColor);
+    padding: 5px;
+}
+main .Content .Info--Proveedor article span{
+    font-size: 0.9em;
+    color: var(--SecondaryColor);
+    letter-spacing: 1px;
+    padding: 1px;
+}
+main .Content .Info--Proveedor article h3{
+    font-size: 1em;
+    text-shadow: 0 0 2px #aaa;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 2px;
+}
+main .Content .Info--Proveedor .Icon--proveedor{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: right;
+    gap: 12px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+}
+main .Content .Info--Proveedor .Icon--proveedor img{
+    width: 26px;
+    cursor: pointer;
+    transition: padding .1s 0.1s, outline .1s 0.1s, border-radius .1s 0.1s;
+}
+main .Content .Info--Proveedor .Icon--proveedor img:hover{
+    padding: 1px 0px;
+    outline: 2px solid #aaa;
+    outline-offset: 2px;
+    border-radius: 40px;
+}
+main .Content .Table--Container{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    padding: 10px;
+    position: absolute;
+    top: 5px;
+    left: 380px;
+}
+main .Content .Table--Container .Input--Container{
+    padding: 2px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+main .Content .Table--Container .Input--Container input{
+    width: 230px;
+    padding: 7px 8px;
+    width: 300px;
+    border: 2px solid #aaa;
+    outline: none;
+    border-radius: 15px;
+}
+main .Content .Table--Container .Input--Container img{
+    width: 25px;
+    position: relative;
+    left: -35px;
+}
+main .Content .Table--Container table{
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    height: 300px;
+    margin-top: 15px;
+    padding: 5px 5px;
+    border-collapse: collapse;
+    overflow-y: auto;
+    display: block;
+}
+main .Content .Table--Container table::-webkit-scrollbar{
+    background-color: #aaa;
+    width: 10px;
+    border-radius: 20px;
+}
+main .Content .Table--Container table::-webkit-scrollbar-thumb{
+    background-color: var(--ColorNavigatorBar);
+    border-radius: 15px;
+    cursor: pointer;
+}
+main .Content .Table--Container table caption{
+    border-bottom: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+main .Content .Table--Container table th{
+    padding: 3px 5px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    font-weight: 600;
+    font-size: 0.9em;
+}           
+main .Content .Table--Container table td{
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+main .Content .Table--Container table tbody tr{
+    transition: .1s linear;
+}
+main .Content .Table--Container table tbody tr:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
+    cursor: pointer;
+}
+.presionado--bottom{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
+    cursor: pointer;
+}
+/*Ventana Modal*/
+dialog{
+    margin: auto;
+    width: 650px;
+    height: 420px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 5px #000;
+}
+dialog[open]{
+    animation: openModal 0.5s forwards;
+}
+/* Animación para abrir el modal */
+@keyframes openModal {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+dialog span{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 1.3em;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 500ms 0.1s;
+}
+dialog span:hover{
+    background-color: var(--ColorNavigatorBar);
+    color: var(--PrimaryColor);
+}
+dialog h2{
+    font-size: 2em;
+    letter-spacing: 1px;
+    padding-left: 15px;
+    color: var(--SecondaryColor);
+    font-weight: 500;
+}
+dialog form{
+    padding: 5px;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 15px;
+}
+dialog form .Input--Container{
+    display: flex;
+    align-items: center;
+    width: 550px;
+    padding: 5px;
+    gap: 10px;
+}
+dialog form .Input--Container div{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 5px;
+}
+dialog .Input--Container div label{
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding-left: 5px;
+}
+dialog .Input--Container div input{
+    width: 300px;
+    padding: 7px 10px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    border-right:2px solid #aaa;
+    font-size: 0.9em;
+    color: var(--ColorNavigatorBar);
+    border-radius: 12px;
+    transition: .1s linear;
+}
+dialog .Input--Container div input::placeholder{
+    color: var(--ColorNavigatorBar);
+}
+dialog .Input--Container div input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+    border-right:2px solid var(--SecondaryColor);
+}
+dialog form button{
+    width: 280px;
+    margin: auto;
+    margin-top: 35px;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    color: var(--ColorNavigatorBar);
+    border: none;
+    border-radius: 15px;
+    outline: 1px solid #000;
+    background-color: var(--PrimaryColor);
+    font-weight: 600;
+    transition: .1s linear;
+}
+dialog form button:hover{
+    background-color: var(--HoverColor);
+    cursor: pointer;
+    outline: 2px solid #000;
+    padding: 6px 10px;
+}
+#dialog--2{
+    height: 430px;
+}
+#dialog--2 form{
+    margin-top: 5px;
+}
+#dialog--2 .Input--Container:nth-child(1){
+    justify-content: center;
+    padding: 5px;
+}
+#dialog--2 .Input--Container:nth-child(1) input{
+    padding: 8px 10px;
+    width: 355px;
+}
+#dialog--2 form button{
+    margin-top: 15px;
+}     
