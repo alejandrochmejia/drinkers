@@ -453,7 +453,6 @@ footer section section div{
 }
 
 .productView{
-    background-image: url(../../../public/images/Licores/anis-cartujo.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -464,6 +463,13 @@ footer section section div{
     align-items: center;
     flex-direction: column;
     gap: 1vmin;
+}
+
+.productImg{
+    position: absolute;
+    width: 20vmin;
+    height: 20vmin;
+    z-index: -10;
 }
 
 .productView input[type=number]{

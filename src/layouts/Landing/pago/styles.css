@@ -1,0 +1,12 @@
+.arrows{
+    display: flex;
+    flex-direction: row;
+    width: 90dvw;
+}
+
+.arrow{
+    width: 20%;
+    height: 100%;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    background-color: red;
+}
