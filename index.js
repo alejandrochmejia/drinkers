@@ -313,8 +313,3 @@ app.post('/admin/proveedor/eliminar', async (req, res) => {
     await update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
 });
-
-app.post('/producto', async (req, res) => {
-    console.log(req.body);
-    res.send(req.body);
-});

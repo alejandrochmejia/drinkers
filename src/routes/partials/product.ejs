@@ -1,7 +1,7 @@
 <li>
     <div class="productView">
         <img class="productImg" src=<%= producto.imagen %>>
-        <input type="number" class="productCant">
+        <input id="cantidad" type="number" class="productCant">
         <button onclick="addProduct()">Agregar</button>
     </div>
     <h4><%= producto.nombre_producto %></h4>
@@ -9,15 +9,19 @@
 </li>
 <script>
     async function addProduct(){
-        await fetch('/producto', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: '<%= producto.nombre_producto %>',
-                price: '<%= producto.precio_mayorista %>',
-            })
-        });
+        let producto = '<%= producto.nombre_producto %>'.replace(/ /g, '');
+        let cantidad = document.getElementById('cantidad').value;
+
+        if(localStorage.getItem(producto)){
+            cantidad = toString(parseInt(localStorage.getItem(producto)) + parseInt(cantidad))
+        }
+
+        localStorage.setItem(producto, JSON.stringify({
+            cantidad: cantidad,
+            precio: '<%= producto.precio_detal %>',
+            imagen: '<%= producto.imagen %>'
+        }));
+
+        console.log(localStorage.getItem(producto));
     }
 </script>
