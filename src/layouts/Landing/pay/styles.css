@@ -14,8 +14,21 @@
     width: 15%;
     height: 100%;
     clip-path: polygon(91% 0, 100% 50%, 90% 100%, 0% 100%, 8% 52%, 0% 0%);
-    background-color: red;
+    background-color: #F1F6FD;
+    color: #B1CEF4;
     gap: 1vmin;
+}
+
+.selected{
+    background-color: #B1CEF4;
+}
+
+.selected > h3{
+    color: #040C5D;
+}
+
+.selected > p{
+    color: #666666;
 }
 
 .arrow > p{
