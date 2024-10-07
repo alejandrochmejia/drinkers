@@ -56,7 +56,7 @@
                 <ul class="productSection">
                     <% productos.forEach(producto => { %>
                         <% if(producto.tipo == "Whisky") { %>
-                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal, imagen: producto.imagen}) %>
                         <% } %>
                     <% }) %>
                 </ul>
