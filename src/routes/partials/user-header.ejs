@@ -14,7 +14,7 @@
         <input type="search" list="catalogo">
         <section>
             <button onclick="window.location.href='/login'">Iniciar sesión</button>
-            <div>0</div>
+            <div id="cart-length"></div>
             <img id="cart" src="/images/icons/store.svg">
         </section>
     </section>
@@ -32,3 +32,6 @@
         </ul>
     </nav>
 </header>
+<script>
+    document.getElementById('cart-length').innerText = localStorage.length;
+</script>

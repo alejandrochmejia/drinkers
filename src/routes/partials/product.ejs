@@ -22,6 +22,7 @@
             imagen: '<%= producto.imagen %>'
         }));
 
+        document.getElementById('cart-length').innerText = localStorage.length;
         console.log(localStorage.getItem(producto));
     }
 </script>
