@@ -325,7 +325,7 @@ aside section div{
 main{
     width: 100dvw;
     min-height: 100dvh;
-    margin-top: 18dvh;
+    padding-top: 18dvh;
 }
 
 footer{
