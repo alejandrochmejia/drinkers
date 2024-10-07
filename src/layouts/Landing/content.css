@@ -65,6 +65,7 @@ body{
 }
 
 header{
+    z-index: 40;
     position: fixed;
     width: 100dvw;
     height: 15dvh;
@@ -324,7 +325,7 @@ aside section div{
 main{
     width: 100dvw;
     min-height: 100dvh;
-    padding-top: 15dvh;
+    margin-top: 18dvh;
 }
 
 footer{
