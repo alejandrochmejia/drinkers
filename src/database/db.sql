@@ -122,6 +122,7 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (9, 'Cognac VSOP', 'Cognac', 'Cognac VSOP francés', 0.7, 40, 'cognac_vsop.jpg', 1, 19, 70000, 65000, 60, 'active'),
 (10, 'Mezcal Artesanal', 'Mezcal', 'Mezcal artesanal de Oaxaca', 0.75, 45, 'mezcal_artesanal.jpg', 1, 19, 65000, 60000, 50, 'active'),
 (11, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de cebada', 0.5, 5, 'cerveza_artesanal.jpg', 1, 19, 20000, 15000, 200, 'active'),
+-- Manera de Agregar la imagen
 (12, 'Anis Cartujo', 'Anis', 'Anís tradicional', 0.7, 35, '/images/Licores/anis-cartujo.png', 12, 19, 30000, 25000, 120, 'active');
 
 

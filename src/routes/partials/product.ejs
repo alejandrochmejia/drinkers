@@ -1,11 +1,11 @@
 <li>
     <div class="productView">
-        <img class="productImg" src=<%= imagen %>>
+        <img class="productImg" src=<%= producto.imagen %>>
         <input type="number" class="productCant">
         <button onclick="addProduct()">Agregar</button>
     </div>
-    <h4><%= name %></h4>
-    <h5>Desde <%= price %></h3>
+    <h4><%= producto.nombre_producto %></h4>
+    <h5>Desde <%= producto.precio_detal %></h3>
 </li>
 <script>
     async function addProduct(){
@@ -15,8 +15,8 @@
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: '<%= name %>',
-                price: '<%= price %>',
+                name: '<%= producto.nombre_producto %>',
+                price: '<%= producto.precio_mayorista %>',
             })
         });
     }
