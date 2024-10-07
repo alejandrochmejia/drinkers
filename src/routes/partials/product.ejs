@@ -1,6 +1,6 @@
 <li>
     <div class="productView">
-        <img class="productImg" src="">
+        <img class="productImg" src=<%= imagen %>>
         <input type="number" class="productCant">
         <button onclick="addProduct()">Agregar</button>
     </div>
@@ -16,7 +16,7 @@
             },
             body: JSON.stringify({
                 name: '<%= name %>',
-                price: '<%= price %>'
+                price: '<%= price %>',
             })
         });
     }

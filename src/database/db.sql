@@ -121,10 +121,11 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (8, 'Licor de Café', 'Licor', 'Licor cremoso de café', 0.7, 17, 'licor_cafe.jpg', 1, 19, 25000, 20000, 110, 'active'),
 (9, 'Cognac VSOP', 'Cognac', 'Cognac VSOP francés', 0.7, 40, 'cognac_vsop.jpg', 1, 19, 70000, 65000, 60, 'active'),
 (10, 'Mezcal Artesanal', 'Mezcal', 'Mezcal artesanal de Oaxaca', 0.75, 45, 'mezcal_artesanal.jpg', 1, 19, 65000, 60000, 50, 'active'),
-(11, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de cebada', 0.5, 5, 'cerveza_artesanal.jpg', 1, 19, 20000, 15000, 200, 'active');
+(11, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de cebada', 0.5, 5, 'cerveza_artesanal.jpg', 1, 19, 20000, 15000, 200, 'active'),
+(12, 'Anis Cartujo', 'Anis', 'Anís tradicional', 0.7, 35, '/images/Licores/anis-cartujo.png', 12, 19, 30000, 25000, 120, 'active');
+
 
 INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock, status) VALUES
-(12, 'Sake Premium', 'Sake', 'Sake japonés de arroz pulido', 0.72, 15, 'sake_premium.jpg', 1, 19, 55000, 50000, 80, 'active'),
 (13, 'Absenta Verde', 'Absenta', 'Absenta tradicional francesa', 0.7, 68, 'absenta_verde.jpg', 1, 19, 75000, 70000, 40, 'active'),
 (14, 'Brandy Español', 'Brandy', 'Brandy de Jerez reserva', 0.7, 36, 'brandy_espanol.jpg', 1, 19, 45000, 40000, 100, 'active'),
 (15, 'Pisco Peruano', 'Pisco', 'Pisco puro de uva quebranta', 0.75, 42, 'pisco_peruano.jpg', 1, 19, 50000, 45000, 90, 'active'),
