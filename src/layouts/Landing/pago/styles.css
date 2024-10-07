@@ -7,8 +7,18 @@
 }
 
 .arrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 15%;
     height: 100%;
     clip-path: polygon(91% 0, 100% 50%, 90% 100%, 0% 100%, 8% 52%, 0% 0%);
     background-color: red;
+    gap: 1vmin;
+}
+
+.arrow > p{
+    width: 40%;
+    text-align: center;
 }
