@@ -1,10 +1,9 @@
 <aside>
     <button>
         <img src="/images/icons/Trash.svg" alt="">
-        <span>Vaciar Carrito</span>
+        <span onclick="emptyCart()">Vaciar Carrito</span>
     </button>
     <ul>
-        
     </ul>
     <section>
         <div>
@@ -17,3 +16,11 @@
         </button>
     </section>
 </aside>
+<script>
+
+    function emptyCart() {
+        localStorage.clear();
+        document.getElementById('cart-length').innerText = localStorage.length;
+    }
+
+</script>
