@@ -18,22 +18,27 @@
 </aside>
 <script>
 
-    let cart = document.querySelector('aside ul');
+    function cargarCarrito() {
 
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        let product = JSON.parse(localStorage.getItem(key));
-        let li = document.createElement('li');
-        li.innerHTML = `
-            <input type="number" class="productCant" value="${product.cantidad}">
-            <img class="productImage" src="${product.imagen}">
-            <div>
-                <span>${key}</span>
-                <p>${product.precio} c/u</p>
-            </div>
-            <img src="/images/icons/Trash.svg" onclick="removeProduct('${key}')">
-        `;
-        cart.appendChild(li);
+        let cart = document.querySelector('aside ul');
+
+        cart.innerHTML = '';
+
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let product = JSON.parse(localStorage.getItem(key));
+            let li = document.createElement('li');
+            li.innerHTML = `
+                <input type="number" class="productCant" value="${product.cantidad}">
+                <img class="productImage" src="${product.imagen}">
+                <div>
+                    <span>${key}</span>
+                    <p>${product.precio} c/u</p>
+                </div>
+                <img src="/images/icons/Trash.svg" onclick="removeProduct('${key}')">
+            `;
+            cart.appendChild(li);
+        }
     }
 
     function removeProduct(key) {
@@ -41,12 +46,21 @@
         localStorage.removeItem(key);
         document.getElementById('cart-length').innerText = localStorage.length;
 
-        let li = document.querySelector(`li:contains(${key})`);
+        let li = document.querySelector(`aside ul li:contains(${key})`);
+        let ul = document.querySelector('aside ul');
+        ul.removeChild(li);
+        console.log(ul)
+
     }
 
     function emptyCart() {
         localStorage.clear();
         document.getElementById('cart-length').innerText = localStorage.length;
+        let cart = document.querySelector('aside ul');
+        cart.innerHTML = '';
+        alert('Carrito vaciado');
     }
+
+    cargarCarrito();
 
 </script>
