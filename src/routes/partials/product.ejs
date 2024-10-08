@@ -8,6 +8,7 @@
     <h5>Desde <%= producto.precio_detal %></h3>
 </li>
 <script>
+    //Funcion para agregar un producto al carrito y al LocalStorage
     async function addProduct(){
         let producto = '<%= producto.nombre_producto %>'.replace(/ /g, '');
         let cantidad = document.getElementById('cantidad').value;
@@ -27,6 +28,7 @@
 
         document.getElementById('cart-length').innerText = localStorage.length;
 
+        //Funcion Externa del documento (cart.ejs)
         cargarCarrito();
 
     }

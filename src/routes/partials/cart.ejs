@@ -18,6 +18,7 @@
 </aside>
 <script>
 
+    //Funcion para cargar el carrito desde el LocalStorage
     function cargarCarrito() {
 
         let cart = document.querySelector('aside ul');
@@ -28,7 +29,6 @@
             let key = localStorage.key(i);
             let product = JSON.parse(localStorage.getItem(key));
             let li = document.createElement('li');
-            console.log(product)
             li.innerHTML = `
                 <input readonly type="number" class="productCant" value="${product.cantidad}">
                 <img class="productImage" src="${product.imagen}">
@@ -40,8 +40,11 @@
             `;
             cart.appendChild(li);
         }
+
+        cargarDolar();
     }
 
+    //Funcion para eliminar un producto del carrito
     function removeProduct(key) {
         alert('Producto eliminado');
         localStorage.removeItem(key);
@@ -49,6 +52,7 @@
         cargarCarrito()
     }
 
+    //Funcion para vaciar el carrito
     function emptyCart() {
         localStorage.clear();
         document.getElementById('cart-length').innerText = localStorage.length;
@@ -57,7 +61,8 @@
         alert('Carrito vaciado');
     }
 
-    document.addEventListener('DOMContentLoaded', async () => {
+    //Funcion asincronca para cargar la api de Dolar y el dolar Promedio
+    async function cargarDolar() {
         const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial")
         const data = await response.json()
         let dolar = data.promedio
@@ -77,9 +82,6 @@
 
         document.querySelector('#total-cart').innerText = `Total($): ${total.toFixed(2)}`;
         document.querySelector('#totalbs-cart').innerText = `Total(Bs): ${totalBs.toFixed(2)}`;
-
-        
-
-    });
+    }
 
 </script>
