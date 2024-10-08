@@ -7,9 +7,9 @@
     </ul>
     <section>
         <div>
-            <span>Tasa: 00.00</span>
-            <span>Total($):00.00</span>
-            <span>Total(Bs): 0 000.00</span>
+            <span id="tasa-cart">Tasa: </span>
+            <span id="total-cart">Total($):00.00</span>
+            <span id="totalbs-cart">Total(Bs): 0 000.00</span>
         </div>
         <button>
             <span>Finalizar Compra</span>
@@ -29,7 +29,7 @@
             let product = JSON.parse(localStorage.getItem(key));
             let li = document.createElement('li');
             li.innerHTML = `
-                <input type="number" class="productCant" value="${product.cantidad}">
+                <input readonly type="number" class="productCant" value="${product.cantidad}">
                 <img class="productImage" src="${product.imagen}">
                 <div>
                     <span>${key}</span>
@@ -45,12 +45,7 @@
         alert('Producto eliminado');
         localStorage.removeItem(key);
         document.getElementById('cart-length').innerText = localStorage.length;
-
-        let li = document.querySelector(`aside ul li:contains(${key})`);
-        let ul = document.querySelector('aside ul');
-        ul.removeChild(li);
-        console.log(ul)
-
+        cargarCarrito()
     }
 
     function emptyCart() {
@@ -62,5 +57,28 @@
     }
 
     cargarCarrito();
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial")
+        const data = await response.json()
+        let dolar = data.promedio
+
+        document.querySelector('#tasa-cart').innerText = `Tasa: ${dolar}`;
+
+        let total = 0;
+        let totalBs = 0;
+
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let product = JSON.parse(localStorage.getItem(key));
+            total += parseFloat(product.precio) * parseInt(product.cantidad);
+        }
+
+        totalBs = total * dolar;
+
+        document.querySelector('#total-cart').innerText = `Total($): ${total.toFixed(2)}`;
+        document.querySelector('#totalbs-cart').innerText = `Total(Bs): ${totalBs.toFixed(2)}`;
+
+    });
 
 </script>

@@ -13,14 +13,19 @@
         let cantidad = document.getElementById('cantidad').value;
 
         if(localStorage.getItem(producto)){
-            cantidad = toString(parseInt(localStorage.getItem(producto)) + parseInt(cantidad))
+            cantidad = parseInt(localStorage.getItem(producto)) + parseInt(cantidad)
         }
 
-        localStorage.setItem(producto, JSON.stringify({
+        const productStorage = {
             cantidad: cantidad,
             precio: '<%= producto.precio_detal %>',
             imagen: '<%= producto.imagen %>'
-        }));
+        }
+
+        console.log(productStorage)
+        console.log(typeof productStorage.cantidad)
+        
+        localStorage.setItem(producto, JSON.stringify(productStorage));
 
         document.getElementById('cart-length').innerText = localStorage.length;
 
