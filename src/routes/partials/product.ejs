@@ -13,7 +13,7 @@
         let cantidad = document.getElementById('cantidad').value;
 
         if(localStorage.getItem(producto)){
-            cantidad = parseInt(localStorage.getItem(producto)) + parseInt(cantidad)
+            cantidad = parseInt(cantidad) + parseInt(JSON.parse(localStorage.getItem(producto)).cantidad);
         }
 
         const productStorage = {
@@ -23,8 +23,6 @@
         }
 
         console.log(productStorage)
-        console.log(typeof productStorage.cantidad)
-        
         localStorage.setItem(producto, JSON.stringify(productStorage));
 
         document.getElementById('cart-length').innerText = localStorage.length;
