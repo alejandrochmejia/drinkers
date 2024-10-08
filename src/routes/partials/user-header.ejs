@@ -36,7 +36,7 @@
     document.getElementById('cart-length').innerText = localStorage.length;
 
     document.querySelector('#search-bar').onchange = function() {
-        window.location.href = `/catalogo?product=${this.value}`;
+        window.location.href = `/catalogo?search=${this.value}`;
     }
 
 </script>

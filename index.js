@@ -92,8 +92,8 @@ app.get('/catalogo', async (req,res)=>{
     const productos = await getAll(process.env.MYSQL_DATABASE+'.inventario')
 
     if(!req.query.type){
-        if(req.query.product) {
-            let productosFiltrados = productos.filter(producto => producto.nombre_producto.toLowerCase().includes(req.query.product.toLowerCase()))
+        if(req.query.search) {
+            let productosFiltrados = productos.filter(producto => producto.nombre_producto.toLowerCase().includes(req.query.search.toLowerCase()))
         
             res.render('partials/catalogo', {
                 productos: productosFiltrados,
