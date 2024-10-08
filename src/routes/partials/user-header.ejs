@@ -11,7 +11,7 @@
             <option value="Sangría">Sangría</option>
             <option value="Anis">Anis</option>
         </datalist>
-        <input type="search" list="catalogo">
+        <input type="search" list="catalogo" id="search-bar">
         <section>
             <button onclick="window.location.href='/login'">Iniciar sesión</button>
             <div id="cart-length"></div>
@@ -34,4 +34,9 @@
 </header>
 <script>
     document.getElementById('cart-length').innerText = localStorage.length;
+
+    document.querySelector('#search-bar').onchange = function() {
+        window.location.href = `/catalogo?product=${this.value}`;
+    }
+
 </script>
