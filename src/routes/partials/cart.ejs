@@ -18,6 +18,32 @@
 </aside>
 <script>
 
+    let cart = document.querySelector('aside ul');
+
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let product = JSON.parse(localStorage.getItem(key));
+        let li = document.createElement('li');
+        li.innerHTML = `
+            <input type="number" class="productCant" value="${product.cantidad}">
+            <img class="productImage" src="${product.imagen}">
+            <div>
+                <span>${key}</span>
+                <p>${product.precio} c/u</p>
+            </div>
+            <img src="/images/icons/Trash.svg" onclick="removeProduct('${key}')">
+        `;
+        cart.appendChild(li);
+    }
+
+    function removeProduct(key) {
+        alert('Producto eliminado');
+        localStorage.removeItem(key);
+        document.getElementById('cart-length').innerText = localStorage.length;
+
+        let li = document.querySelector(`li:contains(${key})`);
+    }
+
     function emptyCart() {
         localStorage.clear();
         document.getElementById('cart-length').innerText = localStorage.length;

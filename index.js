@@ -96,7 +96,7 @@ app.get('/catalogo', async (req,res)=>{
 
     res.render('partials/catalogo', {
         productos: productosFiltrados,
-        type: req.query.type
+        type: req.query.type,
     });
 })
 
