@@ -1,6 +1,7 @@
 document.getElementById("cart").addEventListener("click",function(){
     cartMenu = document.querySelector("aside");
     if (cartMenu.style.right === '-31%'){
+        cargarCarrito();
         cartMenu.style.right = '0%'
     } else {
         cartMenu.style.right = '-31%'

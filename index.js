@@ -89,14 +89,24 @@ app.get('/', async (req,res)=>{
 //Catalogo o Seccion de Productos
 app.get('/catalogo', async (req,res)=>{
 
-
     const productos = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+
+    if(!req.query.type){
+        if(req.query.search) {
+            let productosFiltrados = productos.filter(producto => producto.nombre_producto.toLowerCase().includes(req.query.search.toLowerCase()))
+        
+            res.render('partials/catalogo', {
+                productos: productosFiltrados,
+                type: 'Busqueda'
+            });
+        }
+    }
 
     const productosFiltrados = productos.filter(producto => producto.tipo == req.query.type)
 
     res.render('partials/catalogo', {
         productos: productosFiltrados,
-        type: req.query.type
+        type: req.query.type,
     });
 })
 
@@ -312,9 +322,4 @@ app.post('/admin/proveedor/modificar', async (req, res) => {
 app.post('/admin/proveedor/eliminar', async (req, res) => {
     await update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
-});
-
-app.post('/producto', async (req, res) => {
-    console.log(req.body);
-    res.send(req.body);
 });

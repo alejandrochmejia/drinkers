@@ -37,7 +37,7 @@
                     <ul class="productSection">
                         <% top5ProductosConNombres.forEach(producto => { %>
                             
-                            <%- include('./partials/product', {name: producto.nombre, price: producto.precio_detal}) %>
+                            <%- include('./partials/product', {producto}) %>
                         <% }) %>
                     </ul>
             </section>
@@ -46,7 +46,7 @@
                 <ul class="productSection">
                     <% productos.forEach(producto => { %>
                         <% if(producto.tipo == "Ron") { %>
-                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                            <%- include('./partials/product', {producto}) %>
                         <% } %>
                     <% }) %>
                 </ul>
@@ -56,7 +56,7 @@
                 <ul class="productSection">
                     <% productos.forEach(producto => { %>
                         <% if(producto.tipo == "Whisky") { %>
-                            <%- include('./partials/product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                            <%- include('./partials/product', {producto}) %>
                         <% } %>
                     <% }) %>
                 </ul>

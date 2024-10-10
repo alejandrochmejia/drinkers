@@ -65,6 +65,7 @@ body{
 }
 
 header{
+    z-index: 40;
     position: fixed;
     width: 100dvw;
     height: 15dvh;
@@ -100,7 +101,7 @@ header section input[type=search]{
     height: 4vmin;
     border: none;
     border-radius: 20px;
-    background-image: url("/images/icons/search-icon.png");
+    background-image: url("../../../../public/images/icons/search-icon.png");
     background-position-x: 0.5vmin; 
     background-repeat: no-repeat;
     background-size: contain;
@@ -184,7 +185,7 @@ header nav ul li:hover{
 
 aside{
     position: fixed;
-    height: 88dvh;
+    height: 83dvh;
     width: 30dvw;
     right: -31%;
     bottom: 0%;
@@ -324,7 +325,7 @@ aside section div{
 main{
     width: 100dvw;
     min-height: 100dvh;
-    padding-top: 15dvh;
+    padding-top: 18dvh;
 }
 
 footer{
@@ -453,7 +454,6 @@ footer section section div{
 }
 
 .productView{
-    background-image: url(/images/Licores/anis-cartujo.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -464,6 +464,13 @@ footer section section div{
     align-items: center;
     flex-direction: column;
     gap: 1vmin;
+}
+
+.productImg{
+    position: absolute;
+    width: 20vmin;
+    height: 20vmin;
+    z-index: -10;
 }
 
 .productView input[type=number]{

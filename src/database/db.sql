@@ -121,30 +121,9 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (8, 'Licor de Café', 'Licor', 'Licor cremoso de café', 0.7, 17, 'licor_cafe.jpg', 1, 19, 25000, 20000, 110, 'active'),
 (9, 'Cognac VSOP', 'Cognac', 'Cognac VSOP francés', 0.7, 40, 'cognac_vsop.jpg', 1, 19, 70000, 65000, 60, 'active'),
 (10, 'Mezcal Artesanal', 'Mezcal', 'Mezcal artesanal de Oaxaca', 0.75, 45, 'mezcal_artesanal.jpg', 1, 19, 65000, 60000, 50, 'active'),
-(11, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de cebada', 0.5, 5, 'cerveza_artesanal.jpg', 1, 19, 20000, 15000, 200, 'active');
-
-INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock, status) VALUES
-(12, 'Sake Premium', 'Sake', 'Sake japonés de arroz pulido', 0.72, 15, 'sake_premium.jpg', 1, 19, 55000, 50000, 80, 'active'),
-(13, 'Absenta Verde', 'Absenta', 'Absenta tradicional francesa', 0.7, 68, 'absenta_verde.jpg', 1, 19, 75000, 70000, 40, 'active'),
-(14, 'Brandy Español', 'Brandy', 'Brandy de Jerez reserva', 0.7, 36, 'brandy_espanol.jpg', 1, 19, 45000, 40000, 100, 'active'),
-(15, 'Pisco Peruano', 'Pisco', 'Pisco puro de uva quebranta', 0.75, 42, 'pisco_peruano.jpg', 1, 19, 50000, 45000, 90, 'active'),
-(16, 'Vermouth Italiano', 'Vermouth', 'Vermouth rojo italiano', 0.75, 16, 'vermouth_italiano.jpg', 1, 19, 35000, 30000, 120, 'active'),
-(17, 'Aguardiente Colombiano', 'Aguardiente', 'Aguardiente sin azúcar', 0.75, 29, 'aguardiente_colombiano.jpg', 1, 19, 30000, 25000, 150, 'active'),
-(18, 'Cachaça Brasileña', 'Cachaça', 'Cachaça artesanal de alambique', 0.7, 40, 'cachaca_brasilena.jpg', 1, 19, 40000, 35000, 80, 'active'),
-(19, 'Grappa Italiana', 'Grappa', 'Grappa de Amarone', 0.5, 45, 'grappa_italiana.jpg', 1, 19, 65000, 60000, 60, 'active'),
-(20, 'Soju Coreano', 'Soju', 'Soju tradicional coreano', 0.36, 20, 'soju_coreano.jpg', 1, 19, 25000, 20000, 200, 'active'),
-(21, 'Ouzo Griego', 'Ouzo', 'Ouzo con sabor a anís', 0.7, 38, 'ouzo_griego.jpg', 1, 19, 45000, 40000, 70, 'active'),
-(22, 'Limoncello Italiano', 'Licor', 'Licor de limón de la costa Amalfitana', 0.7, 30, 'limoncello_italiano.jpg', 1, 19, 40000, 35000, 100, 'active'),
-(23, 'Bourbon Americano', 'Whiskey', 'Bourbon de Kentucky añejado', 0.75, 45, 'bourbon_americano.jpg', 1, 19, 60000, 55000, 85, 'active'),
-(24, 'Sambuca Italiana', 'Licor', 'Licor de anís italiano', 0.7, 38, 'sambuca_italiana.jpg', 1, 19, 45000, 40000, 90, 'active'),
-(25, 'Fernet Argentino', 'Amargo', 'Fernet de hierbas y especias', 0.75, 39, 'fernet_argentino.jpg', 1, 19, 35000, 30000, 110, 'active'),
-(26, 'Amaretto Italiano', 'Licor', 'Licor de almendras italiano', 0.7, 28, 'amaretto_italiano.jpg', 1, 19, 40000, 35000, 95, 'active'),
-(27, 'Pastis Francés', 'Anisado', 'Pastis de Marsella', 0.7, 45, 'pastis_frances.jpg', 1, 19, 50000, 45000, 75, 'active'),
-(28, 'Shochu Japonés', 'Shochu', 'Shochu de batata', 0.72, 25, 'shochu_japones.jpg', 1, 19, 55000, 50000, 65, 'active'),
-(29, 'Rakia Balcánica', 'Rakia', 'Rakia de ciruela', 0.7, 40, 'rakia_balcanica.jpg', 1, 19, 45000, 40000, 70, 'active'),
-(30, 'Genever Holandés', 'Ginebra', 'Genever estilo antiguo', 0.7, 35, 'genever_holandes.jpg', 1, 19, 55000, 50000, 60, 'active'),
-(31, 'Baijiu Chino', 'Baijiu', 'Baijiu de sorgo', 0.5, 53, 'baijiu_chino.jpg', 1, 19, 70000, 65000, 50, 'active');
-
+(11, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de cebada', 0.5, 5, 'cerveza_artesanal.jpg', 1, 19, 20000, 15000, 200, 'active'),
+-- Manera de Agregar la imagen
+(12, 'Anis Cartujo', 'Anis', 'Anís tradicional', 0.7, 35, '/images/Licores/anis-cartujo.png', 12, 19, 30000, 25000, 120, 'active');
 
 -- Insertar datos en la tabla USUARIO
 INSERT INTO USUARIO (id, username, email, nacimiento, password, name, lastname, status) VALUES

@@ -39,7 +39,7 @@
 
         <ul class="productSection">
             <% productos.forEach(producto => { %>
-                <%- include('./product', {name: producto.nombre_producto, price: producto.precio_detal}) %>
+                <%- include('./product', {producto}) %>
             <% }) %>
         </ul>
     </section>

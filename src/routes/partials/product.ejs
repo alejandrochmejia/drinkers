@@ -1,22 +1,35 @@
 <li>
     <div class="productView">
-        <input type="number" class="productCant">
+        <img class="productImg" src=<%= producto.imagen %>>
+        <input id="cantidad" type="number" class="productCant">
         <button onclick="addProduct()">Agregar</button>
     </div>
-    <h4><%= name %></h4>
-    <h5>Desde <%= price %></h3>
+    <h4><%= producto.nombre_producto %></h4>
+    <h5>Desde <%= producto.precio_detal %></h3>
 </li>
 <script>
+    //Funcion para agregar un producto al carrito y al LocalStorage
     async function addProduct(){
-        await fetch('/producto', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: '<%= name %>',
-                price: '<%= price %>'
-            })
-        });
+        let producto = '<%= producto.nombre_producto %>'.replace(/ /g, '');
+        let cantidad = document.getElementById('cantidad').value;
+
+        if(localStorage.getItem(producto)){
+            cantidad = parseInt(cantidad) + parseInt(JSON.parse(localStorage.getItem(producto)).cantidad);
+        }
+
+        const productStorage = {
+            cantidad: cantidad,
+            precio: '<%= producto.precio_detal %>',
+            imagen: '<%= producto.imagen %>'
+        }
+
+        console.log(productStorage)
+        localStorage.setItem(producto, JSON.stringify(productStorage));
+
+        document.getElementById('cart-length').innerText = localStorage.length;
+
+        //Funcion Externa del documento (cart.ejs)
+        cargarCarrito();
+
     }
 </script>
