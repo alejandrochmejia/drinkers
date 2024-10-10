@@ -79,7 +79,9 @@
     grid-column-start: 1;
     grid-column-end: 3;
     display: grid;
-    
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,1fr);
+    color: #040C5D;
 }
 
 .selected-container{
@@ -95,4 +97,16 @@
 .check{
     align-self: center;
     justify-self: center;
+}
+
+.button-siguiente{
+    height: 50%;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #040C5D;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
