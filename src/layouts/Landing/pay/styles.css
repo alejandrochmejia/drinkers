@@ -122,8 +122,12 @@
     justify-content: center;
 }
 
+#modalContainer{
+    display: none;
+}
+
 .modal-direccion{
-    height: 85dvh;
+    height: 80dvh;
     width: 45dvw;
     background-color: white;
     border-radius: 10px;
@@ -166,7 +170,7 @@
     padding: 1vmin;
     border-radius: 5px;
     border: none;
-
+    cursor: pointer;
 }
 
 .second-step{

@@ -13,11 +13,11 @@
 </head>
 <body>
 
-    <section class="bg-direccion">
+    <section class="bg-direccion" id="modalContainer">
         <div class="modal-direccion">
             <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 0 2vmin;">
                 <h3>A quien enviamos?</h3>
-                <h3>x</h3>
+                <h3 style="cursor: pointer;" onclick="return Modal()">x</h3>
             </div>
             <hr>
             <form class="form-direccion">
@@ -33,7 +33,6 @@
             </form>
             <hr>
             <div style="display: flex; flex-direction: row; justify-content: end; width: 95%; gap: 1vmin; align-items: center;">
-                <button>Cerrar</button>
                 <button>Guardar</button>
             </div>
         </div>
@@ -168,7 +167,7 @@
             </div>
             <div class="big-container">
                 <h2 style="grid-column: 1/5; margin-left: 3vmin;">Alejandro Chávez • 0000000000 • 32278392</h2>
-                <img src="../../../../public/images/icons/edit.svg" style="grid-column: 5 / 5; justify-self: center;align-self: center; cursor: pointer;">
+                <img src="../../../../public/images/icons/edit.svg" style="grid-column: 5 / 5; justify-self: center;align-self: center; cursor: pointer;" onclick="return Modal()">
                 <p style="grid-row: 2/2; grid-column: 1/5; margin-left: 3vmin;">Carabobo • Naguanagua • Los Guayabitos</p>
                 <p style="grid-row: 3/3; grid-column: 1/5; margin-left: 3vmin;">Residencias el Saman, edif azul con blanco, porton negro, justo al frente del restaurante club guayabal</p>
                 <p style="grid-row: 4/4; grid-column: 1/4; color: red; margin-left: 3vmin;">Sin geolocalización incluida</p>
@@ -209,5 +208,6 @@
         </section>
     </footer>
     <script src="../content.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
