@@ -12,6 +12,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <section class="bg-direccion">
+        <div class="modal-direccion">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 0 2vmin;">
+                <h3>A quien enviamos?</h3>
+                <h3>x</h3>
+            </div>
+            <hr>
+            <form class="form-direccion">
+                <input placeholder="Nombre y Apellido" type="text" style="grid-column: 1/4;" class="input-direccion">
+                <select placeholder="Tipo" style="grid-column: 4/5;" class="input-direccion">
+                    <option>V</option>
+                    <option>E</option>
+                </select>
+                <input placeholder="Documento" type="text" style="grid-column: 5/7;" class="input-direccion">
+                <input placeholder="Telefono" type="text" style="grid-column: 7/9;" class="input-direccion">
+                <input placeholder="Dirección" type="text" style="grid-row: 2/2; grid-column: 2/8;" class="input-direccion">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62833.5730174723!2d-68.03550954914148!3d10.172663797884585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e80678bce61928f%3A0x9f78e9eea8c34272!2sValencia%2C%20Carabobo!5e0!3m2!1ses-419!2sve!4v1728592558316!5m2!1ses-419!2sve" width="100%" height="100%" style="border:0; grid-row:3/8; grid-column:3/7;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </form>
+            <hr>
+            <div style="display: flex; flex-direction: row; justify-content: end; width: 95%; gap: 1vmin; align-items: center;">
+                <button>Cerrar</button>
+                <button>Guardar</button>
+            </div>
+        </div>
+    </section>
+
     <header>
         <section>
             <img src="../../../../public/images/Logo/logo-landing.png">
@@ -147,6 +174,10 @@
                 <p style="grid-row: 4/4; grid-column: 1/4; color: red; margin-left: 3vmin;">Sin geolocalización incluida</p>
                 <button class="button-siguiente" style="grid-row: 4/4; grid-column: 5/5; margin-left: 3vmin;">Siguiente</button>
             </div>
+        </section>
+
+        <section class="second-step">
+
         </section>
     </main>
 

@@ -110,3 +110,68 @@
     border: none;
     cursor: pointer;
 }
+
+.bg-direccion{
+    position: fixed;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.581);
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-direccion{
+    height: 85dvh;
+    width: 45dvw;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.form-direccion{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(8,10%);
+    grid-template-rows: repeat(7,10%);
+    width: 100%;
+    height: 75%;
+    row-gap: 1vmin;
+    column-gap: 1vmin;
+}
+
+.form-direccion > input, .form-direccion > select{
+    border: solid 1px #B1CEF4;
+    color: #040C5D;
+}
+
+.form-direccion > input::placeholder{
+    color: #040C5D;
+}
+
+.form-direccion > input:focus{
+    outline: none;
+}
+
+.input-direccion{
+    height: 95%;
+    border-radius: 5px;
+}
+
+.modal-direccion button{
+    background-color: #040C5D;
+    color: white;
+    padding: 1vmin;
+    border-radius: 5px;
+    border: none;
+
+}
+
+.second-step{
+    background-color: red;
+    width: 100dvw;
+    height: 68dvh;
+    display: grid;
+}
