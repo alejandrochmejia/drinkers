@@ -1,0 +1,27 @@
+main {
+    line-height: 1.6;
+    padding-left: 3vmin;
+    padding-right: 3vmin;
+}
+
+main > h1, main > h2, main > h3 {
+    color: #333;
+    width: 95dvw;
+}
+main > p {
+    color: #555;
+    width: 95dvw;
+}
+main > ul {
+    margin-left: 20px;
+    width: 95dvw;
+}
+
+main > li {
+    margin-left: 20px;
+    width: 95dvw;
+}
+.contact-info {
+    margin-top: 20px;
+    width: 95dvw;
+}
