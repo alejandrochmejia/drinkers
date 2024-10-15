@@ -137,6 +137,60 @@
 .how-to-buy-container > div{
     width: 40vmin;
     height: 30vmin;
-    border: solid 1px black;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vmin;
+    cursor: default;
+}
+
+.how-to-buy-container > div > p{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s linear;
+    width: 35vmin;
+    text-align: center;
+}
+
+.how-to-buy-container > div > h5{
+    font-size: 3vmin;
+    margin: 0;
+    text-align: center;
+    transition: opacity 0.5s linear;
+}
+
+.how-to-buy-container > div > img{
+    transition: opacity 0.5s linear;
+}
+
+.how-to-buy-container > div:hover > p{
+    opacity: 1;
+}
+
+.how-to-buy-container > div:hover > h5{
+    opacity: 0;
+}
+
+.how-to-buy-container > div:hover > img{
+    opacity: 0;
+}
+
+.how-to-buy-container > div:nth-child(1){
+    box-sizing: border-box;
+    border: solid 5px #B1CEF4;
+    color: #040C5D;
+}
+
+.how-to-buy-container > div:nth-child(2){
+    background: rgb(4,12,93);
+    background: linear-gradient(120deg, rgba(4,12,93,1) 0%, rgba(35,35,38,1) 100%);
+    color: white;
+}
+
+.how-to-buy-container > div:nth-child(3){
+    background: rgb(177,206,244);
+    background: linear-gradient(120deg, rgba(177,206,244,1) 0%, rgba(255,255,255,1) 100%);
+    color: #040C5D;
 }
