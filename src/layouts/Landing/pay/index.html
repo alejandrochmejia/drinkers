@@ -176,7 +176,130 @@
         </section>
 
         <section class="second-step">
+            <div style="grid-row: 1/3; grid-column: 1/2; align-content: center; text-align: center;" class="subcontainer2 selected-date">
+                <img src="../../../../public/images/icons/checkfill.svg" style="height: 2vmin; width: 2vmin;">
+                Hoy<br>
+                19 Sep
+            </div>
+            <div style="grid-row: 1/3; grid-column: 2/3; text-align: center; align-content: center;" class="subcontainer2 unselected-date">
+                <img src="../../../../public/images/icons/checkunfill.svg" style="height: 2vmin; width: 2vmin;">
+                Vie<br>
+                20 Sep
+            </div>
+            <div style="grid-row: 1/3; grid-column: 3/4; align-content: center; text-align: center;" class="subcontainer2 unselected-date">
+                <img src="../../../../public/images/icons/checkunfill.svg" style="height: 2vmin; width: 2vmin;">
+                Sab<br>
+                21 Sep
+            </div>
+            <div style="grid-row: 1/3; grid-column: 4/6; align-content: center; text-align: center;" class="subcontainer2 unselected-date">
+                Planificado
+            </div>
 
+            <div style="grid-row: 3/9; grid-column: 1/11;" class="dates-container">
+                <div class="subcontainer-dates time-subcontainer selected-time">
+                    <img src="../../../../public/images/icons/checkfill blue.svg" style="height: 5vmin; width: 5vmin; margin-left: 3vmin;">
+                    <section style="width: 50vmin;">
+                        Gratis (3 horas)<br>
+                        0.00$<br>
+                        Tu pedido sera enviado en 3hrs aprox.
+                    </section>
+                    <section style="margin-right: 3vmin;">
+                        Total de envio<br>
+                        0,00bs
+                    </section>
+                </div>
+                <div class="subcontainer-dates time-subcontainer unselected-time">
+                    <img src="../../../../public/images/icons/checkunfill.svg" style="height: 5vmin; width: 5vmin; margin-left: 3vmin;">
+                    <section style="width: 50vmin;">
+                        Express (60min)<br>
+                        3.99$<br>
+                        Tu pedido llegará en 60min aprox
+                    </section>
+                    <section style="margin-right: 3vmin;">
+                        Total de envio<br>
+                        0,00bs
+                    </section>
+                </div>
+            </div>
+            
+
+            <div style="grid-row: 9/10; grid-column: 1/3;" class="subcontainer2 schedule-subcontainer">8:00AM a 10:00AM</div>
+            <div style="grid-row: 9/10; grid-column: 3/5;" class="subcontainer2 schedule-subcontainer">10:00AM a 12:00AM</div>
+            <div style="grid-row: 9/10; grid-column: 5/7;" class="subcontainer2 schedule-subcontainer">12:00PM a 2:00PM</div>
+            <div style="grid-row: 9/10; grid-column: 7/9;" class="subcontainer2 schedule-subcontainer">2:00PM a 4:00PM</div>
+            <div style="grid-row: 9/10; grid-column: 9/11;" class="subcontainer2 schedule-subcontainer">4:00PM a 6:00PM</div>
+
+            <p style="grid-row: 10/11; grid-column: 1/11; margin: 0; font-size: smaller; color: red;">Debe seleccionar un horario para la entrega</p>
+            <p style="grid-row: 14/15; grid-column: 1/11; margin: 0;">Seleccione una propina</p>
+
+            <div style="grid-row: 15/16; grid-column: 1/2;" class="subcontainer2 tip-container">0.00$</div>
+            <div style="grid-row: 15/16; grid-column: 2/3;" class="subcontainer2 tip-container">1.00$</div>
+            <div style="grid-row: 15/16; grid-column: 3/4;" class="subcontainer2 tip-container">2.00$</div>
+            <div style="grid-row: 15/16; grid-column: 4/5;" class="subcontainer2 tip-container">5.00$</div>
+            <div style="grid-row: 15/16; grid-column: 5/6;" class="subcontainer2 tip-container">10.00$</div>
+
+            <input placeholder="Propina Personalizada ($)" style="grid-column: 1/5; grid-row: 16/17" type="number" class="number-input">
+            <p style="grid-column: 5/11; grid-row: 16/17; margin: 0;">Propina Equivalente en Bs: 0,00 Bs</p>
+        </section>
+
+        <section class="third-step">
+            <div style="grid-row: 1/3; grid-column: 1/5;" class="subcontainer subcontainer3-selected">
+                <img class="check" src="../../../../public/images/icons/checkfill.svg">
+                <h3 class="container-title">Pago Único</h3>
+                <p class="container-content">Seleccione esta opcion si tu pago es por un solo metodo</p>
+            </div>
+            <div style="grid-row: 1/3; grid-column: 5/9;" class="subcontainer">
+                <img class="check" src="../../../../public/images/icons/checkunfill.svg">
+                <h3 class="container-title">Multipagos</h3>
+                <p class="container-content">Seleccione esta opcion si son varios metodos de pago</p>
+            </div>
+
+            <div style="grid-row: 3/4; grid-column: 1/9; display: flex; align-items: center; justify-content: center; gap: 5vmin;" class="subcontainer3"><b>Total a pagar</b> 507,25bs / 13.79$</div>
+
+            <div style="grid-row: 4/5; grid-column: 1/3;" class="subcontainer3">Tarjeta</div>
+            <div style="grid-row: 4/5; grid-column: 3/5;" class="subcontainer3">Efectivo</div>
+            <div style="grid-row: 4/5; grid-column: 5/7;" class="subcontainer3">Punto de Venta</div>
+            <div style="grid-row: 4/5; grid-column: 7/9;" class="subcontainer3">Pago Movil</div>
+
+            <div id="tarjeta" style="display: flex; gap: 1vmin;">
+                <input type="number" placeholder="Número de Tarjeta" class="number-input inputs">
+                <input type="date" class="inputs">
+                <input type="password" placeholder="Codigo de Seguridad" class="inputs">
+            </div>
+
+            <div id="pagomovil" style="display: none; gap: 1vmin;">
+                <select name="bancos" id="bancos" class="inputs">
+                    <option value="banesco">Banesco</option>
+                    <option value="mercantil">Banco Mercantil</option>
+                    <option value="provincial">BBVA Provincial</option>
+                    <option value="venezuela">Banco de Venezuela</option>
+                    <option value="bicentenario">Banco Bicentenario</option>
+                    <option value="bancaribe">Bancaribe</option>
+                    <option value="banplus">Banplus</option>
+                    <option value="exterior">Banco Exterior</option>
+                    <option value="tesoro">Banco del Tesoro</option>
+                    <option value="caroni">Banco Caroní</option>
+                    <option value="plaza">Banco Plaza</option>
+                    <option value="fondo_comun">Banco Fondo Común (BFC)</option>
+                    <option value="sofitasa">Sofitasa</option>
+                    <option value="activo">Banco Activo</option>
+                    <option value="bancrecer">Bancrecer</option>
+                    <option value="100porciento_banco">100% Banco</option>
+                </select>
+                <select name="cedulatipo" id="cedulatipo" class="inputs">
+                    <option value="venezolano">V</option>
+                    <option value="extranjero">E</option>
+                    <option value="juridico">J</option>
+                </select>
+                <input type="number" placeholder="Documento" class="number-input">
+                <input type="number" placeholder="Telefono" class="number-input">
+                <input type="number" placeholder="Referencia" class="number-input">
+            </div>
+
+            <img style="grid-row: 6/7; grid-column: 1/2;" src="../../../../public/images/icons/visa.svg" alt="">
+            <img style="grid-row: 6/7; grid-column: 2/3;" src="../../../../public/images/icons/mastercard.svg" alt="">
+            <img style="grid-row: 6/7; grid-column: 3/4;" src="../../../../public/images/icons/maestro.svg" alt="">
+            <img style="grid-row: 6/7; grid-column: 4/5;" src="../../../../public/images/icons/americanexpress.svg" alt="">
         </section>
     </main>
 
@@ -209,5 +332,12 @@
     </footer>
     <script src="../content.js"></script>
     <script src="main.js"></script>
+    <script>
+        document.querySelector('.number-input').addEventListener('input', function() {
+            if (this.value < 0) {
+                this.value = 0;  // Si el valor es menor a 0, lo ajustamos a 0
+            }
+        });
+    </script>    
 </body>
 </html>

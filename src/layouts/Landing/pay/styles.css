@@ -174,8 +174,114 @@
 }
 
 .second-step{
-    background-color: red;
     width: 100dvw;
     height: 68dvh;
-    display: grid;
+    display: none;
+    grid-template-columns: repeat(10,5dvw);
+    grid-template-rows: repeat(16,3dvh);
+    justify-content: center;
+    gap: 1vmin;
+}
+
+.subcontainer2{
+    border-radius: 10px;
+    background-color: #EBEBEB;
+    cursor: pointer;
+}
+
+.dates-container{
+    overflow-x: none;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1vmin;
+    cursor: pointer;
+}
+
+.selected-date{
+    background-color: #040C5D;
+    color: white;
+}
+
+.unselected-date{
+    background-color: #EBEBEB;
+    color: #040C5D;
+}
+
+.subcontainer-dates{
+    height: 10vmin;
+    border-radius: 10px;
+    background-color: #EBEBEB;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.time-subcontainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3vmin;
+    color: #040C5D;
+}
+
+.selected-time{
+    background-color: #B1CEF4;
+}
+
+.schedule-subcontainer{
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tip-container{
+    font-size: small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.third-step{
+    width: 100dvw;
+    height: 68dvh;
+    display: none;
+    grid-template-columns: repeat(8,7dvw);
+    grid-template-rows: repeat(6,7dvh);
+    gap: 1vmin;
+    justify-content: center;
+}
+
+.subcontainer3{
+    border-radius: 10px;
+    background-color: #EBEBEB;
+    color: #040C5D;
+}
+
+.subcontainer3-selected{
+    background-color: #040C5D;
+    color: white;
+}
+
+.inputs{
+    padding: 1vmin;
+    border-radius: 5px;
+    border: solid 1px #040C5D;
+}
+
+.number-input{
+    padding: 1vmin;
+    border-radius: 5px;
+    border: solid 1px #040C5D;
+}
+
+.number-input:focus, .inputs:focus{
+    outline: none;
+}
+
+.number-input[type="number"]::-webkit-inner-spin-button{
+    opacity: 0;
 }
