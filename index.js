@@ -126,6 +126,16 @@ app.get('/about', (req, res) => {
     res.render('user/about');
 })
 
+//Politicas de Privacion
+app.get('/privacy', (req, res) => {
+    res.render('user/privacy');
+})
+
+//Politica de Devolucion
+app.get('/returns', (req, res) => {
+    res.render('user/returns');
+})
+
 //Login
 app.get('/login',(req,res)=>{
     res.render('auth/login');

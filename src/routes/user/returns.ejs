@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers</title>
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/user/returns.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('../partials/user-header') %>
+
+    <img id="whatsappIcon" src="/images/icons/whatsapp.svg">
+
+    <div id="values">
+        <section id="dolars" class="value">$</section>
+        <section id="bs" class="value">bs</section>
+    </div>
+
+    <%- include('../partials/cart') %>
+
+    <main>
+        <h1>Política de Devoluciones y Reembolsos de Drinkers</h1>
+    <p>En <strong>Drinkers</strong>, nuestra prioridad es que disfrutes de una experiencia de compra excepcional. Si por algún motivo no estás satisfecho con tu compra, te ofrecemos opciones de devolución bajo los siguientes términos:</p>
+
+    <h2>Condiciones de Devolución</h2>
+    <ul>
+        <li><strong>Plazo de devolución:</strong> Puedes devolver cualquier producto en un plazo de <strong>30 días</strong> a partir de la fecha de compra, siempre que cumpla con los requisitos mencionados a continuación.</li>
+        <li><strong>Condiciones del producto:</strong>
+            <ul>
+                <li>El producto debe estar en su <strong>empaque original</strong>, sin abrir y en condiciones aptas para la venta.</li>
+                <li>No se aceptarán devoluciones de productos que hayan sido abiertos, consumidos parcial o completamente, o si presentan signos de manipulación.</li>
+            </ul>
+        </li>
+        <li><strong>Productos dañados o incorrectos:</strong>
+            <ul>
+                <li>Si recibiste un producto dañado o incorrecto, por favor, contáctanos dentro de las <strong>48 horas</strong> posteriores a la entrega con fotos claras del daño o error.</li>
+                <li>En estos casos, cubriremos el costo de devolución y reemplazaremos el producto sin costo adicional, o realizaremos el reembolso completo.</li>
+            </ul>
+        </li>
+        <li><strong>Exclusiones:</strong> No se aceptan devoluciones de productos en promoción, ofertas especiales, o productos personalizados, a menos que estén dañados o hayan sido enviados incorrectamente.</li>
+    </ul>
+
+    <h2>Proceso de Devolución</h2>
+    <ol>
+        <li><strong>Contacto:</strong> Para iniciar el proceso de devolución, envíanos un correo a <a href="mailto:devoluciones@drinkers.com">devoluciones@drinkers.com</a> con tu número de pedido y una descripción del motivo de la devolución.</li>
+        <li><strong>Instrucciones de envío:</strong> Una vez aprobada tu solicitud de devolución, te enviaremos las instrucciones para devolver el producto. Los costos de envío correrán a cargo del cliente en devoluciones no relacionadas con productos dañados o incorrectos.</li>
+        <li><strong>Recepción y revisión:</strong> Al recibir el producto, nuestro equipo verificará que cumpla con las condiciones mencionadas. Si todo está en orden, procederemos con el reembolso o envío del reemplazo.</li>
+    </ol>
+
+    <h2>Reembolsos</h2>
+    <ul>
+        <li><strong>Reembolsos completos:</strong> Si la devolución cumple con los requisitos, se emitirá un reembolso completo dentro de <strong>7 a 10 días hábiles</strong> a partir de la recepción del producto devuelto. El reembolso se procesará a través del mismo método de pago utilizado en la compra original.</li>
+        <li><strong>Reembolsos parciales:</strong> En algunos casos, como cuando el producto no está en condiciones originales, podríamos ofrecer un reembolso parcial.</li>
+    </ul>
+
+    <h2>Cambios</h2>
+    <p>En este momento, <strong>Drinkers</strong> no ofrece un sistema de cambios. Si deseas un producto diferente, deberás procesar una devolución del artículo original y realizar una nueva compra.</p>
+
+    <h2>Contacto</h2>
+    <div class="contact-info">
+        <p>Si tienes alguna duda o inquietud, no dudes en contactarnos:</p>
+        <ul>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:devoluciones@drinkers.com">devoluciones@drinkers.com</a></li>
+            <li><strong>Teléfono de atención al cliente:</strong> +34 123 456 789</li>
+            <li><strong>Horario de atención:</strong> Lunes a Viernes, de 9:00 a 18:00</li>
+        </ul>
+    </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+    <script src="/js/index.js"></script>
+</body>
+</html>

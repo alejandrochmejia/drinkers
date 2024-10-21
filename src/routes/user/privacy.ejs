@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers</title>
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/user/privacy.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('../partials/user-header') %>
+
+    <img id="whatsappIcon" src="/images/icons/whatsapp.svg">
+
+    <div id="values">
+        <section id="dolars" class="value">$</section>
+        <section id="bs" class="value">bs</section>
+    </div>
+
+    <%- include('../partials/cart') %>
+
+    <main>
+        <h2 class="subtitle">Políticas de Privacidad</h2>
+        <div class="faqs">
+            <details>
+                <summary>COOKIES</summary>
+                <ul>
+                    <li>
+                        El acceso a este sitio puede implicar la utilización de cookies. Las cookies son pequeñas cantidades de información que se almacenan en el navegador de cada usuario para que el servidor recuerde cierta información. Esta información permite identificar a un usuario concreto y permite guardar sus preferencias personales, así como información técnica o visitas previas. Aquellos usuarios que no deseen recibir cookies o quieran ser informados antes de que se almacenen en su ordenador, pueden configurar su navegador a tal efecto.<br><br>La mayor parte de los navegadores de hoy en día permiten la gestión de las cookies de 3 formas diferentes: Las cookies no se aceptan nunca, el navegador pregunta al usuario si se debe aceptar cada cookie y/o las cookies se aceptan siempre.<br><br>El navegador también puede incluir la posibilidad de especificar mejor cuáles cookies tienen que ser aceptadas y cuáles no. En concreto, el usuario puede  aceptar alguna de las siguientes opciones: rechazar las cookies de determinados dominios; rechazar las cookies de terceros; aceptar cookies como no persistentes (se eliminan cuando el navegador se cierra); permitir al servidor crear cookies para un dominio diferente. Además, los navegadores pueden también permitir a los usuarios ver y borrar cookies individualmente.<br><br>Encuentra más información de Cookies en: http://es.wikipedia.org/wiki/Cookie
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>WEB BEACONS</summary>
+                <ul>
+                    <li>
+                        Este sitio puede albergar web beacons (también conocidos por web bugs). Los web beacons suelen ser pequeñas imágenes de un pixel por un pixel, visibles o invisibles colocados dentro del código fuente de las páginas web de un sitio. Los web beacons funcionan de una forma similar a las cookies. Además, suelen utilizarse para medir el tráfico de usuarios que visitan una página web y poder sacar un patrón de los usuarios de un sitio.<br><br>Encuentra más información de web beacons en: http://es.wikipedia.org/wiki/Web_bug
+                    </li>
+                </ul>
+            </details>
+            <details>
+                <summary>TERCEROS</summary>
+                <ul>
+                    <li>
+                        En algunos casos, compartimos información sobre los visitantes de este sitio de forma anónima con terceros como pueden ser anunciantes, patrocinadores o auditores con el único fin de mejorar nuestros servicios. Todas estas tareas de procesamiento serán reguladas según las normas legales y se respetarán todos los derechos en materia de protección de datos conforme a la regulación vigente. <br><br>Este sitio mide el tráfico con diferentes soluciones, que pueden o no utilizar cookies. Actualmente administramos las siguientes. Puedes ver más información sobre la política de privacidad de cada una de las soluciones utilizadas para tal efecto: <br><br>Nielsen//NetRatings: http://www.netratings.com/corp.jsp?section=leg_scs_es&nav=3 <br><br>Google (Analytics): http://www.google.com/intl/es_ALL/privacypolicy.html <br><br>AddFreeStats: http://www.addfreestats.com/privacy.html <br><br>Este sitio también puede albergar publicidad propia, de afiliados, o de redes publicitarias. Esta publicidad se muestra mediante servidores publicitarios que también utilizan cookies para mostrar contenidos publicitarios afines a los usuarios. Cada uno de estos servidores publicitarios dispone de su propia política de privacidad, que puede ser consultada en sus propias páginas web. <br><br>Encuentra más información en: <br><br>Google Adsense: http://www.google.com/intl/es_ALL/privacypolicy.html <br><br>Tradedoubler: http://www.tradedoubler.com/pan/cms/privacy_policy
+                    </li>
+                </ul>
+            </details>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+    <script src="/js/index.js"></script>
+</body>
+</html>
