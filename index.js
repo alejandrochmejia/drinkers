@@ -112,7 +112,12 @@ app.get('/catalogo', async (req,res)=>{
 
 //Preguntas Frecuentes
 app.get('/faq', (req, res) => {
+    console.log(req.body)
     res.render('user/faq');
+})
+
+app.get('/terms', (req, res) => {
+    res.render('user/terms');
 })
 
 //Login
