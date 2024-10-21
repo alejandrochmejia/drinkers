@@ -18,16 +18,16 @@
 </aside>
 <script>
 
-    //Funcion para cargar el carrito desde el LocalStorage
+    //Funcion para cargar el carrito desde el SessionStorage
     function cargarCarrito() {
 
         let cart = document.querySelector('aside ul');
 
         cart.innerHTML = '';
 
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            let product = JSON.parse(localStorage.getItem(key));
+        for (let i = 0; i < sessionStorage.length; i++) {
+            let key = sessionStorage.key(i);
+            let product = JSON.parse(sessionStorage.getItem(key));
             let li = document.createElement('li');
             li.innerHTML = `
                 <input readonly type="number" class="productCant" value="${product.cantidad}">
@@ -47,15 +47,15 @@
     //Funcion para eliminar un producto del carrito
     function removeProduct(key) {
         alert('Producto eliminado');
-        localStorage.removeItem(key);
-        document.getElementById('cart-length').innerText = localStorage.length;
+        sessionStorage.removeItem(key);
+        document.getElementById('cart-length').innerText = sessionStorage.length;
         cargarCarrito()
     }
 
     //Funcion para vaciar el carrito
     function emptyCart() {
-        localStorage.clear();
-        document.getElementById('cart-length').innerText = localStorage.length;
+        sessionStorage.clear();
+        document.getElementById('cart-length').innerText = sessionStorage.length;
         let cart = document.querySelector('aside ul');
         cart.innerHTML = '';
         alert('Carrito vaciado');
@@ -73,9 +73,9 @@
         let total = 0;
         let totalBs = 0;
 
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            let product = JSON.parse(localStorage.getItem(key));
+        for (let i = 0; i < sessionStorage.length; i++) {
+            let key = sessionStorage.key(i);
+            let product = JSON.parse(sessionStorage.getItem(key));
             total += parseFloat(product.precio) * parseInt(product.cantidad);
         }
 

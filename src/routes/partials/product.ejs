@@ -8,13 +8,13 @@
     <h5>Desde <%= producto.precio_detal %></h3>
 </li>
 <script>
-    //Funcion para agregar un producto al carrito y al LocalStorage
+    //Funcion para agregar un producto al carrito y al SessionStorage
     async function addProduct(){
         let producto = '<%= producto.nombre_producto %>'.replace(/ /g, '');
         let cantidad = document.getElementById('cantidad').value;
 
-        if(localStorage.getItem(producto)){
-            cantidad = parseInt(cantidad) + parseInt(JSON.parse(localStorage.getItem(producto)).cantidad);
+        if(sessionStorage.getItem(producto)){
+            cantidad = parseInt(cantidad) + parseInt(JSON.parse(sessionStorage.getItem(producto)).cantidad);
         }
 
         const productStorage = {
@@ -24,9 +24,9 @@
         }
 
         console.log(productStorage)
-        localStorage.setItem(producto, JSON.stringify(productStorage));
+        sessionStorage.setItem(producto, JSON.stringify(productStorage));
 
-        document.getElementById('cart-length').innerText = localStorage.length;
+        document.getElementById('cart-length').innerText = sessionStorage.length;
 
         //Funcion Externa del documento (cart.ejs)
         cargarCarrito();

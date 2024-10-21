@@ -33,7 +33,7 @@
     </nav>
 </header>
 <script>
-    document.getElementById('cart-length').innerText = localStorage.length;
+    document.getElementById('cart-length').innerText = sessionStorage.length;
 
     document.querySelector('#search-bar').onchange = function() {
         window.location.href = `/catalogo?search=${this.value}`;
