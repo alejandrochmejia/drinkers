@@ -36,7 +36,10 @@ const upload = multer({ storage: storage });
 //Configurando Dotenv para las variables de entorno
 dotenv.config()
 
-//Configurando Server
+///////////////////////
+////// SERVIDOR //////
+///////////////////////
+
 const app = express();
 app.set('port',process.env.PORT)
 app.use(express.static(resolve(__dirname, './public')));

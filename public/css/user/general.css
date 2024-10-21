@@ -101,7 +101,7 @@ header section input[type=search]{
     height: 4vmin;
     border: none;
     border-radius: 20px;
-    background-image: url("../../../../public/images/icons/search-icon.png");
+    background-image: url("/images/icons/search-icon.png");
     background-position-x: 0.5vmin; 
     background-repeat: no-repeat;
     background-size: contain;
