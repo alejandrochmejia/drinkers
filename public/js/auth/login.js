@@ -46,7 +46,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 })
             })
             const data = await response.json()
-            location.href = data.ruta
+            if (data.token) {
+                // Almacena el token en el localStorage o en una cookie
+                window.localStorage.setItem('token', data.token);
+                // Redirige al usuario
+                window.location.href = data.redirectTo;
+            } else {
+                // Manejo de errores (credenciales inválidas)
+                alert(data.mensaje);
+            }
         } catch (error) {
             console.log(error)
         }

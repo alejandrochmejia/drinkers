@@ -1,6 +1,7 @@
 //Importaciones
 import express from 'express';
 import dotenv from 'dotenv'
+import jwt from 'jsonwebtoken'
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -16,6 +17,8 @@ import {
     update,
     deleteOne
 } from './src/database/querys.js'
+
+import authenticateJWT from './src/middleware/authorization.js'
 
 //Configurando Path
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -35,6 +38,9 @@ const upload = multer({ storage: storage });
 
 //Configurando Dotenv para las variables de entorno
 dotenv.config()
+
+//Key para el JWT
+const JWT_KEY = process.env.JWT_KEY;
 
 ///////////////////////
 ////// SERVIDOR //////
@@ -254,37 +260,40 @@ app.get('/api/productos/vendidos', async (req, res) => {
 //////////////////
 
 //Autenticacion
-app.post('/login', async (req,res)=>{
-    const {email, password} = req.body
-    const usuarios = await getAll(process.env.MYSQL_DATABASE+'.USUARIO')
-    let ruta = ''
-    console.log(email)
 
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    const usuarios = await getAll(process.env.MYSQL_DATABASE + '.USUARIO');
+
+    let usuarioValido = null;
     for (const usuario of usuarios) {
-        if(usuario.email == email){
-            if(usuario.password == password){
-                ruta = '/admin/dashboard'
-            }else{
-                ruta = '/register'
-            }
-        }
-        else {
-            ruta = '/register'
+        if (usuario.email === email && usuario.password === password) {
+            usuarioValido = usuario;
+            break;
         }
     }
-    res.send(JSON.stringify({ruta: ruta}))
-})
 
-app.post('/register', async (req,res)=>{
-    const {nombre, apellido, email, password} = req.body
-    const usuario = await exist(process.env.MYSQL_DATABASE+'.USUARIO', 'email', email)
-    if(usuario){
-        res.send(JSON.stringify({ruta: '/register'}))
-    }else{
-        await create(process.env.MYSQL_DATABASE+'.USUARIO', {nombre, apellido, email, password})
-        res.send(JSON.stringify({ruta: '/login'}))
+    if (!usuarioValido) {
+        return res.status(401).send(JSON.stringify({ mensaje: 'Credenciales inválidas' }));
     }
-})
+
+    const token = jwt.sign({ email: usuarioValido.email }, JWT_KEY, { expiresIn: '1h' });
+    
+    // Asegúrate de que 'redirectTo' esté correctamente definido
+    res.json({ token, redirectTo: '/admin/dashboard' });
+});
+
+app.post('/register', async (req, res) => {
+    const { nombre, apellido, email, password } = req.body;
+    const usuario = await exist(process.env.MYSQL_DATABASE + '.USUARIO', 'email', email);
+
+    if (usuario) {
+        return res.status(400).send(JSON.stringify({ mensaje: 'El usuario ya existe' }));
+    }
+
+    await create(process.env.MYSQL_DATABASE + '.USUARIO', { nombre, apellido, email, password });
+    res.send(JSON.stringify({ mensaje: 'Usuario registrado con éxito' }));
+});
 
 //Inventario
 
