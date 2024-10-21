@@ -65,9 +65,9 @@ app.use(express.urlencoded({ extended: true }))
 //Index
 app.get('/', async (req,res)=>{
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.VENTAS')
   
-    const inventario = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
 
     let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
   
@@ -84,7 +84,7 @@ app.get('/', async (req,res)=>{
     });
     
     res.render('index', {
-        productos: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
+        productos: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
         top5ProductosConNombres: top5ProductosConNombres
     });
 })
@@ -92,7 +92,7 @@ app.get('/', async (req,res)=>{
 //Catalogo o Seccion de Productos
 app.get('/catalogo', async (req,res)=>{
 
-    const productos = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+    const productos = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
 
     if(!req.query.type){
         if(req.query.search) {
@@ -152,45 +152,45 @@ app.get('/register',(req,res)=>{
 //Dashboard
 app.get('/admin/dashboard', async (req, res) => {
     res.render('admin/dashboard', {
-        avisos: await getAll(process.env.MYSQL_DATABASE+'.avisos'),
-        ventas: await getAll(process.env.MYSQL_DATABASE+'.ventas'),
-        inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
-        envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
+        avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
+        ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
+        inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
+        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Inventario
 app.get('/admin/inventario', async (req, res) => {
-    res.render('admin/inventario', {inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario')});
+    res.render('admin/inventario', {inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')});
 });
 
 //Envios
 app.get('/admin/envios', async (req, res) => {
     res.render('admin/envios', {
-        envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
+        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Envios Minorista
 app.get('/admin/envios/minorista', async (req, res) => {
     res.render('admin/minorista', {
-        envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
+        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Envios Mayorista
 app.get('/admin/envios/mayorista', async (req, res) => {
     res.render('admin/mayorista', {
-        envios: await getAll(process.env.MYSQL_DATABASE+'.envios')
+        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Estadistica
 app.get('/admin/estadistica', async (req, res) => {
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.VENTAS')
   
-    const inventario = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
 
     let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
   
@@ -208,28 +208,28 @@ app.get('/admin/estadistica', async (req, res) => {
     });
 
     res.render('admin/estadistica', {
-        ventas: await getAll(process.env.MYSQL_DATABASE+'.ventas'),
-        inventario: await getAll(process.env.MYSQL_DATABASE+'.inventario'),
+        ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
+        inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
         vendidos: top5ProductosConNombres
     });
 });
 
 //Proveedor
 app.get('/admin/proveedor', async (req, res) => {
-    res.render('admin/proveedor', {proveedor: await getAll(process.env.MYSQL_DATABASE+'.proveedores')});
+    res.render('admin/proveedor', {proveedor: await getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')});
 });
 
 //Avisos o Reportes
 app.get('/admin/avisos', async (req, res) => {
-    res.render('admin/avisos', {avisos: await getAll(process.env.MYSQL_DATABASE+'.avisos')});
+    res.render('admin/avisos', {avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS')});
 });
 
 //Obtener los 5 productos mas vendidos
 app.get('/api/productos/vendidos', async (req, res) => {
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.ventas')
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.VENTAS')
   
-    const inventario = await getAll(process.env.MYSQL_DATABASE+'.inventario')
+    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
 
     let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
   
@@ -256,7 +256,7 @@ app.get('/api/productos/vendidos', async (req, res) => {
 //Autenticacion
 app.post('/login', async (req,res)=>{
     const {email, password} = req.body
-    const usuarios = await getAll(process.env.MYSQL_DATABASE+'.usuario')
+    const usuarios = await getAll(process.env.MYSQL_DATABASE+'.USUARIO')
     let ruta = ''
     console.log(email)
 
@@ -277,11 +277,11 @@ app.post('/login', async (req,res)=>{
 
 app.post('/register', async (req,res)=>{
     const {nombre, apellido, email, password} = req.body
-    const usuario = await exist(process.env.MYSQL_DATABASE+'.usuario', 'email', email)
+    const usuario = await exist(process.env.MYSQL_DATABASE+'.USUARIO', 'email', email)
     if(usuario){
         res.send(JSON.stringify({ruta: '/register'}))
     }else{
-        await create(process.env.MYSQL_DATABASE+'.usuario', {nombre, apellido, email, password})
+        await create(process.env.MYSQL_DATABASE+'.USUARIO', {nombre, apellido, email, password})
         res.send(JSON.stringify({ruta: '/login'}))
     }
 })
@@ -289,11 +289,11 @@ app.post('/register', async (req,res)=>{
 //Inventario
 
 app.post('/admin/inventario/create', upload.single('imagen'), async (req, res) => {
-    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.inventario')).length + 1
+    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')).length + 1
     if (req.file) {
         req.body.imagen = '/images/Licores/' + req.file.filename;
     }
-    await create(process.env.MYSQL_DATABASE+'.inventario', req.body);
+    await create(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body);
     res.redirect('/admin/inventario');
 });
 
@@ -301,12 +301,12 @@ app.post('/admin/inventario/modificar', upload.single('imagen'), async (req, res
     if (req.file) {
         req.body.imagen = '/images/Licores/' + req.file.filename;
     }
-    await update(process.env.MYSQL_DATABASE+'.inventario', req.body.id, req.body)
+    await update(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body.id, req.body)
     res.redirect('/admin/inventario')
 })
 
 app.post('/admin/inventario/eliminar', async (req, res) => {
-    await update(process.env.MYSQL_DATABASE+'.inventario', req.body.id, {status: 'inactive'})
+    await update(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
 })
 
@@ -314,32 +314,32 @@ app.post('/admin/inventario/eliminar', async (req, res) => {
 
 app.post('/admin/avisos/create', async (req, res) => {
     req.body.titulo = req.body.descripcion.split(' ')[0]
-    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.avisos')).length + 1
+    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.AVISOS')).length + 1
     console.log(req.body)
-    await create(process.env.MYSQL_DATABASE+'.avisos', req.body);
+    await create(process.env.MYSQL_DATABASE+'.AVISOS', req.body);
     res.redirect('/admin/avisos');
 });
 
 //Dashboard
 
 app.post('/admin/dashboard/ventas', async (req, res) => {
-    res.send(await getAll(process.env.MYSQL_DATABASE+'.ventas'));
+    res.send(await getAll(process.env.MYSQL_DATABASE+'.VENTAS'));
 });
 
 app.post('/admin/dashboard/inventario', async (req, res) => {
-    res.send(await getAll(process.env.MYSQL_DATABASE+'.inventario'));
+    res.send(await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'));
 });
 
 app.post('/admin/proveedor/create', async (req, res) => {
-    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.proveedores')).length + 1
+    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')).length + 1
     req.body.status = 'active'
-    await create(process.env.MYSQL_DATABASE+'.proveedores', req.body);
+    await create(process.env.MYSQL_DATABASE+'.PROVEEDORES', req.body);
     res.redirect('/admin/proveedor');
 });
 
 app.post('/admin/proveedor/modificar', async (req, res) => {
     req.body.status = 'active'
-    await update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, req.body)
+    await update(process.env.MYSQL_DATABASE+'.PROVEEDORES', req.body.id, req.body)
     res.redirect('/admin/proveedor')
 })
 
