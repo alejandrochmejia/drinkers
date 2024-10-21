@@ -116,8 +116,14 @@ app.get('/faq', (req, res) => {
     res.render('user/faq');
 })
 
+//Terminos y Condiciones
 app.get('/terms', (req, res) => {
     res.render('user/terms');
+})
+
+//Acerca de Nosotros
+app.get('/about', (req, res) => {
+    res.render('user/about');
 })
 
 //Login
