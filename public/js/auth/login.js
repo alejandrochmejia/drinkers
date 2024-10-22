@@ -27,36 +27,69 @@ Contraseña.addEventListener('input',()=>{
     }
 })
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    const form = document.getElementsByClassName('Form__page')[0]
-    form.addEventListener('submit', async (e)=>{
-        e.preventDefault()
-        const email = document.getElementById('Email').value
-        const password = document.getElementById('Contraseña').value
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementsByClassName('Form__page')[0];
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('Email').value;
+        const password = document.getElementById('Contraseña').value;
 
         try {
             const response = await fetch('/login', {
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     email: email,
                     password: password
                 })
-            })
-            const data = await response.json()
+            });
+            const data = await response.json();
             if (data.token) {
-                // Almacena el token en el localStorage o en una cookie
+                // Almacena el token en el localStorage
                 window.localStorage.setItem('token', data.token);
-                // Redirige al usuario
-                window.location.href = data.redirectTo;
+                // Redirige al usuario o llama a la función para cargar el dashboard
+                window.location.href = data.redirectTo; // O llama a loadDashboard aquí si no rediriges
             } else {
                 // Manejo de errores (credenciales inválidas)
                 alert(data.mensaje);
             }
         } catch (error) {
-            console.log(error)
+            console.log('Error en la solicitud de inicio de sesión:', error);
         }
-    })
-})
+    });
+
+    // Función para cargar el dashboard
+    const loadDashboard = async () => {
+        const token = window.localStorage.getItem('token'); // Obtener el token
+    
+        if (!token) {
+            console.error('No se proporcionó el token, redirigiendo a login');
+            return window.location.href = '/login'; // Redirigir si no hay token
+        }
+    
+        try {
+            const response = await fetch('/admin/dashboard', {
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${token}` // Agregar el token al encabezado
+                }
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                // Procesar y mostrar los datos en la vista
+                console.log(data);
+            } else {
+                const errorData = await response.json();
+                alert(errorData.mensaje); // Mostrar el mensaje de error
+            }
+        } catch (error) {
+            console.log('Error al cargar el dashboard:', error);
+        }
+    };
+
+    // Llama a loadDashboard cuando necesites acceder a la dashboard
+    loadDashboard();
+});

@@ -156,7 +156,7 @@ app.get('/register',(req,res)=>{
 })
 
 //Dashboard
-app.get('/admin/dashboard', async (req, res) => {
+app.get('/admin/dashboard',authenticateJWT, async (req, res) => {
     res.render('admin/dashboard', {
         avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
         ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
@@ -279,7 +279,6 @@ app.post('/login', async (req, res) => {
 
     const token = jwt.sign({ email: usuarioValido.email }, JWT_KEY, { expiresIn: '1h' });
     
-    // Asegúrate de que 'redirectTo' esté correctamente definido
     res.json({ token, redirectTo: '/admin/dashboard' });
 });
 
