@@ -164,7 +164,7 @@ app.get('/register',(req,res)=>{
 })
 
 //Dashboard
-app.get('/admin/dashboard',authenticateJWT, async (req, res) => {
+app.get('/admin/dashboard', async (req, res) => {
     res.render('admin/dashboard', {
         avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
         ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
@@ -371,7 +371,7 @@ app.get('/generate-qr', async (req, res) => {
 
 // Ruta para verificar el código OTP
 app.post('/verify-otp', (req, res) => {
-    const {token} = req.body;
+    const token = req.body.password;
 
     // Verificar si el token fue proporcionado
     if (!token) {
@@ -384,6 +384,6 @@ app.post('/verify-otp', (req, res) => {
     if (isValid) {
         res.send(true);
     } else {
-        res.status(false);
+        res.send(false);
     }
 });

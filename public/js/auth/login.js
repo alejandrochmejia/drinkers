@@ -40,11 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ password }),
-            credentials: 'include'
         }).then(otp => otp.json())
+        .then(otp => {
+            if(otp){
+                window.location.href = '/admin/dashboard';
+            }
+        });
 
-
-        console.log(otp)
 
         const res = await fetch('/login', {
             method: 'POST',
