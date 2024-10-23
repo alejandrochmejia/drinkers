@@ -263,7 +263,7 @@ app.get('/api/productos/vendidos', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    const usuarios = await getAll(process.env.MYSQL_DATABASE + '.USUARIO');
+    const usuarios = await getAll(process.env.MYSQL_DATABASE + '.CLIENTES');
 
     let usuarioValido = null;
     for (const usuario of usuarios) {
@@ -284,13 +284,13 @@ app.post('/login', async (req, res) => {
 
 app.post('/register', async (req, res) => {
     const { nombre, apellido, email, password } = req.body;
-    const usuario = await exist(process.env.MYSQL_DATABASE + '.USUARIO', 'email', email);
+    const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
 
     if (usuario) {
         return res.status(400).send(JSON.stringify({ mensaje: 'El usuario ya existe' }));
     }
 
-    await create(process.env.MYSQL_DATABASE + '.USUARIO', { nombre, apellido, email, password });
+    await create(process.env.MYSQL_DATABASE + '.CLIENTES', { nombre, apellido, email, password });
     res.send(JSON.stringify({ mensaje: 'Usuario registrado con éxito' }));
 });
 
