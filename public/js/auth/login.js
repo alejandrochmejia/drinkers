@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.mensaje) {
                 alert(data.mensaje);
             } else {
-                window.location.href = '/admin/inventario';
+                window.location.href = '/admin/dashboard';
             }
         })
     })

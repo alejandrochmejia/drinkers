@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
 import cookieParser from 'cookie-parser';
+import otplib from 'otplib';
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -272,7 +273,7 @@ app.post('/login', async (req, res) => {
 
     const token = jwt.sign({ email }, JWT_KEY);
     res.cookie('token', token, { httpOnly: true });
-    res.send(JSON.stringify({ mensaje: 'Inicio de sesión exitoso' }));
+    res.send(JSON.stringify({}));
 });
 
 app.post('/register', async (req, res) => {
@@ -347,4 +348,23 @@ app.post('/admin/proveedor/modificar', async (req, res) => {
 app.post('/admin/proveedor/eliminar', async (req, res) => {
     await update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
+});
+
+const secret = otplib.authenticator.generateSecret();
+
+app.get('/generate-qr', (req, res) => {
+    const otpauth = otplib.authenticator.keyuri('user@example.com', 'MyApp', secret);
+    res.json({ qrCodeUrl: otpauth }); // Envía la URL para generar el QR
+});
+
+// Ruta para verificar el código OTP
+app.post('/verify-otp', (req, res) => {
+    const { token } = req.body; // El código OTP ingresado por el usuario
+    const isValid = otplib.authenticator.check(token, secret);
+
+    if (isValid) {
+        res.json({ message: 'Código válido' });
+    } else {
+        res.status(400).json({ message: 'Código inválido' });
+    }
 });
