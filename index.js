@@ -176,33 +176,33 @@ app.get('/admin/dashboard',authenticate.authenticateOTP, async (req, res) => {
 });
 
 //Inventario
-app.get('/admin/inventario', async (req, res) => {
+app.get('/admin/inventario',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/inventario', {inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')});
 });
 
 //Envios
-app.get('/admin/envios', async (req, res) => {
+app.get('/admin/envios',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/envios', {
         envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Envios Minorista
-app.get('/admin/envios/minorista', async (req, res) => {
+app.get('/admin/envios/minorista',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/minorista', {
         envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Envios Mayorista
-app.get('/admin/envios/mayorista', async (req, res) => {
+app.get('/admin/envios/mayorista',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/mayorista', {
         envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Estadistica
-app.get('/admin/estadistica', async (req, res) => {
+app.get('/admin/estadistica',authenticate.authenticateOTP, async (req, res) => {
 
     const dataJson = await getAll(process.env.MYSQL_DATABASE+'.VENTAS')
   
@@ -223,7 +223,7 @@ app.get('/admin/estadistica', async (req, res) => {
       };
     });
 
-    res.render('admin/estadistica', {
+    res.render('admin/estadistica',authenticate.authenticateOTP, {
         ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
         inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
         vendidos: top5ProductosConNombres
@@ -231,12 +231,12 @@ app.get('/admin/estadistica', async (req, res) => {
 });
 
 //Proveedor
-app.get('/admin/proveedor', async (req, res) => {
+app.get('/admin/proveedor',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/proveedor', {proveedor: await getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')});
 });
 
 //Avisos o Reportes
-app.get('/admin/avisos', async (req, res) => {
+app.get('/admin/avisos',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/avisos', {avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS')});
 });
 
