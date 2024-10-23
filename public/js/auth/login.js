@@ -34,6 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('Email').value;
         const password = document.getElementById('Contraseña').value;
 
+        const otp = await fetch('/verify-otp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password }),
+            credentials: 'include'
+        }).then(otp => otp.json())
+
+
+        console.log(otp)
+
         const res = await fetch('/login', {
             method: 'POST',
             headers: {
@@ -47,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.mensaje) {
                 alert(data.mensaje);
             } else {
-                window.location.href = '/admin/dashboard';
+                window.location.href = '/';
             }
         })
     })

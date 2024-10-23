@@ -45,6 +45,10 @@ dotenv.config()
 //Key para el JWT
 const JWT_KEY = process.env.JWT_KEY;
 
+// Genera una clave secreta aleatoria OTP
+const secret = process.env.AUTH_SECRET; 
+
+
 ///////////////////////
 ////// SERVIDOR //////
 ///////////////////////
@@ -351,12 +355,10 @@ app.post('/admin/proveedor/eliminar', async (req, res) => {
     res.send('Eliminado')
 });
 
-
-const secret = "233443535";
-
+/*
 // Ruta para generar y enviar el código QR
 app.get('/generate-qr', async (req, res) => {
-    const otpauth = otplib.authenticator.keyuri('user@example.com', 'MyApp', secret);
+    const otpauth = otplib.authenticator.keyuri('ventas@drinkers.com', 'Drinkers', secret);
     
     try {
         const qrCodeUrl = await QRCode.toDataURL(otpauth); // Genera el código QR como una URL de imagen
@@ -365,6 +367,7 @@ app.get('/generate-qr', async (req, res) => {
         res.status(500).json({ message: 'Error al generar el código QR' });
     }
 });
+*/
 
 // Ruta para verificar el código OTP
 app.post('/verify-otp', (req, res) => {
@@ -377,12 +380,10 @@ app.post('/verify-otp', (req, res) => {
 
     // Verificar el código OTP
     const isValid = otplib.authenticator.check(token, secret);
-    const valor = otplib.authenticator.generate(secret);
-
 
     if (isValid) {
-        res.json({ message: 'Código válido' });
+        res.send(true);
     } else {
-        res.status(400).json({ message: 'Código inválido', isValid, secret, token, valor });
+        res.status(false);
     }
 });
