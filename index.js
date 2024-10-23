@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
 import cookieParser from 'cookie-parser';
 import otplib from 'otplib';
+import QRCode from 'qrcode';
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -350,21 +351,38 @@ app.post('/admin/proveedor/eliminar', async (req, res) => {
     res.send('Eliminado')
 });
 
-const secret = otplib.authenticator.generateSecret();
 
-app.get('/generate-qr', (req, res) => {
+const secret = "233443535";
+
+// Ruta para generar y enviar el código QR
+app.get('/generate-qr', async (req, res) => {
     const otpauth = otplib.authenticator.keyuri('user@example.com', 'MyApp', secret);
-    res.json({ qrCodeUrl: otpauth }); // Envía la URL para generar el QR
+    
+    try {
+        const qrCodeUrl = await QRCode.toDataURL(otpauth); // Genera el código QR como una URL de imagen
+        res.json({ qrCodeUrl }); // Envía la URL para generar el QR
+    } catch (err) {
+        res.status(500).json({ message: 'Error al generar el código QR' });
+    }
 });
 
 // Ruta para verificar el código OTP
 app.post('/verify-otp', (req, res) => {
-    const { token } = req.body; // El código OTP ingresado por el usuario
+    const {token} = req.body;
+
+    // Verificar si el token fue proporcionado
+    if (!token) {
+        return res.status(400).json({ message: 'Token no proporcionado' });
+    }
+
+    // Verificar el código OTP
     const isValid = otplib.authenticator.check(token, secret);
+    const valor = otplib.authenticator.generate(secret);
+
 
     if (isValid) {
         res.json({ message: 'Código válido' });
     } else {
-        res.status(400).json({ message: 'Código inválido' });
+        res.status(400).json({ message: 'Código inválido', isValid, secret, token, valor });
     }
 });
