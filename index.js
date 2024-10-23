@@ -2,6 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
+import cookieParser from 'cookie-parser';
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -61,6 +62,7 @@ app.set('view engine','ejs')
 //Configurando Body-Parser
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser());
 
 //Rutas
 
@@ -260,26 +262,17 @@ app.get('/api/productos/vendidos', async (req, res) => {
 //////////////////
 
 //Autenticacion
-
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    const usuarios = await getAll(process.env.MYSQL_DATABASE + '.CLIENTES');
+    const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
 
-    let usuarioValido = null;
-    for (const usuario of usuarios) {
-        if (usuario.email === email && usuario.password === password) {
-            usuarioValido = usuario;
-            break;
-        }
+    if (!usuario || usuario[0].password !== password) {
+        return res.status(400).send(JSON.stringify({ mensaje: 'Usuario o contraseña incorrectos' }));
     }
 
-    if (!usuarioValido) {
-        return res.status(401).send(JSON.stringify({ mensaje: 'Credenciales inválidas' }));
-    }
-
-    const token = jwt.sign({ email: usuarioValido.email }, JWT_KEY, { expiresIn: '1h' });
-    
-    res.json({ token, redirectTo: '/admin/dashboard' });
+    const token = jwt.sign({ email }, JWT_KEY);
+    res.cookie('token', token, { httpOnly: true });
+    res.send(JSON.stringify({ mensaje: 'Inicio de sesión exitoso' }));
 });
 
 app.post('/register', async (req, res) => {
