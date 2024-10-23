@@ -37,13 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const otp = await fetch('/verify-otp', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({ password }),
+            credentials: 'include'
         }).then(otp => otp.json())
         .then(otp => {
             if(otp){
                 window.location.href = '/admin/dashboard';
+                return
             }
         });
 

@@ -11,6 +11,7 @@ import { fileURLToPath } from 'url';
 import multer from 'multer';
 import path from 'path';
 
+
 //Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
 import {
     getAll,
@@ -21,7 +22,7 @@ import {
     deleteOne
 } from './src/database/querys.js'
 
-import authenticateJWT from './src/middleware/authorization.js'
+import authenticate from './src/middleware/authorization.js'
 
 //Configurando Path
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -47,6 +48,7 @@ const JWT_KEY = process.env.JWT_KEY;
 
 // Genera una clave secreta aleatoria OTP
 const secret = process.env.AUTH_SECRET; 
+
 
 
 ///////////////////////
@@ -164,7 +166,7 @@ app.get('/register',(req,res)=>{
 })
 
 //Dashboard
-app.get('/admin/dashboard', async (req, res) => {
+app.get('/admin/dashboard',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/dashboard', {
         avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
         ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
@@ -272,7 +274,7 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
 
-    if (!usuario || usuario[0].password !== password) {
+    if (!usuario || usuario.password !== password) {
         return res.status(400).send(JSON.stringify({ mensaje: 'Usuario o contraseña incorrectos' }));
     }
 
@@ -380,10 +382,6 @@ app.post('/verify-otp', (req, res) => {
 
     // Verificar el código OTP
     const isValid = otplib.authenticator.check(token, secret);
-
-    if (isValid) {
-        res.send(true);
-    } else {
-        res.send(false);
-    }
+    res.cookie('otp', isValid, { httpOnly: true });
+    res.send(isValid)
 });

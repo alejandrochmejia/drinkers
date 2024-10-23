@@ -19,4 +19,17 @@ const authenticateJWT = (req, res, next) => {
     });
 };
 
-export default authenticateJWT;
+const authenticateOTP = (req, res, next) => {
+    const otp = req.cookies.otp;
+
+    if (otp === undefined || otp === null || otp === 'false') {
+        return res.redirect('/login');
+    }
+
+    next();
+};
+
+export default {
+    authenticateJWT,
+    authenticateOTP
+};
