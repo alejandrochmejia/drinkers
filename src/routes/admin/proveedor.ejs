@@ -64,8 +64,6 @@
                                 <td><%= proveedor.telefono %></td>
                                 <td><%= proveedor.rif %></td>
                                 <td><%= proveedor.ubicacion %></td>
-                                <td><%= proveedor.fecha_compra.toLocaleDateString() %></td>
-                                <td><%= proveedor.fecha_entrega.toLocaleDateString() %></td>
                             </tr>
                             <% } %>
                         <% }) %>
@@ -152,16 +150,7 @@
                         <input placeholder="Ingrese el telefono del proveedor" required id="Telefono" name="telefono">
                     </div>
                 </div>
-                <div class="Input--Container">
-                    <div>
-                        <label for="Fecha--compra">Fecha de compra</label>
-                        <input type="date" id="Fecha--compra" required name="fecha_compra">
-                    </div>
-                    <div>
-                        <label for="Fecha--entrega">Fecha de entrega</label>
-                        <input type="date" id="Fecha--entrega" required name="fecha_entrega">
-                    </div>
-                </div>
+
                 <button type="submit" id="SubmitModificar">Modificar</button>
             </form>
         </dialog>
