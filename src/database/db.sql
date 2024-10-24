@@ -68,9 +68,7 @@ CREATE TABLE PROVEEDORES (
   telefono VARCHAR(255) NOT NULL,
   rif VARCHAR(255) NOT NULL,
   ubicacion VARCHAR(255) NOT NULL,
-  fecha_compra DATE NOT NULL,
-  fecha_entrega DATE NOT NULL,
-  producto VARCHAR(255) NOT NULL,
+  id_producto INT NOT NULL,
   status VARCHAR(255) NOT NULL DEFAULT 'active'
 );
 
@@ -84,18 +82,35 @@ CREATE TABLE VENTAS (
   FOREIGN KEY (id_user) REFERENCES USUARIO(id)
 );
 
-INSERT INTO PROVEEDORES (id, nombre, telefono, rif, ubicacion, fecha_compra, fecha_entrega, producto) VALUES
-(1, 'Proveedor 1', 'Teléfono 1', 'RIF 1', 'Ubicación 1', '2023-01-01', '2023-01-02', 'Whisky'),
-(2, 'Proveedor 2', 'Teléfono 2', 'RIF 2', 'Ubicación 2', '2023-01-03', '2023-01-04', 'Vodka'),
-(3, 'Proveedor 3', 'Teléfono 3', 'RIF 3', 'Ubicación 3', '2023-01-05', '2023-01-06', 'Ron'),
-(4, 'Proveedor 4', 'Teléfono 4', 'RIF 4', 'Ubicación 4', '2023-01-07', '2023-01-08', 'Whisky'),
-(5, 'Proveedor 5', 'Teléfono 5', 'RIF 5', 'Ubicación 5', '2023-01-09', '2023-01-10', 'AnisCartujo'),
-(6, 'Proveedor 6', 'Teléfono 6', 'RIF 6', 'Ubicación 6', '2023-01-11', '2023-01-12', 'Ron'),
-(7, 'Proveedor 7', 'Teléfono 7', 'RIF 7', 'Ubicación 7', '2023-01-13', '2023-01-14', 'Vodka'),
-(8, 'Proveedor 8', 'Teléfono 8', 'RIF 8', 'Ubicación 8', '2023-01-15', '2023-01-16', 'Ron'),
-(9, 'Proveedor 9', 'Teléfono 9', 'RIF 9', 'Ubicación 9', '2023-01-17', '2023-01-18', 'Whisky'),
-(10, 'Proveedor 10', 'Teléfono 10', 'RIF 10', 'Ubicación 10', '2023-01-19', '2023-01-20', 'Vodka');
+CREATE TABLE COMPRA_PROVEEDORES (
+  id INT PRIMARY KEY,
+  id_proveedor INT NOT NULL,
+  fecha_compra VARCHAR(200) NOT NULL,
+  fecha_entrega VARCHAR(200) NOT NULL,
+  cantidad_paquete INT NOT NULL
+);
 
+INSERT INTO PROVEEDORES (id, nombre, telefono, rif, ubicacion, id_producto) VALUES
+(1, 'Proveedor 1', 'Teléfono 1', 'RIF 1', 'Ubicación 1', 1),
+(2, 'Proveedor 2', 'Teléfono 2', 'RIF 2', 'Ubicación 2', 2),
+(3, 'Proveedor 3', 'Teléfono 3', 'RIF 3', 'Ubicación 3', 3),
+(4, 'Proveedor 4', 'Teléfono 4', 'RIF 4', 'Ubicación 4', 1),
+(5, 'Proveedor 5', 'Teléfono 5', 'RIF 5', 'Ubicación 5', 4),
+(6, 'Proveedor 6', 'Teléfono 6', 'RIF 6', 'Ubicación 6', 3),
+(7, 'Proveedor 7', 'Teléfono 7', 'RIF 7', 'Ubicación 7', 2),
+(8, 'Proveedor 8', 'Teléfono 8', 'RIF 8', 'Ubicación 8', 3),
+(9, 'Proveedor 9', 'Teléfono 9', 'RIF 9', 'Ubicación 9', 1),
+(10, 'Proveedor 10', 'Teléfono 10', 'RIF 10', 'Ubicación 10', 2);
+
+INSERT INTO COMPRA_PROVEEDORES (id, id_proveedor, fecha_compra, fecha_entrega, cantidad_paquete) VALUES
+(1, 1, '2023-01-01', '2023-01-02', 100),
+(2, 2, '2023-01-03', '2023-01-04', 200),
+(3, 3, '2023-01-05', '2023-01-06', 150),
+(4, 4, '2023-01-07', '2023-01-08', 100),
+(5, 5, '2023-01-09', '2023-01-10', 250),
+(6, 6, '2023-01-11', '2023-01-12', 150),
+(7, 7, '2023-01-13', '2023-01-14', 200),
+(8, 8, '2023-01-15', '2023-01-16', 150);
 
 INSERT INTO AVISOS (id, titulo, descripcion, tipo, fecha) VALUES
 (1, 'Whisky', 'Nuevo lote de whisky escocés disponible en inventario', 'Producto', '2023-01-01'),
