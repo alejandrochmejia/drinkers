@@ -3,17 +3,21 @@
     <section id="bs" class="value">bs</section>
 </div>
 <script>
+    async function convert(){
         const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial")
         const data = await response.json()
         const dolar = data.promedio
+        const bs = document.getElementById('bs')
+        const dolars = document.getElementById('dolars')
 
-            const dolars = document.getElementById("dolars")
-            const bs = document.getElementById("bs")
+        bs.onclick = ()=>{
+            //Cambiar valores de la clase product-price a bs
+        }
 
-            bs.addEventListener('click',() => {
-                document.getElementsByClassName("product-price").forEach(element => {
-                    element.innerText = `Desde ${(parseInt(element.innerText.split(" ")[1]) * dolar).toFixed(2)}`
-                })
-            }) 
+        dolars.onclick = ()=>{
+            //Cambiar valores de la clase product-price a dolares
+        }
+    }
 
+    convert()
 </script>
