@@ -12,16 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
 </head>
 <body>
-    <%- include('../partials/user-header') %>
+    <%- include('./partials/user-header') %>
 
-    <img id="whatsappIcon" src="/images/icons/whatsapp.svg">
+    <%- include('./partials/chat') %>
 
-    <div id="values">
-        <section id="dolars" class="value">$</section>
-        <section id="bs" class="value">bs</section>
-    </div>
+    <%- include('./partials/convert') %>
 
-    <%- include('../partials/cart') %>
+    <%- include('./partials/cart') %>
 
     <main>
         <h2 class="subtitle">Políticas de Privacidad</h2>

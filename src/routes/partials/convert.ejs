@@ -1,0 +1,19 @@
+<div id="values">
+    <section id="dolars" class="value">$</section>
+    <section id="bs" class="value">bs</section>
+</div>
+<script>
+        const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial")
+        const data = await response.json()
+        const dolar = data.promedio
+
+            const dolars = document.getElementById("dolars")
+            const bs = document.getElementById("bs")
+
+            bs.addEventListener('click',() => {
+                document.getElementsByClassName("product-price").forEach(element => {
+                    element.innerText = `Desde ${(parseInt(element.innerText.split(" ")[1]) * dolar).toFixed(2)}`
+                })
+            }) 
+
+</script>
