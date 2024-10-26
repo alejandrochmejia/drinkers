@@ -22,8 +22,19 @@ function addMessage(message) {
 async function respondToUser(message) {
         const responseBot = await generateResponse(message);
         console.log(responseBot)
-        const response = "Bot: " + responseBot;
+        const response = "Bot: " + formatResponse(responseBot);
         addMessage(response);
+}
+
+function formatResponse(response) {
+    const formattedResponse = response
+        .replace(/\*\*/g, '')
+        .replace(/\*/g, '')
+        .replace(/\d+\.\s*/g, '')
+       .replace(/:\s*/g, ': ')
+       .trim();
+    
+    return formattedResponse;
 }
 
 async function generateResponse(message) {
