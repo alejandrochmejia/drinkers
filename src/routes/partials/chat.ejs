@@ -1,1 +1,12 @@
-<img id="whatsappIcon" src="/images/icons/whatsapp.svg">
+<link rel="stylesheet" href="/css/user/chat.css">
+<div id="chatbot" class="hidden">
+    <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="userInput" placeholder="Escribe un mensaje...">
+        <button id="sendButton">Enviar</button>
+    </div>
+</div>
+<div id="chatIcon" onclick="toggleChatbot()">
+    💬
+</div>
+<script src="/js/user/chat.js"></script>

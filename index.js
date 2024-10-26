@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import otplib from 'otplib';
 import QRCode from 'qrcode';
 import bcrypt from 'bcryptjs';
+import {GoogleGenerativeAI} from '@google/generative-ai';
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -50,7 +51,38 @@ const JWT_KEY = process.env.JWT_KEY;
 // Genera una clave secreta aleatoria OTP
 const secret = process.env.AUTH_SECRET; 
 
+// Configuración de la API de Google Generative AI
+const apiKey = process.env.GEMINI_KEY;
+const genAI = new GoogleGenerativeAI(apiKey);
+const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+});
+  
+const generationConfig = {
+    temperature: 1,
+    topP: 0.95,
+    topK: 64,
+    maxOutputTokens: 100,
+    responseMimeType: "text/plain",
+};
 
+const chatSession = model.startChat({
+    generationConfig,
+    history: [
+        {
+            role: "user",
+            parts: [
+                {text: "Hola, quiero aprender sobre licores."},
+            ],
+        },
+        {
+            role: "model",
+            parts: [
+                {text: "¡Hola! Con gusto te puedo ayudar. ¿Sobre qué tipo de licores te gustaría aprender? Tenemos whisky, vodka, ron, tequila, etc."},
+            ],
+        },
+    ],
+});
 
 ///////////////////////
 ////// SERVIDOR //////
@@ -389,3 +421,11 @@ app.post('/verify-otp', (req, res) => {
     res.cookie('otp', isValid, { httpOnly: true });
     res.send(isValid)
 });
+
+// POST para interaccion con GEMINI
+app.post('/bot', async (req, res) => {
+    const { message } = req.body;
+    const result = await chatSession.sendMessage(message);
+    console.log(result.response.text());
+    res.send(JSON.stringify(result.response.text()));
+})

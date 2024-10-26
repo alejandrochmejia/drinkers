@@ -107,6 +107,7 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (8, 'Sangría', 'Sangría', 'Sangría de vino tinto con frutas.', 1, 7, 'https://example.com/sangria.jpg', 12, 18, 10.00, 8.00, 110, 'active'),
 (9, 'Anís', 'Anís', 'Licor de anís de alta calidad.', 0.7, 30, 'https://example.com/anis.jpg', 12, 18, 18.00, 14.00, 40, 'active'),
 (10, 'Aguardiente', 'Aguardiente', 'Aguardiente de caña.', 0.7, 35, 'https://example.com/aguardiente.jpg', 12, 18, 22.00, 18.00, 50, 'active');
+
 -- Inserciones en la tabla CLIENTES
 INSERT INTO CLIENTES (id, username, email, nacimiento, password, name, lastname, status) VALUES
 (1, 'jdoe', 'jdoe@example.com', '1990-05-15', 'password123', 'John', 'Doe', 'active'),
