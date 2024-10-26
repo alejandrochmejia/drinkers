@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 import cookieParser from 'cookie-parser';
 import otplib from 'otplib';
 import QRCode from 'qrcode';
+import bcrypt from 'bcryptjs';
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -274,7 +275,6 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
 
-
     if (!usuario || usuario[0].password !== password) {
         return res.status(400).send(JSON.stringify({ mensaje: 'Usuario o contraseña incorrectos' }));
     }
@@ -284,6 +284,7 @@ app.post('/login', async (req, res) => {
     res.send(JSON.stringify({}));
 });
 
+//Falta Arreglar el register cuando se haga merge
 app.post('/register', async (req, res) => {
     const { nombre, apellido, email, password } = req.body;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
@@ -380,6 +381,8 @@ app.post('/verify-otp', (req, res) => {
     if (!token) {
         return res.status(400).json({ message: 'Token no proporcionado' });
     }
+
+    //Falta encriptacion con bycript del otp
 
     // Verificar el código OTP
     const isValid = otplib.authenticator.check(token, secret);

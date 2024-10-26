@@ -49,22 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        if(otp){
+            const res = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password }),
+                credentials: 'include' 
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.mensaje) {
+                    window.location.href = '/login';
+                } else {
+                    window.location.href = '/';
+                }
+            })
+        }
 
-        const res = await fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password }),
-            credentials: 'include' 
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.mensaje) {
-                alert(data.mensaje);
-            } else {
-                window.location.href = '/';
-            }
-        })
+
+
     })
 });

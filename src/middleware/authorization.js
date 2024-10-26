@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import bycript from 'bcryptjs';
 
 const JWT_KEY = process.env.JWT_KEY;
 
@@ -21,6 +22,8 @@ const authenticateJWT = (req, res, next) => {
 
 const authenticateOTP = (req, res, next) => {
     const otp = req.cookies.otp;
+
+    //Falta encriptacion con bycript del otp
 
     if (otp === undefined || otp === null || otp === 'false') {
         return res.redirect('/login');
