@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS drinkers;
 CREATE DATABASE IF NOT EXISTS drinkers;
 USE drinkers;
+
 CREATE TABLE INVENTARIO (
   id INT PRIMARY KEY,
   nombre_producto VARCHAR(255) NOT NULL,
@@ -11,11 +12,12 @@ CREATE TABLE INVENTARIO (
   imagen VARCHAR(255) NOT NULL,
   paquete INT NOT NULL,
   iva INT NOT NULL,
-  precio_detal INT NOT NULL,
-  precio_mayorista INT NOT NULL,
+  precio_detal DECIMAL(10, 2) NOT NULL,
+  precio_mayorista DECIMAL(10, 2) NOT NULL,
   stock INT NOT NULL,
   status VARCHAR(255) NOT NULL DEFAULT 'active'
 );
+
 CREATE TABLE CLIENTES (
   id INT PRIMARY KEY,
   username VARCHAR(255) NOT NULL UNIQUE,
@@ -26,13 +28,15 @@ CREATE TABLE CLIENTES (
   lastname VARCHAR(255) NOT NULL,
   status VARCHAR(255) NOT NULL DEFAULT 'active'
 );
+
 CREATE TABLE FACTURA (
   id INT PRIMARY KEY,
   fecha DATE NOT NULL,
   id_user INT NOT NULL,
-  total INT NOT NULL,
-  FOREIGN KEY (id_user) REFERENCES USUARIO(id)
+  total DECIMAL(10, 2) NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES CLIENTES(id)
 );
+
 CREATE TABLE PRODUCTOS_FACTURADOS (
   id_factura INT NOT NULL,
   id_producto INT NOT NULL,
@@ -41,16 +45,17 @@ CREATE TABLE PRODUCTOS_FACTURADOS (
   FOREIGN KEY (id_factura) REFERENCES FACTURA(id),
   FOREIGN KEY (id_producto) REFERENCES INVENTARIO(id)
 );
+
 CREATE TABLE ENVIOS (
   id INT PRIMARY KEY,
   id_user INT NOT NULL,
   destino TEXT NOT NULL,
   id_factura INT NOT NULL,
-  monto INT NOT NULL,
+  monto DECIMAL(10, 2) NOT NULL,
   entrega DATE NOT NULL,
   tipo VARCHAR(255) NOT NULL DEFAULT 'minorista',
   status VARCHAR(255) NOT NULL DEFAULT 'pending',
-  FOREIGN KEY (id_user) REFERENCES USUARIO(id),
+  FOREIGN KEY (id_user) REFERENCES CLIENTES(id),
   FOREIGN KEY (id_factura) REFERENCES FACTURA(id)
 );
 
@@ -68,7 +73,6 @@ CREATE TABLE PROVEEDORES (
   telefono VARCHAR(255) NOT NULL,
   rif VARCHAR(255) NOT NULL,
   ubicacion VARCHAR(255) NOT NULL,
-  id_producto INT NOT NULL,
   status VARCHAR(255) NOT NULL DEFAULT 'active'
 );
 
@@ -77,135 +81,134 @@ CREATE TABLE VENTAS (
   id_producto INT NOT NULL,
   id_user INT NOT NULL,
   cantidad INT NOT NULL,
-  ingresos INT NOT NULL,
+  ingresos DECIMAL(10, 2) NOT NULL,
   FOREIGN KEY (id_producto) REFERENCES INVENTARIO(id),
-  FOREIGN KEY (id_user) REFERENCES USUARIO(id)
+  FOREIGN KEY (id_user) REFERENCES CLIENTES(id)
 );
 
 CREATE TABLE COMPRA_PROVEEDORES (
   id INT PRIMARY KEY,
   id_proveedor INT NOT NULL,
-  fecha_compra VARCHAR(200) NOT NULL,
-  fecha_entrega VARCHAR(200) NOT NULL,
-  cantidad_paquete INT NOT NULL
+  fecha_compra DATE NOT NULL,
+  fecha_entrega DATE NOT NULL,
+  cantidad_paquete INT NOT NULL,
+  FOREIGN KEY (id_proveedor) REFERENCES PROVEEDORES(id)
 );
 
-INSERT INTO PROVEEDORES (id, nombre, telefono, rif, ubicacion, id_producto) VALUES
-(1, 'Proveedor 1', 'Teléfono 1', 'RIF 1', 'Ubicación 1', 1),
-(2, 'Proveedor 2', 'Teléfono 2', 'RIF 2', 'Ubicación 2', 2),
-(3, 'Proveedor 3', 'Teléfono 3', 'RIF 3', 'Ubicación 3', 3),
-(4, 'Proveedor 4', 'Teléfono 4', 'RIF 4', 'Ubicación 4', 1),
-(5, 'Proveedor 5', 'Teléfono 5', 'RIF 5', 'Ubicación 5', 4),
-(6, 'Proveedor 6', 'Teléfono 6', 'RIF 6', 'Ubicación 6', 3),
-(7, 'Proveedor 7', 'Teléfono 7', 'RIF 7', 'Ubicación 7', 2),
-(8, 'Proveedor 8', 'Teléfono 8', 'RIF 8', 'Ubicación 8', 3),
-(9, 'Proveedor 9', 'Teléfono 9', 'RIF 9', 'Ubicación 9', 1),
-(10, 'Proveedor 10', 'Teléfono 10', 'RIF 10', 'Ubicación 10', 2);
-
-INSERT INTO COMPRA_PROVEEDORES (id, id_proveedor, fecha_compra, fecha_entrega, cantidad_paquete) VALUES
-(1, 1, '2023-01-01', '2023-01-02', 100),
-(2, 2, '2023-01-03', '2023-01-04', 200),
-(3, 3, '2023-01-05', '2023-01-06', 150),
-(4, 4, '2023-01-07', '2023-01-08', 100),
-(5, 5, '2023-01-09', '2023-01-10', 250),
-(6, 6, '2023-01-11', '2023-01-12', 150),
-(7, 7, '2023-01-13', '2023-01-14', 200),
-(8, 8, '2023-01-15', '2023-01-16', 150);
-
-INSERT INTO AVISOS (id, titulo, descripcion, tipo, fecha) VALUES
-(1, 'Whisky', 'Nuevo lote de whisky escocés disponible en inventario', 'Producto', '2023-01-01'),
-(2, 'Vinos', 'Promoción especial en vinos tintos reserva', 'Producto', '2023-01-02'),
-(3, 'Tequilas', 'Actualización de precios en la línea de tequilas', 'Producto', '2023-01-03'),
-(4, 'Capacitación', 'Reunión de personal para capacitación en atención al cliente', 'Personal', '2023-01-04'),
-(5, 'Ginebra', 'Nuevo acuerdo con proveedor de ginebra premium', 'Proveedor', '2023-01-05'),
-(6, 'Horarios', 'Cambio en el horario de turnos del personal de ventas', 'Personal', '2023-01-06'),
-(7, 'Evaluación', 'Evaluación de desempeño trimestral para el equipo de logística', 'Personal', '2023-01-07'),
-(8, 'Sommelier', 'Convocatoria para cubrir puesto de sommelier', 'Personal', '2023-01-08'),
-(9, 'Nómina', 'Recordatorio: entrega de documentos para actualización de nómina', 'Personal', '2023-01-09'),
-(10, 'Retraso', 'Retraso en envíos debido a condiciones climáticas adversas', 'Envio', '2023-01-10');
-
--- Insertar datos en la tabla INVENTARIO
+-- Inserciones en la tabla INVENTARIO
 INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock, status) VALUES
-(1, 'Whisky Escocés', 'Whisky', 'Whisky de malta premium', 0.75, 40, 'whisky_escoces.jpg', 1, 19, 50000, 45000, 100, 'active'),
-(2, 'Vodka Ruso', 'Vodka', 'Vodka destilado 5 veces', 1, 37, 'vodka_ruso.jpg', 1, 19, 35000, 30000, 150, 'active'),
-(3, 'Ron Añejo', 'Ron', 'Ron añejado 7 años', 0.7, 40, 'ron_anejo.jpg', 1, 19, 40000, 35000, 80, 'active'),
-(4, 'Gin London Dry', 'Gin', 'Gin con botánicos selectos', 0.75, 43, 'gin_london.jpg', 1, 19, 45000, 40000, 120, 'active'),
-(5, 'Tequila Reposado', 'Tequila', 'Tequila reposado 100% agave', 0.75, 38, 'tequila_reposado.jpg', 1, 19, 55000, 50000, 90, 'active'),
-(6, 'Vino Tinto Reserva', 'Vino', 'Vino tinto reserva español', 0.75, 13, 'vino_tinto.jpg', 1, 19, 30000, 25000, 200, 'active'),
-(7, 'Champagne Brut', 'Champagne', 'Champagne francés brut', 0.75, 12, 'champagne_brut.jpg', 1, 19, 60000, 55000, 70, 'active'),
-(8, 'Licor de Café', 'Licor', 'Licor cremoso de café', 0.7, 17, 'licor_cafe.jpg', 1, 19, 25000, 20000, 110, 'active'),
-(9, 'Cognac VSOP', 'Cognac', 'Cognac VSOP francés', 0.7, 40, 'cognac_vsop.jpg', 1, 19, 70000, 65000, 60, 'active'),
-(10, 'Mezcal Artesanal', 'Mezcal', 'Mezcal artesanal de Oaxaca', 0.75, 45, 'mezcal_artesanal.jpg', 1, 19, 65000, 60000, 50, 'active'),
-(11, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de cebada', 0.5, 5, 'cerveza_artesanal.jpg', 1, 19, 20000, 15000, 200, 'active'),
--- Manera de Agregar la imagen
-(12, 'Anis Cartujo', 'Anis', 'Anís tradicional', 0.7, 35, '/images/Licores/anis-cartujo.png', 12, 19, 30000, 25000, 120, 'active');
+(1, 'Vino Tinto', 'Vino', 'Vino tinto de uva Cabernet Sauvignon.', 0.75, 13, 'https://example.com/vino_tinto.jpg', 6, 18, 15.99, 12.99, 100, 'active'),
+(2, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de malta clara.', 0.33, 5, 'https://example.com/cerveza_artesanal.jpg', 12, 18, 3.99, 2.99, 200, 'active'),
+(3, 'Whisky Escocés', 'Licor', 'Whisky escocés de malta.', 0.7, 40, 'https://example.com/whisky_escoces.jpg', 12, 18, 29.99, 24.99, 50, 'active'),
+(4, 'Agua Mineral', 'Bebida', 'Agua mineral natural.', 1, 0, 'https://example.com/agua_mineral.jpg', 24, 0, 1.50, 1.00, 500, 'active'),
+(5, 'Ron Blanco', 'Licor', 'Ron blanco de caña.', 0.7, 37.5, 'https://example.com/ron_blanco.jpg', 12, 18, 25.00, 20.00, 75, 'active'),
+(6, 'Cerveza Rubia', 'Cerveza', 'Cerveza rubia de malta.', 0.5, 5, 'https://example.com/cerveza_rubia.jpg', 12, 18, 4.50, 3.50, 150, 'active'),
+(7, 'Champán Brut', 'Vino', 'Champán brut de alta calidad.', 0.75, 12, 'https://example.com/champan_brut.jpg', 6, 18, 39.99, 34.99, 30, 'active'),
+(8, 'Sidra', 'Bebida', 'Sidra de manzana natural.', 0.33, 5, 'https://example.com/sidra.jpg', 12, 18, 2.50, 1.80, 80, 'active'),
+(9, 'Tequila', 'Licor', 'Tequila 100% agave.', 0.7, 40, 'https://example.com/tequila.jpg', 12, 18, 29.99, 24.99, 40, 'active'),
+(10, 'Soda', 'Bebida', 'Soda de cola.', 1.5, 0, 'https://example.com/soda.jpg', 24, 0, 1.00, 0.80, 300, 'active');
 
--- Insertar datos en la tabla USUARIO
-INSERT INTO USUARIO (id, username, email, nacimiento, password, name, lastname, status) VALUES
-(1, 'juan123', 'juan@email.com', '1990-05-15', 'hash_password1', 'Juan', 'Pérez', 'active'),
-(2, 'maria_g', 'maria@email.com', '1988-10-20', 'hash_password2', 'María', 'González', 'active'),
-(3, 'carlos_r', 'carlos@email.com', '1995-03-08', 'hash_password3', 'Carlos', 'Rodríguez', 'active'),
-(4, 'ana_m', 'ana@email.com', '1992-12-01', 'hash_password4', 'Ana', 'Martínez', 'active'),
-(5, 'pedro_s', 'pedro@email.com', '1985-07-30', 'hash_password5', 'Pedro', 'Sánchez', 'inactive'),
-(6, 'laura_l', 'laura@email.com', '1993-09-18', 'hash_password6', 'Laura', 'López', 'active'),
-(7, 'diego_f', 'diego@email.com', '1991-02-25', 'hash_password7', 'Diego', 'Fernández', 'active'),
-(8, 'sofia_b', 'sofia@email.com', '1987-11-12', 'hash_password8', 'Sofía', 'Blanco', 'active'),
-(9, 'javier_h', 'javier@email.com', '1994-06-05', 'hash_password9', 'Javier', 'Hernández', 'active'),
-(10, 'elena_t', 'elena@email.com', '1989-04-22', 'hash_password10', 'Elena', 'Torres', 'active');
--- Insertar datos en la tabla FACTURA
+-- Inserciones en la tabla CLIENTES
+INSERT INTO CLIENTES (id, username, email, nacimiento, password, name, lastname, status) VALUES
+(1, 'jdoe', 'jdoe@example.com', '1990-05-15', 'password123', 'John', 'Doe', 'active'),
+(2, 'asmith', 'asmith@example.com', '1985-08-20', 'password456', 'Alice', 'Smith', 'active'),
+(3, 'bwhite', 'bwhite@example.com', '1992-12-05', 'password789', 'Bob', 'White', 'active'),
+(4, 'cgreen', 'cgreen@example.com', '1988-03-10', 'password111', 'Charlie', 'Green', 'active'),
+(5, 'dblack', 'dblack@example.com', '1995-07-25', 'password222', 'Diana', 'Black', 'active'),
+(6, 'emartinez', 'emartinez@example.com', '1983-01-30', 'password333', 'Eve', 'Martinez', 'active'),
+(7, 'fgarcia', 'fgarcia@example.com', '1991-06-15', 'password444', 'Frank', 'Garcia', 'active'),
+(8, 'hlee ', 'hlee@example.com', '1989-09-20', 'password555', 'Helen', 'Lee', 'active'),
+(9, 'ijones', 'ijones@example.com', '1993-02-10', 'password666', 'Ian', 'Jones', 'active'),
+(10, 'kwalker', 'kwalker@example.com', '1986-11-25', 'password777', 'Kate', 'Walker', 'active');
+
+-- Inserciones en la tabla FACTURA
 INSERT INTO FACTURA (id, fecha, id_user, total) VALUES
-(1, '2023-05-01', 1, 150000),
-(2, '2023-05-02', 2, 85000),
-(3, '2023-05-03', 3, 120000),
-(4, '2023-05-04', 4, 200000),
-(5, '2023-05-05', 5, 75000),
-(6, '2023-05-06', 6, 180000),
-(7, '2023-05-07', 7, 95000),
-(8, '2023-05-08', 8, 135000),
-(9, '2023-05-09', 9, 110000),
-(10, '2023-05-10', 10, 160000);
--- Insertar datos en la tabla PRODUCTOS_FACTURADOS
-INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
-(1, 1, 2),
-(1, 3, 1),
-(2, 2, 1),
-(2, 6, 2),
-(3, 4, 1),
-(3, 5, 1),
-(3, 8, 2),
-(4, 7, 2),
-(4, 9, 1),
-(5, 10, 1),
-(6, 1, 1),
-(6, 2, 1),
-(6, 3, 1),
-(7, 5, 1),
-(7, 6, 1),
-(8, 4, 2),
-(8, 8, 1),
-(9, 3, 2),
-(9, 7, 1),
-(10, 9, 1),
-(10, 10, 1);
--- Insertar datos en la tabla ENVIOS
-INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega, status, tipo) VALUES
-(1, 1, 'Calle 123, Ciudad A', 1, 10000, '2023-05-03', 'pending', 'minorista'),
-(2, 2, 'Avenida 456, Ciudad B', 2, 8000, '2023-05-04', 'pending', 'minorista'),
-(3, 3, 'Plaza 789, Ciudad C', 3, 12000, '2023-05-05', 'pending', 'minorista'),
-(4, 4, 'Calle 321, Ciudad D', 4, 15000, '2023-05-06', 'completado', 'mayorista'  ),
-(5, 5, 'Avenida 654, Ciudad E', 5, 9000, '2023-05-07', 'completado', 'minorista'),
-(6, 6, 'Plaza 987, Ciudad F', 6, 11000, '2023-05-08', 'completado', 'minorista'),
-(7, 7, 'Calle 135, Ciudad G', 7, 7000, '2023-05-09', 'pending', 'minorista'),
-(8, 8, 'Avenida 246, Ciudad H', 8, 13000, '2023-05-10', 'completado', 'minorista'),
-(9, 9, 'Plaza 357, Ciudad I', 9, 10000, '2023-05-11', 'completado', 'minorista'),
-(10, 10, 'Calle 468, Ciudad J', 10, 14000, '2023-05-12', 'completado', 'minorista');
+(1, '2023-10-01', 1, 45.99),
+(2, '2023-10-02', 2, 23.97),
+(3, '2023-10-03', 3, 56.99),
+(4, '2023-10-04', 4, 34.99),
+(5, '2023-10-05', 5, 67.99),
+(6, '2023-10-06', 6, 29.99),
+(7, '2023-10-07', 7, 49.99),
+(8, '2023-10-08', 8, 39.99),
+(9, '2023-10-09', 9, 69.99),
+(10, '2023-10-10', 10, 59.99);
 
+-- Inserciones en la tabla PRODUCTOS_FACTURADOS
+INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
+(1, 1, 2),  -- 2 Vinos Tintos
+(1, 2, 3),  -- 3 Cervezas Artesanales
+(2, 3, 1),  -- 1 Whisky Escocés
+(3, 4, 2),  -- 2 Agua Mineral
+(4, 5, 1),  -- 1 Ron Blanco
+(5, 6, 3),  -- 3 Cervezas Rubias
+(6, 7, 1),  -- 1 Champán Brut
+(7, 8, 2),  -- 2 Sidras
+(8, 9, 1),  -- 1 Tequila
+(9, 10, 3),  -- 3 Sodas
+(10, 1, 2);  -- 2 Vinos Tintos
+
+-- Inserciones en la tabla ENVIOS
+INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega, tipo, status) VALUES
+(1, 1, 'Calle Falsa 123', 1, 5.00, '2023-10-03', 'minorista', 'pending'),
+(2, 2, 'Avenida Siempre Viva 742', 2, 5.00, '2023-10-04', 'minorista', 'pending'),
+(3, 3, 'Calle Real 456', 3, 5.00, '2023-10-05', 'minorista', 'pending'),
+(4, 4, 'Avenida Principal 1234', 4, 5.00, '2023-10-06', 'minorista', 'pending'),
+(5, 5, 'Calle Larga 789', 5, 5.00, '2023-10-07', 'minorista', 'pending'),
+(6, 6, 'Avenida Norte 901', 6, 5.00, '2023-10-08', 'minorista', 'pending'),
+(7, 7, 'Calle Sur 234', 7, 5.00, '2023-10-09', 'minorista', 'pending'),
+(8, 8, 'Avenida Este 567', 8, 5.00, '2023-10-10', 'minorista', 'pending'),
+(9, 9, 'Calle Oeste 890', 9, 5.00, '2023-10-11', 'minorista', 'pending'),
+(10, 10, 'Avenida Central 345', 10, 5.00, '2023-10-12', 'minorista', 'pending');
+
+-- Inserciones en la tabla AVISOS
+INSERT INTO AVISOS (id, titulo, descripcion, tipo, fecha) VALUES
+(1, 'Stock Bajo', 'El stock de Vino Tinto está bajo. Solo quedan 10 unidades.', 'alerta', '2023-10-01'),
+(2, 'Producción Detenida', 'La producción de Cerveza Artesanal se ha detenido temporalmente.', 'alerta', '2023-10-02'),
+(3, 'Nuevo Producto', 'Se ha agregado un nuevo producto: Ron Blanco.', 'noticia', '2023-10-03'),
+(4, 'Oferta Especial', 'Oferta especial en Cerveza Rubia: 3x2.', 'oferta', '2023-10-04'),
+(5, 'Stock Agotado', 'El stock de Whisky Escocés se ha agotado.', 'alerta', '2023-10-05'),
+(6, 'Nueva Promoción', 'Nueva promoción en Champán Brut: 20% de descuento.', 'oferta', '2023-10-06'),
+(7, 'Problema de Envío', 'Se ha producido un problema de envío en la zona norte.', 'alerta', '2023-10-07'),
+(8, 'Nuevo Proveedor', 'Se ha agregado un nuevo proveedor: Vinos del Mundo.', 'noticia', '2023-10-08'),
+(9, 'Stock Bajo', 'El stock de Sidra está bajo. Solo quedan 20 unidades.', 'alerta', '2023-10-09'),
+(10, 'Oferta Especial', 'Oferta especial en Tequila: 2x1.', 'oferta', '2023-10-10');
+
+-- Inserciones en la tabla PROVEEDORES
+INSERT INTO PROVEEDORES (id, nombre, telefono, rif, ubicacion, status) VALUES
+(1, 'Distribuidora de Bebidas S.A.', '0212-1234567', 'J-12345678-9', 'Caracas, Venezuela', 'active'),
+(2, 'Vinos del Mundo', '0212-7654321', 'J-98765432-1', 'Maracaibo, Venezuela', 'active'),
+(3, 'Cervecería Nacional', '0212-9012345', 'J-11111111-1', 'Valencia, Venezuela', 'active'),
+(4, 'Licorera del Este', '0212-1111111', 'J-22222222-2', 'Maturín, Venezuela', 'active'),
+(5, 'Bebidas Internacionales', '0212-2222222', 'J-33333333-3', 'Barquisimeto, Venezuela', 'active'),
+(6, 'Distribuidora de Licores', '0212-3333333', 'J-44444444-4', 'Acarigua, Venezuela', 'active'),
+(7, 'Cervecería Artesanal', '0212-4444444', 'J-55555555-5', 'San Cristóbal, Venezuela', 'active'),
+(8, 'Vinos y Licores', '0212-5555555', 'J-66666666-6', 'Mérida, Venezuela', 'active'),
+(9, 'Bebidas Nacionales', '0212-6666666', 'J-77777777-7', 'Trujillo, Venezuela', 'active'),
+(10, 'Distribuidora de Bebidas Regionales', '0212-7777777', 'J-88888888-8', 'Táchira, Venezuela', 'active');
+
+-- Inserciones en la tabla VENTAS
 INSERT INTO VENTAS (id, id_producto, id_user, cantidad, ingresos) VALUES
-(1, 1, 1, 2, 20000),
-(2, 3, 2, 1, 12000),
-(3, 2, 3, 1, 15000),
-(4, 6, 4, 2, 30000),
-(5, 4, 5, 1, 15000),
-(6, 5, 6, 1, 10000),
-(7, 8, 7, 2, 25000),
-(8, 7, 8, 2, 20000);
+(1, 1, 1, 2, 31.98 ),
+(2, 2, 2, 3, 11.97),
+(3, 3, 3, 1, 29.99),
+(4, 4, 4, 2, 3.00),
+(5, 5, 5, 1, 25.00),
+(6, 6, 6, 3, 13.50),
+(7, 7, 7, 1, 39.99),
+(8, 8, 8, 2, 5.00),
+(9, 9, 9, 1, 29.99),
+(10, 10, 10, 3, 3.00);
+
+-- Inserciones en la tabla COMPRA_PROVEEDORES
+INSERT INTO COMPRA_PROVEEDORES (id, id_proveedor, fecha_compra, fecha_entrega, cantidad_paquete) VALUES
+(1, 1, '2023-09-15', '2023-09-20', 100),
+(2, 2, '2023-09-22', '2023-09-25', 50),
+(3, 3, '2023-09-25', '2023-09-30', 200),
+(4, 4, '2023-09-28', '2023-10-02', 150),
+(5, 5, '2023-09-30', '2023-10-05', 300),
+(6, 6, '2023-10-02', '2023-10-07', 250),
+(7, 7, '2023-10-05', '2023-10-10', 100),
+(8, 8, '2023-10-07', '2023-10-12', 200),
+(9, 9, '2023-10-10', '2023-10-15', 300),
+(10, 10, '2023-10-12', '2023-10-17', 250);
