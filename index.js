@@ -275,7 +275,7 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
 
-    if (!usuario || usuario[0].password !== password) {
+    if (!usuario[0] || usuario[0].password !== password) {
         return res.status(400).send(JSON.stringify({ mensaje: 'Usuario o contraseña incorrectos' }));
     }
 

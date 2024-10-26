@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if(otp){
+        if(!otp){
             const res = await fetch('/login', {
                 method: 'POST',
                 headers: {
@@ -67,8 +67,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
         }
-
-
-
     })
 });
