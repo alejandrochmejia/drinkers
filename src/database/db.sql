@@ -97,17 +97,16 @@ CREATE TABLE COMPRA_PROVEEDORES (
 
 -- Inserciones en la tabla INVENTARIO
 INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock, status) VALUES
-(1, 'Vino Tinto', 'Vino', 'Vino tinto de uva Cabernet Sauvignon.', 0.75, 13, 'https://example.com/vino_tinto.jpg', 6, 18, 15.99, 12.99, 100, 'active'),
-(2, 'Cerveza Artesanal', 'Cerveza', 'Cerveza artesanal de malta clara.', 0.33, 5, 'https://example.com/cerveza_artesanal.jpg', 12, 18, 3.99, 2.99, 200, 'active'),
-(3, 'Whisky Escocés', 'Licor', 'Whisky escocés de malta.', 0.7, 40, 'https://example.com/whisky_escoces.jpg', 12, 18, 29.99, 24.99, 50, 'active'),
-(4, 'Agua Mineral', 'Bebida', 'Agua mineral natural.', 1, 0, 'https://example.com/agua_mineral.jpg', 24, 0, 1.50, 1.00, 500, 'active'),
-(5, 'Ron Blanco', 'Licor', 'Ron blanco de caña.', 0.7, 37.5, 'https://example.com/ron_blanco.jpg', 12, 18, 25.00, 20.00, 75, 'active'),
-(6, 'Cerveza Rubia', 'Cerveza', 'Cerveza rubia de malta.', 0.5, 5, 'https://example.com/cerveza_rubia.jpg', 12, 18, 4.50, 3.50, 150, 'active'),
-(7, 'Champán Brut', 'Vino', 'Champán brut de alta calidad.', 0.75, 12, 'https://example.com/champan_brut.jpg', 6, 18, 39.99, 34.99, 30, 'active'),
-(8, 'Sidra', 'Bebida', 'Sidra de manzana natural.', 0.33, 5, 'https://example.com/sidra.jpg', 12, 18, 2.50, 1.80, 80, 'active'),
-(9, 'Tequila', 'Licor', 'Tequila 100% agave.', 0.7, 40, 'https://example.com/tequila.jpg', 12, 18, 29.99, 24.99, 40, 'active'),
-(10, 'Soda', 'Bebida', 'Soda de cola.', 1.5, 0, 'https://example.com/soda.jpg', 24, 0, 1.00, 0.80, 300, 'active');
-
+(1, 'Ron Añejo', 'Ron', 'Ron añejo de caña de azúcar.', 0.7, 37.5, 'https://example.com/ron_anejo.jpg', 12, 18, 25.00, 20.00, 100, 'active'),
+(2, 'Whisky Escocés', 'Whisky', 'Whisky escocés de malta.', 0.7, 40, 'https://example.com/whisky_escoces.jpg', 12, 18, 29.99, 24.99, 80, 'active'),
+(3, 'Vino Tinto', 'Vinos', 'Vino tinto de uva Cabernet Sauvignon.', 0.75, 13, 'https://example.com/vino_tinto.jpg', 6, 18, 15.99, 12.99, 120, 'active'),
+(4, 'Vino Blanco', 'Vinos', 'Vino blanco de uva Chardonnay.', 0.75, 12, 'https://example.com/vino_blanco.jpg', 6, 18, 16.99, 13.99, 90, 'active'),
+(5, 'Sidra', 'Sidra', 'Sidra de manzana natural.', 0.33, 5, 'https://example.com/sidra.jpg', 12, 18, 2.50, 1.80, 150, 'active'),
+(6, 'Brandy', 'Brandy', 'Brandy de alta calidad.', 0.7, 36, 'https://example.com/brandy.jpg', 12, 18, 35.00, 30.00, 60, 'active'),
+(7, 'Vodka Premium', 'Vodka', 'Vodka premium de grano.', 0.7, 40, 'https://example.com/vodka.jpg', 12, 18, 20.00, 15.00, 70, 'active'),
+(8, 'Sangría', 'Sangría', 'Sangría de vino tinto con frutas.', 1, 7, 'https://example.com/sangria.jpg', 12, 18, 10.00, 8.00, 110, 'active'),
+(9, 'Anís', 'Anís', 'Licor de anís de alta calidad.', 0.7, 30, 'https://example.com/anis.jpg', 12, 18, 18.00, 14.00, 40, 'active'),
+(10, 'Aguardiente', 'Aguardiente', 'Aguardiente de caña.', 0.7, 35, 'https://example.com/aguardiente.jpg', 12, 18, 22.00, 18.00, 50, 'active');
 -- Inserciones en la tabla CLIENTES
 INSERT INTO CLIENTES (id, username, email, nacimiento, password, name, lastname, status) VALUES
 (1, 'jdoe', 'jdoe@example.com', '1990-05-15', 'password123', 'John', 'Doe', 'active'),
