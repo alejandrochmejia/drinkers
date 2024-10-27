@@ -14,7 +14,7 @@
         <input type="search" list="catalogo" id="search-bar">
         <section>
             <img id="user-photo" src="https://picsum.photos/200/300">
-            <button onclick="window.location.href='/login'">Iniciar sesión</button>
+            <button id="logButton" onclick="actionButtonLog()">Iniciar sesión</button>
             <div id="cart-length"></div>
             <img id="cart" src="/images/icons/store.svg">
         </section>
@@ -40,8 +40,48 @@
         window.location.href = `/catalogo?search=${this.value}`;
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const userPhoto = document.getElementById('user-photo')
+    document.addEventListener('DOMContentLoaded', async () => {
+        const photo = document.getElementById('user-photo')
+        const logButton = document.getElementById('logButton')
+        const response = await fetch('/getUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(res => res.json());
+        if(response.mensaje) {
+            photo.style.display = 'block'
+            logButton.innerText = 'Cerrar sesión'
+        }
+        else {
+            photo.style.display = 'none'
+            logButton.innerText = 'Iniciar sesión'
+        }
     });
+
+    async function actionButtonLog(){
+        const logButton = document.getElementById('logButton')
+        if(logButton.innerText === 'Cerrar sesión') {
+            await leaveAdmin();
+        }
+        else {
+            window.location.href = '/login';
+        }
+    }
+
+    async function leaveAdmin() {
+        await fetch('/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(res => res.json()).then(response => {
+            if(response.mensaje) {
+                window.location.href = '/';
+            }
+        });
+    }
 
 </script>

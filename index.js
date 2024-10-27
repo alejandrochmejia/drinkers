@@ -307,6 +307,7 @@ app.get('/api/productos/vendidos', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
+    console.log(usuario[0])
 
     if (!usuario[0] || usuario[0].password !== password) {
         return res.status(400).send(JSON.stringify({ mensaje: 'Usuario o contraseña incorrectos' }));
@@ -314,7 +315,7 @@ app.post('/login', async (req, res) => {
 
     const token = jwt.sign({ email }, JWT_KEY);
     res.cookie('token', token, { httpOnly: true });
-    res.send(JSON.stringify({}));
+    res.send(JSON.stringify({mensaje: 'Usuario autenticado'}));
 });
 
 //Falta Arreglar el register cuando se haga merge
@@ -434,4 +435,11 @@ app.post('/logout', (req, res) => {
     res.clearCookie('otp');
     res.clearCookie('token');
     res.send(JSON.stringify({mensaje: 'Sesion cerrada'}));
+})
+
+//Para Mostrar la foto del usuaro y verificar si es un usuaro
+app.post('/getUser', async (req, res) => {
+    const token = req.cookies.token;
+    if(token) res.send(JSON.stringify({mensaje: true}));
+    else res.send(JSON.stringify({mensaje: null}));
 })

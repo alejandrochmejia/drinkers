@@ -56,7 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ email, password }),
                 credentials: 'include' 
             })
-            .then(res => res.json());
+            .then(res => res.json())
+            .then(data => {
+                if(data.mensaje){
+                    window.location.href = '/'
+                }else{
+                    alert('Usuario o contraseña incorrectos')
+                }
+            })
         }
 
     })
