@@ -104,8 +104,6 @@ app.set('view engine','ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
-app.use(authenticate.authenticateJWT);
-app.use(authenticate.authenticateOTP);
 
 //Rutas
 
@@ -258,7 +256,7 @@ app.get('/admin/estadistica',authenticate.authenticateOTP, async (req, res) => {
       };
     });
 
-    res.render('admin/estadistica',authenticate.authenticateOTP, {
+    res.render('admin/estadistica', {
         ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
         inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
         vendidos: top5ProductosConNombres
@@ -360,7 +358,6 @@ app.post('/admin/inventario/eliminar', async (req, res) => {
 app.post('/admin/avisos/create', async (req, res) => {
     req.body.titulo = req.body.descripcion.split(' ')[0]
     req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.AVISOS')).length + 1
-    console.log(req.body)
     await create(process.env.MYSQL_DATABASE+'.AVISOS', req.body);
     res.redirect('/admin/avisos');
 });
@@ -420,8 +417,8 @@ app.post('/verify-otp', (req, res) => {
 
     // Verificar el código OTP
     const isValid = otplib.authenticator.check(token, secret);
-    res.cookie('otp', isValid,  { httpOnly: true, secure: true });
-    res.send(isValid)
+    res.cookie('otp', isValid,  { httpOnly: true});
+    res.send(isValid);
 });
 
 // POST para interaccion con GEMINI

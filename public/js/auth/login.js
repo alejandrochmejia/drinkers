@@ -41,15 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({ password }),
             credentials: 'include'
-        }).then(otp => otp.json())
-        .then(otp => {
-            if(otp){
-                window.location.href = '/admin/dashboard';
-                return
-            }
-        });
+        }).then(res => res.json());
 
-        if(!otp){
+        if(otp){
+            window.location.href = '/admin/dashboard'
+        }
+        else{
             const res = await fetch('/login', {
                 method: 'POST',
                 headers: {
@@ -58,14 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ email, password }),
                 credentials: 'include' 
             })
-            .then(res => res.json())
-            .then(data => {
-                if (data.mensaje) {
-                    window.location.href = '/login';
-                } else {
-                    window.location.href = '/';
-                }
-            })
+            .then(res => res.json());
         }
+
     })
 });

@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken';
 import bycript from 'bcryptjs';
 
-
 const JWT_KEY = process.env.JWT_KEY;
 
 const authenticateJWT = (req, res, next) => {
+
 
     const token = req.cookies.token;
 
@@ -23,22 +23,9 @@ const authenticateJWT = (req, res, next) => {
 };
 
 const authenticateOTP = (req, res, next) => {
-    
-    if (!req.cookies || !req.cookies.otp) {
-        console.log("No se encontró la cookie otp");
-        return res.redirect('/login');
-    }
-
-    const otpCookie = req.cookies.otp;
-
-    const otp = Boolean(otpCookie);
-
-    if (otp === undefined || otp === null || otp === false) {
-        console.log("OTP no válido");
-        return res.redirect('/login');
-    }
-
-    next();
+    const otp = req.cookies.otp;
+    if(Boolean(otp)) next();
+    else res.redirect('/login');
 };
 
 export default {
