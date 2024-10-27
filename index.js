@@ -58,14 +58,16 @@ const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
 });
   
+// Configuración de la generación de texto
 const generationConfig = {
-    temperature: 1,
-    topP: 0.95,
+    temperature: 0.7,
+    topP: 0.9,
     topK: 64,
-    maxOutputTokens: 100,
+    maxOutputTokens: 50,
     responseMimeType: "text/plain",
 };
 
+//Darle contexto al chatbot
 const chatSession = model.startChat({
     generationConfig,
     history: [
@@ -81,7 +83,7 @@ const chatSession = model.startChat({
                 {text: "¡Hola! Con gusto te puedo ayudar. ¿Sobre qué tipo de licores te gustaría aprender? Tenemos whisky, vodka, ron, tequila, etc."},
             ],
         },
-    ],
+    ]
 });
 
 ///////////////////////

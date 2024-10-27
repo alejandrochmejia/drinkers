@@ -1,10 +1,15 @@
-document.getElementById("cart").addEventListener("click",function(){
-    cartMenu = document.querySelector("aside");
-    if (cartMenu.style.right === '-31%'){
+document.addEventListener('DOMContentLoaded', function() {
+    const cartMenu = document.querySelector("aside");
+    cartMenu.style.right = '-31%';
+});
+
+document.getElementById("cart").addEventListener("click", function() {
+    const cartMenu = document.querySelector("aside");
+    if (cartMenu.style.right === '-31%') {
         cargarCarrito();
-        cartMenu.style.right = '0%'
+        cartMenu.style.right = '0%';
     } else {
-        cartMenu.style.right = '-31%'
+        cartMenu.style.right = '-31%';
     }
 });
 
