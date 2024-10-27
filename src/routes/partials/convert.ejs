@@ -12,10 +12,20 @@
 
         bs.onclick = ()=>{
             //Cambiar valores de la clase product-price a bs
+            document.querySelectorAll('.product-price').forEach((price)=>{
+                const value = parseFloat(price.innerHTML.split(' ')[1])
+                const newValue = (value * dolar).toFixed(2)
+                price.innerHTML = 'Desde ' + newValue
+            })
         }
 
         dolars.onclick = ()=>{
             //Cambiar valores de la clase product-price a dolares
+            document.querySelectorAll('.product-price').forEach((price)=>{
+                const value = parseFloat(price.innerHTML.split(' ')[1])
+                const newValue = (value / dolar).toFixed(2)
+                price.innerHTML = 'Desde ' + newValue
+            })  
         }
     }
 
