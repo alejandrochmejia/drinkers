@@ -13,6 +13,7 @@
         </datalist>
         <input type="search" list="catalogo" id="search-bar">
         <section>
+            <img id="user-photo" src="https://picsum.photos/200/300">
             <button onclick="window.location.href='/login'">Iniciar sesión</button>
             <div id="cart-length"></div>
             <img id="cart" src="/images/icons/store.svg">
@@ -38,5 +39,14 @@
     document.querySelector('#search-bar').onchange = function() {
         window.location.href = `/catalogo?search=${this.value}`;
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const userPhoto = document.getElementById('user-photo')
+        if(document.cookie.includes('token')) {
+            userPhoto.style.display = 'none';
+        }else {
+            userPhoto.style.display = 'block';
+        }
+    });
 
 </script>

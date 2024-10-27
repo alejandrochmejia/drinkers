@@ -91,6 +91,13 @@ header section img{
     transition: scale 0.3s linear;
 }
 
+header section #user-photo {
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
 header section img:hover{
     scale: 0.9;
 }

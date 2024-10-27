@@ -62,7 +62,7 @@ const generationConfig = {
     temperature: 1,
     topP: 0.95,
     topK: 64,
-    maxOutputTokens: 50,
+    maxOutputTokens: 100,
     responseMimeType: "text/plain",
 };
 
@@ -426,6 +426,5 @@ app.post('/verify-otp', (req, res) => {
 app.post('/bot', async (req, res) => {
     const { message } = req.body;
     const result = await chatSession.sendMessage(message);
-    console.log(result.response.text());
     res.send(JSON.stringify(result.response.text()));
 })
