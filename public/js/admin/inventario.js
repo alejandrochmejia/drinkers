@@ -76,19 +76,19 @@ tipo.addEventListener('change',()=>{
 })
 
 let lupa = document.getElementById('Lupa');
+const buscar = document.getElementById('Buscar');
 
-lupa.addEventListener('click',()=>{
-    let search = document.getElementById('Buscar').value;
+buscar.addEventListener('keyup',(e)=>{
+    let valor = e.target.value.toLowerCase();
     let tabla = document.querySelector('.Table--inventario table tbody');
     let filas = tabla.querySelectorAll('tr');
     filas.forEach((fila)=>{
-        let nombre = fila.children[1].textContent;
-        if(search === ''){
-            fila.style.display = 'table-row';
-        }else if(nombre.includes(search)){
+        let nombre = fila.children[1].textContent.toLowerCase();
+        if(nombre.indexOf(valor) !== -1){
             fila.style.display = 'table-row';
         }else{
             fila.style.display = 'none';
         }
     })
-})
+}
+)

@@ -68,3 +68,28 @@ document.addEventListener('DOMContentLoaded', async () => {
   grafica.update();
 
 })
+
+const buscador = document.querySelector('.Tabla-Ventas table tbody');
+const input = document.querySelector('#Search');
+
+input.addEventListener('keyup', () => {
+  const filter = input.value.toLowerCase();
+  const rows = buscador.querySelectorAll('tr');
+
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+    let match = false;
+
+    cells.forEach(cell => {
+      if (cell.textContent.toLowerCase().includes(filter)) {
+        match = true;
+      }
+    });
+
+    if (match) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});

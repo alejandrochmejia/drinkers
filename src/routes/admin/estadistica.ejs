@@ -18,7 +18,7 @@
                         <img src="/images/icons/Search.png" alt="lupa" id="Search">
                     </label>
                 </div>
-                <div>
+                <div class="Tabla-Ventas">
                     <table>
                         <caption>Tabla de Ventas</caption>
                         <thead>
@@ -63,11 +63,17 @@
             <section class="Table--Popular">
                 <table>
                     <caption>Productos Populares</caption>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Ingresos Totales</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <% vendidos.forEach(producto => { %>
                             <tr>
                                 <td><%= producto.nombre %></td>
-                                <td><%= producto.ingresos %></td>
+                                <td><%= producto.ingresos %>$</td>
                             </tr>
                         <% }); %>
                     </tbody>
