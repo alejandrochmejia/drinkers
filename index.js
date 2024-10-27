@@ -190,7 +190,8 @@ app.get('/returns', (req, res) => {
 
 //Login
 app.get('/login',(req,res)=>{
-    res.render('auth/login');
+    if(req.cookies.otp === 'true') res.redirect('/admin/dashboard');
+    else res.render('auth/login');
 })
 
 //Register
@@ -426,4 +427,11 @@ app.post('/bot', async (req, res) => {
     const { message } = req.body;
     const result = await chatSession.sendMessage(message);
     res.send(JSON.stringify(result.response.text()));
+})
+
+//Cerrar Sesion
+app.post('/logout', (req, res) => {
+    res.clearCookie('otp');
+    res.clearCookie('token');
+    res.send(JSON.stringify({mensaje: 'Sesion cerrada'}));
 })

@@ -28,6 +28,7 @@ Contraseña.addEventListener('input',()=>{
 })
 
 document.addEventListener('DOMContentLoaded', () => {
+
     const form = document.getElementsByClassName('Form__page')[0];
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
