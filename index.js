@@ -104,6 +104,8 @@ app.set('view engine','ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
+app.use(authenticate.authenticateJWT);
+app.use(authenticate.authenticateOTP);
 
 //Rutas
 
@@ -418,7 +420,7 @@ app.post('/verify-otp', (req, res) => {
 
     // Verificar el código OTP
     const isValid = otplib.authenticator.check(token, secret);
-    res.cookie('otp', isValid, { httpOnly: true });
+    res.cookie('otp', isValid,  { httpOnly: true, secure: true });
     res.send(isValid)
 });
 
