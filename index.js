@@ -106,7 +106,6 @@ app.set('view engine','ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
-
 //Rutas
 
 //////////////////
@@ -115,27 +114,25 @@ app.use(cookieParser());
 
 //Index
 app.get('/', async (req,res)=>{
+    const [dataJson, inventario] = await Promise.all([
+        getAll(process.env.MYSQL_DATABASE + '.VENTAS'),
+        getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
+    ]);
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.VENTAS')
-  
-    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
+    const top5ProductosConNombres = dataJson
+        .map(e => ({ id: e.id_producto, ingresos: e.ingresos }))
+        .sort((a, b) => b.ingresos - a.ingresos)
+        .slice(0, 5)
+        .map(pv => {
+            const producto = inventario.find(p => p.id == pv.id);
+            return {
+                nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
+                precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible'
+            };
+        });
 
-    let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
-  
-    productosVentas.sort((a, b) => b.ingresos - a.ingresos);
-  
-    let top5ProductosVentas = productosVentas.slice(0, 5);
-  
-    let top5ProductosConNombres = top5ProductosVentas.map(pv => {
-      let producto = inventario.find(p => p.id == pv.id);
-      return {
-        nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
-        precio_detal: producto ? producto.precio_detal : 'Precio no disponible'
-      };
-    });
-    
     res.render('index', {
-        productos: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
+        productos: inventario,
         top5ProductosConNombres: top5ProductosConNombres
     });
 })
