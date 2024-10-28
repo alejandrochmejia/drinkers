@@ -3,31 +3,38 @@
     <section id="bs" class="value">bs</section>
 </div>
 <script>
-    async function convert(){
-        const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial")
-        const data = await response.json()
-        const dolar = data.promedio
-        const bs = document.getElementById('bs')
-        const dolars = document.getElementById('dolars')
+    async function convert() {
+        const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial");
+        const data = await response.json();
+        const dolar = data.promedio;
+        const bs = document.getElementById('bs');
+        const dolars = document.getElementById('dolars');
+        let currentCurrency = 'dolars'; // Estado para rastrear la moneda actual
 
-        bs.onclick = ()=>{
-            //Cambiar valores de la clase product-price a bs
-            document.querySelectorAll('.product-price').forEach((price)=>{
-                const value = parseFloat(price.innerHTML.split(' ')[1])
-                const newValue = (value * dolar).toFixed(2)
-                price.innerHTML = 'Desde ' + newValue
-            })
-        }
+        bs.onclick = () => {
+            if (currentCurrency === 'bs') return; // Evitar conversiones innecesarias
+            document.querySelectorAll('.product-price').forEach((price) => {
+                const value = parseFloat(price.innerHTML.split(' ')[1]);
+                const newValue = (value * dolar).toFixed(2);
+                price.innerHTML = 'Desde ' + newValue;
+            });
+            currentCurrency = 'bs';
+            bs.style.background = "var(--black)";
+            dolars.style.background = "transparent";
+        };
 
-        dolars.onclick = ()=>{
-            //Cambiar valores de la clase product-price a dolares
-            document.querySelectorAll('.product-price').forEach((price)=>{
-                const value = parseFloat(price.innerHTML.split(' ')[1])
-                const newValue = (value / dolar).toFixed(2)
-                price.innerHTML = 'Desde ' + newValue
-            })  
-        }
+        dolars.onclick = () => {
+            if (currentCurrency === 'dolars') return; // Evitar conversiones innecesarias
+            document.querySelectorAll('.product-price').forEach((price) => {
+                const value = parseFloat(price.innerHTML.split(' ')[1]);
+                const newValue = (value / dolar).toFixed(2);
+                price.innerHTML = 'Desde ' + newValue;
+            });
+            currentCurrency = 'dolars';
+            dolars.style.background = "var(--black)";
+            bs.style.background = "transparent";
+        };
     }
 
-    convert()
+    document.addEventListener('DOMContentLoaded', convert);
 </script>
