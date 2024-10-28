@@ -168,6 +168,18 @@ app.get('/catalogo', async (req,res)=>{
     });
 })
 
+app.get('/product', async (req, res) => {
+    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO');
+
+    const producto = inventario.find(p => p.nombre_producto == req.query.name);
+
+    const relacionados = inventario.filter(p => p.tipo == producto.tipo && p.nombre_producto != producto.nombre_producto);
+
+    console.log(relacionados)
+
+    res.render('user/producto', { producto, relacionados });
+})
+
 //Preguntas Frecuentes
 app.get('/faq', (req, res) => {
     console.log(req.body)
