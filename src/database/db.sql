@@ -155,6 +155,68 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (56, 'Caribugold', 'Ron', '', 1, 40, '/images/Licores/ron-caribugold.jpg', 12, 16, 12.0, 10.8, 100, 'active'),
 (57, 'Santateresabicentenario', 'Ron', '', 1, 40, '/images/Licores/ron-santateresabicentenario.png', 12, 16, 12.0, 10.8, 100, 'active'),
 (58, 'Santateresalinaje', 'Ron', '', 1, 40, '/images/Licores/ron-santateresalinaje.jpg', 12, 16, 12.0, 10.8, 100, 'active');
+
+--Me dio fastidio ponerlo directo:
+UPDATE INVENTARIO SET descripcion = 'Un vino tinto suave y afrutado, ideal para acompañar carnes rojas y pastas.' WHERE id = 1;
+UPDATE INVENTARIO SET descripcion = 'Ron oscuro de sabor intenso, perfecto para disfrutar solo o en cócteles.' WHERE id = 2;
+UPDATE INVENTARIO SET descripcion = 'Whisky escocés con notas de frutas y especias, ideal para beber solo o con hielo.' WHERE id = 3;
+UPDATE INVENTARIO SET descripcion = 'Sangría refrescante con frutas, perfecta para compartir en reuniones.' WHERE id = 4;
+UPDATE INVENTARIO SET descripcion = 'Un whisky de malta con un sabor robusto y un final ahumado.' WHERE id = 5;
+UPDATE INVENTARIO SET descripcion = 'Whisky suave y equilibrado, con un toque de miel y vainilla.' WHERE id = 6;
+UPDATE INVENTARIO SET descripcion = 'Un whisky de alta calidad con un perfil de sabor complejo y refinado.' WHERE id = 7;
+UPDATE INVENTARIO SET descripcion = 'Whisky de 12 años con un sabor suave y afrutado, ideal para los amantes del whisky.' WHERE id = 8;
+UPDATE INVENTARIO SET descripcion = 'Aguardiente con un sabor fuerte y un toque de anís, perfecto para celebrar.' WHERE id = 9;
+UPDATE INVENTARIO SET descripcion = 'Vodka puro y suave, ideal para cócteles y mezclas.' WHERE id = 10;
+UPDATE INVENTARIO SET descripcion = 'Ron de calidad premium, con un sabor rico y profundo.' WHERE id = 11;
+UPDATE INVENTARIO SET descripcion = 'Vodka con un toque exótico de maracuyá, ideal para cócteles tropicales.' WHERE id = 12;
+UPDATE INVENTARIO SET descripcion = 'Aguardiente anisado, perfecto para disfrutar solo o en cócteles.' WHERE id = 13;
+UPDATE INVENTARIO SET descripcion = 'Whisky de malta con un sabor suave y un toque de caramelo.' WHERE id = 14;
+UPDATE INVENTARIO SET descripcion = 'Vodka suave y fresco, ideal para preparar deliciosos cócteles.' WHERE id = 15;
+UPDATE INVENTARIO SET descripcion = 'Un vodka premium, conocido por su pureza y suavidad.' WHERE id = 16;
+UPDATE INVENTARIO SET descripcion = 'Baseron con un sabor profundo y característico, ideal para disfrutar solo.' WHERE id = 17;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor rico y un final dulce, ideal para cócteles tropicales.' WHERE id = 18;
+UPDATE INVENTARIO SET descripcion = 'Whisky con un perfil de sabor complejo, ideal para los amantes del whisky.' WHERE id = 19;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de especias, perfecto para mezclar.' WHERE id = 20;
+UPDATE INVENTARIO SET descripcion = 'Whisky suave y dulce, ideal para disfrutar solo o en cócteles.' WHERE id = 21;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor intenso y un toque de vainilla, ideal para cócteles.' WHERE id = 22;
+UPDATE INVENTARIO SET descripcion = 'Vino tinto de cuerpo medio, ideal para acompañar comidas.' WHERE id = 23;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de frutas tropicales.' WHERE id = 24;
+UPDATE INVENTARIO SET descripcion = 'Sangría refrescante con un toque de frutas, perfecta para compartir.' WHERE id = 25;
+UPDATE INVENTARIO SET descripcion = 'Whisky con un sabor robusto y un final ahumado.' WHERE id = 26;
+UPDATE INVENTARIO SET descripcion = 'Sangría dulce y afrutada, ideal para disfrutar en verano.' WHERE id = 27;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de caramelo.' WHERE id = 28;
+UPDATE INVENTARIO SET descripcion = 'Ron con un perfil de sabor complejo, ideal para cócteles.' WHERE id = 29;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de especias.' WHERE id = 30;
+UPDATE INVENTARIO SET descripcion = 'Aguardiente anisado, ideal para disfrutar solo o en cócteles.' WHERE id = 31;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de frutas tropicales.' WHERE id = 32;
+UPDATE INVENTARIO SET descripcion = 'Vino tinto de cuerpo medio, ideal para acompañar comidas.' WHERE id = 33;
+UPDATE INVENTARIO SET descripcion = 'Whisky con un perfil de sabor complejo, ideal para los amantes del whisky.' WHERE id = 34;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor intenso y un toque de vainilla.' WHERE id = 35;
+UPDATE INVENTARIO SET descripcion = 'Sangría refrescante con un toque de frutas, perfecta para compartir.' WHERE id = 36;
+UPDATE INVENTARIO SET descripcion = 'Vodka con un toque exótico de frutas, ideal para cócteles tropicales.' WHERE id = 37;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de caramelo.' WHERE id = 38;
+UPDATE INVENTARIO SET descripcion = 'Baseron con un sabor profundo y característico.' WHERE id = 39;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor rico y un final dulce.' WHERE id = 40;
+UPDATE INVENTARIO SET descripcion = 'Whisky con un perfil de sabor complejo, ideal para los amantes del whisky.' WHERE id = 41;
+UPDATE INVENTARIO SET descripcion = 'Sangría dulce y afrutada, ideal para disfrutar en verano.' WHERE id = 42;
+UPDATE INVENTARIO SET descripcion = 'Vodka suave y fresco, ideal para preparar deliciosos cócteles.' WHERE id = 43;
+UPDATE INVENTARIO SET descripcion = 'Sangría refrescante con un toque de frutas, perfecta para compartir.' WHERE id = 44;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor intenso y un toque de vainilla.' WHERE id = 45;
+UPDATE INVENTARIO SET descripcion = 'Vino tinto de cuerpo medio, ideal para acompañar comidas.' WHERE id = 46;
+UPDATE INVENTARIO SET descripcion = 'Vino tinto de cuerpo medio, ideal para acompañar comidas.' WHERE id = 47;
+UPDATE INVENTARIO SET descripcion = 'Aguardiente anisado, ideal para disfrutar solo o en cócteles.' WHERE id = 48;
+UPDATE INVENTARIO SET descripcion = 'Vodka con un toque exótico de frutas, ideal para cócteles tropicales.' WHERE id = 49;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de caramelo.' WHERE id = 50;
+UPDATE INVENTARIO SET descripcion = 'Basebrandy con un sabor suave y un toque de frutas.' WHERE id = 51;
+UPDATE INVENTARIO SET descripcion = 'Vodka suave y fresco, ideal para preparar deliciosos cócteles.' WHERE id = 52;
+UPDATE INVENTARIO SET descripcion = 'Sangría refrescante con un toque de frutas, perfecta para compartir.' WHERE id = 53;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor rico y un final dulce.' WHERE id = 54;
+UPDATE INVENTARIO SET descripcion = 'Vodka con un toque exótico de frutas, ideal para cócteles tropicales.' WHERE id = 55;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor intenso y un toque de vainilla.' WHERE id = 56;
+UPDATE INVENTARIO SET descripcion = 'Ron con un perfil de sabor complejo, ideal para cócteles.' WHERE id = 57;
+UPDATE INVENTARIO SET descripcion = 'Ron con un sabor suave y un toque de caramelo.' WHERE id = 58;
+
+
 -- Inserciones en la tabla CLIENTES
 INSERT INTO CLIENTES (id, username, email, nacimiento, password, name, lastname, status) VALUES
 (1, 'jdoe', 'jdoe@example.com', '1990-05-15', 'password123', 'John', 'Doe', 'active'),

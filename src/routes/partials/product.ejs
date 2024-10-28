@@ -36,7 +36,6 @@
             imagen: imagen
         };
 
-        console.log(productStorage);
         sessionStorage.setItem(producto, JSON.stringify(productStorage));
 
         document.getElementById('cart-length').innerText = sessionStorage.length;
