@@ -16,7 +16,7 @@
             document.querySelectorAll('.product-price').forEach((price) => {
                 const value = parseFloat(price.innerHTML.split(' ')[1]);
                 const newValue = (value * dolar).toFixed(2);
-                price.innerHTML = 'Desde ' + newValue;
+                price.innerHTML = 'Desde ' + newValue + " bs";
             });
             currentCurrency = 'bs';
             bs.style.background = "var(--black)";
@@ -28,7 +28,7 @@
             document.querySelectorAll('.product-price').forEach((price) => {
                 const value = parseFloat(price.innerHTML.split(' ')[1]);
                 const newValue = (value / dolar).toFixed(2);
-                price.innerHTML = 'Desde ' + newValue;
+                price.innerHTML = 'Desde ' + newValue + " $";
             });
             currentCurrency = 'dolars';
             dolars.style.background = "var(--black)";
