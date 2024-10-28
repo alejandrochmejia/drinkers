@@ -130,10 +130,13 @@ app.get('/', async (req,res)=>{
         .map(pv => {
             const producto = inventario.find(p => p.id == pv.id);
             return {
-                nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
-                precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible'
+                nombre_producto: producto ? producto.nombre_producto : 'Producto no encontrado',
+                precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible',
+                imagen: producto ? producto.imagen : '',
             };
         });
+
+    console.log(top5ProductosConNombres)
 
     res.render('index', {
         productos: inventario,
