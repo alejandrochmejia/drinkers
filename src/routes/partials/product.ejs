@@ -1,35 +1,39 @@
 <li>
     <div class="productView">
-        <img class="productImg" src=<%= producto.imagen %>>
-        <input id="cantidad" type="number" class="productCant">
-        <button onclick="addProduct()">Agregar</button>
+        <img class="productImg" src="<%= producto.imagen %>">
+        <input type="number" class="productCant">
+        <button onclick="addProduct(this)">Agregar</button>
     </div>
     <h4><%= producto.nombre_producto %></h4>
-    <h5 class="product-price">Desde <%= producto.precio_detal %></h3>
+    <h5 class="product-price">Desde <%= producto.precio_detal %></h5>
 </li>
 <script>
-    //Funcion para agregar un producto al carrito y al SessionStorage
-    async function addProduct(){
-        let producto = '<%= producto.nombre_producto %>'.replace(/ /g, '');
-        let cantidad = document.getElementById('cantidad').value;
+    async function addProduct(button) {
+        const productView = button.parentElement;
+        const productLi = productView.parentElement;
+        const nombreProducto = productLi.querySelector('h4').innerText;
+        const cantidad = productView.querySelector('.productCant').value;
+        const precio = productLi.querySelector('.product-price').innerText.split(' ')[1];
+        const imagen = productView.querySelector('.productImg').src;
 
-        if(sessionStorage.getItem(producto)){
-            cantidad = parseInt(cantidad) + parseInt(JSON.parse(sessionStorage.getItem(producto)).cantidad);
+        let producto = nombreProducto.replace(/ /g, '');
+
+        let cantidadTotal = cantidad;
+        if (sessionStorage.getItem(producto)) {
+            cantidadTotal = parseInt(cantidad) + parseInt(JSON.parse(sessionStorage.getItem(producto)).cantidad);
         }
 
         const productStorage = {
-            cantidad: cantidad,
-            precio: '<%= producto.precio_detal %>',
-            imagen: '<%= producto.imagen %>'
-        }
+            cantidad: cantidadTotal,
+            precio: precio,
+            imagen: imagen
+        };
 
-        console.log(productStorage)
+        console.log(productStorage);
         sessionStorage.setItem(producto, JSON.stringify(productStorage));
 
         document.getElementById('cart-length').innerText = sessionStorage.length;
 
-        //Funcion Externa del documento (cart.ejs)
         cargarCarrito();
-
     }
 </script>
