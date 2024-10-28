@@ -21,7 +21,8 @@ import {
     create,
     exist,
     update,
-    deleteOne
+    deleteOne,
+    customQuery
 } from './src/database/querys.js'
 
 import authenticate from './src/middleware/authorization.js'
@@ -136,7 +137,6 @@ app.get('/', async (req,res)=>{
             };
         });
 
-    console.log(top5ProductosConNombres)
 
     res.render('index', {
         productos: inventario,
@@ -174,15 +174,11 @@ app.get('/product', async (req, res) => {
     const producto = inventario.find(p => p.nombre_producto == req.query.name);
 
     const relacionados = inventario.filter(p => p.tipo == producto.tipo && p.nombre_producto != producto.nombre_producto);
-
-    console.log(relacionados)
-
     res.render('user/producto', { producto, relacionados });
 })
 
 //Preguntas Frecuentes
 app.get('/faq', (req, res) => {
-    console.log(req.body)
     res.render('user/faq');
 })
 
@@ -325,7 +321,6 @@ app.get('/api/productos/vendidos', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
-    console.log(usuario[0])
 
     if (!usuario[0] || usuario[0].password !== password) {
         return res.status(400).send(JSON.stringify({ mensaje: 'Usuario o contraseña incorrectos' }));

@@ -138,3 +138,22 @@ export const deleteOne = (tabla, id) => {
         });
     });
 };
+
+// Ejecutar una consulta personalizada
+export const customQuery = (query, params = []) => {
+    return new Promise((resolve, reject) => {
+        dbconfig.getConnection((err, connection) => {
+            if (err) {
+                return reject(err);
+            }
+            connection.query(query, params, (err, results) => {
+                connection.release(); // Libera la conexión de vuelta al pool
+                if (err) {
+                    console.error("Error executing custom query: " + err.stack);
+                    return reject(err);
+                }
+                resolve(results);
+            });
+        });
+    });
+};

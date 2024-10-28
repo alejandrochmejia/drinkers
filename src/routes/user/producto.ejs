@@ -24,7 +24,7 @@
     <main>
         <div class="principal-container">
             <div class="image-container">
-                <img id="example-liquor" src="<%= producto.imagen %>">
+                <img class="productImg" id="example-liquor" src="<%= producto.imagen %>">
             </div>
             <div class="info-container">
                 <div>
@@ -34,9 +34,7 @@
                         Unidades Disponibles: <%= producto.stock %><br>
                         Categoria: <%= producto.tipo %>
                     </p>
-                    <span id="price">
-                        Precio: <%= producto.precio_detal %> $
-                    </span>
+                    <h5 id="price" class="product-price">Desde <%= producto.precio_detal %> $</h5>
                     <p id="description">
                         <%= producto.descripcion %>
                     </p>
@@ -52,7 +50,7 @@
                     </details>
                     <div id="units">
                         <input type="number" class="productCant" value="1">
-                        <button class="addButton">Añadir</button>
+                        <button onclick="addFromDetail(this)" class="addButton">Añadir</button>
                     </div>
                 </div>
             </div>
@@ -65,9 +63,9 @@
             <% }) %>
         </ul>
     </main>
-
     
     <%- include('../partials/footer') %>
     <script src="/js/user/producto.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html>
