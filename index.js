@@ -147,23 +147,21 @@ app.get('/', async (req,res)=>{
 //Catalogo o Seccion de Productos
 app.get('/catalogo', async (req, res) => {
     const productos = await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO');
-    let productosFiltrados = [];
+    let productosFiltrados = productos;
     
     // Verifica si hay una consulta de búsqueda
     if (req.query.search) {
-        const searchQuery = req.query.search.toLowerCase();
-        
         // Filtra los productos directamente
         productosFiltrados = productos.filter(producto => 
-            producto.nombre_producto.toLowerCase().includes(searchQuery)
+            producto.nombre_producto.toLowerCase().includes(req.query.search.toLowerCase())
         );
     } else {
-        const searchQuery = req.query.type.toLowerCase();
-        
-        // Filtra los productos directamente
-        productosFiltrados = productos.filter(producto => 
-            producto.tipo.toLowerCase().includes(searchQuery)
-        );
+        if(req.query.type) {
+            // Filtra los productos directamente
+            productosFiltrados = productos.filter(producto => 
+                producto.tipo.toLowerCase().includes(req.query.type.toLowerCase())
+            );
+        }
     }
 
     res.render('partials/catalogo', {
