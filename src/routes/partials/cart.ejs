@@ -46,7 +46,6 @@
 
     //Funcion para eliminar un producto del carrito
     function removeProduct(key) {
-        alert('Producto eliminado');
         sessionStorage.removeItem(key);
         document.getElementById('cart-length').innerText = sessionStorage.length;
         cargarCarrito()

@@ -145,28 +145,32 @@ app.get('/', async (req,res)=>{
 })
 
 //Catalogo o Seccion de Productos
-app.get('/catalogo', async (req,res)=>{
-
-    const productos = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
-
-    if(!req.query.type){
-        if(req.query.search) {
-            let productosFiltrados = productos.filter(producto => producto.nombre_producto.toLowerCase().includes(req.query.search.toLowerCase()))
+app.get('/catalogo', async (req, res) => {
+    const productos = await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO');
+    let productosFiltrados = [];
+    
+    // Verifica si hay una consulta de búsqueda
+    if (req.query.search) {
+        const searchQuery = req.query.search.toLowerCase();
         
-            res.render('partials/catalogo', {
-                productos: productosFiltrados,
-                type: 'Busqueda'
-            });
-        }
+        // Filtra los productos directamente
+        productosFiltrados = productos.filter(producto => 
+            producto.nombre_producto.toLowerCase().includes(searchQuery)
+        );
+    } else {
+        const searchQuery = req.query.type.toLowerCase();
+        
+        // Filtra los productos directamente
+        productosFiltrados = productos.filter(producto => 
+            producto.tipo.toLowerCase().includes(searchQuery)
+        );
     }
-
-    const productosFiltrados = productos.filter(producto => producto.tipo == req.query.type)
 
     res.render('partials/catalogo', {
         productos: productosFiltrados,
-        type: req.query.type,
+        type: req.query.type || 'Productos',
     });
-})
+});
 
 app.get('/product', async (req, res) => {
     const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO');
