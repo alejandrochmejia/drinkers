@@ -246,7 +246,7 @@ INSERT INTO FACTURA (id, fecha, id_user, total) VALUES
 
 INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
 (1, 1, 2),  
-(1, 2, 3),  nales
+(1, 2, 3),
 (2, 3, 1),  
 (3, 4, 2),  
 (4, 5, 1),  
