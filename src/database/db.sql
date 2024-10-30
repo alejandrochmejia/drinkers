@@ -95,7 +95,7 @@ CREATE TABLE COMPRA_PROVEEDORES (
   FOREIGN KEY (id_proveedor) REFERENCES PROVEEDORES(id)
 );
 
--- Inserciones en la tabla INVENTARIO
+
 INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, imagen, paquete, iva, precio_detal, precio_mayorista, stock, status) VALUES
 (1, 'Lagrimauva', 'Vinos', '', 1, 12, '/images/Licores/vino-lagrimauva.jpg', 12, 16, 10.0, 9.0, 100, 'active'),
 (2, 'Carupano', 'Ron', '', 1, 40, '/images/Licores/ron-carupano.jpg', 12, 16, 12.0, 10.8, 100, 'active'),
@@ -156,7 +156,7 @@ INSERT INTO INVENTARIO (id, nombre_producto, tipo, descripcion, litros, grados, 
 (57, 'Santateresabicentenario', 'Ron', '', 1, 40, '/images/Licores/ron-santateresabicentenario.png', 12, 16, 12.0, 10.8, 100, 'active'),
 (58, 'Santateresalinaje', 'Ron', '', 1, 40, '/images/Licores/ron-santateresalinaje.jpg', 12, 16, 12.0, 10.8, 100, 'active');
 
---Me dio fastidio ponerlo directo:
+
 UPDATE INVENTARIO SET descripcion = 'Un vino tinto suave y afrutado, ideal para acompañar carnes rojas y pastas.' WHERE id = 1;
 UPDATE INVENTARIO SET descripcion = 'Ron oscuro de sabor intenso, perfecto para disfrutar solo o en cócteles.' WHERE id = 2;
 UPDATE INVENTARIO SET descripcion = 'Whisky escocés con notas de frutas y especias, ideal para beber solo o con hielo.' WHERE id = 3;
@@ -243,21 +243,20 @@ INSERT INTO FACTURA (id, fecha, id_user, total) VALUES
 (9, '2023-10-09', 9, 69.99),
 (10, '2023-10-10', 10, 59.99);
 
--- Inserciones en la tabla PRODUCTOS_FACTURADOS
-INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
-(1, 1, 2),  -- 2 Vinos Tintos
-(1, 2, 3),  -- 3 Cervezas Artesanales
-(2, 3, 1),  -- 1 Whisky Escocés
-(3, 4, 2),  -- 2 Agua Mineral
-(4, 5, 1),  -- 1 Ron Blanco
-(5, 6, 3),  -- 3 Cervezas Rubias
-(6, 7, 1),  -- 1 Champán Brut
-(7, 8, 2),  -- 2 Sidras
-(8, 9, 1),  -- 1 Tequila
-(9, 10, 3),  -- 3 Sodas
-(10, 1, 2);  -- 2 Vinos Tintos
 
--- Inserciones en la tabla ENVIOS
+INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES
+(1, 1, 2),  
+(1, 2, 3),  nales
+(2, 3, 1),  
+(3, 4, 2),  
+(4, 5, 1),  
+(5, 6, 3),  
+(6, 7, 1),  
+(7, 8, 2),  
+(8, 9, 1),  
+(9, 10, 3), 
+(10, 1, 2); 
+
 INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega, tipo, status) VALUES
 (1, 1, 'Calle Falsa 123', 1, 5.00, '2023-10-03', 'minorista', 'pending'),
 (2, 2, 'Avenida Siempre Viva 742', 2, 5.00, '2023-10-04', 'minorista', 'pending'),
@@ -270,7 +269,7 @@ INSERT INTO ENVIOS (id, id_user, destino, id_factura, monto, entrega, tipo, stat
 (9, 9, 'Calle Oeste 890', 9, 5.00, '2023-10-11', 'minorista', 'pending'),
 (10, 10, 'Avenida Central 345', 10, 5.00, '2023-10-12', 'minorista', 'pending');
 
--- Inserciones en la tabla AVISOS
+
 INSERT INTO AVISOS (id, titulo, descripcion, tipo, fecha) VALUES
 (1, 'Stock Bajo', 'El stock de Vino Tinto está bajo. Solo quedan 10 unidades.', 'alerta', '2023-10-01'),
 (2, 'Producción Detenida', 'La producción de Cerveza Artesanal se ha detenido temporalmente.', 'alerta', '2023-10-02'),
@@ -283,7 +282,7 @@ INSERT INTO AVISOS (id, titulo, descripcion, tipo, fecha) VALUES
 (9, 'Stock Bajo', 'El stock de Sidra está bajo. Solo quedan 20 unidades.', 'alerta', '2023-10-09'),
 (10, 'Oferta Especial', 'Oferta especial en Tequila: 2x1.', 'oferta', '2023-10-10');
 
--- Inserciones en la tabla PROVEEDORES
+
 INSERT INTO PROVEEDORES (id, nombre, telefono, rif, ubicacion, status) VALUES
 (1, 'Distribuidora de Bebidas S.A.', '0212-1234567', 'J-12345678-9', 'Caracas, Venezuela', 'active'),
 (2, 'Vinos del Mundo', '0212-7654321', 'J-98765432-1', 'Maracaibo, Venezuela', 'active'),
@@ -296,7 +295,7 @@ INSERT INTO PROVEEDORES (id, nombre, telefono, rif, ubicacion, status) VALUES
 (9, 'Bebidas Nacionales', '0212-6666666', 'J-77777777-7', 'Trujillo, Venezuela', 'active'),
 (10, 'Distribuidora de Bebidas Regionales', '0212-7777777', 'J-88888888-8', 'Táchira, Venezuela', 'active');
 
--- Inserciones en la tabla VENTAS
+
 INSERT INTO VENTAS (id, id_producto, id_user, cantidad, ingresos) VALUES
 (1, 1, 1, 2, 31.98 ),
 (2, 2, 2, 3, 11.97),
@@ -309,7 +308,7 @@ INSERT INTO VENTAS (id, id_producto, id_user, cantidad, ingresos) VALUES
 (9, 9, 9, 1, 29.99),
 (10, 10, 10, 3, 3.00);
 
--- Inserciones en la tabla COMPRA_PROVEEDORES
+
 INSERT INTO COMPRA_PROVEEDORES (id, id_proveedor, fecha_compra, fecha_entrega, cantidad_paquete) VALUES
 (1, 1, '2023-09-15', '2023-09-20', 100),
 (2, 2, '2023-09-22', '2023-09-25', 50),
