@@ -441,7 +441,7 @@ app.post('/verify-otp', (req, res) => {
 // POST para interaccion con GEMINI
 app.post('/bot', async (req, res) => {
     const { message } = req.body;
-    const result = await chatSession.sendMessage(message);
+    const result = await chatSession.sendMessage(message + " Se mas Breve");
     res.send(JSON.stringify(result.response.text()));
 })
 
