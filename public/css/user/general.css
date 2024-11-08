@@ -175,19 +175,23 @@ header nav ul{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0;
     list-style: none;
     color: var(--blue);
     height: 100%;
 }
 
 header nav ul li{
-    padding: 1vmin;
     cursor: pointer;
+    transition: border-bottom 0.2s;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--blue);
 }
 
 header nav ul li:hover{
-    background-color: #cdcdcd;
+    border-bottom: 2px solid var(--blue);
 }
 
 aside{
