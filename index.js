@@ -175,6 +175,10 @@ app.get('/product', async (req, res) => {
 
     const producto = inventario.find(p => p.nombre_producto == req.query.name);
 
+    const descripcionAI = await chatSession.sendMessage('Alargame un poco la siguiente descripcion (Tienes maximo 100 maxOutputTokens): '+ producto.descripcion);
+
+    producto.descripcion =   descripcionAI.response.text().replace(/\*\*/g, '').replace(/\*/g, '').replace(/\d+\.\s*/g, '').replace(/:\s*/g, ': ').trim();
+
     const relacionados = inventario.filter(p => p.tipo == producto.tipo && p.nombre_producto != producto.nombre_producto);
     res.render('user/producto', { producto, relacionados });
 })
@@ -441,7 +445,8 @@ app.post('/verify-otp', (req, res) => {
 // POST para interaccion con GEMINI
 app.post('/bot', async (req, res) => {
     const { message } = req.body;
-    const result = await chatSession.sendMessage(message + " Se mas Breve");
+    chatSession.history = []
+    const result = await chatSession.sendMessage('Se Breve (Tienes maximo 100 maxOutputTokens) no se pases y no respondas cosas que no sean de licores, solo dices que eres experto en licores: '+message);
     res.send(JSON.stringify(result.response.text()));
 })
 
