@@ -89,3 +89,37 @@ window.addEventListener("scroll", function() {
     });
 });
 
+async function addProduct(button) {
+    const productView = button.parentElement;
+    const productLi = productView.parentElement;
+    const nombreProducto = productLi.querySelector('h4').innerText;
+    const cantidad = productView.querySelector('.productCant').value;
+    let precio = parseFloat(productLi.querySelector('.product-price').innerText.split(' ')[1]);
+    const imagen = productView.querySelector('.productImg').src;
+    const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial")
+    const data = await response.json()
+    const dolar = data.promedio
+
+    let producto = nombreProducto.replace(/ /g, '');
+
+    let cantidadTotal = cantidad;
+    if (sessionStorage.getItem(producto)) {
+        cantidadTotal = parseInt(cantidad) + parseInt(JSON.parse(sessionStorage.getItem(producto)).cantidad);
+    }
+
+    if(document.getElementById('bs').style.background === "var(--black)"){
+        precio = (precio / dolar).toFixed(2)
+    }
+
+    const productStorage = {
+        cantidad: cantidadTotal,
+        precio: precio,
+        imagen: imagen
+    };
+
+    sessionStorage.setItem(producto, JSON.stringify(productStorage));
+
+    document.getElementById('cart-length').innerText = sessionStorage.length;
+
+    cargarCarrito();
+}
