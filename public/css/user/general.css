@@ -79,6 +79,7 @@ header section{
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 1em;
     justify-content: space-around;
     padding-left: 2vmin;
     padding-right: 2vmin;
@@ -115,7 +116,6 @@ header section input[type=search]{
     background-position-y: center;
     padding: 1vmin;
     padding-left: 5vmin;
-
 }
 
 header section input:focus{
@@ -345,17 +345,19 @@ footer{
     background-color: var(--black);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     color: var(--white);
     padding-top: 2vmin;
+    gap: 1em;
 }
 
 footer h3{
-    font-size: 2vmin;
+    font-size: 3vmin;
 }
 
 footer ul{
-    font-size: 1.9vmin;
+    font-size: 2vmin;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -459,6 +461,11 @@ footer section section div svg {
     cursor: pointer;
 }
 
+.productSection li a {
+    text-align: center;
+    font-size: 1em;
+}
+
 .subtitle{
     padding-left: 10vmin;
     font-weight: normal;
@@ -533,5 +540,43 @@ footer section section div svg {
 
     #values {
         right: 5%;
+    }
+
+    header section input[type=search] {
+        width: 50vmin;
+        height: 6vmin;
+        padding-left: 8vmin;
+    }
+
+    .productSection li {
+        padding: 2em;
+    }
+
+    .productSection li a {
+        text-decoration:underline;
+        color: #061082;
+    }
+
+    .productImg{
+        width: 25vmin;
+        height: 25vmin;
+    }
+
+    .productView button {
+        width: 15vmin;
+        height: 6vmin;
+    }
+
+    footer {
+        
+    }
+
+    footer ul {
+        font-size: 2vmin;
+        padding: 1em;
+    }
+    footer section section div {
+        width: 5vmin;
+        height: 5vmin;
     }
 }
