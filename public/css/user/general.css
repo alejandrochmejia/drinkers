@@ -418,12 +418,13 @@ footer section section{
 }
 
 footer section section div{
-    border-radius: 100%;
-    background-color: var(--white);
     width: 3vmin;
     height: 3vmin;
 }
 
+footer section section div svg {
+    width: 100%;
+} 
 
 .productSection{
     list-style: none;
