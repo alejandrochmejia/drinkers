@@ -520,3 +520,18 @@ footer section section div svg {
 .productView:hover button{
     opacity: 1;
 }
+
+@media only screen and (max-width: 600px) {
+    header nav ul li:nth-last-child(-n+3) {
+        display: none;
+    }
+
+    #dolars, #bs {
+        width: 10vmin;
+        height: 10vmin;
+    }
+
+    #values {
+        right: 5%;
+    }
+}
