@@ -10,87 +10,43 @@
     <%- include('../partials/header'); %>
     <%- include('../partials/navbar'); %>
     <main>
-        <section class="Avisos--panel">
-            <div class="Content--avisos">
-                <div class="Hora--avisos"><%= new Date().toLocaleTimeString() %></div>
-                <div class="Fecha--avisos"><%= new Date().toLocaleDateString() %></div>
-            </div>
-                <table>
-                    <caption>Avisos</caption>
-                    <% avisos.forEach(aviso => { %>
-                        <tr>
-                            <td><%= aviso.titulo %></td>
-                            <td><%= aviso.fecha.toLocaleDateString() %></td>
-                        </tr>
-                    <% }); %>
-                </table>
-        </section>
-        <div class="Content">
-            <section class="panel--Estadistica">
-                <div class="Content--panel--Estadistica">
-                    <h3>Estadistica</h3>
-                    <div class="Container--Estadisitca__1">
-                        <article class="Historia--Ventas">Historia de ventas</article>
-                        <article class="Ventas--container">
-                            <span>
-                                <%= ventas.length %>
-                                <div class="Title">Ventas</div>
-                            </span>
-                        </article>
+        div class="Content_dashboard">
+            <section class="Distint_article">
+                <article>
+                    <h4>Productos en Inventario</h4>
+                    <div>
+                        <span>1220</span>
+                        <button>Ver Detalles
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </button>
                     </div>
-    
-                    <div class="Container--Estadistica__2">
-                        <article class="Ingresos--Container">
-                            <span>
-                                <% let total = 0; %>
-                                <% for (let i = 0; i < ventas.length; i++) { %>
-                                    <% total += Number(ventas[i].ingresos) || 0; %>
-                                <% } %>
-                                <%= parseInt(total.toFixed(2)) %>$
-                                <div class="Title">Ingresos</div>
-                            </span>
-                        </article>
-                    </div>
-    
-                    <article class="Grafica--Estadistica">
-                        <canvas id="myChart">
-                        </canvas>
-                    </article>
-                </div>
-            </section>
-    
-            <section class="Panel--pedidos">
-                <article class="Pedidos">
-                    <h3>Pedidos</h3> 
                 </article>
-                <div class="Container--pedidos">
-                    <div class="Container--1">
-                        <article class="Solicitudes--container">
-                            <span>
-                                <%= envios.length %>
-                                <div class="Title">Solicitudes</div>
-                            </span>
-                        </article>
+                <article>
+                    <h4>Registro de Ventas</h4>
+                    <div>
+                        <span>1220</span>
+                        <button>Ver Detalles
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </button>
                     </div>
-        
-                    <div class="Container--2">
-                        <articl class="Via--container">
-                            <span>
-                                <%= envios.filter(envio => envio.status === 'pending').length %>
-                                <div class="Title">En via</div>
-                            </span>
-                        </articl>
-                        <article class="Completados--Container">
-                            <span>
-                                <%= envios.filter(envio => envio.status === 'completado').length %>
-                                <div class="Title">Completados</div>
-                            </span>
-                        </article>
+                </article>
+                <article>
+                    <h4>Pedidos</h4>
+                    <div>
+                        <span>1220</span>
+                        <button>Ver Detalles
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </button>
                     </div>
-                </div>
+                    
+                </article>
+            </section>
+            <section class="Productos_vendidos">
+                <h2>Productos mas vendidos</h2>
+                <div class="Grafica">Grafica</div>
             </section>
         </div>
-        
+    </main>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/admin/dashboard.js"></script>

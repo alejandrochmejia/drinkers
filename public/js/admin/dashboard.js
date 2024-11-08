@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   grafica.update();
 
 })
-
+/*
 function actualizarHora() {
   const horaActual = new Date();
   const hora = horaActual.getHours();
@@ -48,4 +48,5 @@ function actualizarHora() {
 }
 
 setInterval(actualizarHora, 1000);
-actualizarHora();
+actualizarHora();*/
+
