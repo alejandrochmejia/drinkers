@@ -29,6 +29,7 @@ main .Content_dashboard{
     align-items: center;
     flex-flow: column wrap;
     padding: 10px;
+    gap: 20px;
 }
 main .Content_dashboard .Distint_article{
     border: 1px solid #000;
@@ -40,24 +41,42 @@ main .Content_dashboard .Distint_article{
 }
 main .Content_dashboard .Distint_article article{
     border: 1px solid #000;
-    width: 270px;
+    width: 250px;
     padding: 10px;
     border-radius: 5px;
+    position: relative;
 }
 main .Content_dashboard .Distint_article article div{
-    margin-top: 3px;
+    margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 10px;
+}
+main .Content_dashboard .Distint_article article h4{
+    letter-spacing: 0.5px;
+}
+main .Content_dashboard .Distint_article article svg{
+    position: absolute;
+    right: 20px;
+    top: 33px;
+    transition: .1s linear;
 }
 main .Content_dashboard .Distint_article article:nth-child(1) div span{
     font-size: 1.5em;
-    color: var(--SecondaryColor);
+    color: #0160E7;
+}
+main .Content_dashboard .Distint_article article:nth-child(2) div span{
+    font-size: 1.5em;
+    color: #00BF1A;
+}
+main .Content_dashboard .Distint_article article:nth-child(3) div span{
+    font-size: 1.5em;
+    color: #0160E7;
 }
 main .Content_dashboard .Distint_article article button{
-    width: 130px;
-    margin: 0 auto;
-    padding: 5px 10px;
+    width: 120px;
+    padding: 6px 10px;
     border: none;
     outline: none;
     border-radius: 10px;
@@ -74,4 +93,20 @@ main .Content_dashboard .Distint_article article button:hover{
     color: var(--ColorNavigatorBar);
     font-weight: 600;
     border: 2px solid var(--ColorNavigatorBar);
+}
+main .Content_dashboard .Productos_vendidos{
+    border: 1px solid #000;
+    width: 90%;
+    height: 280px;
+    padding: 15px;
+}
+main .Content_dashboard .Productos_vendidos h2{
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+main .Content_dashboard .Productos_vendidos .Grafica{
+    border: 1px solid #000;
+    height: 220px;
+    background-color: #a20;
 }
