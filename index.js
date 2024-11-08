@@ -116,7 +116,6 @@ app.use((err, req, res, next) => {
 //////////////////
 // METODOS GET //
 //////////////////
-
 //Index
 app.get('/', async (req,res)=>{
     const [dataJson, inventario] = await Promise.all([
@@ -171,22 +170,22 @@ app.get('/catalogo', async (req, res) => {
 });
 
 app.get('/product', async (req, res) => {
-    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO');
+        const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO');
 
-    const producto = inventario.find(p => p.nombre_producto == req.query.name);
-
-    const descripcionAI = await chatSession.sendMessage('Alargame un poco la siguiente descripcion (Tienes maximo 100 maxOutputTokens): '+ producto.descripcion);
-
-    producto.descripcion =   descripcionAI.response.text().replace(/\*\*/g, '').replace(/\*/g, '').replace(/\d+\.\s*/g, '').replace(/:\s*/g, ': ').trim();
-
-    const relacionados = inventario.filter(p => p.tipo == producto.tipo && p.nombre_producto != producto.nombre_producto);
-    res.render('user/producto', { producto, relacionados });
+        const producto = inventario.find(p => p.nombre_producto == req.query.name);
+    
+        const descripcionAI = await chatSession.sendMessage('Alargame un poco la siguiente descripcion (Tienes maximo 100 maxOutputTokens): '+ producto.descripcion);
+    
+        producto.descripcion =   descripcionAI.response.text().replace(/\*\*/g, '').replace(/\*/g, '').replace(/\d+\.\s*/g, '').replace(/:\s*/g, ': ').trim();
+    
+        const relacionados = inventario.filter(p => p.tipo == producto.tipo && p.nombre_producto != producto.nombre_producto);
+        res.render('user/producto', { producto, relacionados });
 })
 
 //Preguntas Frecuentes
-app.get('/faq', (req, res) => {
+app.get('/faq', async (req, res) => {
     res.render('user/faq');
-})
+});
 
 //Terminos y Condiciones
 app.get('/terms', (req, res) => {

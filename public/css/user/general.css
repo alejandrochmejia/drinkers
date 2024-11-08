@@ -567,8 +567,10 @@ footer section section div svg {
         height: 6vmin;
     }
 
-    footer {
-        
+    aside {
+        width: 100dvw;
+        right: -100%;
+        transition: all 0.8 linear;
     }
 
     footer ul {
