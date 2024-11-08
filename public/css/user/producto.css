@@ -29,6 +29,10 @@
     justify-content: space-between;
 }
 
+.info-container #description {
+    width: 50%;
+}
+
 #example-liquor{
     height: 100%;
     width: 100%;
@@ -93,4 +97,62 @@ details[open] summary{
 hr{
     color: #B1CEF4;
     width: 95dvw;
+}
+
+@media only screen and (max-width: 600px) {
+    .principal-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container{
+        width: 80dvw;
+        height: 80dvw;
+        padding-top: 0;
+    }
+
+    .info-container{
+        width: 80dvw;
+        height: 50dvh;
+        padding: 1em;
+    }
+
+    .info-container #description {
+        width: 100%;
+    }
+
+    #units{
+        gap: 1vmin;
+    }
+
+    .productCant{
+        width: 15vmin;
+        height: 5vmin;
+        font-size: 3vmin;
+        padding: .5em;
+    }
+
+    details{
+        width: 80dvw;
+        font-size: 2vmin;
+        padding: .5em;
+    }
+
+    summary{
+        font-size: 3vmin;
+    }
+
+    hr{
+        width: 100dvw;
+    }
+    .addButton{
+        width: 10vmin;
+        height: 5vmin;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 30vmin;
+    }
 }
