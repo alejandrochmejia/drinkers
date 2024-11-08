@@ -61,10 +61,10 @@ const model = genAI.getGenerativeModel({
   
 // Configuración de la generación de texto
 const generationConfig = {
-    temperature: 0.7,
+    temperature: 0.3,
     topP: 0.9,
-    topK: 64,
-    maxOutputTokens: 50,
+    topK: 30,
+    maxOutputTokens: 100,
     responseMimeType: "text/plain",
 };
 
@@ -75,7 +75,7 @@ const chatSession = model.startChat({
         {
             role: "user",
             parts: [
-                {text: "Hola, quiero aprender sobre licores."},
+                {text: "Hola, quiero aprender sobre licores. Se muy Breve"},
             ],
         },
         {

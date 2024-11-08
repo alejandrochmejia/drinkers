@@ -69,3 +69,7 @@
 #sendButton:hover {
     background-color: var(--blue);
 }
+
+.chatUser {
+    text-decoration: underline;
+}
