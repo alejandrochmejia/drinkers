@@ -529,6 +529,14 @@ footer section section div svg {
 }
 
 @media only screen and (max-width: 600px) {
+
+
+    header nav ul {
+        display: flex;
+        padding: 0;
+    }
+
+
     header nav ul li:nth-last-child(-n+3) {
         display: none;
     }
@@ -550,6 +558,7 @@ footer section section div svg {
 
     .productSection li {
         padding: 2em;
+        gap: 1em;
     }
 
     .productSection li a {
@@ -581,4 +590,18 @@ footer section section div svg {
         width: 5vmin;
         height: 5vmin;
     }
+
+    aside button{
+        width: 50vmin;
+        height: 10vmin;
+
+        & span {
+            font-size: 4vmin;
+        }
+    }
+
+    aside ul li img:first-child {
+        width: 10em;
+    }
+
 }
