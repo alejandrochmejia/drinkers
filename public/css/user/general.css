@@ -543,10 +543,23 @@ footer section section div svg {
         right: 5%;
     }
 
+    header section {
+        margin: 0;
+        gap: 0;
+    }
+
     header section input[type=search] {
-        width: 50vmin;
+        width: 40vmin;
         height: 6vmin;
         padding-left: 8vmin;
+    }
+
+    header section section button  {
+        padding: 2vmin 1vmin;
+    }
+
+    header section section {
+        gap: 0;
     }
 
     .productSection li {
@@ -572,7 +585,7 @@ footer section section div svg {
     aside {
         width: 100dvw;
         right: -100%;
-        transition: all 0.8 linear;
+        transition: all 0.3s linear;
     }
 
     footer ul {

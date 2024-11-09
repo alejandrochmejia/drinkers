@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cartMenu = document.querySelector("aside");
-    cartMenu.style.right = '-100%';
+    cartMenu.style.right = '-110%';
 });
 
 document.getElementById("cart").addEventListener("click", function() {
     const cartMenu = document.querySelector("aside");
-    if (cartMenu.style.right === '-100%') {
+    if (cartMenu.style.right === '-110%') {
         cargarCarrito();
         cartMenu.style.right = '0%';
     } else {
-        cartMenu.style.right = '-100%';
+        cartMenu.style.right = '-110%';
     }
 });
 
@@ -79,7 +79,7 @@ window.addEventListener("scroll", function() {
     else if (currentScroll > lastScroll){
         // scroll down
         document.querySelector("header").style.top = '-20%';
-        document.querySelector("aside").style.right = '-100%';
+        document.querySelector("aside").style.right = '-110%';
     } else if (currentScroll < lastScroll) {
         // scroll up
         document.querySelector("header").style.top = '0%';
