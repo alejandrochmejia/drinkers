@@ -253,10 +253,9 @@ aside ul li{
     height: 25%;
     border-radius: 5px;
     border: var(--black) solid 1px;
-    flex: 0 0 auto;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-evenly;
     gap: 0.5vmin;
 }
 
@@ -294,20 +293,14 @@ aside ul li span{
     font-weight: bold;
     font-size: 2.3vmin;
     padding: 0;
-    max-width: 22vmin;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: pre;
+    flex: 2;
 }
 
 aside ul li p{
-    font-size: 0.7vmax;
+    font-size: 1vmax;
     padding: 0;
     margin: 0;
     max-width: 22vmin;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: pre;
 }
 
 aside ul li img:not(.productImage){
@@ -600,8 +593,25 @@ footer section section div svg {
         }
     }
 
-    aside ul li img:first-child {
-        width: 10em;
+
+    aside ul li img:last-child {
+        width: 5vmin;
+        height: 5vmin;
     }
+
+    aside ul li .productImage {
+        width: 20vmin;
+        height: 20vmin;
+    }
+
+
+    aside ul li div span {
+        font-size: 4vmin;
+    }
+
+    aside ul li div p {
+        font-size: 0.7em;
+        height: fit-content;
+    } 
 
 }

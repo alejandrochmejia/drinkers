@@ -29,7 +29,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: solid 1px black;
 }
 
 .qualities > h2{
@@ -193,4 +192,49 @@
     background: rgb(177,206,244);
     background: linear-gradient(120deg, rgba(177,206,244,1) 0%, rgba(255,255,255,1) 100%);
     color: #040C5D;
+}
+
+@media only screen and (max-width: 600px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .qualities {
+        width: 80%;
+        padding: 1em;
+    }
+
+    .qualities * {
+        width: 100%;
+        margin-left: -10dvw;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        gap: 2vmin;
+    }
+
+    .steps-container > div {
+        width: 80vmin;
+    }
+
+    .steps h2 {
+        text-align: center;
+    }
+
+    .how-to-buy-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .how-to-buy-container > div {
+        width: 80vmin;
+        height: 40vmin;
+    }
+
+    .how-to-buy-container > div > p {
+        width: 70vmin;
+    }
 }
