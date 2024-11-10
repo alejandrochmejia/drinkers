@@ -445,8 +445,13 @@ app.post('/verify-otp', (req, res) => {
 app.post('/bot', async (req, res) => {
     const { message } = req.body;
     chatSession.history = []
-    const result = await chatSession.sendMessage('Se Breve (Tienes maximo 100 maxOutputTokens) no se pases y no respondas cosas que no sean de licores, solo dices que eres experto en licores: '+message);
-    res.send(JSON.stringify(result.response.text()));
+    if(req.cookies.token) {
+        const result = await chatSession.sendMessage('Se Breve (Tienes maximo 100 maxOutputTokens) no se pases y no respondas cosas que no sean de licores, solo dices que eres experto en licores: '+message);
+        res.send(JSON.stringify(result.response.text()));
+    } else {    
+        res.send(JSON.stringify("Inicie Sesion o Registrese en Drinkers para poder acceder a funciones de Chatbot"));
+    }
+        
 })
 
 //Cerrar Sesion
