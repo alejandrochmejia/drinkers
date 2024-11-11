@@ -246,6 +246,10 @@
 }
 
 .third-step{
+    display: none;
+}
+
+.fourth-step{
     width: 100dvw;
     height: 68dvh;
     display: none;
