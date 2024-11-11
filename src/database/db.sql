@@ -31,6 +31,7 @@ CREATE TABLE CLIENTES (
 
 CREATE TABLE FACTURA (
   id INT PRIMARY KEY,
+  control INT NOT NULL,
   fecha DATE NOT NULL,
   id_user INT NOT NULL,
   total DECIMAL(10, 2) NOT NULL,
@@ -231,17 +232,17 @@ INSERT INTO CLIENTES (id, username, email, nacimiento, password, name, lastname,
 (10, 'kwalker', 'kwalker@example.com', '1986-11-25', 'password777', 'Kate', 'Walker', 'active');
 
 -- Inserciones en la tabla FACTURA
-INSERT INTO FACTURA (id, fecha, id_user, total) VALUES
-(1, '2023-10-01', 1, 45.99),
-(2, '2023-10-02', 2, 23.97),
-(3, '2023-10-03', 3, 56.99),
-(4, '2023-10-04', 4, 34.99),
-(5, '2023-10-05', 5, 67.99),
-(6, '2023-10-06', 6, 29.99),
-(7, '2023-10-07', 7, 49.99),
-(8, '2023-10-08', 8, 39.99),
-(9, '2023-10-09', 9, 69.99),
-(10, '2023-10-10', 10, 59.99);
+INSERT INTO FACTURA (id, control, fecha, id_user, total) VALUES
+(1, 123456, '2023-10-01', 1, 45.99),
+(2, 654321, '2023-10-02', 2, 23.97),
+(3, 112233, '2023-10-03', 3, 56.99),
+(4, 445566, '2023-10-04', 4, 34.99),
+(5, 778899, '2023-10-05', 5, 67.99),
+(6, 987654, '2023-10-06', 6, 29.99),
+(7, 135792, '2023-10-07', 7, 49.99),
+(8, 246801, '2023-10-08', 8, 39.99),
+(9, 102938, '2023-10-09', 9, 69.99),
+(10, 564738, '2023-10-10', 10, 59.99);
 
 
 INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad) VALUES

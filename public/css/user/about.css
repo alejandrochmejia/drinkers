@@ -237,4 +237,8 @@
     .how-to-buy-container > div > p {
         width: 70vmin;
     }
+
+    .delivery-areas * {
+        display: flex;
+    }
 }
