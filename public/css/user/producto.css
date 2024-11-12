@@ -64,7 +64,7 @@
 }
 
 .productCant{
-    width: 5vmin;
+    width: 10vmin;
     height: 5vmin;
     font-size: 2vmin;
 }
@@ -81,6 +81,7 @@ details{
     word-wrap: break-word;
     font-size: small;
     line-height: 1.5;
+    padding: .5em;
 }
 
 summary{
