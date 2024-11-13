@@ -6,6 +6,10 @@
     height: 12dvh;
 }
 
+textarea {
+    resize: none;
+}
+
 .arrow{
     display: flex;
     flex-direction: row;
@@ -17,6 +21,7 @@
     background-color: #F1F6FD;
     color: #B1CEF4;
     gap: 1vmin;
+    margin-bottom: 2vmin;
 }
 
 .selected{
@@ -40,7 +45,7 @@
     margin-top: 2vmin;
     width: 100dvw;
     height: 68dvh;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(2,25dvw);
     grid-template-rows: repeat(3,15dvh);
     justify-content: center;
@@ -246,7 +251,32 @@
 }
 
 .third-step{
-    display: none;
+    margin-top: 2vmin;
+    width: 100dvw;
+    height: 68dvh;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(8,10%);
+    grid-template-rows: repeat(6,10%);
+}
+
+.third-step form > input, .third-step form > textarea, .third-step form > select{
+    border: solid 1px #B1CEF4;
+    border-radius: 4px;
+    outline: none;
+    font-family: Montserrat;
+}
+
+.third-step form > input::placeholder, .third-step form > textarea::placeholder{
+    color: #040C5D;
+}
+
+.third-step form > button{
+    border-radius: 5px;
+    background-color: #040C5D;
+    color: #EBEBEB;
+    border: none;
+    cursor: pointer;
 }
 
 .fourth-step{
