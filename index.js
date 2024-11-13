@@ -23,7 +23,7 @@ import {
     update,
     deleteOne,
     customQuery
-} from './src/database/querys.js'
+} from './src/controllers/db.controller.js'
 
 import authenticate from './src/middleware/authorization.js'
 
@@ -118,12 +118,15 @@ app.use((err, req, res, next) => {
 //////////////////
 //Index
 app.get('/', async (req,res)=>{
-    const [dataJson, inventario] = await Promise.all([
-        getAll(process.env.MYSQL_DATABASE + '.VENTAS'),
-        getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
-    ]);
+    try {
 
-    const top5ProductosConNombres = dataJson
+        const [dataJson, inventario] = await Promise.all([
+            getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
+            getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
+        ]);
+
+
+        const top5ProductosConNombres = dataJson
         .map(e => ({ id: e.id_producto, ingresos: e.ingresos }))
         .sort((a, b) => b.ingresos - a.ingresos)
         .slice(0, 5)
@@ -135,12 +138,16 @@ app.get('/', async (req,res)=>{
                 imagen: producto ? producto.imagen : '',
             };
         });
+        res.render('index', {
+            productos: inventario,
+            top5ProductosConNombres: top5ProductosConNombres
+        });
 
+    } catch (error) {
+        console.error("Error fetching data: ", error);
+        res.render('user/error');
+    }
 
-    res.render('index', {
-        productos: inventario,
-        top5ProductosConNombres: top5ProductosConNombres
-    });
 })
 
 //Catalogo o Seccion de Productos
@@ -222,7 +229,7 @@ app.get('/register',(req,res)=>{
 app.get('/admin/dashboard',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/dashboard', {
         avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
-        ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
+        ventas: await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'),
         inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
         envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
@@ -257,7 +264,7 @@ app.get('/admin/envios/mayorista',authenticate.authenticateOTP, async (req, res)
 //Estadistica
 app.get('/admin/estadistica',authenticate.authenticateOTP, async (req, res) => {
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.VENTAS')
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS')
   
     const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
 
@@ -277,7 +284,7 @@ app.get('/admin/estadistica',authenticate.authenticateOTP, async (req, res) => {
     });
 
     res.render('admin/estadistica', {
-        ventas: await getAll(process.env.MYSQL_DATABASE+'.VENTAS'),
+        ventas: await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'),
         inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
         vendidos: top5ProductosConNombres
     });
@@ -296,7 +303,7 @@ app.get('/admin/avisos',authenticate.authenticateOTP, async (req, res) => {
 //Obtener los 5 productos mas vendidos
 app.get('/api/productos/vendidos', async (req, res) => {
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.VENTAS')
+    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS')
   
     const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
 
@@ -385,7 +392,7 @@ app.post('/admin/avisos/create', async (req, res) => {
 //Dashboard
 
 app.post('/admin/dashboard/ventas', async (req, res) => {
-    res.send(await getAll(process.env.MYSQL_DATABASE+'.VENTAS'));
+    res.send(await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'));
 });
 
 app.post('/admin/dashboard/inventario', async (req, res) => {

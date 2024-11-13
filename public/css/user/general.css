@@ -334,7 +334,6 @@ main{
 
 footer{
     width: 100dvw;
-    height: 30dvh;
     background-color: var(--black);
     display: flex;
     flex-direction: column;
