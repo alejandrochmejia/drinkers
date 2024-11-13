@@ -1,4 +1,4 @@
-import dbconfig from "./connection.js";
+import dbconfig from "../database/connection.js";
 
 // Obtener todos los registros
 export const getAll = (tabla) => {

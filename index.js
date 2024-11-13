@@ -23,7 +23,7 @@ import {
     update,
     deleteOne,
     customQuery
-} from './src/database/querys.js'
+} from './src/controllers/db.controller.js'
 
 import authenticate from './src/middleware/authorization.js'
 
@@ -118,7 +118,6 @@ app.use((err, req, res, next) => {
 //////////////////
 //Index
 app.get('/', async (req,res)=>{
-    
     try {
 
         const [dataJson, inventario] = await Promise.all([
@@ -139,8 +138,6 @@ app.get('/', async (req,res)=>{
                 imagen: producto ? producto.imagen : '',
             };
         });
-
-
         res.render('index', {
             productos: inventario,
             top5ProductosConNombres: top5ProductosConNombres
