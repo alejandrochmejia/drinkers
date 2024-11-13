@@ -21,7 +21,6 @@ function addMessage(message) {
 
 async function respondToUser(message) {
         const responseBot = await generateResponse(message);
-        console.log(responseBot)
         const response = "Bot: " + formatResponse(responseBot);
         addMessage(response);
 }

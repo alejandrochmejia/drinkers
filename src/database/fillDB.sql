@@ -48,7 +48,7 @@ INSERT INTO INVENTARIO (nombre_producto, tipo, descripcion, litros, grados, imag
 ('Sagradafamilia', 'Vinos', 'Vino tinto de cuerpo medio, ideal para acompañar comidas.', 1, 12, '/images/Licores/vino-sagradafamilia.webp', 12, 10.00, 8.00, 100, 'active'),
 ('Sagradafamiliablanco', 'Vinos', 'Vino blanco fresco y afrutado, ideal para maridar con pescados.', 1, 12, '/images/Licores/vino-sagradafamiliablanco.webp', 12, 10.00, 8.00, 100, 'active'),
 ('Bandera', 'Anis', 'Aguardiente anisado, ideal para disfrutar solo o en cócteles.', 1, 35, '/images/Licores/anis-bandera.jpg', 12, 10.00, 8.00, 100, 'active'),
-('Bajocerofresa', 'Vodka', 'Vodka con un toque exótico de fresas, ideal para cócteles tropicales.', 1, 35, '/images/Licores/vodka-bajocerofresa .jpg', 12, 15.00, 13.00, 100, 'active'),
+('Bajocerofresa', 'Vodka', 'Vodka con un toque exótico de fresas, ideal para cócteles tropicales.', 1, 35, '/images/Licores/vodka-bajocerofresa.jpg', 12, 15.00, 13.00, 100, 'active'),
 ('Cacique', 'Ron', 'Ron con un sabor suave y un toque de especias.', 1, 40, '/images/Licores/ron-cacique.jpg', 12, 12.00, 10.00, 100, 'active'),
 ('Chevalier', 'Basebrandy', 'Basebrandy con un sabor suave y un toque de frutas.', 1, 40, '/images/Licores/basebrandy-chevalier.jpg', 12, 10.00, 9.00, 100, 'active'),
 ('Polarbear', 'Vodka', 'Vodka suave y fresco, ideal para preparar deliciosos cócteles.', 1, 35, '/images/Licores/vodka-polarbear.png', 12, 15.00, 13.00, 100, 'active'),
@@ -150,3 +150,7 @@ INSERT INTO COMPRA_PROVEEDORES (id_proveedor, fecha_compra, fecha_entrega, canti
 (8, '2023-10-07', '2023-10-12', 200),
 (9, '2023-10-10', '2023-10-15', 300),
 (10, '2023-10-12', '2023-10-17', 250);
+
+INSERT INTO IMPUESTOS (nombre_impuesto, tasa, descripcion, tipo) VALUES
+('IVA', 16.00, 'Impuesto sobre el valor añadido', 'Indirecto'),
+('Impuesto sobre la renta', 15.00, 'Impuesto sobre los ingresos', 'Directo');
