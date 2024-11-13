@@ -118,12 +118,16 @@ app.use((err, req, res, next) => {
 //////////////////
 //Index
 app.get('/', async (req,res)=>{
-    const [dataJson, inventario] = await Promise.all([
-        getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
-        getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
-    ]);
+    
+    try {
 
-    const top5ProductosConNombres = dataJson
+        const [dataJson, inventario] = await Promise.all([
+            getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
+            getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
+        ]);
+
+
+        const top5ProductosConNombres = dataJson
         .map(e => ({ id: e.id_producto, ingresos: e.ingresos }))
         .sort((a, b) => b.ingresos - a.ingresos)
         .slice(0, 5)
@@ -137,10 +141,16 @@ app.get('/', async (req,res)=>{
         });
 
 
-    res.render('index', {
-        productos: inventario,
-        top5ProductosConNombres: top5ProductosConNombres
-    });
+        res.render('index', {
+            productos: inventario,
+            top5ProductosConNombres: top5ProductosConNombres
+        });
+
+    } catch (error) {
+        console.error("Error fetching data: ", error);
+        res.render('user/error');
+    }
+
 })
 
 //Catalogo o Seccion de Productos
