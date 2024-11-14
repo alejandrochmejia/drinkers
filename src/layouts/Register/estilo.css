@@ -23,7 +23,7 @@ header{
 }
 header .Content{
     width: 620px;
-    height: 500px;
+    height: 540px;
     padding: 10px;
     border: 2px solid #000;
     backdrop-filter: blur(20px);
@@ -53,12 +53,14 @@ header .Content .Login__Title h2{
     color: #F8F7F2;
 }
 header .Content .Form-register{
+    
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    justify-content: center;
     width: 590px;
-    height: 320px;
-    padding: 5px;
+    height: 390px;
+    
 }
 header .Content .Form-register .Input--Container{
     padding-left: 40px;
@@ -66,7 +68,7 @@ header .Content .Form-register .Input--Container{
 
 header .Content .Form-register .Input--Container div{
     display: flex;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     margin: 3px;
 }
@@ -88,6 +90,24 @@ header .Content .Form-register .Input--Container div input{
     border-right: 1px solid var(--PrimaryColor);
     border-radius: 5px;
     color: #fff;
+    transition: .1s linear;
+}
+#Correo{
+    width: 365px;
+}
+#Password{
+    width: 325px;
+}
+#Fecha{
+    width: 322px;
+}
+#Username{
+    width: 345px;
+}
+header .Content .Form-register .Input--Container div input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+    border-right: 2px solid var(--SecondaryColor);
+    border-radius: 10px;
 }
 header .Content .Form-register .Input--Container div input::placeholder{
     color: var(--PrimaryColor);
@@ -95,5 +115,33 @@ header .Content .Form-register .Input--Container div input::placeholder{
 header .Content .Form-register .Input--Container div img{
     width: 26px;
     position: relative;
-    left: -40px;
+    left: -45px;
+}
+header .Content .Buttons{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 5px;
+    margin-top: 10px;
+}
+header .Content .Buttons .Submit--From{
+    width: 300px;
+    padding: 7px 12px;
+    margin: 4px;
+    text-align: center;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #0D3871;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: .1s linear;
+}
+header .Content .Buttons .Submit--From:hover{
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    padding: 10px 15px;
 }
