@@ -1,4 +1,10 @@
 
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
 *{
     font-family: sans-serif;
     margin: 0%;
@@ -16,7 +22,7 @@ header{
     align-items: center;
 }
 header .Content{
-    width: 440px;
+    width: 620px;
     height: 500px;
     padding: 10px;
     border: 2px solid #000;
@@ -24,6 +30,7 @@ header .Content{
     box-shadow: 0 0 20px #000;
     border-radius: 15px;
     display: flex;
+    align-items: center;
     flex-flow: column wrap;
 }
 header .Content .Login__Title{
@@ -44,4 +51,47 @@ header .Content .Login__Title h2{
     letter-spacing: 3px;
     font-weight: 500;
     color: #F8F7F2;
+}
+header .Content .Form-register{
+    display: flex;
+    justify-content: center;
+    width: 590px;
+    height: 320px;
+    padding: 5px;
+}
+header .Content .Form-register .Input--Container{
+    padding-left: 40px;
+}
+header .Content .Form-register .Input--Container div{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 3px;
+}
+header .Content .Form-register .Input--Container div label{
+    color: var(--PrimaryColor);
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 0 5px #000;
+}
+header .Content .Form-register .Input--Container div input{
+    width: 350px;
+    height: auto;
+    padding: 6px 5px;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    background-color: transparent;
+    border-bottom: 1px solid var(--PrimaryColor);
+    border-right: 1px solid var(--PrimaryColor);
+    border-radius: 5px;
+    transition: .1s linear;
+}
+header .Content .Form-register .Input--Container div input::placeholder{
+    color: var(--PrimaryColor);
+}
+header .Content .Form-register .Input--Container div img{
+    width: 26px;
+    position: relative;
+    left: -40px;
 }
