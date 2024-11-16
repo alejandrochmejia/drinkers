@@ -214,6 +214,11 @@ app.get('/returns', (req, res) => {
     res.render('user/returns');
 })
 
+app.get('/payment',authenticate.authenticateJWT, (req, res) => {
+    //Despues utilizar jwt para oobtene el email con verify
+    res.render('user/pay');
+})
+
 //Login
 app.get('/login',(req,res)=>{
     if(req.cookies.otp === 'true') res.redirect('/admin/dashboard');
