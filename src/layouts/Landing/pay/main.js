@@ -75,3 +75,61 @@ datetimeinput.addEventListener("input", function() {
 });
 
 window.onload = setMinDateTime;
+
+let paymodes = document.getElementsByClassName("paymode")
+let paymodeSelected = document.getElementById("paymode-selected")
+
+for (let paymode of paymodes){
+    paymode.addEventListener('click', e => {
+        const container = e.currentTarget
+        if (paymodeSelected === container){
+            return;
+        } else {
+            paymodeSelected.classList.remove('selected-container');
+            paymodeSelected.style.background = '#EBEBEB';
+            paymodeSelected.style.color = '#040C5D';
+            let selectedImage = paymodeSelected.querySelector('img');
+            selectedImage.src = '../../../../public/images/icons/checkunfill.svg';
+            paymodeSelected = container;
+            paymodeSelected.classList.add('selected-container');
+            paymodeSelected.style.background = '#040C5D';
+            paymodeSelected.style.color = '#EBEBEB';
+            selectedImage = paymodeSelected.querySelector('img');
+            selectedImage.src = '../../../../public/images/icons/checkfill.svg'; // Cambia a la nueva imagen
+        }
+    });
+}
+
+let paytypes = document.getElementsByClassName("paytype");
+let paytypeSelected = document.getElementById("selectedtype");
+
+for(let paytype of paytypes){
+    paytype.addEventListener('click', e => {
+        const container = e.currentTarget
+        if (paytypeSelected === container){
+            return;
+        } else{
+            paytypeSelected.removeAttribute('id');
+            paytypeSelected.style.background = '#EBEBEB';
+            paytypeSelected.style.color = '#040C5D';
+            paytypeSelected = container;
+            paytypeSelected.id = 'selectedType';
+            paytypeSelected.style.background = '#040C5D';
+            paytypeSelected.style.color = '#EBEBEB';
+        }
+
+        let tarjetaContainer = document.getElementById('tarjeta')
+        let pagoMovilContainer = document.getElementById('pagomovil');
+
+        if (container.textContent == 'Tarjeta'){
+            pagoMovilContainer.style.display = 'none'
+            tarjetaContainer.style.display = 'flex'
+        } else if (container.textContent == 'Pago Movil'){
+            pagoMovilContainer.style.display = 'flex'
+            tarjetaContainer.style.display = 'none'
+        } else {
+            pagoMovilContainer.style.display = 'none'
+            tarjetaContainer.style.display = 'none'
+        }
+    })
+}

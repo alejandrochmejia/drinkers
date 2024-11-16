@@ -181,7 +181,7 @@ textarea {
 .second-step{
     width: 100dvw;
     height: 68dvh;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3,8%) 4vmin repeat(3,8%); 
     grid-template-rows: repeat(8,8%);
     justify-content: center;
@@ -251,11 +251,12 @@ textarea {
 }
 
 .fourth-step{
+    margin-top: 2vmin;
     width: 100dvw;
     height: 68dvh;
-    display: none;
+    display: grid;
     grid-template-columns: repeat(8,7dvw);
-    grid-template-rows: repeat(6,7dvh);
+    grid-template-rows: repeat(2,0) repeat(6,7dvh);
     gap: 1vmin;
     justify-content: center;
 }
@@ -264,9 +265,18 @@ textarea {
     border-radius: 10px;
     background-color: #EBEBEB;
     color: #040C5D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .subcontainer3-selected{
+    background-color: #040C5D;
+    color: white;
+}
+
+#paymode-selected{
     background-color: #040C5D;
     color: white;
 }
@@ -289,4 +299,18 @@ textarea {
 
 .number-input[type="number"]::-webkit-inner-spin-button{
     opacity: 0;
+}
+
+#button-step4{
+    background-color: #040C5D;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 2vmin;
+}
+
+#selectedtype{
+    background-color: #040C5D;
+    color: #EBEBEB;
 }
