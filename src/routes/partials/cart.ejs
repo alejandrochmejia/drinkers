@@ -12,11 +12,21 @@
             <span id="totalbs-cart">Total(Bs): 0 000.00</span>
         </div>
         <button>
-            <span onclick="window.location.href='/payment'">Finalizar Compra</span>
+            <span onclick="pay()">Finalizar Compra</span>
         </button>
     </section>
 </aside>
 <script>
+
+    function pay() {
+        const cantidadProductos = document.querySelector('aside ul').childElementCount;
+        if (cantidadProductos > 0) {
+            window.location.href = '/payment';
+        }
+        else {
+            alert('No hay productos en el carrito');
+        }
+    }
 
     //Funcion para cargar el carrito desde el SessionStorage
     function cargarCarrito() {
