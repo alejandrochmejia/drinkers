@@ -56,7 +56,7 @@ const secret = process.env.AUTH_SECRET;
 const apiKey = process.env.GEMINI_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-1.5-flash-8b",
 });
   
 // Configuración de la generación de texto
