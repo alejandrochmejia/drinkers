@@ -133,3 +133,40 @@ for(let paytype of paytypes){
         }
     })
 }
+
+let selectedarrow = document.getElementById('first-arrow');
+
+function firstButtonClicked(){
+    selectedarrow.classList.remove("selectedarrow");
+    selectedarrow = document.getElementById("second-arrow");
+    selectedarrow.classList.add("selectedarrow")
+    let containerOut = document.getElementById('first-step')
+    containerOut.style.display = 'none'
+    let containerIn = document.getElementById('second-step')
+    containerIn.style.display = 'grid'
+}
+
+function secondButtonClicked(){
+    selectedarrow.classList.remove("selectedarrow");
+    selectedarrow = document.getElementById("third-arrow");
+    selectedarrow.classList.add("selectedarrow")
+    let containerOut = document.getElementById('second-step')
+    containerOut.style.display = 'none'
+    let containerIn = document.getElementById('third-step')
+    containerIn.style.display = 'grid'
+}
+
+function thirdButtonClicked(){
+    selectedarrow.classList.remove("selectedarrow");
+    selectedarrow = document.getElementById("fourth-arrow");
+    selectedarrow.classList.add("selectedarrow")
+    let containerOut = document.getElementById('third-step')
+    containerOut.style.display = 'none'
+    let containerIn = document.getElementById('fourth-step')
+    containerIn.style.display = 'grid'
+}
+
+function fourthButtonClicked(){
+    
+}
+

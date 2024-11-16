@@ -24,15 +24,15 @@ textarea {
     margin-bottom: 2vmin;
 }
 
-.selected{
+.selectedarrow{
     background-color: #B1CEF4;
 }
 
-.selected > h3{
+.selectedarrow > h3{
     color: #040C5D;
 }
 
-.selected > p{
+.selectedarrow > p{
     color: #666666;
 }
 
@@ -41,11 +41,11 @@ textarea {
     text-align: center;
 }
 
-.first-step{
+#first-step{
     margin-top: 2vmin;
     width: 100dvw;
     height: 68dvh;
-    display: none;
+    display: grid;
     grid-template-columns: repeat(2,25dvw);
     grid-template-rows: repeat(3,15dvh);
     justify-content: center;
@@ -178,7 +178,8 @@ textarea {
     cursor: pointer;
 }
 
-.second-step{
+
+#second-step{
     width: 100dvw;
     height: 68dvh;
     display: none;
@@ -213,7 +214,7 @@ textarea {
     font-size: 5vmin;
 }
 
-.second-step > button{
+#second-step > button{
     background-color: #040C5D;
     color: white;
     border: none;
@@ -221,7 +222,7 @@ textarea {
     cursor: pointer;
 }
 
-.third-step{
+#third-step{
     margin-top: 2vmin;
     width: 100dvw;
     height: 68dvh;
@@ -231,18 +232,18 @@ textarea {
     grid-template-rows: repeat(6,10%);
 }
 
-.third-step form > input, .third-step form > textarea, .third-step form > select{
+#third-step div > input, .third-step div > textarea, .third-step div> select{
     border: solid 1px #B1CEF4;
     border-radius: 4px;
     outline: none;
     font-family: Montserrat;
 }
 
-.third-step form > input::placeholder, .third-step form > textarea::placeholder{
+#third-step div > input::placeholder, .third-step div > textarea::placeholder{
     color: #040C5D;
 }
 
-.third-step form > button{
+#third-step div > button{
     border-radius: 5px;
     background-color: #040C5D;
     color: #EBEBEB;
@@ -250,11 +251,11 @@ textarea {
     cursor: pointer;
 }
 
-.fourth-step{
+#fourth-step{
     margin-top: 2vmin;
     width: 100dvw;
     height: 68dvh;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(8,7dvw);
     grid-template-rows: repeat(2,0) repeat(6,7dvh);
     gap: 1vmin;
