@@ -17,7 +17,6 @@ main{
     position: absolute;
     top: 110px;
     left: 135px;
-    
     width: 85%;
     height: 480px;
     padding: 25px;
@@ -28,7 +27,7 @@ main .Content_dashboard{
     height: 440px;
     display: flex;
     align-items: center;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     padding: 10px;
     gap: 20px;
 }
@@ -94,7 +93,6 @@ main .Content_dashboard .Distint_article article button:hover{
     background-color: var(--HoverColor);
     color: var(--ColorNavigatorBar);
     font-weight: 600;
-    border: 2px solid var(--ColorNavigatorBar);
 }
 main .Content_dashboard .Distint_article article button:hover svg{
     fill: var(--ColorNavigatorBar);
@@ -102,8 +100,10 @@ main .Content_dashboard .Distint_article article button:hover svg{
 main .Content_dashboard .Productos_vendidos{
     box-shadow: 0 0 3px var(--ColorNavigatorBar);
     width: 88%;
-    height: 300px;
-    padding: 15px;
+    height: fit-content;
+    padding: 15px; 
+    display: flex;
+    flex-direction: column;
     border-radius: 5px;
 }
 main .Content_dashboard .Productos_vendidos h2{
@@ -111,11 +111,14 @@ main .Content_dashboard .Productos_vendidos h2{
     font-size: 1.1em;
     margin-bottom: 10px;
 }
-main .Content_dashboard .Productos_vendidos .Grafica{
-    height: 300px;
+main .Content_dashboard .Productos_vendidos .Grafica {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    position: relative; 
 }
 
-main canvas {
-    width: 100%;
-    height: 100%;
+main .Content_dashboard .Productos_vendidos .Grafica canvas {
+    height: 100% !important;
 }

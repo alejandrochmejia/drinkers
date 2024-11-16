@@ -23,7 +23,6 @@
                         <caption>Tabla de Ventas</caption>
                         <thead>
                             <tr>
-                                <th>Id Venta</th>
                                 <th>Id Bebida</th>
                                 <th>Cantidad</th>
                                 <th>Ingresos</th>
@@ -32,7 +31,6 @@
                         <tbody>
                             <% ventas.forEach(venta => { %>
                                 <tr>
-                                    <td><%= venta.id %></td>
                                     <td><%= venta.id_producto %></td>
                                     <td><%= venta.cantidad %></td>
                                     <td><%= venta.ingresos %></td>
