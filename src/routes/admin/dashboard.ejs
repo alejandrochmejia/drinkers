@@ -4,40 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drinkers || Gerente</title>
-    <link rel="stylesheet" href="/css/admin/dashboard.css">
+    <link rel="stylesheet" href="/css/admin/main.css">
 </head>
 <body>
     <%- include('../partials/header'); %>
     <%- include('../partials/navbar'); %>
     <main>
-        <section class="Avisos--panel">
-            <div class="Content--avisos">
-                <div class="Hora--avisos"><%= new Date().toLocaleTimeString() %></div>
-                <div class="Fecha--avisos"><%= new Date().toLocaleDateString() %></div>
-            </div>
-                <table>
-                    <caption>Avisos</caption>
-                    <% avisos.forEach(aviso => { %>
-                        <tr>
-                            <td><%= aviso.titulo %></td>
-                            <td><%= aviso.fecha.toLocaleDateString() %></td>
-                            <td><%= aviso.tipo %></td>
-                        </tr>
-                    <% }); %>
-                </table>
-        </section>
-        <div class="Content">
-            <section class="panel--Estadistica">
-                <div class="Content--panel--Estadistica">
-                    <h3>Estadistica</h3>
-                    <div class="Container--Estadisitca__1">
-                        <article class="Historia--Ventas">Historia de ventas</article>
-                        <article class="Ventas--container">
-                            <span>
-                                <%= ventas.length %>
-                                <div class="Title">Ventas</div>
-                            </span>
-                        </article>
+        <div class="Content_dashboard">
+            <section class="Distint_article">
+                <article>
+                    <h4>Productos en Inventario</h4>
+                    <div>
+                        <span>1220</span>
+                        <button>Ver Detalles
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </button>
                     </div>
                 </article>
                 <article>
@@ -62,7 +43,7 @@
             </section>
             <section class="Productos_vendidos">
                 <h2>Productos mas vendidos</h2>
-                <div class="Grafica">Grafica</div>
+                <div class="Grafica"><canvas id="myChart"></canvas></div>
             </section>
         </div>
     </main>

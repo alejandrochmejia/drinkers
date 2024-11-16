@@ -17,7 +17,7 @@ options: {
       beginAtZero: true
     }
   },
-  indexAxis: 'y'
+  indexAxis: 'x'
 }
 });
 

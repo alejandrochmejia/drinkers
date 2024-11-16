@@ -1,0 +1,121 @@
+/*Por el momento voy a utilizar
+font-family: san-ferif y font-size: 14px ya que voy a utilizar em*/
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+main{
+    position: absolute;
+    top: 110px;
+    left: 135px;
+    
+    width: 85%;
+    height: 480px;
+    padding: 25px;
+}
+main .Content_dashboard{
+    position: relative;
+    top: -35px;
+    height: 440px;
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    padding: 10px;
+    gap: 20px;
+}
+main .Content_dashboard .Distint_article{
+   
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+
+}
+main .Content_dashboard .Distint_article article{
+    box-shadow: 0 0 3px var(--ColorNavigatorBar);
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+main .Content_dashboard .Distint_article article div{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+main .Content_dashboard .Distint_article article h4{
+    letter-spacing: 0.5px;
+}
+main .Content_dashboard .Distint_article article svg{
+    position: absolute;
+    right: 20px;
+    top: 33px;
+    transition: .1s linear;
+}
+
+main .Content_dashboard .Distint_article article:nth-child(1) div span{
+    font-size: 1.5em;
+    color: #0160E7;
+}
+main .Content_dashboard .Distint_article article:nth-child(2) div span{
+    font-size: 1.5em;
+    color: #00BF1A;
+}
+main .Content_dashboard .Distint_article article:nth-child(3) div span{
+    font-size: 1.5em;
+    color: #0160E7;
+}
+main .Content_dashboard .Distint_article article button{
+    width: 120px;
+    padding: 6px 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: var(--SecondaryColor);
+    color: var(--PrimaryColor);
+    text-align: center;
+    transition: .1s linear;
+    cursor: pointer;
+    font-weight: 500;
+}
+main .Content_dashboard .Distint_article article button:hover{
+    background-color: var(--HoverColor);
+    color: var(--ColorNavigatorBar);
+    font-weight: 600;
+    border: 2px solid var(--ColorNavigatorBar);
+}
+main .Content_dashboard .Distint_article article button:hover svg{
+    fill: var(--ColorNavigatorBar);
+}
+main .Content_dashboard .Productos_vendidos{
+    box-shadow: 0 0 3px var(--ColorNavigatorBar);
+    width: 88%;
+    height: 300px;
+    padding: 15px;
+    border-radius: 5px;
+}
+main .Content_dashboard .Productos_vendidos h2{
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+main .Content_dashboard .Productos_vendidos .Grafica{
+    height: 300px;
+}
+
+main canvas {
+    width: 100%;
+    height: 100%;
+}
