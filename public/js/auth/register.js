@@ -21,7 +21,7 @@ email.addEventListener('input',()=>{
 })
 // Funcion que valida la contraseña
 contraseña.addEventListener('input',()=>{
-    if (contraseña.value.length == 8) {
+    if (contraseña.value.length == 6) {
         contraseña.style.border = "2px solid #04f"
     } else {
         contraseña.style.border = "2px solid #f00"

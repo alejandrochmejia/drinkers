@@ -68,7 +68,6 @@ product.addEventListener('click', async () => {
             price: 'test'
         })
     });
-    alert('Producto agregado');
 });
 
 window.addEventListener("scroll", function() {
