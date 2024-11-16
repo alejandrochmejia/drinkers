@@ -181,80 +181,51 @@ textarea {
 .second-step{
     width: 100dvw;
     height: 68dvh;
-    display: none;
-    grid-template-columns: repeat(10,5dvw);
-    grid-template-rows: repeat(16,3dvh);
+    display: grid;
+    grid-template-columns: repeat(3,8%) 4vmin repeat(3,8%); 
+    grid-template-rows: repeat(8,8%);
     justify-content: center;
-    gap: 1vmin;
+    margin-top: 2vmin;
 }
 
-.subcontainer2{
-    border-radius: 10px;
-    background-color: #EBEBEB;
-    cursor: pointer;
-}
-
-.dates-container{
-    overflow-x: none;
-    overflow-y: auto;
+.date-view{
+    grid-column: 1/4;
+    grid-row: 1/9;
+    background-color: #040C5D;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 1vmin;
-    cursor: pointer;
-}
-
-.selected-date{
-    background-color: #040C5D;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
     color: white;
 }
 
-.unselected-date{
-    background-color: #EBEBEB;
-    color: #040C5D;
+.date-view > h2{
+    margin: 0;
+    padding: 0;
+    font-size: 25vmin;
 }
 
-.subcontainer-dates{
-    height: 10vmin;
-    border-radius: 10px;
-    background-color: #EBEBEB;
-    flex-grow: 0;
-    flex-shrink: 0;
+.date-view > h5{
+    margin: 0;
+    padding: 0;
+    font-size: 5vmin;
 }
 
-.time-subcontainer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3vmin;
-    color: #040C5D;
-}
-
-.selected-time{
-    background-color: #B1CEF4;
-}
-
-.schedule-subcontainer{
-    font-size: smaller;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tip-container{
-    font-size: small;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.second-step > button{
+    background-color: #040C5D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .third-step{
     margin-top: 2vmin;
     width: 100dvw;
     height: 68dvh;
-    display: grid;
+    display: none;
     justify-content: center;
     grid-template-columns: repeat(8,10%);
     grid-template-rows: repeat(6,10%);
