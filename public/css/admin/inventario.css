@@ -50,6 +50,7 @@ main .Content .Inputs--seleccionados .Input--Container img{
     width: 25px;
     position: relative;
     left: -35px;
+    cursor: pointer;
 }
 main .Content .Inputs--seleccionados .Input--Container select{
     width: 200px;
@@ -211,15 +212,16 @@ dialog form .input--Container div{
     align-items: center;
     gap: 5px;
 }
-dialog .input--Container div label{
+dialog form .input--Container div label{
     font-size: 1.1em;
     letter-spacing: 1px;
     font-weight: 600;
 }
-dialog .input--Container div input{
+dialog form .input--Container div input{
     width: 300px;
     padding: 7px 10px;
     border: none;
+    outline: none;
     border-bottom: 2px solid #aaa;
     border-right:2px solid #aaa;
     font-size: 0.9em;
@@ -227,40 +229,41 @@ dialog .input--Container div input{
     border-radius: 12px;
     transition: .1s linear;
 }
-dialog .input--Container div input::placeholder{
+dialog form .input--Container div input::placeholder{
     color: var(--ColorNavigatorBar);
 }
-dialog .input--Container div input:hover{
+dialog form .input--Container div input:hover{
     border-bottom: 2px solid var(--SecondaryColor);
     border-right:2px solid var(--SecondaryColor);
 }
-dialog .input--Container div select{
+dialog form .input--Container div select{
     width: 130px;
     padding: 2px 10px;
     border: none;
+    outline: none;
     border-bottom: 2px solid #aaa;
     border-right:2px solid #aaa;
 }
-dialog .input--Container .item img{
+dialog form .input--Container .item img{
     width: 25px;
     position: relative;
     left: 265px;
     top: -35px;
 }
-dialog .input--Container .Items img{
+dialog form .input--Container .Items img{
     width: 25px;
     position: relative;
     left: -35px;
 }
-dialog .input--Container .Items input{
+dialog form .input--Container .Items input{
     width: 210px;
 }
-dialog .input--Container label{
+dialog form .input--Container label{
     font-size: 1.1em;
     letter-spacing: 1px;
     font-weight: 600;
 }
-dialog .input--Container textarea{
+dialog form .input--Container textarea{
     border: none;
     padding: 2px 10px;
     border-right: 2px solid #aaa;
@@ -268,11 +271,15 @@ dialog .input--Container textarea{
     border-radius: 15px;
     font-size: 0.9em;
     max-lines: 2;
-    outline: line;
+    outline: none;
     resize: none;
 }
-dialog .input--Container textarea::placeholder{
+dialog form .input--Container textarea::placeholder{
     color: var(--ColorNavigatorBar);
+}
+dialog form .input--Container textarea:hover{
+    border-right: 2px solid var(--SecondaryColor);
+    border-bottom: 2px solid var(--SecondaryColor);
 }
 dialog form button{
     width: 280px;

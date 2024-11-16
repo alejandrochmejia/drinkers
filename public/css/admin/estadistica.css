@@ -15,7 +15,6 @@ main{
     position: absolute;
     top: 95px;
     left: 145px;
-    box-shadow: 0 0 5px var(--ColorNavigatorBar);
     width: 85%;
     height: 450px;
     padding: 5px;
@@ -50,9 +49,6 @@ main .Content--table .Table--Container div input{
     outline: none;
     border-radius: 15px;
 }
-main .Content--table .Table--Container div input:hover{
-    border: 2px solid var(--SecondaryColor);
-}
 main .Content--table .Table--Container div input::placeholder{
     color: var(--ColorNavigatorBar)
 }
@@ -60,6 +56,7 @@ main .Content--table .Table--Container div label img{
     width: 25px;
     position: relative;
     left: -35px;
+    cursor: pointer;
 }
 main .Content--table .Table--Container div table{
     border: 1px solid #aaa;

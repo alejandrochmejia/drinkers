@@ -1,4 +1,10 @@
 
+:root{
+    --PrimaryColor: #FFFFFF;
+    --SecondaryColor: #001752;
+    --ColorNavigatorBar: #232326;
+    --HoverColor: #B1CEF4;
+}
 *{
     font-family: sans-serif;
     margin: 0%;
@@ -16,14 +22,15 @@ header{
     align-items: center;
 }
 header .Content{
-    width: 440px;
-    height: 500px;
+    width: 620px;
+    height: 540px;
     padding: 10px;
     border: 2px solid #000;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 20px #000;
     border-radius: 15px;
     display: flex;
+    align-items: center;
     flex-flow: column wrap;
 }
 header .Content .Login__Title{
@@ -45,85 +52,82 @@ header .Content .Login__Title h2{
     font-weight: 500;
     color: #F8F7F2;
 }
-header .Content .Form__page{
+header .Content .Form-register{
+    
     display: flex;
-    margin: auto;
-    margin-top: 10px;
     flex-flow: column wrap;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 10px;
+    width: 590px;
+    height: 390px;
+    
 }
-header .Content .Form__page .Input--Container{
-    font-size: 1.1em;
-    margin-left: 30px;
+header .Content .Form-register .Input--Container{
+    padding-left: 40px;
 }
-header .Content .Form__page .Input--Container:nth-child(2) div{
-    margin-right: 35px;
-}
-header .Content .Form__page .Input--Container:nth-child(2) div label{
-    margin-right: 20px;
-}
-header .Content .Form__page .Input--Container div{
+
+header .Content .Form-register .Input--Container div{
     display: flex;
+    gap: 10px;
     align-items: center;
-    gap: 5px;
-    padding: 2px;
+    margin: 3px;
 }
-header .Content .Form__page .Input--Container label{
-    color: #FFFFFF;
-    letter-spacing: 2px;
-    letter-spacing: 0.2px;
-    font-size: 0.9em;
-    text-shadow: 0 0 5px #232326;
-    display: block;
+header .Content .Form-register .Input--Container div label{
+    color: var(--PrimaryColor);
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 0 5px #000;
 }
-header .Content .Form__page .Input--Container div input{
-    width: 240px;
-    padding: 4px 10px;
-    border-radius: 5px;
+header .Content .Form-register .Input--Container div input{
+    width: 350px;
+    height: auto;
+    padding: 6px 5px;
     border: none;
     outline: none;
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    border-right: 1px solid #fff;
+    font-size: 1.1em;
     background-color: transparent;
-    font-size: 0.9em;
+    border-bottom: 1px solid var(--PrimaryColor);
+    border-right: 1px solid var(--PrimaryColor);
+    border-radius: 5px;
+    color: #fff;
     transition: .1s linear;
 }
-header .Content .Form__page .Input--Container input:hover{
-    border-right:1px solid #001752;
-    border-bottom: 1px solid #001752;
-}
-header .Content .Form__page .Input--Container input::placeholder{
-    color: #F8F7F2;
-}
-header .Content .Form__page .Input--Container img{
-    width: 26px;
-    position: relative;
-    left: -40px;
-}
-#Nombre--persona{
-    width: 280px;
-}
-#Apellido--persona{
-    width: 280px;
-}
 #Correo{
-    width: 285px;
+    width: 365px;
 }
 #Password{
-    width: 250px;
+    width: 325px;
+}
+#Fecha{
+    width: 322px;
 }
 #Username{
-    width: 265px;
+    width: 345px;
 }
-header .Content .Form__page .Submit--form{
+header .Content .Form-register .Input--Container div input:hover{
+    border-bottom: 2px solid var(--SecondaryColor);
+    border-right: 2px solid var(--SecondaryColor);
+    border-radius: 10px;
+}
+header .Content .Form-register .Input--Container div input::placeholder{
+    color: var(--PrimaryColor);
+}
+header .Content .Form-register .Input--Container div img{
+    width: 26px;
+    position: relative;
+    left: -45px;
+}
+header .Content .Buttons{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 5px;
+    margin-top: 10px;
+}
+header .Content .Buttons .Submit--From{
     width: 300px;
     padding: 7px 12px;
-    margin-right: 5px;
-    margin-top: 5px;
+    margin: 4px;
     text-align: center;
     border-radius: 20px;
     color: #fff;
@@ -135,7 +139,7 @@ header .Content .Form__page .Submit--form{
     cursor: pointer;
     transition: .1s linear;
 }
-header .Content .Form__page .Submit--form:hover{
+header .Content .Buttons .Submit--From:hover{
     background-color: #fff;
     color: #000;
     font-weight: 500;

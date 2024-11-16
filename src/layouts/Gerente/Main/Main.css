@@ -14,345 +14,105 @@ font-family: san-ferif y font-size: 14px ya que voy a utilizar em*/
     font-size: 14px;
 }
 main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     position: absolute;
-    left: 150px;
-    top: 80px;
-    border-radius: 15px;
-    box-shadow: 0 0 3px #000;
+    top: 110px;
+    left: 135px;
+    
     width: 85%;
-    gap: 15px;
-    padding: 15px;
+    height: 480px;
+    padding: 25px;
 }
-main .Avisos--panel{
-    width: 280px;
-    height: 455px;
-    border-radius: 15px;
+main .Content_dashboard{
+    position: relative;
+    top: -35px;
+    height: 440px;
     display: flex;
-    flex-flow: column wrap;
     align-items: center;
-    box-shadow: 0 0 5px #000;
-    padding: 15px;
-    flex: 1;
+    flex-flow: column wrap;
+    padding: 10px;
+    gap: 20px;
 }
-main .Avisos--panel .Content--avisos{
+main .Content_dashboard .Distint_article{
+   
+    width: 90%;
     display: flex;
     justify-content: space-between;
-    gap: 75px;
-    margin-top: 5px;
-    margin-bottom: 35px;
-}
-main .Avisos--panel .Hora--avisos{
-    font-size: 1.3em;
-    text-align: center;
-    width: 115px;
-    border: 1px solid #000;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: var(--SecondaryColor);
-    color: var(--PrimaryColor);
-    letter-spacing: 0.5px;
-    font-weight: 600;
-}
-main .Avisos--panel .Fecha--avisos{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 115px;
-    text-align: center;
-    border: 1px solid #000;
-    font-size: 1.3em;
-    border-radius: 15px;
-    background-color: var(--SecondaryColor);
-    color: var(--PrimaryColor);
-    font-weight: 600;
-}
-main .Avisos--panel table{
-    border: 1px solid #aaa;
     padding: 15px;
-    border-radius: 15px;
-    border-spacing: 0;
-    width: 310px;
-    height: 320px;
-    display: block;
-    overflow-y: auto;
-    overflow-x: hidden;
+
 }
-main .Avisos--panel  table caption{
-    margin-bottom: 5px;
-    font-size: 1.4em;
-    color: var(--SecondaryColor);
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-align: center;
-}
-main .Avisos--panel  table tr{
-    font-size: 1.2em;
-    color: var(--ColorNavigatorBar);
-    font-weight: 700;
-    letter-spacing: 1.5px;
-}
-main .Avisos--panel  table td{
-    font-size: 0.9em;
-    border-bottom: 1px solid #aaa;
-    padding: 9px 20px;
-    letter-spacing: 1px;
-}
-main .Content{
-    display: flex;
-    flex-flow: column wrap;
-    gap: 10px;
-    flex: 1;
-}
-main .panel--Estadistica{
-    background-color: var(--SecondaryColor);
-    border-radius: 15px;
-    width: 650px;
-    height: 250px;
-    box-shadow: 0 0 5px #000;
-    padding: 15px;
-    display: flex;
-    flex: 1;
-    flex-flow: column wrap;
-}
-main .panel--Estadistica .Content--panel--Estadistica{
-    display: flex;
-    gap: 12px;
-    width: 680px;
-    height: 200px;
-    padding: 4px;
-    flex-flow: row wrap;
-    
-}
-main .panel--Estadistica .Content--panel--Estadistica h3{
-    font-size: 1.3em;
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: var(--PrimaryColor);
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1{
-    display: flex;
-    flex-flow: column wrap;
-    margin-left: 10px;
-    gap: 10px;
-    padding: 2px;
-    position: relative;
-    top: 33px;
-    left: -125px;
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1 .Historia--Ventas{
-    background-color: var(--PrimaryColor);
-    width: 135px;
+main .Content_dashboard .Distint_article article{
+    box-shadow: 0 0 3px var(--ColorNavigatorBar);
+    width: 250px;
     padding: 10px;
-    text-align: center;
-    border: 2px solid #000;
-    border-radius: 15px;
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--ColorNavigatorBar);
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1 .Ventas--container{
-    background-color: var(--PrimaryColor);
-    width: 135px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid #000;
-    border-radius: 15px;
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--ColorNavigatorBar);
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadisitca__1 .Ventas--container span{
-    font-size: 1.4em;
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2{
-    display: flex;
-    flex-flow: column wrap;
-    gap: 10px;
-    margin-left: 5px;
-    position: relative;
-    left: -135px;
-    top: 33px;
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2 .Ingresos--Container{
-    background-color: var(--PrimaryColor);
-    width: 140px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid #000;
-    border-radius: 15px;
-    font-size: 1.2em;
-    font-weight: 700;
-    color: var(--ColorNavigatorBar);
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2 .Ingresos--Container span{
-    font-size: 1.4em;
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2 .Egresos--Container{
-    background-color: var(--PrimaryColor);
-    width: 140px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid #000;
-    border-radius: 15px;
-    font-size: 1.2em;
-    font-weight: 700;
-    color: var(--ColorNavigatorBar);
-}
-main .panel--Estadistica .Content--panel--Estadistica .Container--Estadistica__2 .Egresos--Container span{
-    font-size: 1.4em;
-}
-main .panel--Estadistica .Content--panel--Estadistica .Grafica--Estadistica{
-    width: 240px;
-    height: 140px;
-    background-color: var(--PrimaryColor);
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
-    left: -125px;
-    border-radius: 15px;
+}
+main .Content_dashboard .Distint_article article div{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+main .Content_dashboard .Distint_article article h4{
+    letter-spacing: 0.5px;
+}
+main .Content_dashboard .Distint_article article svg{
+    position: absolute;
+    right: 20px;
     top: 33px;
+    transition: .1s linear;
 }
 
-main .Panel--pedidos{
-    position: relative;
-    width: 650px;
-    height: 230px;
-    border-radius: 15px;
-    padding: 15px;
-    flex: 1;
-    box-shadow: 0 0 5px #000;
+main .Content_dashboard .Distint_article article:nth-child(1) div span{
+    font-size: 1.5em;
+    color: #0160E7;
+}
+main .Content_dashboard .Distint_article article:nth-child(2) div span{
+    font-size: 1.5em;
+    color: #00BF1A;
+}
+main .Content_dashboard .Distint_article article:nth-child(3) div span{
+    font-size: 1.5em;
+    color: #0160E7;
+}
+main .Content_dashboard .Distint_article article button{
+    width: 120px;
+    padding: 6px 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1em;
     background-color: var(--SecondaryColor);
-}
-main .Panel--pedidos .Pedidos{
-    display: flex;
-    flex-direction: column wrap;
-    gap: 15px;
-    padding: 10px;
-    margin: 0 10px;
-}
-main .Panel--pedidos .Pedidos h3{
     color: var(--PrimaryColor);
-    font-size: 1.3em;
+    text-align: center;
+    transition: .1s linear;
+    cursor: pointer;
     font-weight: 500;
+}
+main .Content_dashboard .Distint_article article button:hover{
+    background-color: var(--HoverColor);
+    color: var(--ColorNavigatorBar);
+    font-weight: 600;
+    border: 2px solid var(--ColorNavigatorBar);
+}
+main .Content_dashboard .Distint_article article button:hover svg{
+    fill: var(--ColorNavigatorBar);
+}
+main .Content_dashboard .Productos_vendidos{
+    box-shadow: 0 0 3px var(--ColorNavigatorBar);
+    width: 88%;
+    height: 300px;
+    padding: 15px;
+    border-radius: 5px;
+}
+main .Content_dashboard .Productos_vendidos h2{
     letter-spacing: 1px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
 }
-main .Panel--pedidos .Container--pedidos{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
+main .Content_dashboard .Productos_vendidos .Grafica{
     
-    gap: 10px;
-      
+    height: 220px;
+    background-color: #a20;
 }
-main .Panel--pedidos .Container--pedidos .Container--1{
-    width: 590px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 2px;
-    align-items: center;
-}
-main .Panel--pedidos .Container--pedidos .Container--1 .Solicitudes--container{
-    width: 190px;
-    height: 60px;
-    text-align: center;
-    padding: 12px;
-    background-color: var(--PrimaryColor);
-    border-radius: 15px;
-    font-weight: 700;
-}
-main .Panel--pedidos .Container--pedidos .Container--1 .Solicitudes--container span{
-    font-size: 1.4em;
-}
-main .Panel--pedidos .Container--pedidos .Container--1 .Procesados--Container{
-    width: 190px;
-    height: 60px;
-    text-align: center;
-    padding: 10px;
-    background-color: var(--PrimaryColor);
-    border-radius: 15px;
-    font-weight: 700;
-}
-main .Panel--pedidos .Container--pedidos .Container--1 .Procesados--Container span{
-    font-size: 1.4em;
-}
-main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales{
-    width: 300px;
-    height: 60px;
-    text-align: center;
-    padding: 10px;
-    background-color: var(--PrimaryColor);
-    border-radius: 15px;
-    font-weight: 700;
-}
-main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales span{
-    font-size: 1.4em;
-    text-wrap: nowrap;
-}
-main .Panel--pedidos .Container--pedidos .Container--1 .Envios--Regionales span .Title{
-    display: inline-block;
-    font-size: 1.4em;
-    font-weight: 500;
-    margin-left: 5px;
-}
-main .Panel--pedidos .Container--pedidos .Container--2{
-    width: 590px;
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2px;
-    position: relative;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Via--container{
-    width: 190px;
-    text-align: center;
-    padding: 10px;
-    background-color: var(--PrimaryColor);
-    border-radius: 15px;
-    font-weight: 700;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Via--container span{
-    font-size: 1.4em;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Via--container span .Title{
-    text-wrap: nowrap;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Completados--Container{
-    width: 190px;
-    text-align: center;
-    padding: 10px;
-    background-color: var(--PrimaryColor);
-    border-radius: 15px;
-    font-weight: 700;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Completados--Container span{
-    font-size: 1.4em;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales{
-    width: 300px;
-    height: 60px;
-    text-align: center;
-    padding: 10px;
-    background-color: var(--PrimaryColor);
-    border-radius: 15px;
-    font-weight: 700;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales span{
-    font-size: 1.4em;
-    text-wrap: nowrap;
-}
-main .Panel--pedidos .Container--pedidos .Container--2 .Envios--Nacionales span .Title{
-    display: inline-block;
-    font-size: 1.4em;
-    font-weight: 500;
-    margin-left: 7px;
-}
-

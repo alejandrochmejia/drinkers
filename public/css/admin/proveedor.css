@@ -115,6 +115,7 @@ main .Content .Table--Container .Input--Container img{
     width: 25px;
     position: relative;
     left: -35px;
+    cursor: pointer;
 }
 main .Content .Table--Container table{
     border: 1px solid #aaa;
@@ -246,6 +247,7 @@ dialog .Input--Container div input{
     width: 300px;
     padding: 7px 10px;
     border: none;
+    outline: none;
     border-bottom: 2px solid #aaa;
     border-right:2px solid #aaa;
     font-size: 0.9em;
