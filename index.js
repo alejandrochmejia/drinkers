@@ -345,14 +345,20 @@ app.post('/login', async (req, res) => {
 
 //Falta Arreglar el register cuando se haga merge
 app.post('/register', async (req, res) => {
-    const { nombre, apellido, email, password } = req.body;
+    const { username, email, nacimiento, password, nombre, apellido, direccion } = req.body;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
+    const nombreUsuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'username', username);
 
-    if (usuario) {
-        return res.status(400).send(JSON.stringify({ mensaje: 'El usuario ya existe' }));
+    if (usuario.length > 0) {
+        return res.status(400).send(JSON.stringify({ error: 'El usuario ya existe' }));
     }
 
-    await create(process.env.MYSQL_DATABASE + '.CLIENTES', { nombre, apellido, email, password });
+    if (nombreUsuario.length > 0) {
+        return res.status(400).send(JSON.stringify({ error: 'El nombre de usuario ya existe' }));
+    }
+
+    await create(process.env.MYSQL_DATABASE + '.CLIENTES', 
+    { username, email, nacimiento, password, nombre, apellido, direccion });
     res.send(JSON.stringify({ mensaje: 'Usuario registrado con éxito' }));
 });
 
