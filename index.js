@@ -549,7 +549,6 @@ app.post('/payment', async (req, res) => {
 
 
     for (const product of productos) {
-        // Obtener el producto del inventario
         const producto = (await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')).find(p => p.nombre_producto == product.nombre);
         
         if (!producto) {

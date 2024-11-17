@@ -100,17 +100,17 @@ INSERT INTO PRODUCTOS_FACTURADOS (id_factura, id_producto, cantidad, ingresos) V
 (10, 1, 2, 20.00); 
 
 -- Inserciones en la tabla ENVIOS
-INSERT INTO ENVIOS (id_user, destino, id_factura, monto, entrega, tipo, status) VALUES
-(1, 'Calle Falsa 123', 1, 5.00, '2023-10-03', 'minorista', 'pending'),
-(2, 'Avenida Siempre Viva 742', 2, 5.00, '2023-10-04', 'minorista', 'pending'),
-(3, 'Calle Real 456', 3, 5.00, '2023-10-05', 'minorista', 'pending'),
-(4, 'Avenida Principal 1234', 4, 5.00, '2023-10-06', 'minorista', 'pending'),
-(5, 'Calle Larga 789', 5, 5.00, '2023-10-07', 'minorista', 'pending'),
-(6, 'Avenida Norte 901', 6, 5.00, '2023-10-08', 'minorista', 'pending'),
-(7, 'Calle Sur 234', 7, 5.00, '2023-10-09', 'minorista', 'pending'),
-(8, 'Avenida Este 567', 8, 5.00, '2023-10-10', 'minorista', 'pending'),
-(9, 'Calle Oeste 890', 9, 5.00, '2023-10-11', 'minorista', 'pending'),
-(10, 'Avenida Central 345', 10, 5.00, '2023-10-12', 'minorista', 'pending');
+INSERT INTO ENVIOS (destino, id_factura, entrega, tipo, status) VALUES
+('Calle Falsa 123, Ciudad', 1, '2023-01-12', 'minorista', 'pending'),
+('Avenida Siempre Viva 742, Ciudad', 2, '2023-01-17', 'minorista', 'shipped'),
+('Paseo de la Reforma 456, Ciudad', 3, '2023-01-22', 'mayorista', 'pending'),
+('Boulevard de los Sueños Rotos 999, Ciudad', 4, '2023-01-27', 'minorista', 'delivered'),
+('Calle de la Amargura 101, Ciudad', 5, '2023-02-01', 'mayorista', 'pending'),
+('Calle de la Ilusión 202, Ciudad', 1, '2023-02-05', 'minorista', 'shipped'),
+('Avenida de la Esperanza 303, Ciudad', 2, '2023-02-10', 'mayorista', 'pending'),
+('Calle del Progreso 404, Ciudad', 3, '2023-02-15', 'minorista', 'delivered'),
+('Calle de la Libertad 505, Ciudad', 4, '2023-02-20', 'minorista', 'pending'),
+('Calle del Éxito 606, Ciudad', 5, '2023-02-25', 'mayorista', 'shipped');
 
 -- Inserciones en la tabla AVISOS
 INSERT INTO AVISOS (titulo, descripcion, tipo, fecha) VALUES

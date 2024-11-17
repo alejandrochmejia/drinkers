@@ -1,7 +1,7 @@
 //Ocultando Pasos del DOM
-document.querySelector('#firstStep').style.display = 'none';
+//document.querySelector('#firstStep').style.display = 'none';
 document.querySelector('#secondStep').style.display = 'none';
-//document.querySelector('#thirdStep').style.display = 'none';
+document.querySelector('#thirdStep').style.display = 'none';
 
 //Variables
 var baseImponible = 0;
