@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#main {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.steps h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 1em;
+    clip-path: polygon(91% 0, 100% 50%, 90% 100%, 0% 100%, 8% 52%, 0% 0%);
+    background-color: #F1F6FD;
+    color: #040C5D;
+}
+
+.steps input {
+    border: solid 1px #B1CEF4;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    padding: 1em;
+    font-family: Montserrat;
+    transition: border 0.3s;
+}
+
+.steps input:focus {
+    border: solid 1px #040C5D;
+}
+
+.steps #controlBtns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.steps button {
+    border-radius: 5px;
+    background-color: #040C5D;
+    color: #EBEBEB;
+    border: none;
+    cursor: pointer;
+    padding: 1em;
+    font-family: Montserrat;
+}
+
+.steps .backStep {
+    background-color: #ff5757;
+}
+
+.steps .backStep:hover {
+    background-color: #ff9494;
+}
+
+.steps .nextStep:hover {
+    background-color: #0b18aa;
+}
