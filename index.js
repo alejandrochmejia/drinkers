@@ -26,6 +26,7 @@ import {
 } from './src/controllers/db.controller.js'
 
 import authenticate from './src/middleware/authorization.js'
+import { randomInt } from 'crypto';
 
 //Configurando Path
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -519,3 +520,17 @@ app.post('/bot/route', async (req, res) => {
     res.send(extractAndParseJson(result.response.text())[0]);
 })
 
+app.post('/payment', async (req, res) => {
+    const { products, baseImponible: base , iva, total, fecha } = req.body;
+    const {email} = jwt.verify(req.cookies.token, JWT_KEY);
+    const user = (await getAll(process.env.MYSQL_DATABASE + '.CLIENTES')).find(c => c.email == email);
+    const id_user = user.id;
+    const facturas = await getAll(process.env.MYSQL_DATABASE + '.FACTURA');
+    const id = facturas.length + 1;
+    let control = randomInt(100000, 999999);
+    while (facturas.find(f => f.control == control)) {
+        control = randomInt(100000, 999999);
+    }
+    await create(process.env.MYSQL_DATABASE + '.FACTURA', {id, base, iva, total, id_user, control, fecha });
+    res.send(JSON.stringify({mensaje: 'Compra Exitosa'}));
+})

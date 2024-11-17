@@ -5,7 +5,8 @@ document.querySelector('#secondStep').style.display = 'none';
 
 //Variables
 var baseImponible = 0;
-const iva = parseFloat(document.querySelector('#iva').textContent) / 100
+const iva = parseFloat(document.querySelector('#iva').textContent)
+let products = []
 
 //Evento de Regresar Paso
 document.querySelectorAll('.steps .backStep').forEach(button => {
@@ -26,6 +27,31 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
     button.addEventListener('click', e => {
         let step = e.currentTarget.parentElement.parentElement;
         let nextStep = step.nextElementSibling;
+        if (!nextStep){
+            //Enviar Peticion de Pago
+            fetch('/payment',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    products: products,
+                    baseImponible: baseImponible,
+                    iva: iva,
+                    total: baseImponible + (baseImponible * (iva/100)),
+                    fecha: new Date().toISOString().slice(0, 10),
+                }),
+                credentials: 'include'
+            }).then(
+                Swal.fire({
+                    title: "Compra Exitosa",
+                    text: "Muchas gracias por su compra",
+                    icon: "success"
+                }).then(() => {
+                    //Limpiar Carrito
+                })
+            );
+        }
         if(nextStep.id === 'secondStep'){
             Swal.fire({
                 title: "Ingrese un numero telefonico",
@@ -44,11 +70,11 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    let products = []
     for(let i = 0; i < window.sessionStorage.length; i++){
         products.push(JSON.parse(window.sessionStorage.getItem(window.sessionStorage.key(i))))
         baseImponible += parseFloat(products[i].precio) * parseInt(products[i].cantidad)
     }
+
     document.querySelector('#baseImponible').textContent = baseImponible.toFixed(2)
-    document.querySelector('#total').textContent = (baseImponible + (baseImponible * iva)).toFixed(2)
+    document.querySelector('#total').textContent = (baseImponible + (baseImponible * (iva / 100))).toFixed(2)
 })
