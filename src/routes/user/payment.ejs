@@ -48,6 +48,40 @@
                 <button class="nextStep">Siguiente</button>
             </div>
         </article>
+        <article id="thirdStep" class="selectedArrow steps">
+            <h3>Paso 3</h3>
+            <h4>Metodo de Pago</h4>
+            <section id="payMethodContainer">
+                <article>
+                    <span>Tarjeta</span>
+                    <div id="tarjeta">
+                        <div id="tarjetaDatos">
+                            <input type="number" placeholder="Número de Tarjeta" class="number-input inputs">
+                            <input type="date" class="inputs">
+                            <input type="password" placeholder="Codigo de Seguridad" class="inputs">
+                        </div>
+                        <div>
+                            <img src="/images/icons/visa.svg" alt="">
+                            <img src="/images/icons/mastercard.svg" alt="">
+                            <img src="/images/icons/maestro.svg" alt="">
+                            <img src="/images/icons/americanexpress.svg" alt="">
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <span id="movilTitle">Pago Movil</span>
+                    <div id="movilDatos">
+                        <p>Cedula: 30.640.838</p>
+                        <p>Numero: 0414-4019911</p>
+                        <p>Banco: BNC</p>
+                    </div>
+                </article>
+            </section>
+            <div id="controlBtns">
+                <button class="backStep">Regresar</button>
+                <button class="nextStep">Concretar Pago</button>
+            </div>
+        </article>
     </section>
     <script src="/js/user/payment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

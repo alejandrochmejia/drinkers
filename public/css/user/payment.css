@@ -24,7 +24,7 @@
     align-items: center;
     flex-direction: column;
     gap: 2em;
-    width: clamp(300px, 50%, 400px);
+    width: clamp(300px, 50%, 450px);
 }
 
 .steps h3 {
@@ -105,4 +105,46 @@
 
 .steps .paymentValue {
     font-weight: normal;
+}
+
+.steps #payMethodContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.steps #payMethodContainer article {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.steps #payMethodContainer article > #movilDatos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: end;
+    height: 100%;
+    font-weight: bold;
+}
+
+.steps #movilTitle {
+    text-align: end;
+}
+
+.steps #payMethodContainer article > #movilDatos p{
+    text-align: end;
+}
+
+.steps #tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.steps #tarjetaDatos {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
