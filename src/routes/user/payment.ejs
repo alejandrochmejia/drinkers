@@ -27,6 +27,15 @@
                 <button class="nextStep">Siguiente</button>
             </div>
         </article>
+        <article id="addressStep" class="selectedArrow steps">
+            <p>Ingrese su direccion y dia de entrega</p>
+            <input type="text" placeholder="Direccion" id="addressInput">
+            <input type="date" id="dateInput" min="<%= new Date().toISOString().split('T')[0] %>">
+            <div id="controlBtns">
+                <button class="backStep">Regresar</button>
+                <button class="nextStep">Siguiente</button>
+            </div>
+        </article>
         <article id="secondStep" class="selectedArrow steps">
             <h3>Paso 2</h3>
             <h4>Facturacion</h4>
@@ -36,7 +45,7 @@
                 <p id="cedulaFactura"><span>Cedula:</span> <%= usuario.cedula %></p>
                 <p id="emailFactura"><span>Email:</span> <%= usuario.email %></p>
                 <p id="numeroFactura"><span>Numero Telefonico:</span> <span class="paymentValue" id="phone"></span> </p>
-                <p id="envioFactura"></p>
+                <p id="envioFactura"><span>Direccion:</span> <span class="paymentValue" id="address"><%= usuario.direccion %></span></p>
             </div>
             <div>
                 <p>IVA: <span id="iva" class="paymentValue"><%= iva.tasa %></span> %</p>
@@ -48,6 +57,7 @@
                 <button class="nextStep">Siguiente</button>
             </div>
         </article>
+
         <article id="thirdStep" class="selectedArrow steps">
             <h3>Paso 3</h3>
             <h4>Metodo de Pago</h4>

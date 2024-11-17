@@ -2,11 +2,14 @@
 //document.querySelector('#firstStep').style.display = 'none';
 document.querySelector('#secondStep').style.display = 'none';
 document.querySelector('#thirdStep').style.display = 'none';
+document.querySelector('#addressStep').style.display = 'none';
 
 //Variables
 var baseImponible = 0;
 const iva = parseFloat(document.querySelector('#iva').textContent)
 let products = []
+let address = ''
+let date = ''
 
 //Evento de Regresar Paso
 document.querySelectorAll('.steps .backStep').forEach(button => {
@@ -16,6 +19,9 @@ document.querySelectorAll('.steps .backStep').forEach(button => {
         if(step.id === 'firstStep'){
             window.location.href = '/'
             return
+        }
+        if(previousStep.id === 'secondStep' || previousStep.id === 'addressStep'){
+            previousStep = document.querySelector('#firstStep')
         }
         step.style.display = 'none';
         previousStep.style.display = 'flex';
@@ -53,16 +59,35 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                 })
             );
         }
+        if(document.querySelector('#firstStep select').value === 'delivery'){
+            nextStep = document.querySelector('#addressStep')
+        }
+        else {
+            nextStep = document.querySelector('#secondStep')
+            document.querySelector('#address').textContent = 'Retiro en Tienda'
+        }
+
+        if(step.id === 'addressStep'){
+            if(document.querySelector('#addressInput').value.length > 0){
+                document.querySelector('#address').textContent = document.querySelector('#addressInput').value
+            }
+            address = document.querySelector('#address').value
+            date = document.querySelector('#dateInput').value
+
+            nextStep = document.querySelector('#secondStep')
+        }
+
+
         if(nextStep.id === 'secondStep'){
-            Swal.fire({
-                title: "Ingrese un numero telefonico",
-                input: "number",
-                confirmButtonText: "Confirmar",
-                allowOutsideClick: () => !Swal.isLoading()
-              }).then((result) => {
-                const phone = result.value
-                document.querySelector('#phone').textContent = phone
-              });
+                Swal.fire({
+                    title: "Ingrese un numero telefonico",
+                    input: "number",
+                    confirmButtonText: "Confirmar",
+                    allowOutsideClick: () => !Swal.isLoading()
+                  }).then((result) => {
+                    const phone = result.value
+                    document.querySelector('#phone').textContent = phone
+                  });
         }
         step.style.display = 'none';
         nextStep.style.display = 'flex';
