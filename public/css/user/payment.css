@@ -102,3 +102,7 @@
 .steps p span {
     font-weight: bold;
 }
+
+.steps .paymentValue {
+    font-weight: normal;
+}

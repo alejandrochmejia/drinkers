@@ -26,6 +26,16 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    Swal.fire({
+        title: "Ingrese un numero telefonico",
+        input: "number",
+        confirmButtonText: "Confirmar",
+        allowOutsideClick: () => !Swal.isLoading()
+      }).then((result) => {
+        const phone = result.value
+        document.querySelector('#phone').textContent = phone
+      });
     let products = []
     for(let i = 0; i < window.sessionStorage.length; i++){
         products.push(JSON.parse(window.sessionStorage.getItem(window.sessionStorage.key(i))))

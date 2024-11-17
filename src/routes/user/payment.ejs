@@ -35,11 +35,12 @@
                 <p id="apellidoFactura"><span>Apellido:</span> <%= usuario.apellido %></p>
                 <p id="cedulaFactura"><span>Cedula:</span> <%= usuario.cedula %></p>
                 <p id="emailFactura"><span>Email:</span> <%= usuario.email %></p>
+                <p id="numeroFactura"><span>Numero Telefonico:</span> <span class="paymentValue" id="phone"></span> </p>
                 <p id="envioFactura"></p>
             </div>
             <div>
-                <p>IVA: <span id="iva"><%= iva.tasa %></span> %</p>
-                <p>Base Imponible: <span id="baseImponible"></span> $</p>
+                <p>IVA: <span id="iva" class="paymentValue"><%= iva.tasa %></span> %</p>
+                <p>Base Imponible: <span id="baseImponible" class="paymentValue"></span> $</p>
                 <h4>Total (IVA):  <span id="total"></span> $</h4>
             </div>
             <div id="controlBtns">
@@ -49,5 +50,6 @@
         </article>
     </section>
     <script src="/js/user/payment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
