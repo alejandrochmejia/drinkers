@@ -20,6 +20,7 @@
     align-items: center;
     flex-direction: column;
     gap: 1em;
+    width: clamp(300px, 50%, 400px);
 }
 
 .steps h3 {
@@ -32,6 +33,10 @@
     clip-path: polygon(91% 0, 100% 50%, 90% 100%, 0% 100%, 8% 52%, 0% 0%);
     background-color: #F1F6FD;
     color: #040C5D;
+}
+
+.steps p {
+    text-align: center;
 }
 
 .steps input {
@@ -74,4 +79,14 @@
 
 .steps .nextStep:hover {
     background-color: #0b18aa;
+}
+
+.steps select {
+    border: solid 1px #B1CEF4;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    padding: 1em;
+    font-family: Montserrat;
+    transition: border 0.3s;
 }

@@ -27,7 +27,10 @@
         <article id="secondStep" class="selectedArrow steps">
             <h3>Paso 2</h3>
             <p>¿Deseas recoger tu pedido (Pickup) o prefieres que te lo enviemos a domicilio (Delivery)?</p>
-            <input required type="number" placeholder="C.I">
+            <select required>
+                <option value="pickup">Pickup</option>
+                <option value="delivery">Delivery</option>
+            </select>
             <div id="controlBtns">
                 <button class="backStep">Regresar</button>
                 <button class="nextStep">Siguiente</button>

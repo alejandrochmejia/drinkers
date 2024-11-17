@@ -5,6 +5,7 @@ let email = document.getElementById('Correo');
 let contraseña = document.getElementById('Password');
 let user = document.getElementById('Username');
 let direccion = document.getElementById("Direccion");
+let cedula = document.getElementById("Cedula");
 const Button = document.getElementById('Cuenta');
 
 // Funcion que valida el correo
@@ -33,9 +34,9 @@ contraseña.addEventListener('input',()=>{
 
 Button.addEventListener('click', (e)=>{
     e.preventDefault()
-    if (Nombre.value == 0 && Apellido.value == 0 && email.value == 0 && contraseña.value == 0 && nacimiento.value == 0 && user.value == 0 && direccion.value == 0) {
+    if (Nombre.value == 0 && Apellido.value == 0 && email.value == 0 && contraseña.value == 0 && nacimiento.value == 0 && user.value == 0 && direccion.value == 0 && cedula.value == 0) {
         alert("Todos los campos esta vacios para hacer la cuenta rellene los campos")
-    } else if(Nombre.value == 0 || Apellido.value == 0 || email.value == 0 || contraseña.value == 0 || nacimiento.value == 0 || user.value == 0 || direccion.value == 0){
+    } else if(Nombre.value == 0 || Apellido.value == 0 || email.value == 0 || contraseña.value == 0 || nacimiento.value == 0 || user.value == 0 || direccion.value == 0 || cedula.value == 0){
         alert("Alguns campos no esta completos por favor complete los campos faltantes")
     }else {
         fetch('/register', {
@@ -50,7 +51,8 @@ Button.addEventListener('click', (e)=>{
                 password: contraseña.value,
                 nacimiento: nacimiento.value,
                 username: user.value,
-                direccion: direccion.value
+                direccion: direccion.value,
+                cedula: cedula.value
             })
         })
         .then(res => res.json())

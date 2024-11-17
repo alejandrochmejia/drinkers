@@ -29,6 +29,7 @@ CREATE TABLE CLIENTES (
   nombre VARCHAR(255) NOT NULL,
   apellido VARCHAR(255) NOT NULL,
   direccion VARCHAR(255),
+  cedula INT NOT NULL,
   status VARCHAR(255) NOT NULL DEFAULT 'active'
 );
 
