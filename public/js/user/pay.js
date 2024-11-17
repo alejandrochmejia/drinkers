@@ -27,7 +27,7 @@ for (let mode of modes) {
             selectedMode.style.background = '#EBEBEB';
             selectedMode.style.color = '#040C5D';
             let selectedImage = selectedMode.querySelector('img');
-            if (selectedImage) {selectedImage.src = '../../../../public/images/icons/checkunfill.svg';}
+            if (selectedImage) {selectedImage.src = '/images/icons/checkunfill.svg';}
         }
 
         // Asignar el nuevo modo seleccionado
@@ -37,7 +37,7 @@ for (let mode of modes) {
         selectedMode.style.color = '#EBEBEB';
 
         let selectedImage = selectedMode.querySelector('img');
-        if (selectedImage) {selectedImage.src = '../../../../public/images/icons/checkfill.svg';} // Cambia a la nueva imagen
+        if (selectedImage) {selectedImage.src = '/images/icons/checkfill.svg';} // Cambia a la nueva imagen
     });
 }
 
@@ -89,13 +89,13 @@ for (let paymode of paymodes){
             paymodeSelected.style.background = '#EBEBEB';
             paymodeSelected.style.color = '#040C5D';
             let selectedImage = paymodeSelected.querySelector('img');
-            selectedImage.src = '../../../../public/images/icons/checkunfill.svg';
+            selectedImage.src = '/images/icons/checkunfill.svg';
             paymodeSelected = container;
             paymodeSelected.classList.add('selected-container');
             paymodeSelected.style.background = '#040C5D';
             paymodeSelected.style.color = '#EBEBEB';
             selectedImage = paymodeSelected.querySelector('img');
-            selectedImage.src = '../../../../public/images/icons/checkfill.svg'; // Cambia a la nueva imagen
+            selectedImage.src = '/images/icons/checkfill.svg'; // Cambia a la nueva imagen
         }
     });
 }

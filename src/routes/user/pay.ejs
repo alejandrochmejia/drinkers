@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drinkers</title>
-    <link rel="stylesheet" href="../content.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/user/pay.css">
+    <link rel="stylesheet" href="/css/user/general.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
                 <h3 style="cursor: pointer;" onclick="return Modal()">x</h3>
             </div>
             <hr>
-            <form class="form-direccion">
+            <form id="form-envio" class="form-direccion">
                 <input placeholder="Nombre y Apellido" type="text" style="grid-column: 1/4;" class="input-direccion">
                 <select placeholder="Tipo" style="grid-column: 4/5;" class="input-direccion">
                     <option>V</option>
@@ -36,12 +36,6 @@
             </div>
         </div>
     </section>
-
-    <%- include('../partials/user-header') %>
-
-    <%- include('../partials/chat') %>
-
-    <%- include('../partials/cart') %>
 
     <main>
         <section class="arrows">
@@ -65,22 +59,23 @@
 
         <section id="first-step">
             <div class="subcontainer selectMode" id="selected-container">
-                <img class="check" src="../../../../public/images/icons/checkfill.svg">
+                <img class="check" src="/images/icons/checkfill.svg">
                 <h3 class="container-title">Delivery</h3>
                 <p class="container-content">Seleccione esta opcion si quieres que enviemos tu pedido con uno de nuestros Zoneros</p>
             </div>
             <div class="subcontainer selectMode">
-                <img class="check" src="../../../../public/images/icons/checkunfill.svg">
+                <img class="check" src="/images/icons/checkunfill.svg">
                 <h3 class="container-title">Pick up/Retirar en local</h3>
                 <p class="container-content">Seleccione esta opcion si quieres buscar tu pedido en nuestra Zona Pick Up</p>
             </div>
             <div class="big-container">
-                <h2 style="grid-column: 1/5; margin-left: 3vmin;">Alejandro Chávez • 0000000000 • 32278392</h2>
-                <img src="../../../../public/images/icons/edit.svg" style="grid-column: 5 / 5; justify-self: center;align-self: center; cursor: pointer;" onclick="return Modal()">
+                <h2 style="grid-column: 1/5; margin-left: 3vmin;"><%= usuario.nombre %> • --- • ---</h2>
+                <img src="/images/icons/edit.svg" style="grid-column: 5 / 5; justify-self: center;align-self: center; cursor: pointer;" onclick="return Modal()">
                 <p style="grid-row: 2/2; grid-column: 1/5; margin-left: 3vmin;">Carabobo • Naguanagua • Los Guayabitos</p>
                 <p style="grid-row: 3/3; grid-column: 1/5; margin-left: 3vmin;">Residencias el Saman, edif azul con blanco, porton negro, justo al frente del restaurante club guayabal</p>
                 <p style="grid-row: 4/4; grid-column: 1/4; color: red; margin-left: 3vmin;">Sin geolocalización incluida</p>
                 <button onclick=firstButtonClicked() id="button-step1" class="button-siguiente" style="grid-row: 4/4; grid-column: 5/5; margin-left: 3vmin;">Siguiente</button>
+                <button class="button-siguiente" onclick="window.location.href='/'" style="grid-row: 4/4; grid-column: 4/5;">Regresar</button>
             </div>
         </section>
 
@@ -115,12 +110,12 @@
 
         <section id="fourth-step">
             <div id="paymode-selected" style="display: none; grid-row: 1/3; grid-column: 1/5;" class="subcontainer paymode">
-                <img class="check" src="../../../../public/images/icons/checkfill.svg">
+                <img class="check" src="/images/icons/checkfill.svg">
                 <h3 class="container-title">Pago Único</h3>
                 <p class="container-content">Seleccione esta opcion si tu pago es por un solo metodo</p>
             </div>
             <div style="display: none; grid-row: 1/3; grid-column: 5/9;" class="subcontainer paymode">
-                <img class="check" src="../../../../public/images/icons/checkunfill.svg">
+                <img class="check" src="/images/icons/checkunfill.svg">
                 <h3 class="container-title">Multipagos</h3>
                 <p class="container-content">Seleccione esta opcion si son varios metodos de pago</p>
             </div>
@@ -140,10 +135,10 @@
                 </div>
 
                 <div style="display: flex; margin-top: 1vmin;">
-                    <img src="../../../../public/images/icons/visa.svg" alt="">
-                    <img src="../../../../public/images/icons/mastercard.svg" alt="">
-                    <img src="../../../../public/images/icons/maestro.svg" alt="">
-                    <img src="../../../../public/images/icons/americanexpress.svg" alt="">
+                    <img src="/images/icons/visa.svg" alt="">
+                    <img src="/images/icons/mastercard.svg" alt="">
+                    <img src="/images/icons/maestro.svg" alt="">
+                    <img src="/images/icons/americanexpress.svg" alt="">
                 </div>
             </div>
 
@@ -180,35 +175,11 @@
         </section>
     </main>
 
-    <footer>
-        <h3>Atención al cliente</h3>
-        <ul>
-            <li>0000-000000000</li>
-            <li>Hora de ATC: 24h</li>
-            <li>Horarios de entrega: Valencia, Naguanagua y San Diego: 24h</li>
-            <li>Envío en menos de 3 horas gratis el mismo día</li>
-            <li>¿Quienes somos?</li>
-            <li>Preguntas Frecuentes</li>
-            <li>Zona de repartos</li>
-            <li>Términos y Condiciones</li>
-            <li>Políticas de Privación</li>
-            <li>Políticas de Devolución</li>
-        </ul>
+    <%- include('../partials/footer') %>
 
-        <section>
-            <section>
-                <div></div>
-                <div></div>
-                <div></div>
-            </section>
-            <article>
-                <img src="../../../../public/images/Logo/logo-landing.png">
-                <h2>Drinkers</h2>
-            </article>
-        </section>
-    </footer>
-    <script src="../content.js"></script>
-    <script src="main.js"></script>
+
+    <script src="/js/user/index.js"></script>
+    <script src="/js/user/pay.js"></script>
     <script>
         document.querySelector('.number-input').addEventListener('input', function() {
             if (this.value < 0) {

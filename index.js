@@ -56,7 +56,7 @@ const secret = process.env.AUTH_SECRET;
 const apiKey = process.env.GEMINI_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash-8b",
+    model: "gemini-1.5-pro",
 });
   
 // Configuración de la generación de texto
@@ -64,7 +64,7 @@ const generationConfig = {
     temperature: 0.3,
     topP: 0.9,
     topK: 30,
-    maxOutputTokens: 100,
+    maxOutputTokens: 200,
     responseMimeType: "text/plain",
 };
 
@@ -75,7 +75,7 @@ const chatSession = model.startChat({
         {
             role: "user",
             parts: [
-                {text: "Hola, quiero aprender sobre licores. Se muy Breve"},
+                {text: "Hola, quiero aprender sobre licores."},
             ],
         },
         {
@@ -214,9 +214,11 @@ app.get('/returns', (req, res) => {
     res.render('user/returns');
 })
 
-app.get('/payment',authenticate.authenticateJWT, (req, res) => {
+app.get('/payment',authenticate.authenticateJWT, async (req, res) => {
     //Despues utilizar jwt para oobtene el email con verify
-    res.render('user/pay');
+    const email = jwt.verify(req.cookies.token, JWT_KEY).email;
+    const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
+    res.render('user/pay', {usuario: usuario[0]});
 })
 
 //Login
@@ -485,3 +487,32 @@ app.post('/getUser', async (req, res) => {
     if(token) res.send(JSON.stringify({mensaje: true}));
     else res.send(JSON.stringify({mensaje: null}));
 })
+
+//Coordinar la ruta del envio Tiempo y Distancia
+app.post('/bot/route', async (req, res) => {
+    const message = req.body.direccion;
+    const destino = 'Carabobo, Valencia, El Vinedo cerca de sushi ceviche'
+    const result = await chatSession.sendMessage('Dime que tan lejos esta la siguiente ubicacion'+destino+'.Hasta la siguiente'+message+'.Y damelo en un formato JSON, que tenga su distancia en KM(distancia), tiempo en carro(tiempo), estado, pais, ciudad. Solo dame esa informacion no mas solo el json, solo los corchetes nada mas');
+    
+    function extractAndParseJson(input) {
+        const regex = /```json\s*([\s\S]*?)```/;
+        const match = input.match(regex);
+
+        if (match && match[1]) {
+            const jsonString = match[1].trim();
+            try {
+                const jsonObject = JSON.parse(jsonString);
+                return jsonObject;
+            } catch (error) {
+                console.error("Error al parsear JSON:", error);
+                return null;
+            }
+        } else {
+            console.error("No se encontró un bloque JSON válido.");
+            return null;
+        }
+    }
+
+    res.send(extractAndParseJson(result.response.text())[0]);
+})
+
