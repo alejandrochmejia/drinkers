@@ -11,7 +11,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
+}
+
+#main h1 {
+    font-size: 2rem;
 }
 
 .steps {
@@ -19,7 +23,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
     width: clamp(300px, 50%, 400px);
 }
 
@@ -89,4 +93,12 @@
     padding: 1em;
     font-family: Montserrat;
     transition: border 0.3s;
+}
+
+.steps h4 {
+    font-size: 1.5rem;
+}
+
+.steps p span {
+    font-weight: bold;
 }

@@ -216,9 +216,10 @@ app.get('/returns', (req, res) => {
 
 app.get('/payment',authenticate.authenticateJWT, async (req, res) => {
     //Despues utilizar jwt para oobtene el email con verify
+    const iva = await getOne(process.env.MYSQL_DATABASE + '.IMPUESTOS', 1);
     const email = jwt.verify(req.cookies.token, JWT_KEY).email;
     const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
-    res.render('user/payment', {usuario: usuario[0]});
+    res.render('user/payment', {usuario: usuario[0], iva: iva[0]});
 })
 
 //Login

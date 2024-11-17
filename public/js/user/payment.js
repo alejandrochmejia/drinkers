@@ -1,4 +1,7 @@
-document.querySelector('#secondStep').style.display = 'none';
+//document.querySelector('#secondStep').style.display = 'none';
+document.querySelector('#firstStep').style.display = 'none';
+
+var baseImponible = 0;
 
 document.querySelectorAll('.steps .backStep').forEach(button => {
     button.addEventListener('click', e => {
@@ -20,4 +23,15 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
         step.style.display = 'none';
         nextStep.style.display = 'flex';
     })
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    let products = []
+    for(let i = 0; i < window.sessionStorage.length; i++){
+        products.push(JSON.parse(window.sessionStorage.getItem(window.sessionStorage.key(i))))
+        baseImponible += parseFloat(products[i].precio) * parseInt(products[i].cantidad)
+    }
+    document.querySelector('#baseImponible').textContent = baseImponible.toFixed(2)
+    const iva = parseFloat(document.querySelector('#iva').textContent) / 100
+    document.querySelector('#total').textContent = (baseImponible + (baseImponible * iva)).toFixed(2)
 })

@@ -55,7 +55,6 @@ header .Content .Login__Title h2{
     color: #F8F7F2;
 }
 header .Content .Form-register{
-    
     display: flex;
     flex-flow: column;
     align-items: center;

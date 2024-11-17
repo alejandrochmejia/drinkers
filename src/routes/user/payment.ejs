@@ -17,8 +17,11 @@
         <h1>Pasarela de Pago</h1>
         <article id="firstStep" class="selectedArrow steps">
             <h3>Paso 1</h3>
-            <p>Ingrese su cedula de identidad para generar la factura</p>
-            <input required type="number" placeholder="C.I">
+            <p>¿Deseas recoger tu pedido (Pickup) o prefieres que te lo enviemos a domicilio (Delivery)?</p>
+            <select required>
+                <option value="pickup">Pickup</option>
+                <option value="delivery">Delivery</option>
+            </select>
             <div id="controlBtns">
                 <button class="backStep">Regresar</button>
                 <button class="nextStep">Siguiente</button>
@@ -26,11 +29,19 @@
         </article>
         <article id="secondStep" class="selectedArrow steps">
             <h3>Paso 2</h3>
-            <p>¿Deseas recoger tu pedido (Pickup) o prefieres que te lo enviemos a domicilio (Delivery)?</p>
-            <select required>
-                <option value="pickup">Pickup</option>
-                <option value="delivery">Delivery</option>
-            </select>
+            <h4>Facturacion</h4>
+            <div>
+                <p id="nameFactura"><span>Nombre:</span> <%= usuario.nombre %></p>
+                <p id="apellidoFactura"><span>Apellido:</span> <%= usuario.apellido %></p>
+                <p id="cedulaFactura"><span>Cedula:</span> <%= usuario.cedula %></p>
+                <p id="emailFactura"><span>Email:</span> <%= usuario.email %></p>
+                <p id="envioFactura"></p>
+            </div>
+            <div>
+                <p>IVA: <span id="iva"><%= iva.tasa %></span> %</p>
+                <p>Base Imponible: <span id="baseImponible"></span> $</p>
+                <h4>Total (IVA):  <span id="total"></span> $</h4>
+            </div>
             <div id="controlBtns">
                 <button class="backStep">Regresar</button>
                 <button class="nextStep">Siguiente</button>
