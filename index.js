@@ -522,6 +522,7 @@ app.post('/bot/route', async (req, res) => {
 
 app.post('/payment', async (req, res) => {
     const { products, baseImponible: base , iva, total, fecha } = req.body;
+    //Contruccion de la Factura
     const {email} = jwt.verify(req.cookies.token, JWT_KEY);
     const user = (await getAll(process.env.MYSQL_DATABASE + '.CLIENTES')).find(c => c.email == email);
     const id_user = user.id;
@@ -531,6 +532,46 @@ app.post('/payment', async (req, res) => {
     while (facturas.find(f => f.control == control)) {
         control = randomInt(100000, 999999);
     }
+
     await create(process.env.MYSQL_DATABASE + '.FACTURA', {id, base, iva, total, id_user, control, fecha });
+
+
+    //Contruccion de Productos Facturados
+      
+    // Convertir el objeto en un array de objetos
+    const productos = Object.entries(products).map(([key, value]) => {
+        return {
+          nombre: key,
+          ...JSON.parse(value)
+        };
+    });
+
+
+
+    for (const product of productos) {
+        // Obtener el producto del inventario
+        const producto = (await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')).find(p => p.nombre_producto == product.nombre);
+        
+        if (!producto) {
+            console.error(`Producto no encontrado: ${product.nombre}`);
+            continue;
+        }
+        const id_producto = producto.id;
+        const ingresos = product.cantidad * producto.precio_detal;
+        const facturaExists = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.FACTURA WHERE id = ?`, [id]);
+    
+        if (facturaExists.length === 0) {
+            console.error(`Factura con id ${id} no existe. No se puede insertar el producto.`);
+            continue;
+        }
+    
+        try {
+            await create(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS', { id_factura: id, id_producto, cantidad: product.cantidad, ingresos });
+        } catch (error) {
+            console.error("Error al insertar en PRODUCTOS_FACTURADOS: ", error);
+        }
+    }
+
+    //Creacion de la Factura
     res.send(JSON.stringify({mensaje: 'Compra Exitosa'}));
 })

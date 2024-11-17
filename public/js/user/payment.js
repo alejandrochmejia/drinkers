@@ -35,7 +35,7 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    products: products,
+                    products: window.sessionStorage,
                     baseImponible: baseImponible,
                     iva: iva,
                     total: baseImponible + (baseImponible * (iva/100)),
@@ -49,6 +49,7 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                     icon: "success"
                 }).then(() => {
                     //Limpiar Carrito
+                    
                 })
             );
         }
