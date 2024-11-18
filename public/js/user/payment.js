@@ -9,7 +9,7 @@ var baseImponible = 0;
 const iva = parseFloat(document.querySelector('#iva').textContent)
 let products = []
 let address = ''
-let date = ''
+let entrega = ''
 
 //Evento de Regresar Paso
 document.querySelectorAll('.steps .backStep').forEach(button => {
@@ -30,7 +30,7 @@ document.querySelectorAll('.steps .backStep').forEach(button => {
 
 //Evento de Siguiente Paso
 document.querySelectorAll('.steps .nextStep').forEach(button => {
-    button.addEventListener('click', e => {
+    button.addEventListener('click',async e => {
         let step = e.currentTarget.parentElement.parentElement;
         let nextStep = step.nextElementSibling;
         if (!nextStep){
@@ -62,7 +62,7 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
         if(document.querySelector('#firstStep select').value === 'delivery'){
             nextStep = document.querySelector('#addressStep')
         }
-        else {
+        if(document.querySelector('#firstStep select').value === 'pickup') {
             nextStep = document.querySelector('#secondStep')
             document.querySelector('#address').textContent = 'Retiro en Tienda'
         }
@@ -72,11 +72,38 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                 document.querySelector('#address').textContent = document.querySelector('#addressInput').value
             }
             address = document.querySelector('#address').value
-            date = document.querySelector('#dateInput').value
+            entrega = document.querySelector('#dateInput').value
+
+            e.target.textContent = 'Loading...';
+            e.target.disabled = true;
+    
+
+            await fetch('/bot/route',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    direccion: address,
+                }),
+            }).then(response => response.json())
+            .then(data => {
+                console.log(data)
+                const distancia = parseFloat(data.distancia)
+                baseImponible += distancia * 0.5
+                document.querySelector('#baseImponible').textContent = baseImponible.toFixed(2)
+                document.querySelector('#total').textContent = (baseImponible + (baseImponible * (iva / 100))).toFixed(2)
+            }).finally(() => {
+                e.target.textContent = 'Siguiente';
+                e.target.disabled = false;
+            })
 
             nextStep = document.querySelector('#secondStep')
         }
 
+        if(step.id === 'secondStep'){
+            nextStep = document.querySelector('#thirdStep')
+        }
 
         if(nextStep.id === 'secondStep'){
                 Swal.fire({

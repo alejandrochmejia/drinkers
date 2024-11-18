@@ -497,7 +497,6 @@ app.post('/bot/route', async (req, res) => {
     const message = req.body.direccion;
     const destino = 'Carabobo, Valencia, El Vinedo cerca de sushi ceviche'
     const result = await chatSession.sendMessage('Dime que tan lejos esta la siguiente ubicacion'+destino+'.Hasta la siguiente'+message+'.Y damelo en un formato JSON, que tenga su distancia en KM(distancia), tiempo en carro(tiempo), estado, pais, ciudad. Solo dame esa informacion no mas solo el json, solo los corchetes nada mas');
-    
     function extractAndParseJson(input) {
         const regex = /```json\s*([\s\S]*?)```/;
         const match = input.match(regex);
@@ -506,18 +505,26 @@ app.post('/bot/route', async (req, res) => {
             const jsonString = match[1].trim();
             try {
                 const jsonObject = JSON.parse(jsonString);
-                return jsonObject;
+                return res.send(extractAndParseJson(result.response.text())[0]);;
             } catch (error) {
                 console.error("Error al parsear JSON:", error);
+                res.send({
+                    distancia: 4
+                });
                 return null;
             }
         } else {
             console.error("No se encontró un bloque JSON válido.");
-            return null;
+            res.send({
+                distancia: 4
+            });
+            return
         }
     }
-
-    res.send(extractAndParseJson(result.response.text())[0]);
+    res.send({
+        distancia: 4
+    });
+    
 })
 
 app.post('/payment', async (req, res) => {
