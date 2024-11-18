@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Qr</title>
+    <link rel="stylesheet" href="/css/admin/consulta.css">
+    <link rel="stylesheet" href="/css/admin/minorista.css">
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <p>Consulte su Factura indicando el identificador(ID) o El numero de Control </p>
+        <section id="containerInputConsulta">
+            <label for="inputConsulta">
+                <img alt="Lupa" src="/images/icons/search.png" id="lupaConsulta">
+            </label>
+            <input type="number" placeholder="ID" id="inputConsulta">
+            <select id="selectConsulta">
+                <option selected value="0">ID</option>
+                <option value="1">Control</option>
+            </select>
+        </section>
+    </main>
+    <script src="/js/admin/consulta.js"></script>
+</body>
+</html>

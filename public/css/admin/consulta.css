@@ -1,0 +1,30 @@
+main #inputConsulta {
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+main #inputConsulta:focus {
+    outline: none;
+}
+
+#lupaConsulta {
+    height: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+main #containerInputConsulta {
+    height: 3em;    
+    display: flex;
+    width: 25%;
+    border: 1px solid #000;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+main p {
+    font-size: 1.3rem;
+    margin: 0;
+}

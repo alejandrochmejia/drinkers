@@ -346,6 +346,11 @@ app.get('/admin/avisos',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/avisos', {avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS')});
 });
 
+//Envios Mayorista
+app.get('/admin/consulta',authenticate.authenticateOTP, async (req, res) => {
+    res.render('admin/consulta');
+});
+
 //Obtener los 5 productos mas vendidos
 app.get('/api/productos/vendidos', async (req, res) => {
 
@@ -698,4 +703,28 @@ app.post('/pdf', async (req, res) => {
     res.setHeader('Content-Disposition', 'attachment; filename=facturaDrinkers.pdf');
     doc.pipe(res);
     doc.end();
+})
+
+//Obtener factura en consultas
+app.post('/admin/consulta', async (req, res) => {
+    const { numero, categoria } = req.body;
+    let factura;
+
+    if(categoria == 'id'){
+        factura = await getOne(process.env.MYSQL_DATABASE + '.FACTURA', 26);
+        if(factura.length === 0) {
+            return res.send(JSON.stringify({mensaje: 'Factura no encontrada'}));
+        }
+    }
+    else{
+        factura = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.FACTURA WHERE control = ?`, [parseInt(numero)]);
+        console.log(factura)
+        if(factura.length === 0) {
+            return res.send(JSON.stringify({mensaje: 'Factura no encontrada'}));
+        }
+    }
+
+    console.log(factura)
+
+    res.send(JSON.stringify(factura));
 })

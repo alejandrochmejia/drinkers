@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drinkers || Gerente</title>
     <link rel="stylesheet" href="/css/admin/mayorista.css">
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
 </head>
 <body>
     <%- include('../partials/header'); %>
@@ -30,9 +31,7 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Id__usuario</th>
                     <th>Destino</th>
-                    <th>Monto</th>
                     <th>Fecha de entrega</th>
                     <th>Id__factura</th>
                     <th>Status</th>
@@ -43,9 +42,7 @@
                         <% if(envios[i].tipo === 'mayorista') { %>
                         <tr>
                             <td><%= envios[i].id %></td>
-                            <td><%= envios[i].id_user %></td>
                             <td><%= envios[i].destino %></td>
-                            <td><%= envios[i].monto %> $</td>
                             <td><%= envios[i].entrega.toLocaleDateString() %></td>
                             <td><%= envios[i].id_factura %></td>
                             <td><%= envios[i].status %></td>

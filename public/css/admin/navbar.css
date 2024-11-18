@@ -1,6 +1,6 @@
 nav .Navigator--bar{
     width: 6%;
-    height: 88.6vh;
+    height: 90dvh;
     background-color: var(--ColorNavigatorBar);
     padding: 12px;
 }
@@ -18,7 +18,7 @@ nav .List svg{
     background-color: var(--PrimaryColor);
     fill: var(--SecondaryColor);
     outline-offset: 2px;
-    padding: 2px 2px;
+    padding: 4px;
 }
 .List svg:hover{
     background-color: var(--ColorNavigatorBar);
