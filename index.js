@@ -602,6 +602,7 @@ app.post('/payment', async (req, res) => {
     res.send(JSON.stringify({mensaje: 'Compra Exitosa', factura: id}));
 })
 
+//Generacion de PDF de la Factura
 app.post('/pdf', async (req, res) => {
     const id = req.body.id;
     const factura = await getOne(process.env.MYSQL_DATABASE + '.FACTURA', id);
@@ -622,7 +623,7 @@ app.post('/pdf', async (req, res) => {
     
     const { base, iva, total, fecha, control } = factura[0];
     const { nombre, apellido, direccion, cedula } = (await getOne(process.env.MYSQL_DATABASE + '.CLIENTES', factura[0].id_user))[0];
-    const doc = generatePDF(productosFacturados, base, iva, total, fecha, direccion, control);
+    const doc = generatePDF(productosFacturados, base, iva, total, fecha, direccion, control, nombre, apellido, cedula);
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'attachment; filename=facturaDrinkers.pdf');
     doc.pipe(res);
