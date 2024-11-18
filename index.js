@@ -70,6 +70,7 @@ const generationConfig = {
 };
 
 //Darle contexto al chatbot
+const inventarioBot = await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO');
 const chatSession = model.startChat({
     generationConfig,
     history: [
@@ -85,6 +86,18 @@ const chatSession = model.startChat({
                 {text: "¡Hola! Con gusto te puedo ayudar. ¿Sobre qué tipo de licores te gustaría aprender? Tenemos whisky, vodka, ron, tequila, etc."},
             ],
         },
+        {
+            role: "user",
+            parts: [
+                {text: "Que tienes en el inventario."},
+            ],
+        },
+        {
+            role: "model",
+            parts: [
+                {text: `${inventarioBot.map(p => p.nombre_producto).join(', ')}`},
+            ],
+        }
     ]
 });
 
