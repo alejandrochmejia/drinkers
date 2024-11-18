@@ -546,7 +546,7 @@ app.post('/payment', async (req, res) => {
     if(entrega.length > 0) {
         const envios = await getAll(process.env.MYSQL_DATABASE + '.ENVIOS');
         const id_envio = envios.length + 1;
-        await create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, direccion, entrega, id_factura: id});
+        await create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, destino: direccion, entrega, id_factura: id});
     }
 
     //Contruccion de Productos Facturados

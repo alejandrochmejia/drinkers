@@ -57,7 +57,9 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                     icon: "success"
                 }).then(() => {
                     //Limpiar Carrito
-                    
+                    window.sessionStorage.clear()
+                    window.location.href = '/'
+                    return
                 })
             );
         }
