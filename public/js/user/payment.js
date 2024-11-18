@@ -74,9 +74,18 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
         if(step.id === 'addressStep'){
             if(document.querySelector('#addressInput').value.length > 0){
                 document.querySelector('#address').textContent = document.querySelector('#addressInput').value
+                address = document.querySelector('#addressInput').value
             }
-            address = document.querySelector('#addressInput').value
-            entrega = document.querySelector('#dateInput').value
+            else{
+                address = 'Predeterminada'
+            }
+            if(document.querySelector('#dateInput').value.length > 0){
+                entrega = document.querySelector('#dateInput').value
+            }
+            else {
+                entrega = new Date().toISOString().slice(0, 10);
+            }
+            
 
             e.target.textContent = 'Loading...';
             e.target.disabled = true;

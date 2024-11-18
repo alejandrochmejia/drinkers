@@ -25,6 +25,8 @@ import {
     customQuery
 } from './src/controllers/db.controller.js'
 
+import {generatePDF} from './src/controllers/pdf.controller.js'
+
 import authenticate from './src/middleware/authorization.js'
 import { randomInt } from 'crypto';
 
@@ -598,4 +600,20 @@ app.post('/payment', async (req, res) => {
 
     //Creacion de la Factura
     res.send(JSON.stringify({mensaje: 'Compra Exitosa'}));
+})
+
+app.get('/pdf', async (req, res) => {
+    const id = 26;
+    const factura = await getOne(process.env.MYSQL_DATABASE + '.FACTURA', id);
+    const productos = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.PRODUCTOS_FACTURADOS WHERE id_factura = ?`, [id]);
+    const productosFacturados = [];
+
+    // Transformar de ProductoFacturado a Inventario y Darselo a ProductosFacturados
+    
+    const { base, iva, total, fecha, control } = factura[0];
+    const { nombre, apellido, direccion, cedula } = (await getOne(process.env.MYSQL_DATABASE + '.CLIENTES', factura[0].id_user))[0];
+    const doc = generatePDF(productosFacturados, base, iva, total, fecha, direccion, control);
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
+    doc.end();
 })
