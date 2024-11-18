@@ -528,7 +528,7 @@ app.post('/bot/route', async (req, res) => {
 })
 
 app.post('/payment', async (req, res) => {
-    const { products, baseImponible: base , iva, total, fecha } = req.body;
+    const { products, baseImponible: base , iva, total, fecha, entrega, direccion } = req.body;
     //Contruccion de la Factura
     const {email} = jwt.verify(req.cookies.token, JWT_KEY);
     const user = (await getAll(process.env.MYSQL_DATABASE + '.CLIENTES')).find(c => c.email == email);
@@ -542,9 +542,14 @@ app.post('/payment', async (req, res) => {
 
     await create(process.env.MYSQL_DATABASE + '.FACTURA', {id, base, iva, total, id_user, control, fecha });
 
+    // Crear Envio
+    if(entrega.length > 0) {
+        const envios = await getAll(process.env.MYSQL_DATABASE + '.ENVIOS');
+        const id_envio = envios.length + 1;
+        await create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, direccion, entrega, id_factura: id});
+    }
 
     //Contruccion de Productos Facturados
-      
     // Convertir el objeto en un array de objetos
     const productos = Object.entries(products).map(([key, value]) => {
         return {

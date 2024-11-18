@@ -46,6 +46,8 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                     iva: iva,
                     total: baseImponible + (baseImponible * (iva/100)),
                     fecha: new Date().toISOString().slice(0, 10),
+                    direccion: address,
+                    entrega: entrega,
                 }),
                 credentials: 'include'
             }).then(
@@ -71,7 +73,7 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
             if(document.querySelector('#addressInput').value.length > 0){
                 document.querySelector('#address').textContent = document.querySelector('#addressInput').value
             }
-            address = document.querySelector('#address').value
+            address = document.querySelector('#addressInput').value
             entrega = document.querySelector('#dateInput').value
 
             e.target.textContent = 'Loading...';
@@ -88,7 +90,6 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                 }),
             }).then(response => response.json())
             .then(data => {
-                console.log(data)
                 const distancia = parseFloat(data.distancia)
                 baseImponible += distancia * 0.5
                 document.querySelector('#baseImponible').textContent = baseImponible.toFixed(2)
