@@ -141,22 +141,34 @@ app.get('/', async (req,res)=>{
             getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
         ]);
 
+        // Sumar los ingresos de cada producto agrupados por id_producto
+        const ingresosPorProducto = dataJson.reduce((acc, curr) => {
+            if (!acc[curr.id_producto]) {
+                acc[curr.id_producto] = 0;
+            }
+            acc[curr.id_producto] += curr.ingresos;
+            return acc;
+        }, {});
 
-        const top5ProductosConNombres = dataJson
-        .map(e => ({ id: e.id_producto, ingresos: e.ingresos }))
-        .sort((a, b) => b.ingresos - a.ingresos)
-        .slice(0, 5)
-        .map(pv => {
-            const producto = inventario.find(p => p.id == pv.id);
+        // Ordenar los productos por ingresos en orden descendente y obtener los 5 primeros
+        const top5Productos = Object.keys(ingresosPorProducto)
+            .sort((a, b) => ingresosPorProducto[b] - ingresosPorProducto[a])
+            .slice(0, 5);
+
+        // Obtener los detalles de los 5 productos con más ingresos desde el inventario
+        const resultado = top5Productos.map(id => {
+            const producto = inventario.find(p => p.id == id);
             return {
                 nombre_producto: producto ? producto.nombre_producto : 'Producto no encontrado',
                 precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible',
                 imagen: producto ? producto.imagen : '',
+                ingresos: ingresosPorProducto[id]
             };
         });
+
         res.render('index', {
             productos: inventario,
-            top5ProductosConNombres: top5ProductosConNombres
+            top5ProductosConNombres: resultado
         });
 
     } catch (error) {
@@ -287,30 +299,40 @@ app.get('/admin/envios/mayorista',authenticate.authenticateOTP, async (req, res)
 
 //Estadistica
 app.get('/admin/estadistica',authenticate.authenticateOTP, async (req, res) => {
+    const [dataJson, inventario] = await Promise.all([
+        getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
+        getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
+    ]);
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS')
-  
-    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
+    // Sumar los ingresos de cada producto agrupados por id_producto
+    const ingresosPorProducto = dataJson.reduce((acc, curr) => {
+        if (!acc[curr.id_producto]) {
+            acc[curr.id_producto] = 0;
+        }
+        acc[curr.id_producto] += curr.ingresos;
+        return acc;
+    }, {});
 
-    let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
-  
-    productosVentas.sort((a, b) => b.ingresos - a.ingresos);
-  
-    let top5ProductosVentas = productosVentas.slice(0, 5);
-  
-    let top5ProductosConNombres = top5ProductosVentas.map(pv => {
-      let producto = inventario.find(p => p.id == pv.id);
-      return {
-        nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
-        ingresos: pv.ingresos,
-        precio_detal: producto ? producto.precio_detal : 'Precio no disponible'
-      };
+    // Ordenar los productos por ingresos en orden descendente y obtener los 5 primeros
+    const top5Productos = Object.keys(ingresosPorProducto)
+        .sort((a, b) => ingresosPorProducto[b] - ingresosPorProducto[a])
+        .slice(0, 5);
+
+    // Obtener los detalles de los 5 productos con más ingresos desde el inventario
+    const resultado = top5Productos.map(id => {
+        const producto = inventario.find(p => p.id == id);
+        return {
+            nombre_producto: producto ? producto.nombre_producto : 'Producto no encontrado',
+            precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible',
+            imagen: producto ? producto.imagen : '',
+            ingresos: ingresosPorProducto[id]
+        };
     });
 
     res.render('admin/estadistica', {
-        ventas: await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'),
-        inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
-        vendidos: top5ProductosConNombres
+        ventas: dataJson,
+        inventario: inventario,
+        vendidos: resultado
     });
 });
 
@@ -327,26 +349,37 @@ app.get('/admin/avisos',authenticate.authenticateOTP, async (req, res) => {
 //Obtener los 5 productos mas vendidos
 app.get('/api/productos/vendidos', async (req, res) => {
 
-    const dataJson = await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS')
-  
-    const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')
+    const [dataJson, inventario] = await Promise.all([
+        getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
+        getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
+    ]);
 
-    let productosVentas = dataJson.map(e => ({id: e.id_producto, ingresos: e.ingresos}));
-  
-    productosVentas.sort((a, b) => b.ingresos - a.ingresos);
-  
-    let top5ProductosVentas = productosVentas.slice(0, 5);
-  
-    let top5ProductosConNombres = top5ProductosVentas.map(pv => {
-      let producto = inventario.find(p => p.id == pv.id);
-      return {
-        nombre: producto ? producto.nombre_producto : 'Producto no encontrado',
-        ingresos: pv.ingresos,
-        precio_detal: producto ? producto.precio_detal : 'Precio no disponible'
-      };
+    // Sumar los ingresos de cada producto agrupados por id_producto
+    const ingresosPorProducto = dataJson.reduce((acc, curr) => {
+        if (!acc[curr.id_producto]) {
+            acc[curr.id_producto] = 0;
+        }
+        acc[curr.id_producto] += curr.ingresos;
+        return acc;
+    }, {});
+
+    // Ordenar los productos por ingresos en orden descendente y obtener los 5 primeros
+    const top5Productos = Object.keys(ingresosPorProducto)
+        .sort((a, b) => ingresosPorProducto[b] - ingresosPorProducto[a])
+        .slice(0, 5);
+
+    // Obtener los detalles de los 5 productos con más ingresos desde el inventario
+    const resultado = top5Productos.map(id => {
+        const producto = inventario.find(p => p.id == id);
+        return {
+            nombre_producto: producto ? producto.nombre_producto : 'Producto no encontrado',
+            precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible',
+            imagen: producto ? producto.imagen : '',
+            ingresos: ingresosPorProducto[id]
+        };
     });
   
-    res.send(top5ProductosConNombres);
+    res.send(resultado);
 });
 
 //////////////////
@@ -624,12 +657,12 @@ app.post('/payment', async (req, res) => {
             await create(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS', { id_factura: id, id_producto, cantidad: product.cantidad, ingresos });
             
             // Restar la cantidad del producto del inventario
-            const nuevaCantidad = producto.cantidad - product.cantidad;
+            const nuevaCantidad = parseInt(producto.stock) - parseInt(product.cantidad);
             if (nuevaCantidad < 0) {
                 console.error(`No hay suficiente inventario para el producto: ${product.nombre}`);
                 continue;
             }
-            await customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET cantidad = ? WHERE id = ?`, [nuevaCantidad, id_producto]);
+            await customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET stock = ? WHERE id = ?`, [nuevaCantidad, id_producto]);
         } catch (error) {
             console.error("Error al insertar en PRODUCTOS_FACTURADOS o actualizar INVENTARIO: ", error);
         }

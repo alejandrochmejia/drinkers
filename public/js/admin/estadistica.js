@@ -21,11 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             'Content-Type': 'application/json'
         }
     })
-    const data = await response.json()
-
-    console.log(data)
-
-    
+    const data = await response.json()    
     
 })
 
@@ -62,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   })
   const dataJson = await data.json()
 
-  grafica.data.labels = dataJson.map(p => p.nombre);
+  grafica.data.labels = dataJson.map(p => p.nombre_producto);
   grafica.data.datasets[0].data = dataJson.map(p => p.ingresos);
 
   grafica.update();

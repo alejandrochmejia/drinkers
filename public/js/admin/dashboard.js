@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   })
   const dataJson = await data.json()
 
-  grafica.data.labels = dataJson.map(p => p.nombre);
+  grafica.data.labels = dataJson.map(p => p.nombre_producto);
   grafica.data.datasets[0].data = dataJson.map(p => p.ingresos);
 
   grafica.update();
