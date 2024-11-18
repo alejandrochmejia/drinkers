@@ -35,7 +35,7 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
         let nextStep = step.nextElementSibling;
         if (!nextStep){
             //Enviar Peticion de Pago
-            fetch('/payment',{
+            await fetch('/payment',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -50,17 +50,51 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                     entrega: entrega,
                 }),
                 credentials: 'include'
-            }).then(
-                Swal.fire({
+            }).then(response => response.json())
+            .then(data =>
+                (
+                    Swal.fire({
                     title: "Compra Exitosa",
                     text: "Muchas gracias por su compra",
                     icon: "success"
                 }).then(() => {
-                    //Limpiar Carrito
-                    window.sessionStorage.clear()
-                    window.location.href = '/'
+                    // Limpiar Carrito
+                    window.sessionStorage.clear();
+
+                    // Función para descargar el PDF y redirigir
+                    async function downloadPDFAndRedirect(id) {
+                        const response = await fetch('/pdf',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                id: id
+                            })
+                        }); // Cambia la URL según sea necesario
+                        if (response.ok) {
+                            const blob = await response.blob(); // Obtener el archivo PDF como blob
+                            const url = window.URL.createObjectURL(blob); // Crear una URL para el blob
+                            const a = document.createElement('a'); // Crear un elemento <a>
+                            a.href = url;
+                            a.download = 'facturaDrinkers.pdf'; // Nombre del archivo
+                            document.body.appendChild(a); // Agregar el elemento al DOM
+                            a.click(); // Simular clic para descargar
+                            a.remove(); // Eliminar el elemento del DOM
+                            window.URL.revokeObjectURL(url); // Liberar la URL del blob
+
+                            // Redirigir a otra ruta después de la descarga
+                            window.location.href = '/'; // Cambia '/otraRuta' a la ruta deseada
+                        } else {
+                            console.error('Error al descargar el PDF');
+                        }
+                    }
+
+                    // Llamar a la función para descargar el PDF y redirigir
+                    downloadPDFAndRedirect(data.factura);
                     return
-                })
+                }))
             );
         }
         if(document.querySelector('#firstStep select').value === 'delivery'){

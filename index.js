@@ -599,14 +599,24 @@ app.post('/payment', async (req, res) => {
     }
 
     //Creacion de la Factura
-    res.send(JSON.stringify({mensaje: 'Compra Exitosa'}));
+    res.send(JSON.stringify({mensaje: 'Compra Exitosa', factura: id}));
 })
 
-app.get('/pdf', async (req, res) => {
-    const id = 26;
+app.post('/pdf', async (req, res) => {
+    const id = req.body.id;
     const factura = await getOne(process.env.MYSQL_DATABASE + '.FACTURA', id);
     const productos = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.PRODUCTOS_FACTURADOS WHERE id_factura = ?`, [id]);
     const productosFacturados = [];
+
+    for (const producto of productos) {
+        const { nombre_producto, precio_detal } = (await getOne(process.env.MYSQL_DATABASE + '.INVENTARIO', producto.id_producto))[0];
+        productosFacturados.push({
+            nombre: nombre_producto,
+            cantidad: producto.cantidad,
+            precio: precio_detal,
+            ingresos: producto.ingresos
+        });
+    }
 
     // Transformar de ProductoFacturado a Inventario y Darselo a ProductosFacturados
     
@@ -614,6 +624,7 @@ app.get('/pdf', async (req, res) => {
     const { nombre, apellido, direccion, cedula } = (await getOne(process.env.MYSQL_DATABASE + '.CLIENTES', factura[0].id_user))[0];
     const doc = generatePDF(productosFacturados, base, iva, total, fecha, direccion, control);
     res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=facturaDrinkers.pdf');
     doc.pipe(res);
     doc.end();
 })
