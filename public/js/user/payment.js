@@ -108,7 +108,12 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
             nextStep = document.querySelector('#thirdStep')
         }
 
+        if(step.id === 'thirdStep'){
+            nextStep = undefined
+        }
+
         if(nextStep.id === 'secondStep'){
+            
                 Swal.fire({
                     title: "Ingrese un numero telefonico",
                     input: "number",
