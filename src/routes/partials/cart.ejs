@@ -19,10 +19,28 @@
 </aside>
 <script>
 
-    function pay() {
+    async function pay() {
         const cantidadProductos = document.querySelector('aside ul').childElementCount;
         if (cantidadProductos > 0) {
-            window.location.href = '/payment';
+            await fetch('/inventory/available', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({products:window.sessionStorage})
+            }).then(response => response.json())
+            .then(data => {
+                if(data.error){
+                    Swal.fire({
+                        title: 'Error',
+                        text: data.error,
+                        icon: 'error',
+                    })
+                }
+                else{
+                    window.location.href = '/payment';
+                }
+            })
         }
         else {
             Swal.fire({

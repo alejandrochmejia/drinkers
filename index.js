@@ -542,6 +542,35 @@ app.post('/bot/route', async (req, res) => {
     
 })
 
+app.post('/inventory/available', async (req, res) => {
+    let { products } = req.body;
+    let productos = Object.entries(products).map(([key, value]) => {
+        return {
+          nombre: key,
+          ...JSON.parse(value)
+        };
+    });
+    
+    const errores = [];
+
+    for (const { nombre, cantidad } of productos) {
+        const inventario = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.INVENTARIO WHERE nombre_producto = ?`, [nombre]);
+        if (inventario.length === 0) {
+            errores.push(`Producto no encontrado: ${nombre}`);
+            continue;
+        }
+        if (inventario[0].stock < cantidad) {
+            errores.push(`Producto Agotado: ${nombre}`);
+        }
+    }
+
+    if (errores.length > 0) {
+        return res.send(JSON.stringify({ error: errores.join(', ') }));
+    }
+
+    res.send(JSON.stringify({ mensaje: 'Todos los productos están disponibles' }));
+});
+
 app.post('/payment', async (req, res) => {
     const { products, baseImponible: base , iva, total, fecha, entrega, direccion } = req.body;
     //Contruccion de la Factura
@@ -593,8 +622,16 @@ app.post('/payment', async (req, res) => {
     
         try {
             await create(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS', { id_factura: id, id_producto, cantidad: product.cantidad, ingresos });
+            
+            // Restar la cantidad del producto del inventario
+            const nuevaCantidad = producto.cantidad - product.cantidad;
+            if (nuevaCantidad < 0) {
+                console.error(`No hay suficiente inventario para el producto: ${product.nombre}`);
+                continue;
+            }
+            await customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET cantidad = ? WHERE id = ?`, [nuevaCantidad, id_producto]);
         } catch (error) {
-            console.error("Error al insertar en PRODUCTOS_FACTURADOS: ", error);
+            console.error("Error al insertar en PRODUCTOS_FACTURADOS o actualizar INVENTARIO: ", error);
         }
     }
 
