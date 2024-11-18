@@ -113,16 +113,24 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
         }
 
         if(nextStep.id === 'secondStep'){
-            
-                Swal.fire({
-                    title: "Ingrese un numero telefonico",
-                    input: "number",
-                    confirmButtonText: "Confirmar",
-                    allowOutsideClick: () => !Swal.isLoading()
-                  }).then((result) => {
-                    const phone = result.value
-                    document.querySelector('#phone').textContent = phone
-                  });
+            Swal.fire({
+                title: "Ingrese un numero telefonico",
+                input: "number",
+                confirmButtonText: "Confirmar",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                inputValidator: (value) => {
+                    const venezuelaPhoneRegex = /^(\+58|0)?(4\d{2}|2\d{2})\d{7}$/;
+                    if (!value) {
+                        return 'Debe ingresar un número telefónico';
+                    } else if (!venezuelaPhoneRegex.test(value)) {
+                        return 'Debe ingresar un número telefónico válido de Venezuela';
+                    }
+                }
+            }).then((result) => {
+                const phone = result.value;
+                document.querySelector('#phone').textContent = phone;
+            });
         }
         step.style.display = 'none';
         nextStep.style.display = 'flex';
