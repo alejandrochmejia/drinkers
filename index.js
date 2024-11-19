@@ -622,6 +622,8 @@ app.post('/payment', async (req, res) => {
         control = randomInt(100000, 999999);
     }
 
+    console.log(iva)
+
     await create(process.env.MYSQL_DATABASE + '.FACTURA', {id, base, iva, total, id_user, control, fecha });
 
     // Crear Envio

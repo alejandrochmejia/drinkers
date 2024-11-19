@@ -1,7 +1,12 @@
 import PDFDocument from 'pdfkit';
 const imagePath = 'public/images/Logo/Logo.png';
 
+const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial");
+const data = await response.json();
+const dolar = data.promedio;
+
 export const generatePDF = (productosFacturados, base, iva, total, fecha, direccion, control, nombre, apellido, cedula) => {
+    
     const doc = new PDFDocument({ margin: 30 });
 
     // Encabezado
@@ -52,9 +57,10 @@ export const generatePDF = (productosFacturados, base, iva, total, fecha, direcc
     doc.moveDown();
     // Totales
     const subtotalY = tableTop + 25 + (i * 25) + 20;
-    doc.fontSize(12).text(`Base Imponible: ${base.toFixed(2)} $`, totalX - 100, subtotalY);
-    doc.fontSize(12).text(`IVA: ${iva.toFixed(2)} %`, totalX - 100, subtotalY + 15);
-    doc.fontSize(12).text(`Total: ${total.toFixed(2)} $`, totalX - 100, subtotalY + 30);
+    doc.fontSize(12).text(`Tasa del Dolar: ${dolar.toFixed(2)} Bs`, totalX - 100, subtotalY);
+    doc.fontSize(12).text(`Base Imponible: ${base.toFixed(2)} $`, totalX - 100, subtotalY + 15);
+    doc.fontSize(12).text(`IVA: ${(base*(iva/100))} $`, totalX - 100, subtotalY + 30);
+    doc.fontSize(12).text(`Total: ${total.toFixed(2)} $`, totalX - 100, subtotalY + 45);
 
     return doc;
 }
