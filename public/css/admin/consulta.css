@@ -1,21 +1,21 @@
-main #inputConsulta {
+main #inputConsulta, main #inputUsuario {
     border: none;
     height: 100%;
     width: 100%;
     font-size: 1.3rem;
 }
 
-main #inputConsulta:focus {
+main #inputConsulta:focus, main #inputUsuario:focus {
     outline: none;
 }
 
-#lupaConsulta {
+#lupaConsulta, #lupaUsuario {
     height: 100%;
     aspect-ratio: 1;
     cursor: pointer;
 }
 
-main #containerInputConsulta {
+main #containerInputConsulta, main #containerInputUsuario {
     height: 3em;    
     display: flex;
     width: 25%;
@@ -45,6 +45,6 @@ table th {
     text-align: center;
 }
 
-#tbodyConsulta {
+#tbodyConsulta, #tbodyUsuario {
     text-align: center;
 }

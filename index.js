@@ -724,3 +724,23 @@ app.post('/admin/consulta', async (req, res) => {
 
     res.send(JSON.stringify(factura[0]));
 })
+
+//Obtener cliente en consultas
+app.post('/admin/consulta/client', async (req, res) => {
+    const { numero, categoria } = req.body;
+    let cliente;
+
+    if(categoria == 'id'){
+        cliente = await getOne(process.env.MYSQL_DATABASE + '.CLIENTES', numero);
+        if(cliente.length == 0) {
+            return res.send(JSON.stringify({mensaje: 'Cliente no encontrado/a'}));
+        }
+    } else {
+        cliente = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.CLIENTES WHERE cedula = ?`, [numero]);
+        if(cliente.length == 0) {
+            return res.send(JSON.stringify({mensaje: 'Cliente no encontrado/a'}));
+        }
+    }
+
+    res.send(JSON.stringify(cliente[0]));
+})

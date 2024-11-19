@@ -41,6 +41,39 @@
                 </tbody>
             </table>
         </section>
+        <br>
+
+        <p>Consulte el usuario indicando el identificador(ID) </p>
+        <section id="containerInputUsuario">
+            <label for="inputUsuario">
+                <img alt="Lupa" src="/images/icons/search.png" id="lupaUsuario">
+            </label>
+            <input type="number" placeholder="ID" id="inputUsuario">
+            <select id="selectUsuario">
+                <option selected value="0">ID</option>
+                <option value="1">Cedula</option>
+            </select>
+        </section>
+        <section>
+            <table id="tableUsuario">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Contraseña </th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cedula</th>
+                        <th>Direccion</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyUsuario">
+
+                </tbody>
+            </table>
+        </section>
     </main>
     <script src="/js/admin/consulta.js"></script>
 </body>

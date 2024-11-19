@@ -66,3 +66,76 @@ document.querySelector('#lupaConsulta').addEventListener('click', async () => {
         `;
     }
 })
+
+document.querySelector('#lupaUsuario').addEventListener('click', async () => {
+    const input = document.querySelector('#inputUsuario');
+    const select = document.querySelector('#selectUsuario');
+
+    if (input.value === '') {
+        input.focus();
+        return;
+    }
+
+    let user;
+
+    if(select.value === '0') {
+        await fetch('/admin/consulta/client',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({numero: input.value, categoria: 'id'})
+        }).then(res => res.json())
+        .then(data => {
+            if(data.mensaje) return alert(data.mensaje);
+            user = data;
+        })
+    }
+    else{
+        await fetch('/admin/consulta/client',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({numero: input.value, categoria: 'cedula'})
+        }).then(res => res.json())
+        .then(data => {
+            if(data.mensaje) return alert(data.mensaje);
+            user = data;
+        })
+    }
+
+    user.nacimiento = new Date(user.nacimiento).toLocaleDateString();
+
+    if(user.direccion === null) user.direccion = 'No tiene dirección';
+
+    const tbody = document.querySelector('#tbodyUsuario');
+
+    if (user) {
+        tbody.innerHTML = `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.username}</td>
+                <td>${user.email}</td>
+                <td>${user.nacimiento}</td>
+                <td>******</td>
+                <td>${user.nombre}</td>
+                <td>${user.apellido}</td>
+                <td>${user.cedula}</td>
+                <td>${user.direccion}</td>
+            </tr>
+        `;
+    } else {
+        tbody.innerHTML = `
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        `;
+    }
+})
