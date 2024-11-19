@@ -264,6 +264,8 @@ aside ul li input[type=number]{
     height: 5vmin;
     font-size: 3vmin;
     background-color: var(--white);
+    cursor:default;
+    border-style: solid;
 }
 
 aside ul li input[type=number]:focus{
@@ -273,6 +275,8 @@ aside ul li input[type=number]:focus{
 aside ul li input[type=number]::-webkit-inner-spin-button{
     scale: 1.3;
     opacity: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .productImage{
