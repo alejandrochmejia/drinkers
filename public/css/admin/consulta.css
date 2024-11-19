@@ -28,3 +28,23 @@ main p {
     font-size: 1.3rem;
     margin: 0;
 }
+
+main {
+    gap: 1em;
+}
+
+table {
+    width: 100%;
+    padding: 0.5em;
+    border: 2px solid #000;
+    border-radius: 0.5em;
+}
+
+table th {
+    padding: 1em;
+    text-align: center;
+}
+
+#tbodyConsulta {
+    text-align: center;
+}
