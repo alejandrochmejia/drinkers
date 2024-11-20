@@ -186,11 +186,6 @@ app.get('/product', async (req, res) => {
         `;
         
         const relacionados = await dbController.customQuery(relacionadosQuery, [producto.tipo, producto.nombre_producto]);
-    
-        const descripcionAI = await chatSession.sendMessage('Alargame un poco la siguiente descripcion (Tienes maximo 100 maxOutputTokens): '+ producto.descripcion);
-    
-        producto.descripcion =  descripcionAI.response.text().replace(/\*\*/g, '').replace(/\*/g, '').replace(/\d+\.\s*/g, '').replace(/:\s*/g, ': ').trim();
-    
         res.render('user/producto', { producto, relacionados });
 })
 
