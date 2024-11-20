@@ -15,15 +15,7 @@ import path from 'path';
 
 
 //Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
-import {
-    getAll,
-    getOne,
-    create,
-    exist,
-    update,
-    deleteOne,
-    customQuery
-} from './src/controllers/db.controller.js'
+import * as dbController from './src/controllers/db.controller.js';
 
 import {generatePDF} from './src/controllers/pdf.controller.js'
 
@@ -72,7 +64,7 @@ const generationConfig = {
 };
 
 //Darle contexto al chatbot
-const inventarioBot = await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO');
+const inventarioBot = await dbController.getAll(process.env.MYSQL_DATABASE + '.INVENTARIO');
 const chatSession = model.startChat({
     generationConfig,
     history: [
@@ -135,40 +127,13 @@ app.use((err, req, res, next) => {
 //Index
 app.get('/', async (req,res)=>{
     try {
-
-        const [dataJson, inventario] = await Promise.all([
-            getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
-            getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
-        ]);
-
-        // Sumar los ingresos de cada producto agrupados por id_producto
-        const ingresosPorProducto = dataJson.reduce((acc, curr) => {
-            if (!acc[curr.id_producto]) {
-                acc[curr.id_producto] = 0;
-            }
-            acc[curr.id_producto] += curr.ingresos;
-            return acc;
-        }, {});
-
-        // Ordenar los productos por ingresos en orden descendente y obtener los 5 primeros
-        const top5Productos = Object.keys(ingresosPorProducto)
-            .sort((a, b) => ingresosPorProducto[b] - ingresosPorProducto[a])
-            .slice(0, 5);
-
-        // Obtener los detalles de los 5 productos con más ingresos desde el inventario
-        const resultado = top5Productos.map(id => {
-            const producto = inventario.find(p => p.id == id);
-            return {
-                nombre_producto: producto ? producto.nombre_producto : 'Producto no encontrado',
-                precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible',
-                imagen: producto ? producto.imagen : '',
-                ingresos: ingresosPorProducto[id]
-            };
-        });
+        const ron = await dbController.getAllBy(process.env.MYSQL_DATABASE+'.INVENTARIO', 'tipo','Ron');
+        const whisky = await dbController.getAllBy(process.env.MYSQL_DATABASE+'.INVENTARIO', 'tipo','Whisky');
 
         res.render('index', {
-            productos: inventario,
-            top5ProductosConNombres: resultado
+            top5ProductosConNombres: await dbController.getBestProducts(),
+            ron: ron,
+            whisky: whisky
         });
 
     } catch (error) {
@@ -180,40 +145,52 @@ app.get('/', async (req,res)=>{
 
 //Catalogo o Seccion de Productos
 app.get('/catalogo', async (req, res) => {
-    const productos = await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO');
-    let productosFiltrados = productos;
+    const obtenerProductosFiltrados = async (req) => {
+
+        let query = `SELECT * FROM ${process.env.MYSQL_DATABASE}.INVENTARIO WHERE 1=1`;
+        const params = [];
     
-    // Verifica si hay una consulta de búsqueda
-    if (req.query.search) {
-        // Filtra los productos directamente
-        productosFiltrados = productos.filter(producto => 
-            producto.nombre_producto.toLowerCase().includes(req.query.search.toLowerCase())
-        );
-    } else {
-        if(req.query.type) {
-            // Filtra los productos directamente
-            productosFiltrados = productos.filter(producto => 
-                producto.tipo.toLowerCase().includes(req.query.type.toLowerCase())
-            );
+        if (req.query.search) {
+            query += ` AND nombre_producto LIKE ?`;
+            params.push(`%${req.query.search.toLowerCase()}%`);
         }
-    }
+    
+        if (req.query.type) {
+            query += ` AND tipo LIKE ?`;
+            params.push(`%${req.query.type.toLowerCase()}%`);
+        }
+    
+        return await dbController.customQuery(query, params);
+    };
+
+    const productos = await obtenerProductosFiltrados(req);
 
     res.render('partials/catalogo', {
-        productos: productosFiltrados,
+        productos: productos,
         type: req.query.type || 'Productos',
     });
 });
 
 app.get('/product', async (req, res) => {
-        const inventario = await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO');
+        const producto = (await dbController.getOneBy(process.env.MYSQL_DATABASE+'.INVENTARIO', 'nombre_producto', req.query.name))[0];
 
-        const producto = inventario.find(p => p.nombre_producto == req.query.name);
+
+        if (producto.length === 0) {
+            return res.status(404).json({ error: 'Producto no encontrado' });
+        }
+
+        const relacionadosQuery = `
+            SELECT *    
+            FROM ${process.env.MYSQL_DATABASE}.INVENTARIO 
+            WHERE tipo = ? AND nombre_producto != ? LIMIT 5
+        `;
+        
+        const relacionados = await dbController.customQuery(relacionadosQuery, [producto.tipo, producto.nombre_producto]);
     
         const descripcionAI = await chatSession.sendMessage('Alargame un poco la siguiente descripcion (Tienes maximo 100 maxOutputTokens): '+ producto.descripcion);
     
-        producto.descripcion =   descripcionAI.response.text().replace(/\*\*/g, '').replace(/\*/g, '').replace(/\d+\.\s*/g, '').replace(/:\s*/g, ': ').trim();
+        producto.descripcion =  descripcionAI.response.text().replace(/\*\*/g, '').replace(/\*/g, '').replace(/\d+\.\s*/g, '').replace(/:\s*/g, ': ').trim();
     
-        const relacionados = inventario.filter(p => p.tipo == producto.tipo && p.nombre_producto != producto.nombre_producto);
         res.render('user/producto', { producto, relacionados });
 })
 
@@ -244,9 +221,9 @@ app.get('/returns', (req, res) => {
 
 app.get('/payment',authenticate.authenticateJWT, async (req, res) => {
     //Despues utilizar jwt para oobtene el email con verify
-    const iva = await getOne(process.env.MYSQL_DATABASE + '.IMPUESTOS', 1);
+    const iva = await dbController.getOne(process.env.MYSQL_DATABASE + '.IMPUESTOS', 1);
     const email = jwt.verify(req.cookies.token, JWT_KEY).email;
-    const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
+    const usuario = await dbController.exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
     res.render('user/payment', {usuario: usuario[0], iva: iva[0]});
 })
 
@@ -264,86 +241,55 @@ app.get('/register',(req,res)=>{
 //Dashboard
 app.get('/admin/dashboard',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/dashboard', {
-        avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
-        ventas: await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'),
-        inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
-        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
+        avisos: await dbController.getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
+        ventas: await dbController.getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'),
+        inventario: await dbController.getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
+        envios: await dbController.getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Inventario
 app.get('/admin/inventario',authenticate.authenticateOTP, async (req, res) => {
-    res.render('admin/inventario', {inventario: await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')});
+    res.render('admin/inventario', {inventario: await dbController.getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')});
 });
 
 //Envios
 app.get('/admin/envios',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/envios', {
-        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
+        envios: await dbController.getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Envios Minorista
 app.get('/admin/envios/minorista',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/minorista', {
-        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
+        envios: await dbController.getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Envios Mayorista
 app.get('/admin/envios/mayorista',authenticate.authenticateOTP, async (req, res) => {
     res.render('admin/mayorista', {
-        envios: await getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
+        envios: await dbController.getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
     });
 });
 
 //Estadistica
 app.get('/admin/estadistica',authenticate.authenticateOTP, async (req, res) => {
-    const [dataJson, inventario] = await Promise.all([
-        getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
-        getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
-    ]);
-
-    // Sumar los ingresos de cada producto agrupados por id_producto
-    const ingresosPorProducto = dataJson.reduce((acc, curr) => {
-        if (!acc[curr.id_producto]) {
-            acc[curr.id_producto] = 0;
-        }
-        acc[curr.id_producto] += curr.ingresos;
-        return acc;
-    }, {});
-
-    // Ordenar los productos por ingresos en orden descendente y obtener los 5 primeros
-    const top5Productos = Object.keys(ingresosPorProducto)
-        .sort((a, b) => ingresosPorProducto[b] - ingresosPorProducto[a])
-        .slice(0, 5);
-
-    // Obtener los detalles de los 5 productos con más ingresos desde el inventario
-    const resultado = top5Productos.map(id => {
-        const producto = inventario.find(p => p.id == id);
-        return {
-            nombre_producto: producto ? producto.nombre_producto : 'Producto no encontrado',
-            precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible',
-            imagen: producto ? producto.imagen : '',
-            ingresos: ingresosPorProducto[id]
-        };
-    });
-
     res.render('admin/estadistica', {
-        ventas: dataJson,
-        inventario: inventario,
-        vendidos: resultado
+        ventas: await dbController.getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'),
+        vendidos: await dbController.getBestProducts()
     });
 });
 
 //Proveedor
 app.get('/admin/proveedor',authenticate.authenticateOTP, async (req, res) => {
-    res.render('admin/proveedor', {proveedor: await getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')});
+    res.render('admin/proveedor', {proveedor: await dbController.getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')});
 });
 
 //Avisos o Reportes
 app.get('/admin/avisos',authenticate.authenticateOTP, async (req, res) => {
-    res.render('admin/avisos', {avisos: await getAll(process.env.MYSQL_DATABASE+'.AVISOS')});
+    res.render('admin/avisos', {avisos: await dbController.getAll(process.env.MYSQL_DATABASE+'.AVISOS')});
 });
 
 //Envios Mayorista
@@ -355,8 +301,8 @@ app.get('/admin/consulta',authenticate.authenticateOTP, async (req, res) => {
 app.get('/api/productos/vendidos', async (req, res) => {
 
     const [dataJson, inventario] = await Promise.all([
-        getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
-        getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
+        dbController.getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
+        dbController.getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
     ]);
 
     // Sumar los ingresos de cada producto agrupados por id_producto
@@ -394,7 +340,7 @@ app.get('/api/productos/vendidos', async (req, res) => {
 //Autenticacion
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
+    const usuario = await dbController.exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
 
     if (!usuario[0] || usuario[0].password !== password) {
         return res.status(400).send(JSON.stringify({ mensaje: 'Usuario o contraseña incorrectos' }));
@@ -408,8 +354,8 @@ app.post('/login', async (req, res) => {
 //Falta Arreglar el register cuando se haga merge
 app.post('/register', async (req, res) => {
     const { username, email, nacimiento, password, nombre, apellido, direccion, cedula } = req.body;
-    const usuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
-    const nombreUsuario = await exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'username', username);
+    const usuario = await dbController.exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'email', email);
+    const nombreUsuario = await dbController.exist(process.env.MYSQL_DATABASE + '.CLIENTES', 'username', username);
 
     if (usuario.length > 0) {
         return res.status(400).send(JSON.stringify({ error: 'El usuario ya existe' }));
@@ -421,7 +367,7 @@ app.post('/register', async (req, res) => {
 
     
 
-    await create(process.env.MYSQL_DATABASE + '.CLIENTES', 
+    await dbController.create(process.env.MYSQL_DATABASE + '.CLIENTES', 
     { username, email, nacimiento, password, nombre, apellido, direccion, cedula });
     res.send(JSON.stringify({ mensaje: 'Usuario registrado con éxito' }));
 });
@@ -429,11 +375,11 @@ app.post('/register', async (req, res) => {
 //Inventario
 
 app.post('/admin/inventario/create', upload.single('imagen'), async (req, res) => {
-    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')).length + 1
+    req.body.id = (await dbController.getAll(process.env.MYSQL_DATABASE+'.INVENTARIO')).length + 1
     if (req.file) {
         req.body.imagen = '/images/Licores/' + req.file.filename;
     }
-    await create(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body);
+    await dbController.create(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body);
     res.redirect('/admin/inventario');
 });
 
@@ -441,12 +387,12 @@ app.post('/admin/inventario/modificar', upload.single('imagen'), async (req, res
     if (req.file) {
         req.body.imagen = '/images/Licores/' + req.file.filename;
     }
-    await update(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body.id, req.body)
+    await dbController.update(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body.id, req.body)
     res.redirect('/admin/inventario')
 })
 
 app.post('/admin/inventario/eliminar', async (req, res) => {
-    await update(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body.id, {status: 'inactive'})
+    await dbController.update(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
 })
 
@@ -454,36 +400,36 @@ app.post('/admin/inventario/eliminar', async (req, res) => {
 
 app.post('/admin/avisos/create', async (req, res) => {
     req.body.titulo = req.body.descripcion.split(' ')[0]
-    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.AVISOS')).length + 1
-    await create(process.env.MYSQL_DATABASE+'.AVISOS', req.body);
+    req.body.id = (await dbController.getAll(process.env.MYSQL_DATABASE+'.AVISOS')).length + 1
+    await dbController.create(process.env.MYSQL_DATABASE+'.AVISOS', req.body);
     res.redirect('/admin/avisos');
 });
 
 //Dashboard
 
 app.post('/admin/dashboard/ventas', async (req, res) => {
-    res.send(await getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'));
+    res.send(await dbController.getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'));
 });
 
 app.post('/admin/dashboard/inventario', async (req, res) => {
-    res.send(await getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'));
+    res.send(await dbController.getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'));
 });
 
 app.post('/admin/proveedor/create', async (req, res) => {
-    req.body.id = (await getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')).length + 1
+    req.body.id = (await dbController.getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')).length + 1
     req.body.status = 'active'
-    await create(process.env.MYSQL_DATABASE+'.PROVEEDORES', req.body);
+    await dbController.create(process.env.MYSQL_DATABASE+'.PROVEEDORES', req.body);
     res.redirect('/admin/proveedor');
 });
 
 app.post('/admin/proveedor/modificar', async (req, res) => {
     req.body.status = 'active'
-    await update(process.env.MYSQL_DATABASE+'.PROVEEDORES', req.body.id, req.body)
+    await dbController.update(process.env.MYSQL_DATABASE+'.PROVEEDORES', req.body.id, req.body)
     res.redirect('/admin/proveedor')
 })
 
 app.post('/admin/proveedor/eliminar', async (req, res) => {
-    await update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, {status: 'inactive'})
+    await dbController.update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
 });
 
@@ -592,7 +538,7 @@ app.post('/inventory/available', async (req, res) => {
     const errores = [];
 
     for (const { nombre, cantidad } of productos) {
-        const inventario = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.INVENTARIO WHERE nombre_producto = ?`, [nombre]);
+        const inventario = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.INVENTARIO WHERE nombre_producto = ?`, [nombre]);
         if (inventario.length === 0) {
             errores.push(`Producto no encontrado: ${nombre}`);
             continue;
@@ -613,24 +559,23 @@ app.post('/payment', async (req, res) => {
     const { products, baseImponible: base , iva, total, fecha, entrega, direccion } = req.body;
     //Contruccion de la Factura
     const {email} = jwt.verify(req.cookies.token, JWT_KEY);
-    const user = (await getAll(process.env.MYSQL_DATABASE + '.CLIENTES')).find(c => c.email == email);
+    const user = (await dbController.getAll(process.env.MYSQL_DATABASE + '.CLIENTES')).find(c => c.email == email);
     const id_user = user.id;
-    const facturas = await getAll(process.env.MYSQL_DATABASE + '.FACTURA');
+    const facturas = await dbController.getAll(process.env.MYSQL_DATABASE + '.FACTURA');
     const id = facturas.length + 1;
     let control = randomInt(100000, 999999);
     while (facturas.find(f => f.control == control)) {
         control = randomInt(100000, 999999);
     }
 
-    console.log(iva)
 
-    await create(process.env.MYSQL_DATABASE + '.FACTURA', {id, base, iva, total, id_user, control, fecha });
+    await dbController.create(process.env.MYSQL_DATABASE + '.FACTURA', {id, base, iva, total, id_user, control, fecha });
 
     // Crear Envio
     if(entrega.length > 0) {
-        const envios = await getAll(process.env.MYSQL_DATABASE + '.ENVIOS');
+        const envios = await dbController.getAll(process.env.MYSQL_DATABASE + '.ENVIOS');
         const id_envio = envios.length + 1;
-        await create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, destino: direccion, entrega, id_factura: id});
+        await dbController.create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, destino: direccion, entrega, id_factura: id});
     }
 
     //Contruccion de Productos Facturados
@@ -645,7 +590,7 @@ app.post('/payment', async (req, res) => {
 
 
     for (const product of productos) {
-        const producto = (await getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')).find(p => p.nombre_producto == product.nombre);
+        const producto = (await dbController.getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')).find(p => p.nombre_producto == product.nombre);
         
         if (!producto) {
             console.error(`Producto no encontrado: ${product.nombre}`);
@@ -653,7 +598,7 @@ app.post('/payment', async (req, res) => {
         }
         const id_producto = producto.id;
         const ingresos = product.cantidad * producto.precio_detal;
-        const facturaExists = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.FACTURA WHERE id = ?`, [id]);
+        const facturaExists = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.FACTURA WHERE id = ?`, [id]);
     
         if (facturaExists.length === 0) {
             console.error(`Factura con id ${id} no existe. No se puede insertar el producto.`);
@@ -661,7 +606,7 @@ app.post('/payment', async (req, res) => {
         }
     
         try {
-            await create(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS', { id_factura: id, id_producto, cantidad: product.cantidad, ingresos });
+            await dbController.create(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS', { id_factura: id, id_producto, cantidad: product.cantidad, ingresos });
             
             // Restar la cantidad del producto del inventario
             const nuevaCantidad = parseInt(producto.stock) - parseInt(product.cantidad);
@@ -669,7 +614,7 @@ app.post('/payment', async (req, res) => {
                 console.error(`No hay suficiente inventario para el producto: ${product.nombre}`);
                 continue;
             }
-            await customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET stock = ? WHERE id = ?`, [nuevaCantidad, id_producto]);
+            await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET stock = ? WHERE id = ?`, [nuevaCantidad, id_producto]);
         } catch (error) {
             console.error("Error al insertar en PRODUCTOS_FACTURADOS o actualizar INVENTARIO: ", error);
         }
@@ -682,12 +627,12 @@ app.post('/payment', async (req, res) => {
 //Generacion de PDF de la Factura
 app.post('/pdf', async (req, res) => {
     const id = req.body.id;
-    const factura = await getOne(process.env.MYSQL_DATABASE + '.FACTURA', id);
-    const productos = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.PRODUCTOS_FACTURADOS WHERE id_factura = ?`, [id]);
+    const factura = await dbController.getOne(process.env.MYSQL_DATABASE + '.FACTURA', id);
+    const productos = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.PRODUCTOS_FACTURADOS WHERE id_factura = ?`, [id]);
     const productosFacturados = [];
 
     for (const producto of productos) {
-        const { nombre_producto, precio_detal } = (await getOne(process.env.MYSQL_DATABASE + '.INVENTARIO', producto.id_producto))[0];
+        const { nombre_producto, precio_detal } = (await dbController.getOne(process.env.MYSQL_DATABASE + '.INVENTARIO', producto.id_producto))[0];
         productosFacturados.push({
             nombre: nombre_producto,
             cantidad: producto.cantidad,
@@ -699,7 +644,7 @@ app.post('/pdf', async (req, res) => {
     // Transformar de ProductoFacturado a Inventario y Darselo a ProductosFacturados
     
     const { base, iva, total, fecha, control } = factura[0];
-    const { nombre, apellido, direccion, cedula } = (await getOne(process.env.MYSQL_DATABASE + '.CLIENTES', factura[0].id_user))[0];
+    const { nombre, apellido, direccion, cedula } = (await dbController.getOne(process.env.MYSQL_DATABASE + '.CLIENTES', factura[0].id_user))[0];
     const doc = generatePDF(productosFacturados, base, iva, total, fecha, direccion, control, nombre, apellido, cedula);
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'attachment; filename=facturaDrinkers.pdf');
@@ -713,12 +658,12 @@ app.post('/admin/consulta', async (req, res) => {
     let factura;
 
     if(categoria == 'id'){
-        factura = await getOne(process.env.MYSQL_DATABASE + '.FACTURA', numero);
+        factura = await dbController.getOne(process.env.MYSQL_DATABASE + '.FACTURA', numero);
         if(factura.length == 0) {
             return res.send(JSON.stringify({mensaje: 'Factura no encontrada'}));
         }
     } else {
-        factura = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.FACTURA WHERE control = ?`, [numero]);
+        factura = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.FACTURA WHERE control = ?`, [numero]);
         if(factura.length == 0) {
             return res.send(JSON.stringify({mensaje: 'Factura no encontrada'}));
         }
@@ -733,12 +678,12 @@ app.post('/admin/consulta/client', async (req, res) => {
     let cliente;
 
     if(categoria == 'id'){
-        cliente = await getOne(process.env.MYSQL_DATABASE + '.CLIENTES', numero);
+        cliente = await dbController.getOne(process.env.MYSQL_DATABASE + '.CLIENTES', numero);
         if(cliente.length == 0) {
             return res.send(JSON.stringify({mensaje: 'Cliente no encontrado/a'}));
         }
     } else {
-        cliente = await customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.CLIENTES WHERE cedula = ?`, [numero]);
+        cliente = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.CLIENTES WHERE cedula = ?`, [numero]);
         if(cliente.length == 0) {
             return res.send(JSON.stringify({mensaje: 'Cliente no encontrado/a'}));
         }

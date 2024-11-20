@@ -43,20 +43,16 @@
             <section>
                 <h3 class="subtitle">Ron</h3>
                 <ul class="productSection">
-                    <% productos.forEach(producto => { %>
-                        <% if(producto.tipo == "Ron") { %>
+                    <% ron.forEach(producto => { %>
                             <%- include('./partials/product', {producto}) %>
-                        <% } %>
                     <% }) %>
                 </ul>
             </section>
             <section>
                 <h3 class="subtitle">Whisky</h3>
                 <ul class="productSection">
-                    <% productos.forEach(producto => { %>
-                        <% if(producto.tipo == "Whisky") { %>
+                    <% whisky.forEach(producto => { %>
                             <%- include('./partials/product', {producto}) %>
-                        <% } %>
                     <% }) %>
                 </ul>
             </section>
