@@ -14,6 +14,9 @@ import multer from 'multer';
 //Controlador de la base de datos
 import * as dbController from './src/controllers/db.controller.js';
 
+//Controlador de Utils
+import * as utilsController from './src/controllers/utils.controller.js';
+
 //Controlador de PDF
 import {generatePDF} from './src/controllers/pdf.controller.js'
 
@@ -129,6 +132,9 @@ app.get('/', async (req,res)=>{
     try {
         const ron = await dbController.getAllBy(process.env.MYSQL_DATABASE+'.INVENTARIO', 'tipo','Ron');
         const whisky = await dbController.getAllBy(process.env.MYSQL_DATABASE+'.INVENTARIO', 'tipo','Whisky');
+
+        //Verificar si hay una compra pendiente de los proveedores
+        utilsController.verifyCompras()
 
         res.render('index', {
             top5ProductosConNombres: await dbController.getBestProducts(),
@@ -516,6 +522,8 @@ app.post('/inventory/available', async (req, res) => {
             continue;
         }
         if (inventario[0].stock < cantidad) {
+            //Verifica los proveedores que tienen el producto y mandar aviso
+            utilsController.verifyProveedor();
             errores.push(`Producto Agotado: ${nombre}`);
         }
     }
@@ -610,7 +618,7 @@ app.post('/pdf', async (req, res) => {
         const { nombre_producto, precio_detal } = (await dbController.getOne(process.env.MYSQL_DATABASE + '.INVENTARIO', producto.id_producto))[0];
         productosFacturados.push({
             nombre: nombre_producto,
-            cantidad: producto.cantidad,
+            cantidad: producto.cantidad,    
             precio: precio_detal,
             ingresos: producto.ingresos
         });

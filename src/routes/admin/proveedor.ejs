@@ -50,6 +50,7 @@
                             <th>Id</th>
                             <th>Nombre del Proveedor</th>
                             <th>Telefono del Proveedor</th>
+                            <th>Producto</th>
                             <th>RIF</th>
                             <th>Ubicación</th>
                         </tr>
@@ -61,6 +62,7 @@
                                 <td><%= proveedor.id %></td>
                                 <td><%= proveedor.nombre %></td>
                                 <td><%= proveedor.telefono %></td>
+                                <td><%= proveedor.id_producto %></td>
                                 <td><%= proveedor.rif %></td>
                                 <td><%= proveedor.ubicacion %></td>
                             </tr>
@@ -87,7 +89,7 @@
                     </div>
                     <div>
                         <label for="Bebida">Producto del Proveedor</label>
-                        <input placeholder="Ingrese el producto que vended el proveedor" required id="Bebida" name="producto" maxlength="20">
+                        <input type="number" placeholder="Ingrese el id del producto que vende" required id="Bebida" name="id_producto" maxlength="4">
                     </div>
                 </div>
                 <div class="Input--Container">
@@ -98,16 +100,6 @@
                     <div>
                         <label for="Telefono">Telefono del proveedor</label>
                         <input placeholder="Ingrese el telefono del proveedor" required id="Telefono" name="telefono" maxlength="11">
-                    </div>
-                </div>
-                <div class="Input--Container">
-                    <div>
-                        <label for="Fecha--compra">Fecha de compra</label>
-                        <input type="date" id="Fecha--compra" required name="fecha_compra">
-                    </div>
-                    <div>
-                        <label for="Fecha--entrega">Fecha de entrega</label>
-                        <input type="date" id="Fecha--entrega" required name="fecha_entrega">
                     </div>
                 </div>
                 <button type="submit" id="SubmitAgregar">Agregar</button>
@@ -136,7 +128,7 @@
                     </div>
                     <div>
                         <label for="Bebida--modificar">Producto del Proveedor</label>
-                        <input placeholder="Ingrese el producto que vended el proveedor" required id="Bebida--modificar" name="producto" maxlength="20">
+                        <input placeholder="Ingrese el id producto que vende" required id="Bebida--modificar" name="id_producto" maxlength="4">
                     </div>
                 </div>
                 <div class="Input--Container">
