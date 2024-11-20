@@ -235,11 +235,15 @@ app.get('/register',(req,res)=>{
 
 //Dashboard
 app.get('/admin/dashboard',authenticate.authenticateOTP, async (req, res) => {
+
+    const ventas = (await dbController.count(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'))[0]['COUNT(*)'];
+    const inventario = (await dbController.count(process.env.MYSQL_DATABASE+'.INVENTARIO'))[0]['COUNT(*)'];
+    const envios = (await dbController.count(process.env.MYSQL_DATABASE+'.ENVIOS'))[0]['COUNT(*)'];
+
     res.render('admin/dashboard', {
-        avisos: await dbController.getAll(process.env.MYSQL_DATABASE+'.AVISOS'),
-        ventas: await dbController.getAll(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'),
-        inventario: await dbController.getAll(process.env.MYSQL_DATABASE+'.INVENTARIO'),
-        envios: await dbController.getAll(process.env.MYSQL_DATABASE+'.ENVIOS')
+        ventas: ventas,
+        inventario: inventario,
+        envios: envios
     });
 });
 
@@ -293,39 +297,8 @@ app.get('/admin/consulta',authenticate.authenticateOTP, async (req, res) => {
 });
 
 //Obtener los 5 productos mas vendidos
-app.get('/api/productos/vendidos', async (req, res) => {
-
-    const [dataJson, inventario] = await Promise.all([
-        dbController.getAll(process.env.MYSQL_DATABASE + '.PRODUCTOS_FACTURADOS'),
-        dbController.getAll(process.env.MYSQL_DATABASE + '.INVENTARIO')
-    ]);
-
-    // Sumar los ingresos de cada producto agrupados por id_producto
-    const ingresosPorProducto = dataJson.reduce((acc, curr) => {
-        if (!acc[curr.id_producto]) {
-            acc[curr.id_producto] = 0;
-        }
-        acc[curr.id_producto] += curr.ingresos;
-        return acc;
-    }, {});
-
-    // Ordenar los productos por ingresos en orden descendente y obtener los 5 primeros
-    const top5Productos = Object.keys(ingresosPorProducto)
-        .sort((a, b) => ingresosPorProducto[b] - ingresosPorProducto[a])
-        .slice(0, 5);
-
-    // Obtener los detalles de los 5 productos con más ingresos desde el inventario
-    const resultado = top5Productos.map(id => {
-        const producto = inventario.find(p => p.id == id);
-        return {
-            nombre_producto: producto ? producto.nombre_producto : 'Producto no encontrado',
-            precio_detal: producto ? producto.precio_detal.toFixed(2) : 'Precio no disponible',
-            imagen: producto ? producto.imagen : '',
-            ingresos: ingresosPorProducto[id]
-        };
-    });
-  
-    res.send(resultado);
+app.get('/api/productos/vendidos', async (req, res) => {  
+    res.send(await dbController.getBestProducts());
 });
 
 //////////////////

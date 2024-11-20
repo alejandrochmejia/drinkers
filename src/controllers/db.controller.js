@@ -221,3 +221,23 @@ export const getBestProducts = async () => {
         throw error; // Re-lanzar el error para manejarlo más arriba si es necesario
     }
 };
+
+// Contar los registros de una tabla
+export const count = (tabla) => {
+    return new Promise((resolve, reject) => {
+        const query = `SELECT COUNT(*) FROM ${tabla}`;
+        dbconfig.getConnection((err, connection) => {
+            if (err) {
+                return reject(err);
+            }
+            connection.query(query, (err, results) => {
+                connection.release(); // Libera la conexión de vuelta al pool
+                if (err) {
+                    console.error("Error fetching data: " + err.stack);
+                    return reject(err);
+                }
+                resolve(results);
+            });
+        });
+    });
+};
