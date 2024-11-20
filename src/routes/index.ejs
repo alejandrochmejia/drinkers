@@ -22,6 +22,20 @@
 
     <%- include('./partials/cart') %>
 
+    <div id="modalBackground">
+        <div id="modalContainer">
+            <img src="/images/Logo/Logo.png">
+            <h3>¿Eres mayor de edad?</h3>
+            <div>
+                <button onclick="location.href='https://www.youtube.com/watch?v=XqZsoesa55w'">NO</button>
+                <button onclick=AdultQuestionButton()>SI</button>
+            </div>
+            <p>
+                "Al ingresar a este sitio, confirmas que eres mayor de 18 años y aceptas nuestros <a href="/terms">términos y condiciones.</a>"
+            </p>
+        </div>
+    </div>
+
     <main>
         <div id="background-main">
         <h1>DRINKERS</h1>
