@@ -1,24 +1,23 @@
-//Importaciones
+//Importaciones de librerias
 import express from 'express';
 import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
 import cookieParser from 'cookie-parser';
 import otplib from 'otplib';
 import QRCode from 'qrcode';
-import bcrypt from 'bcryptjs';
 import {GoogleGenerativeAI} from '@google/generative-ai';
-
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
-import path from 'path';
 
 
-//Querys para (get) => Parametros (base.tabla) o (process.env.MYSQL_DATABASE+'.tabla')
+//Controlador de la base de datos
 import * as dbController from './src/controllers/db.controller.js';
 
+//Controlador de PDF
 import {generatePDF} from './src/controllers/pdf.controller.js'
 
+//Middleware de autenticacion
 import authenticate from './src/middleware/authorization.js'
 import { randomInt } from 'crypto';
 
@@ -124,6 +123,7 @@ app.use((err, req, res, next) => {
 //////////////////
 // METODOS GET //
 //////////////////
+
 //Index
 app.get('/', async (req,res)=>{
     try {
@@ -236,9 +236,14 @@ app.get('/register',(req,res)=>{
 //Dashboard
 app.get('/admin/dashboard',authenticate.authenticateOTP, async (req, res) => {
 
-    const ventas = (await dbController.count(process.env.MYSQL_DATABASE+'.PRODUCTOS_FACTURADOS'))[0]['COUNT(*)'];
-    const inventario = (await dbController.count(process.env.MYSQL_DATABASE+'.INVENTARIO'))[0]['COUNT(*)'];
-    const envios = (await dbController.count(process.env.MYSQL_DATABASE+'.ENVIOS'))[0]['COUNT(*)'];
+    const result = await dbController.customQuery(`
+    SELECT 
+        (SELECT COUNT(*) FROM ${process.env.MYSQL_DATABASE}.PRODUCTOS_FACTURADOS) AS ventas,
+        (SELECT COUNT(*) FROM ${process.env.MYSQL_DATABASE}.INVENTARIO) AS inventario,
+        (SELECT COUNT(*) FROM ${process.env.MYSQL_DATABASE}.ENVIOS) AS envios
+    `);
+
+    const { ventas, inventario, envios } = result[0];
 
     res.render('admin/dashboard', {
         ventas: ventas,
