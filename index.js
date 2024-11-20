@@ -587,6 +587,9 @@ app.post('/payment', async (req, res) => {
                 console.error(`No hay suficiente inventario para el producto: ${product.nombre}`);
                 continue;
             }
+            if(nuevaCantidad == 0) {
+                await dbController.create(process.env.MYSQL_DATABASE + '.AVISOS', {id: (await dbController.count(process.env.MYSQL_DATABASE + ".AVISOS")) + 1, titulo: 'Producto Agotado', descripcion: `El producto ${producto.nombre_producto} se ha agotado`, 'tipo': 'stock', 'fecha': new Date().toISOString().slice(0, 19).replace('T', ' ')});
+            }
             await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET stock = ? WHERE id = ?`, [nuevaCantidad, id_producto]);
         } catch (error) {
             console.error("Error al insertar en PRODUCTOS_FACTURADOS o actualizar INVENTARIO: ", error);
