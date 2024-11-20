@@ -87,6 +87,8 @@ CREATE TABLE PROVEEDORES (
   telefono VARCHAR(255) NOT NULL,
   rif VARCHAR(255) NOT NULL,
   ubicacion VARCHAR(255) NOT NULL,
+  id_producto INT NOT NULL,
+  FOREIGN KEY (id_producto) REFERENCES INVENTARIO(id),
   status VARCHAR(255) NOT NULL DEFAULT 'active'
 );
 

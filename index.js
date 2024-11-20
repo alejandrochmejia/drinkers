@@ -140,7 +140,6 @@ app.get('/', async (req,res)=>{
         console.error("Error fetching data: ", error);
         res.render('user/error');
     }
-
 })
 
 //Catalogo o Seccion de Productos

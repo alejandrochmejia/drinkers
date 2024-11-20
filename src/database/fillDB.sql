@@ -126,17 +126,17 @@ INSERT INTO AVISOS (titulo, descripcion, tipo, fecha) VALUES
 ('Oferta Especial', 'Oferta especial en Tequila: 2x1.', 'oferta', '2023-10-10');
 
 -- Inserciones en la tabla PROVEEDORES
-INSERT INTO PROVEEDORES (nombre, telefono, rif, ubicacion, status) VALUES
-('Distribuidora de Bebidas S.A.', '0212-1234567', 'J-12345678-9', 'Caracas, Venezuela', 'active'),
-('Vinos del Mundo', '0212-7654321', 'J-98765432-1', 'Maracaibo, Venezuela', 'active'),
-('Cervecería Nacional', '0212-9012345', 'J-11111111-1', 'Valencia, Venezuela', 'active'),
-('Licorera del Este', '0212-1111111', 'J-22222222-2', 'Maturín, Venezuela', 'active'),
-('Bebidas Internacionales', '0212-2222222', 'J-33333333-3', 'Barquisimeto, Venezuela', 'active'),
-('Distribuidora de Licores', '0212-3333333', 'J-44444444-4', 'Acarigua, Venezuela', 'active'),
-('Cervecería Artesanal', '0212-4444444', 'J-55555555-5', 'San Cristóbal, Venezuela', 'active'),
-('Vinos y Licores', '0212-5555555', 'J-66666666-6', 'Mérida, Venezuela', 'active'),
-('Bebidas Nacionales', '0212-6666666', 'J-77777777-7', 'Trujillo, Venezuela', 'active'),
-('Distribuidora de Bebidas Regionales', '0212-7777777', 'J-88888888-8', 'Táchira, Venezuela', 'active');
+INSERT INTO PROVEEDORES (nombre, telefono, rif, ubicacion, id_producto, status) VALUES
+('Distribuidora de Bebidas S.A.', '0212-1234567', 'J-12345678-9', 'Caracas, Venezuela', 1, 'active'),
+('Vinos del Mundo', '0212-7654321', 'J-98765432-1', 'Maracaibo, Venezuela', 2, 'active'),
+('Cervecería Nacional', '0212-9012345', 'J-11111111-1', 'Valencia, Venezuela', 3, 'active'),
+('Licorera del Este', '0212-1111111', 'J-22222222-2', 'Maturín, Venezuela', 4, 'active'),
+('Bebidas Internacionales', '0212-2222222', 'J-33333333-3', 'Barquisimeto, Venezuela', 5, 'active'),
+('Distribuidora de Licores', '0212-3333333', 'J-44444444-4', 'Acarigua, Venezuela', 6, 'active'),
+('Cervecería Artesanal', '0212-4444444', 'J-55555555-5', 'San Cristóbal, Venezuela', 7, 'active'),
+('Vinos y Licores', '0212-5555555', 'J-66666666-6', 'Mérida, Venezuela', 8, 'active'),
+('Bebidas Nacionales', '0212-6666666', 'J-77777777-7', 'Trujillo, Venezuela', 9, 'active'),
+('Distribuidora de Bebidas Regionales', '0212-7777777', 'J-88888888-8', 'Táchira, Venezuela', 10, 'active');
 
 -- Inserciones en la tabla COMPRA_PROVEEDORES
 INSERT INTO COMPRA_PROVEEDORES (id_proveedor, fecha_compra, fecha_entrega, cantidad_paquete) VALUES
