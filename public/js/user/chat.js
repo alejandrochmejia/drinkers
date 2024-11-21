@@ -56,3 +56,11 @@ function toggleChatbot() {
     const chatbot = document.getElementById('chatbot');
     chatbot.classList.toggle('hidden');
 }
+
+function closeChatbot() {
+    const chatbot = document.getElementById('chatbot');
+    if(!chatbot.classList.contains('hidden')){
+        chatbot.classList.add('hidden');
+        return
+    }
+}

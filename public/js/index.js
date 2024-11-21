@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById("cart").addEventListener("click", function() {
     const cartMenu = document.querySelector("aside");
     if (cartMenu.style.right === '-110%') {
+        closeChatbot()
         cargarCarrito();
         cartMenu.style.right = '0%';
     } else {

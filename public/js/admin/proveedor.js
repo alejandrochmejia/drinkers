@@ -319,3 +319,21 @@ input.addEventListener('keyup', () => {
     }
   });
 });
+
+const tabla = document.querySelector('#tbodyProveedores');
+const rows = tabla.querySelectorAll('tr');
+
+rows.forEach(row => {
+    row.addEventListener('click', () => {
+        const name = row.children[1].textContent;
+        const tlf = row.children[2].textContent;
+        const ubicacion = row.children[5].textContent;
+        const rif = row.children[4].textContent;
+
+        document.querySelector('.Nombre--proveedor h3').textContent = name;
+        document.querySelector('.Tlf--proveedor h3').textContent = tlf;
+        document.querySelector('.Ubi--proveedor h3').textContent = ubicacion;
+        document.querySelector('.Rif--proveedor h3').textContent = rif;
+    });
+    }
+);

@@ -116,9 +116,9 @@ main .Content--Container{
 main .Content--Container .Conversiones--Grafica{
     height: 335px;
     display: flex;
-    flex-flow: column wrap;
     justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
     gap: 10px;
     padding: 10px;
 }
@@ -130,7 +130,7 @@ main .Content--Container .Conversiones--Grafica article:nth-child(1){
     display: flex;
     flex-direction: column;
     width: 260px;
-    height: 140px;
+    height: 170px;
     background-color: var(--SecondaryColor);
     color: var(--PrimaryColor);
 }
