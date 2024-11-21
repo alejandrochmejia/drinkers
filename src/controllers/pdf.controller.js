@@ -1,5 +1,5 @@
 import PDFDocument from 'pdfkit';
-const imagePath = 'public/images/Logo/Logo.png';
+const imagePath = 'public/images/Logo/LogoFactura.png';
 
 const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial");
 const data = await response.json();
