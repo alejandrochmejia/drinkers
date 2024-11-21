@@ -85,7 +85,7 @@ document.querySelectorAll('.steps .nextStep').forEach(button => {
                             window.URL.revokeObjectURL(url); // Liberar la URL del blob
 
                             // Redirigir a otra ruta después de la descarga
-                            window.location.href = '/'; // Cambia '/otraRuta' a la ruta deseada
+                            window.location.href = '/';
                         } else {
                             console.error('Error al descargar el PDF');
                         }

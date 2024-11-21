@@ -24,12 +24,12 @@
                         <option selected value="">Todos</option>
                         <option value="Ron">Ron</option>
                         <option value="Voodka">Vodka</option>
-                        <option value="Cerveza">Cerveza</option>
-                        <option value="Vulcana">Vulcana</option>
-                        <option value="Energetica">Energetica</option>
-                        <option value="Te">Te</option>
-                        <option value="Agua">Agua</option>
-                        <option value="Gaseosa">Gaseosa</option>
+                        <option value="Whisky">Whisky</option>
+                        <option value="Vinos">Vinos</option>
+                        <option value="Sangria">Sangria</option>
+                        <option value="Anis">Anis</option>
+                        <option value="Baseron">Base de Ron</option>
+                        <option value="Aguardiente">Aguardiente</option>
                     </select>
                 </div>
             </form>
@@ -93,16 +93,16 @@
                 <div class="input--Container">
                     <div class="Items">
                         <label for="tipo">Tipo de bebida</label>
-                        <select required name="tipo" id="tipo">
-                            <option value="">Seleccione un tipo</option>
+                        <select id="tipo" name="tipo">
+                            <option selected value="">Todos</option>
                             <option value="Ron">Ron</option>
-                            <option value="Vodka">Vodka</option>
-                            <option value="Cerveza">Cerveza</option>
-                            <option value="Vulcana">Vulcana</option>
-                            <option value="Energetica">Energética</option>
-                            <option value="Te">Té</option>
-                            <option value="Agua">Agua</option>
-                            <option value="Gaseosa">Gaseosa</option>
+                            <option value="Voodka">Vodka</option>
+                            <option value="Whisky">Whisky</option>
+                            <option value="Vinos">Vinos</option>
+                            <option value="Sangria">Sangria</option>
+                            <option value="Anis">Anis</option>
+                            <option value="Baseron">Base de Ron</option>
+                            <option value="Aguardiente">Aguardiente</option>
                         </select>
                     </div>
                     <div class="Items">
@@ -123,11 +123,7 @@
                 <div class="input--Container">
                     <div class="item">
                         <label for="Paquetes">Paquetes</label>
-                        <input placeholder="Ingrese los paquetes" type="text" id="Paquetes" name="paquete" required maxlength="3">
-                    </div>
-                    <div class="item">
-                        <label for="Iva">Iva</label>
-                        <input placeholder="Ingrese el iva del producto" type="text" id="Iva" name="iva" required maxlength="3">
+                        <input placeholder="Ingrese cuanto viene por paquete" type="text" id="Paquetes" name="paquete" required maxlength="3">
                     </div>
                 </div>
                 <div class="input--Container">
@@ -173,15 +169,16 @@
                     <div class="Items">
                         <select required name="tipo" id="Tipo--modificar">
                             <label for="Tipo--modificar">Tipo de bebida</label>
-                            <option value="">Seleccione un tipo</option>
-                            <option value="Ron">Ron</option>
-                            <option value="Vodka">Vodka</option>
-                            <option value="Cerveza">Cerveza</option>
-                            <option value="Vulcana">Vulcana</option>
-                            <option value="Energetica">Energética</option>
-                            <option value="Te">Té</option>
-                            <option value="Agua">Agua</option>
-                            <option value="Gaseosa">Gaseosa</option>
+                            <option selected disabled value="">Seleccione un tipo</option>
+                                <option selected value="">Todos</option>
+                                <option value="Ron">Ron</option>
+                                <option value="Voodka">Vodka</option>
+                                <option value="Whisky">Whisky</option>
+                                <option value="Vinos">Vinos</option>
+                                <option value="Sangria">Sangria</option>
+                                <option value="Anis">Anis</option>
+                                <option value="Baseron">Base de Ron</option>
+                                <option value="Aguardiente">Aguardiente</option>
                         </select>
                     </div>
                     <div class="Items">
@@ -203,10 +200,6 @@
                     <div class="item">
                         <label for="Paquetes--modificar">Paquetes</label>
                         <input placeholder="Ingrese los paquetes" type="text" id="Paquetes--modificar" name="paquete" required maxlength="3">
-                    </div>
-                    <div class="item">
-                        <label for="Iva--modificar">Iva</label>
-                        <input placeholder="Ingrese el iva del producto" type="text" id="Iva--modificar" name="iva" required maxlength="3">
                     </div>
                 </div>
                 <div class="input--Container">
