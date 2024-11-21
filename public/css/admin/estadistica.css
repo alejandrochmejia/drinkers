@@ -127,6 +127,8 @@ main .Content--Container .Conversiones--Grafica article{
     border-radius: 15px;
 }
 main .Content--Container .Conversiones--Grafica article:nth-child(1){
+    display: flex;
+    flex-direction: column;
     width: 260px;
     height: 140px;
     background-color: var(--SecondaryColor);
@@ -137,14 +139,17 @@ main .Content--Container .Conversiones--Grafica h2{
     font-size: 1.2em;
 }
 main .Content--Container .Conversiones--Grafica article div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 10px;
     text-align: center;
 }
 main .Content--Container .Conversiones--Grafica article div input{
     text-align: center;
-    width: 70px;
-    margin-right: 15px;
-    margin-left: 15px;
+    width: 100%;
+    padding: 0.5em;
     font-size: 1.1em;
     border-radius: 20px;
     outline: none;
@@ -155,6 +160,7 @@ main .Content--Container .Conversiones--Grafica article div input{
 main .Content--Container .Conversiones--Grafica article div input::placeholder{
     color: var(--ColorNavigatorBar);
 }
+
 main .Content--Container .Conversiones--Grafica article div input:hover{
     border: 2px solid var(--ColorNavigatorBar);
 }
@@ -166,6 +172,7 @@ main .Content--Container .Conversiones--Grafica article:nth-child(2){
     background-color: var(--ColorNavigatorBar);
     color: var(--PrimaryColor);
 }
+
 main .Content--Container .Table--Popular{
     height: 335px;
     display: flex;

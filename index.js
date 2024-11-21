@@ -10,7 +10,6 @@ import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import multer from 'multer';
 
-
 //Controlador de la base de datos
 import * as dbController from './src/controllers/db.controller.js';
 
@@ -101,6 +100,7 @@ const chatSession = model.startChat({
 ////// SERVIDOR //////
 ///////////////////////
 
+//Creacion de Servidor
 const app = express();
 app.set('port',process.env.PORT)
 app.use(express.static(resolve(__dirname, './public')));
