@@ -26,3 +26,10 @@ nav .List svg{
     outline: 2px solid var(--PrimaryColor);
     padding: 5px 5px;
 }
+
+nav .List .active svg{
+    background-color: var(--ColorNavigatorBar);
+    fill: var(--PrimaryColor);
+    outline: 2px solid var(--PrimaryColor);
+    padding: 5px 5px;
+}

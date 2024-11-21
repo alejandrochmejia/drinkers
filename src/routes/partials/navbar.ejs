@@ -24,3 +24,12 @@
         </a>
     </ul>
 </nav>
+<script>
+    const nav = document.querySelector('.Navigator--bar');
+    const links = nav.querySelectorAll('.Link');
+    links.forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    }); 
+</script>

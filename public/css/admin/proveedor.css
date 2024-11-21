@@ -96,7 +96,9 @@ main .Content .Table--Container{
     position: absolute;
     top: 5px;
     left: 380px;
+    width: 60%;
 }
+
 main .Content .Table--Container .Input--Container{
     padding: 2px;
     display: flex;
@@ -118,14 +120,17 @@ main .Content .Table--Container .Input--Container img{
     cursor: pointer;
 }
 main .Content .Table--Container table{
+    margin-top: 1em;
     border: 1px solid #aaa;
     border-radius: 15px;
-    height: 300px;
-    margin-top: 15px;
-    padding: 5px 5px;
+    height: 280px;
+    padding: 0px 10px;
     border-collapse: collapse;
     overflow-y: auto;
+    scroll-behavior: smooth;
     display: block;
+    width: 100%;
+    
 }
 main .Content .Table--Container table::-webkit-scrollbar{
     background-color: #aaa;
@@ -146,18 +151,24 @@ main .Content .Table--Container table caption{
     text-transform: capitalize;
     letter-spacing: 1px;
 }
+
+
 main .Content .Table--Container table th{
-    padding: 3px 5px;
+    width: 100%;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
     font-size: 0.9em;
 }           
 main .Content .Table--Container table td{
-    padding: 5px 10px;
     text-align: center;
+    word-wrap: break-word;
     font-weight: 500;
     font-size: 0.9em;
+    height: 2em;
+    width: 2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 main .Content .Table--Container table tbody tr{
     transition: .1s linear;

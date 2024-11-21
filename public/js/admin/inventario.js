@@ -2,6 +2,18 @@ let añadir = document.getElementById('Añadir');
 let modalAgregar = document.getElementById('dialog--1');
 let cerrar = document.getElementById('Cerrar');
 
+//Declaracion del Toast
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+})
+
 //Evento que abre la ventana modal
 añadir.addEventListener('click',()=>{
     modalAgregar.showModal();
@@ -40,7 +52,8 @@ clickTabla.forEach((fila)=>{
         }
     })
 })
-Eliminar.addEventListener('click',()=>{
+
+Eliminar.addEventListener('click', ()=>{
     confirm("Esta seguro que quiere eliminar este producto del inventario")
     clickTabla.forEach(async (fila)=>{
         if(fila.classList.contains('presionado--bottom')){
@@ -52,6 +65,10 @@ Eliminar.addEventListener('click',()=>{
                 body: JSON.stringify({id: fila.children[0].textContent})
             })
             .then(
+                await Toast.fire({
+                    icon: 'info',
+                    title: 'Producto eliminado'
+                }),
                 window.location.href = '/admin/inventario'
             )
         }
@@ -100,7 +117,6 @@ const TipoBebida = document.getElementById('tipo');
 const grados = document.getElementById('Grados');
 const Litros = document.getElementById('Litros');
 const Paquetes = document.getElementById('Paquetes');
-const Iva = document.getElementById('Iva');
 const Precio__detal = document.getElementById('Precio--detal');
 const Precio__mayorista = document.getElementById('Precio--mayorista');
 const descripcion = document.getElementById('Descripcion');
@@ -190,20 +206,6 @@ Paquetes.addEventListener('input', ()=>{
         }
     }
 })
-Iva.addEventListener('input',()=>{
-    let iva = Iva.value
-    let validar = ValidNum(iva)
-
-    if(validar){
-        Iva.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
-    }else{
-        if(Iva.value == 0){
-            Iva.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
-        }else{
-            Iva.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
-        }
-    }
-})
 Precio__detal.addEventListener('input',()=>{
     let precio_detal = Precio__detal.value
     let validar = ValidNum(precio_detal)
@@ -249,10 +251,10 @@ stock.addEventListener('input',()=>{
 let submit = document.getElementById('submit--Agregar');
 submit.addEventListener('click',()=>{
     if(Nombrebebida.value == 0 && TipoBebida.value == 0 && grados.value == 0 && Litros.value == 0 && Paquetes.value == 0 
-        && Iva.value == 0 && Precio__detal.value == 0 && Precio__mayorista.value == 0 && descripcion.value == 0 && stock.value == 0){
+        && Precio__detal.value == 0 && Precio__mayorista.value == 0 && descripcion.value == 0 && stock.value == 0){
             alert("Tiene que llenar todos los campos para poder agregar el producto")
     }else if(Nombrebebida.value == 0 || TipoBebida.value == 0 || grados.value == 0 || Litros.value == 0 || Paquetes.value == 0 
-        || Iva.value == 0 || Precio__detal.value == 0 || Precio__mayorista.value == 0 || descripcion.value == 0 || stock.value == 0){
+        || Precio__detal.value == 0 || Precio__mayorista.value == 0 || descripcion.value == 0 || stock.value == 0){
             alert("No tiene todos los campos completos , por favor complete los campos que falta para pode continuar")
         }
     else{
@@ -265,7 +267,6 @@ submit.addEventListener('click',()=>{
             grados.value = ""
             Litros.value = ""
             Paquetes.value = ""
-            Iva.value = ""
             Precio__detal.value = ""
             Precio__mayorista.value = ""
             descripcion.value = ""
@@ -280,10 +281,8 @@ const tipo__modificar = document.getElementById('Tipo--modificar');
 const Grados__modificar = document.getElementById('Grados--modificar');
 const Litros__modificar = document.getElementById('Litros--modificar');
 const Paquetes__modificar = document.getElementById('Paquetes--modificar');
-const Iva__modificar = document.getElementById('Iva--modificar');
 const precio__detal__modificar = document.getElementById('Precio--detal--modificar');
 const precio__mayorista__modificar = document.getElementById('Precio--mayorista--modificar');
-const descripcion__modificar = document.getElementById('Descripcion--modificar');
 const stock__modificar = document.getElementById('stock--modificar');
 
 //validacion para si en el campo se ingresa palabras
@@ -299,19 +298,7 @@ Nombre__Modificar.addEventListener('input',()=>{
         }
     }
 })
-// validacion para el textarea
-descripcion__modificar.addEventListener('input',()=>{
-    let validar = ValidTextarea(descripcion__modificar.value)
-    if(validar){
-        descripcion__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
-    }else{
-        if(descripcion__modificar.value == 0){
-            descripcion__modificar.style = "border-bottom: 2px solid #aaa; border-right:2px solid #aaa;"
-        }else{
-            descripcion__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
-        }
-    }
-})
+
 // validaciones para los campos que contiene numeros
 ID.addEventListener('input',()=>{
     let validar = ValidNum(ID.value)
@@ -401,11 +388,11 @@ stock__modificar.addEventListener('input',()=>{
 let submit_modificar = document.getElementById('submit');
 submit_modificar.addEventListener('click',()=>{
     if(ID.value == 0 && Nombre__Modificar.value == 0 && tipo__modificar.value == 0 && Grados__modificar.value == 0 && Litros__modificar.value == 0
-        && Paquetes__modificar.value == 0 && Iva__modificar.value == 0 && precio__detal__modificar.value == 0 && precio__mayorista__modificar.value == 0 
+        && Paquetes__modificar.value == 0 && precio__detal__modificar.value == 0 && precio__mayorista__modificar.value == 0 
         && descripcion__modificar.value == 0 && stock__modificar.value == 0){
         alert("Tiene que llenar todos los campos para poder modificar un producto")
     }else if(ID.value == 0 || Nombre__Modificar.value == 0 || tipo__modificar.value == 0 || Grados__modificar.value == 0 || Litros__modificar.value == 0
-        || Paquetes__modificar.value == 0 || Iva__modificar.value == 0 || precio__detal__modificar.value == 0 || precio__mayorista__modificar.value == 0 
+        || Paquetes__modificar.value == 0 || precio__detal__modificar.value == 0 || precio__mayorista__modificar.value == 0 
         || descripcion__modificar.value == 0 || stock__modificar.value == 0){
             alert("Hay algunos campos que no esta completos, por favor complete los campos faltantes para continuar")
         }
@@ -420,7 +407,6 @@ submit_modificar.addEventListener('click',()=>{
             Grados__modificar.value = ""
             Litros__modificar.value = ""
             Paquetes__modificar.value = ""
-            Iva__modificar.value = ""
             precio__detal__modificar.value = ""
             precio__mayorista__modificar.value = ""
             descripcion__modificar.value = ""
@@ -429,3 +415,64 @@ submit_modificar.addEventListener('click',()=>{
     }
 })
 
+
+document.querySelector('#selectModifyProduct').onchange = async (e) => {
+    const tabla = document.querySelector('.Table--inventario table tbody');
+    const name = e.target.value; // Nombre seleccionado del select
+
+    // Obtener todas las filas de la tabla
+    const filas = tabla.querySelectorAll('tr');
+
+    // Inicializar una variable para almacenar los datos encontrados
+    let data = null;
+
+    // Iterar sobre las filas de la tabla
+    filas.forEach((fila) => {
+        const celdas = fila.querySelectorAll('td');
+
+        // Suponiendo que el nombre está en la primera celda (índice 0)
+        const nombreCelda = celdas[0].innerText; // Cambia el índice si el nombre está en otra columna
+
+        // Comparar el nombre de la celda con el nombre seleccionado
+        if (nombreCelda === name) {
+            // Si coincide, almacenar los valores en el objeto data
+            data = {
+                id: nombreCelda,
+                nombre: celdas[1].innerText, // Ajusta el índice según la posición de los datos
+                tipo: celdas[2].innerText,
+                litros: celdas[3].innerText,
+                grados: celdas[4].innerText,
+                imagen: celdas[5],
+                paquetes: celdas[6].innerText,
+                precio_detal: celdas[8].innerText,
+                precio_mayorista: celdas[9].innerText,
+                stock: celdas[10].innerText
+            };
+        }
+    });
+
+
+    // Si se encontró el producto, asignar los valores a las variables
+    if (data) {
+        ID.value = data.id;
+        Nombre__Modificar.value = data.nombre;
+        tipo__modificar.value = data.tipo;
+        Litros__modificar.value = data.litros;
+        Grados__modificar.value = data.grados;
+        Paquetes__modificar.value = data.paquetes;
+        precio__detal__modificar.value = data.precio_detal;
+        precio__mayorista__modificar.value = data.precio_mayorista;
+        stock__modificar.value = data.stock;
+    } else {
+        // Opcional: Limpiar los campos si no se encuentra el producto
+        ID.value = '';
+        Nombre__Modificar.value = '';
+        tipo__modificar.value = '';
+        Litros__modificar.value = '';
+        Grados__modificar.value = '';
+        Paquetes__modificar.value = '';
+        precio__detal__modificar.value = '';
+        precio__mayorista__modificar.value = '';
+        stock__modificar.value = '';
+    }
+};

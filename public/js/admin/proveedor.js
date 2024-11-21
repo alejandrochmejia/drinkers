@@ -1,6 +1,18 @@
 let añadir = document.getElementById('Agregar');
 let modalAgregar = document.getElementById('dialog--1');
 let cerrarAgregar = document.getElementById('CerrarAgregar');
+
+//Declaracion del Toast
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+})
 //Evento que abre la ventana modal
 añadir.addEventListener('click',()=>{
     modalAgregar.showModal();
@@ -33,7 +45,8 @@ clickTabla.forEach((fila)=>{
         }
     })
 })
-Eliminar.addEventListener('click',()=>{
+
+eliminar.addEventListener('click',()=>{
     confirm("Esta seguro que quieres eliminar este proveedor de la tabla?")
     clickTabla.forEach(async (fila)=>{
         if(fila.classList.contains('presionado--bottom')){
@@ -45,6 +58,10 @@ Eliminar.addEventListener('click',()=>{
                 body: JSON.stringify({id: fila.children[0].textContent})
             })
             .then(
+                await Toast.fire({
+                    icon: 'info',
+                    title: 'Proveedor eliminado'
+                }),
                 window.location.href = '/admin/proveedor'
             )
         }
@@ -57,10 +74,8 @@ const RIFprov = document.getElementById('RIF');
 const Productoprov = document.getElementById('Bebida');
 const Ubiprov = document.getElementById('Ubicación');
 const Tlfprov = document.getElementById('Telefono');
-const fechaCompra = document.getElementById('Fecha--compra');
-const fechaEntrega = document.getElementById('Fecha--entrega');
 // Funcion que valida si en el campo se ingresa numeros
-function ValidNum(validar) {
+function ValidNum(validar) {    
     const regex = /^-?\d+\.?\d*$/
     return regex.test(validar)
 }
@@ -139,25 +154,6 @@ Ubiprov.addEventListener('input',()=>{
         }
     }
 })
-//Validaciones para las fechas
-fechaCompra.addEventListener('input',()=>{
-    const fecha = new Date();
-    const valor = new Date(fechaCompra.value)
-    if(valor < fecha){
-        fechaCompra.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
-    }else{
-        fechaCompra.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
-    }
-})
-fechaEntrega.addEventListener('input',()=>{
-    const fecha = new Date(fechaCompra.value)
-    const valor = new Date(fechaEntrega.value)
-    if(valor <= fecha){
-        fechaEntrega.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
-    }else{
-        fechaEntrega.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
-    }
-})
 //Evento del boton de agregar en la ventana modal de agregar proveedor
 let submitAgregar = document.getElementById('SubmitAgregar');
 submitAgregar.addEventListener('click',()=>{
@@ -189,8 +185,6 @@ const RIFprov__modificar = document.getElementById('RIF--modificar');
 const Productoprov__modificar = document.getElementById('Bebida--modificar');
 const Ubiprov__modificar = document.getElementById('Ubicación--modificar');
 const Tlfprov__modificar = document.getElementById('Telefono--modificar');
-const fechaCompra__modificar = document.getElementById('Fecha--compra--modificar');
-const fechaEntrega__modificar = document.getElementById('Fecha--entrega--modificar')
 
 // validacion para los campos que contenga numeros
 IDprov.addEventListener('click',()=>{
@@ -273,25 +267,6 @@ Ubiprov__modificar.addEventListener('click',()=>{
         }
     }
 })
-//Validaciones para las fechas
-fechaCompra__modificar.addEventListener('input',()=>{
-    const fecha = new Date();
-    const valor = new Date(fechaCompra__modificar.value)
-    if(valor < fecha){
-        fechaCompra__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
-    }else{
-        fechaCompra__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
-    }
-})
-fechaEntrega__modificar.addEventListener('input',()=>{
-    const fecha = new Date(fechaCompra__modificar.value)
-    const valor = new Date(fechaEntrega__modificar.value)
-    if(valor <= fecha){
-        fechaEntrega__modificar.style = "border-bottom: 2px solid #f00; border-right:2px solid #f00;"
-    }else{
-        fechaEntrega__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
-    }
-})
 // Evento para el boton modificar para la ventana modal de modificar un proveedor
 let submitModificar = document.getElementById('SubmitModificar');
 submitModificar.addEventListener('click', ()=>{
@@ -319,3 +294,28 @@ submitModificar.addEventListener('click', ()=>{
         }
     }
 })
+
+const buscador = document.querySelector('#tbodyProveedores');
+const input = document.querySelector('#Search');
+
+input.addEventListener('keyup', () => {
+  const filter = input.value.toLowerCase();
+  const rows = buscador.querySelectorAll('tr');
+
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+    let match = false;
+
+    cells.forEach(cell => {
+      if (cell.textContent.toLowerCase().includes(filter)) {
+        match = true;
+      }
+    });
+
+    if (match) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});

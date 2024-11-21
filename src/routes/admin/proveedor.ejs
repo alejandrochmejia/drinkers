@@ -38,7 +38,7 @@
             </section>
             <section class="Table--Container">
                 <div class="Input--Container">
-                    <input type="search" placeholder="Buscar proveedor" id="Lupa">
+                    <input type="search" placeholder="Buscar proveedor" id="Search">
                     <label for="Lupa">
                         <img src="/images/icons/Search.png" alt="Lupa" id="Lupa">
                     </label>
@@ -55,7 +55,7 @@
                             <th>Ubicación</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbodyProveedores">
                         <% proveedor.forEach((proveedor) => { %>
                             <% if(proveedor.status === 'active'){ %>
                             <tr>

@@ -23,7 +23,7 @@
                     <select name="tipo">
                         <option selected value="">Todos</option>
                         <option value="Ron">Ron</option>
-                        <option value="Voodka">Vodka</option>
+                        <option value="Vodka">Vodka</option>
                         <option value="Whisky">Whisky</option>
                         <option value="Vinos">Vinos</option>
                         <option value="Sangria">Sangria</option>
@@ -51,7 +51,6 @@
                         <th>Grados de alcohol</th>
                         <th>Imagen</th>
                         <th>Paquete</th>
-                        <th>iva</th>
                         <th>Descripción</th>
                         <th>Precio_detal</th>
                         <th>Precio_mayorista</th>
@@ -67,10 +66,9 @@
                             <td><%= producto.tipo %></td>
                             <td><%= producto.litros %></td>
                             <td><%= producto.grados %></td>
-                            <td><%= producto.imagen %></td>
+                            <td><%= producto.imagen.substring(0, 20) %></td>
                             <td><%= producto.paquete %></td>
-                            <td><%= producto.iva %></td>
-                            <td><%= producto.descripcion %></td>
+                            <td><%= producto.descripcion.substring(0, 20) %></td>
                             <td><%= producto.precio_detal %></td>
                             <td><%= producto.precio_mayorista %></td>
                             <td><%= producto.stock %></td>
@@ -157,12 +155,19 @@
                     <div>
                         <label for="Modificar--producto">Id</label>
                         <input type="text" placeholder="Ingrese el id del producto Modificar" id="Modificar--producto" name="id" required maxlength="3">
+                        <select id="selectModifyProduct">
+                            <option selected disabled value="">Seleccione un producto</option>
+                            <% inventario.forEach(producto => { %>
+                                <option value="<%= producto.id %>"><%= producto.nombre_producto %></option>
+                            <% }); %>
+                        </select>
                     </div>
                 </div>
                 <div class="input--Container">
                     <div class="Items">
                         <label for="Nombre--modificar">Nombre del Producto</label>
                         <input placeholder="Ingrese el nombre del producto" type="text" id="Nombre--modificar" name="nombre_producto" required maxlength="25">
+
                     </div>
                 </div>
                 <div class="input--Container">
@@ -191,12 +196,6 @@
                     </div>
                 </div>
                 <div class="input--Container">
-                    <div>
-                        <label for="Imagen">Imagen del producto</label>
-                        <input type="file" id="Imagen" name="imagen"/>
-                    </div>
-                </div>
-                <div class="input--Container">
                     <div class="item">
                         <label for="Paquetes--modificar">Paquetes</label>
                         <input placeholder="Ingrese los paquetes" type="text" id="Paquetes--modificar" name="paquete" required maxlength="3">
@@ -213,10 +212,6 @@
                     </div>
                 </div>
                 <div class="input--Container">
-                    <label for="Descripcion--modificar">Descripción</label>
-                    <textarea id="Descripcion--modificar" required cols="50" placeholder="Ingrese la Descripcion del Producto" name="descripcion" maxlength="300"></textarea>
-                </div>
-                <div class="input--Container">
                     <div class="Items">
                         <label for="stock--modificar">Cantidad de stock</label>
                         <input placeholder="Ingrese la Cantidad de stock" type="text" id="stock--modificar" name="stock" required maxlength="3">
@@ -226,6 +221,7 @@
             </form>
         </dialog>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/admin/inventario.js"></script>
 </body>
 </html>

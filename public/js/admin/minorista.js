@@ -8,20 +8,27 @@ mayorista.addEventListener('mouseout',()=>{
     minorista.style = "color:#FFFFFF; background-color: #001752"
 })
 
-let lupa = document.getElementById('Lupa');
+const buscador = document.querySelector('#tbodyMinorista');
+const input = document.querySelector('#Search');
 
-lupa.addEventListener('click',()=>{
-    let search = document.getElementById('Destino').value;
-    let tabla = document.querySelector('.Table--Container table tbody');
-    let filas = tabla.querySelectorAll('tr');
-    filas.forEach((fila)=>{
-        let destino = fila.children[2].textContent;
-        if(search === ''){
-            fila.style.display = 'table-row';
-        }else if(destino.includes(search)){
-            fila.style.display = 'table-row';
-        }else{
-            fila.style.display = 'none';
-        }
-    })
-})
+input.addEventListener('keyup', () => {
+  const filter = input.value.toLowerCase();
+  const rows = buscador.querySelectorAll('tr');
+
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+    let match = false;
+
+    cells.forEach(cell => {
+      if (cell.textContent.toLowerCase().includes(filter)) {
+        match = true;
+      }
+    });
+
+    if (match) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});

@@ -13,7 +13,7 @@
     <main>
         <section class="Content--page">
             <article class="input--Container">
-                <input type="search" placeholder="Destino" id="Destino">
+                <input type="search" placeholder="Destino" id="Search">
                 <label for="Destino">
                     <img alt="Lupa" src="/images/icons/Search.png" id="Destino">
                 </label>
@@ -37,7 +37,7 @@
                     <th>Status</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbodyMinorista">
                     <% for(let i = 0; i < envios.length; i++) { %>
                         <% if(envios[i].tipo === 'minorista') { %>
                         <tr>

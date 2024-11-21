@@ -361,10 +361,7 @@ app.post('/admin/inventario/create', upload.single('imagen'), async (req, res) =
     res.redirect('/admin/inventario');
 });
 
-app.post('/admin/inventario/modificar', upload.single('imagen'), async (req, res) => {
-    if (req.file) {
-        req.body.imagen = '/images/Licores/' + req.file.filename;
-    }
+app.post('/admin/inventario/modificar', async (req, res) => {
     await dbController.update(process.env.MYSQL_DATABASE+'.INVENTARIO', req.body.id, req.body)
     res.redirect('/admin/inventario')
 })

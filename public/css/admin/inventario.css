@@ -98,7 +98,9 @@ main .Table--inventario table {
     overflow-y: auto;
     scroll-behavior: smooth;
     display: block;
+    width: 100%;
 }
+
 main .Table--inventario table::-webkit-scrollbar{
     width: 10px;
     background-color: #aaa;
@@ -120,19 +122,26 @@ main .Table--inventario table caption {
   }
   
 main .Table--inventario table th {
-    padding: 5px 5px;
+    width: 100%;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     font-weight: 600;
     font-size: 0.9em;
 }
+
+main .Table--inventario table thead tr th {
+    padding: 0.5em 1em;
+}
   
 main .Table--inventario table td {
-    padding: 2px 3px;
     text-align: center;
     word-wrap: break-word;
     font-weight: 500;
     font-size: 0.9em;
+    height: 2em;
+    width: 2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
   
 main .Table--inventario table tbody tr {
