@@ -407,7 +407,7 @@ app.post('/admin/proveedor/modificar', async (req, res) => {
 })
 
 app.post('/admin/proveedor/eliminar', async (req, res) => {
-    await dbController.update(process.env.MYSQL_DATABASE+'.proveedores', req.body.id, {status: 'inactive'})
+    await dbController.update(process.env.MYSQL_DATABASE+'.PROVEEDORES', req.body.id, {status: 'inactive'})
     res.send('Eliminado')
 });
 
