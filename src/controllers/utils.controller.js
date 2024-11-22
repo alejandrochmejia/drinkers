@@ -28,3 +28,9 @@ export async function verifyCompras(){
         await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET stock = stock + ${compra.cantidad_paquete} WHERE id = ${producto[0].id}`);
     }
 }
+export async function verifyEnvios(){
+    const envios = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.ENVIOS WHERE fecha_entrega <= CURDATE()`);
+    for (const envio of envios) {
+        await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.ENVIOS SET status = delivered WHERE id = ${envio[0].id}`);
+    }
+}

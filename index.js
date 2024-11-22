@@ -135,6 +135,8 @@ app.get('/', async (req,res)=>{
 
         //Verificar si hay una compra pendiente de los proveedores
         utilsController.verifyCompras()
+        //Verifica si hay envios para verificar hoy
+        utilsController.verifyEnvios()
 
         res.render('index', {
             top5ProductosConNombres: await dbController.getBestProducts(),
