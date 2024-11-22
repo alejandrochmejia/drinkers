@@ -32,6 +32,6 @@ export async function verifyCompras(){
 export async function verifyEnvios(){
     const envios = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.ENVIOS WHERE entrega <= CURDATE()`);
     for (const envio of envios) {
-        await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.ENVIOS SET status = delivered WHERE id = ${envio[0].id}`);
+        await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.ENVIOS SET status = delivered WHERE id = ${envio.id}`);
     }
 }
