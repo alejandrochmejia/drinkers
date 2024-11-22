@@ -124,7 +124,7 @@ Nombreprov.addEventListener('input',()=>{
     }
 })
 Productoprov.addEventListener('input',()=>{
-    let validar = ValidLetra(Productoprov.value)
+    let validar = ValidNum(Productoprov.value)
 
     if(validar){
         Productoprov.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
@@ -241,7 +241,7 @@ Nombreprov__modificar.addEventListener('click',()=>{
     }
 })
 Productoprov__modificar.addEventListener('click', ()=>{
-    let validar = ValidLetra(Productoprov__modificar.value)
+    let validar = ValidNum(Productoprov__modificar.value)
 
     if(validar){
         Productoprov__modificar.style = "border-bottom: 2px solid #04f; border-right:2px solid #04f;"
