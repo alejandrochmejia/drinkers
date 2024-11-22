@@ -550,13 +550,6 @@ app.post('/payment', async (req, res) => {
 
     await dbController.create(process.env.MYSQL_DATABASE + '.FACTURA', {id, base, iva, total, id_user, control, fecha });
 
-    // Crear Envio
-    if(entrega.length > 0) {
-        const envios = await dbController.getAll(process.env.MYSQL_DATABASE + '.ENVIOS');
-        const id_envio = envios.length + 1;
-        await dbController.create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, destino: direccion, entrega, id_factura: id});
-    }
-
     //Contruccion de Productos Facturados
     // Convertir el objeto en un array de objetos
     const productos = Object.entries(products).map(([key, value]) => {
@@ -565,6 +558,26 @@ app.post('/payment', async (req, res) => {
           ...JSON.parse(value)
         };
     });
+
+    console.log(entrega)
+    // Crear Envio
+    if(entrega.length > 0 || !entrega) {
+        const envios = await dbController.getAll(process.env.MYSQL_DATABASE + '.ENVIOS');
+        const id_envio = envios.length + 1;
+        let cantidad = 0;
+        let tipo = 'minorista'
+
+        for (const product of productos) {
+            cantidad += parseInt(product.cantidad);
+        }
+
+        if(cantidad > 12){
+            tipo = 'mayorista'
+        }
+
+        
+        await dbController.create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, destino: direccion, entrega, tipo, id_factura: id});
+    }
 
 
 

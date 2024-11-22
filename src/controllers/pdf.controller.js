@@ -59,7 +59,7 @@ export const generatePDF = (productosFacturados, base, iva, total, fecha, direcc
     const subtotalY = tableTop + 25 + (i * 25) + 20;
     doc.fontSize(12).text(`Tasa del Dolar: ${dolar.toFixed(2)} Bs`, totalX - 100, subtotalY);
     doc.fontSize(12).text(`Base Imponible: ${base.toFixed(2)} $`, totalX - 100, subtotalY + 15);
-    doc.fontSize(12).text(`IVA: ${(base*(iva/100))} $`, totalX - 100, subtotalY + 30);
+    doc.fontSize(12).text(`IVA: ${(base*(iva/100)).toFixed(2)} $`, totalX - 100, subtotalY + 30);
     doc.fontSize(12).text(`Total: ${total.toFixed(2)} $`, totalX - 100, subtotalY + 45);
 
     return doc;
