@@ -5,7 +5,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
     const message = userInput.value;
     
     if (message.trim() !== "") {
-        addMessage('Usuario: ' + message);
+        addMessage('Usuario: ' + message + "\n\n");
         userInput.value = '';
         respondToUser (message);
     }
