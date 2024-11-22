@@ -494,3 +494,18 @@ document.querySelector('form[action="/admin/inventario/create"]').onsubmit = asy
         title: 'Producto creado'
     })
 }
+
+document.addEventListener('DOMContentLoaded',async (e)=>{
+    let tabla = document.querySelector('.Table--inventario table tbody');
+    let primeraFila = tabla.rows[0].cells;
+
+    ID.value = primeraFila[0].textContent;
+    Nombre__Modificar.value = primeraFila[1].textContent;
+    tipo__modificar.value = primeraFila[2].textContent;
+    Litros__modificar.value = primeraFila[3].textContent;
+    Grados__modificar.value = primeraFila[4].textContent;
+    Paquetes__modificar.value = primeraFila[6].textContent;
+    precio__detal__modificar.value = primeraFila[8].textContent;
+    precio__mayorista__modificar.value = primeraFila[9].textContent;
+    stock__modificar.value = primeraFila[10].textContent;
+})

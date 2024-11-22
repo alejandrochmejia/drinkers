@@ -15,6 +15,7 @@ const Toast = Swal.mixin({
     timer: 1500,
     timerProgressBar: true,
 })
+
 //Evento que abre la ventana modal
 añadir.addEventListener('click',()=>{
     modalAgregar.showModal();
@@ -292,27 +293,20 @@ submitModificar.addEventListener('click', ()=>{
 const buscador = document.querySelector('#tbodyProveedores');
 const input = document.querySelector('#Search');
 
-input.addEventListener('keyup', () => {
-  const filter = input.value.toLowerCase();
-  const rows = buscador.querySelectorAll('tr');
-
-  rows.forEach(row => {
-    const cells = row.querySelectorAll('td');
-    let match = false;
-
-    cells.forEach(cell => {
-      if (cell.textContent.toLowerCase().includes(filter)) {
-        match = true;
-      }
-    });
-
-    if (match) {
-      row.style.display = '';
-    } else {
-      row.style.display = 'none';
-    }
-  });
-});
+input.addEventListener('keyup',(e)=>{
+    let valor = e.target.value.toLowerCase();
+    let tabla = buscador
+    let filas = tabla.querySelectorAll('tr');
+    filas.forEach((fila)=>{
+        let id = fila.children[0].textContent.toLowerCase();
+        let nombre = fila.children[1].textContent.toLowerCase();
+        if (id.indexOf(valor) !== -1 || nombre.indexOf(valor) !== -1) {
+            fila.style.display = 'table-row';
+        } else {
+            fila.style.display = 'none';
+        }
+    })
+})
 
 const tabla = document.querySelector('#tbodyProveedores');
 const rows = tabla.querySelectorAll('tr');
@@ -389,3 +383,14 @@ document.querySelector('form[action="/admin/proveedor/modificar"]').onsubmit = a
     })
 
 }
+
+document.addEventListener('DOMContentLoaded',async (e)=>{
+    let primeraFila = tabla.rows[0].cells;
+
+    IDprov.value = primeraFila[0].textContent;
+    Nombreprov__modificar.value = primeraFila[1].textContent;
+    Tlfprov__modificar.value = primeraFila[2].textContent;
+    Productoprov__modificar.value = primeraFila[3].textContent;
+    RIFprov__modificar.value = primeraFila[4].textContent;
+    Ubiprov__modificar.value = primeraFila[5].textContent;
+})
