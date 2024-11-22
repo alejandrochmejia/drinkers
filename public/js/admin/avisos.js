@@ -1,4 +1,16 @@
-
+//Declaracion del Toast
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    background: '#001752',
+    color: '#fff',
+    timer: 1500,
+    timerProgressBar: true,
+})
 
 //Validaciones
 const descripcion = document.getElementById('Descripcion');
@@ -55,3 +67,10 @@ boton__aviso.addEventListener('click',()=>{
         }
     }
 })
+
+document.querySelector('form[action="/admin/avisos/create"]').onsubmit = async (e) => {
+    await Toast.fire({
+        icon: 'info',
+        title: 'Aviso creado'
+    })
+}
