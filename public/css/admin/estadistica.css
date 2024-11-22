@@ -157,6 +157,7 @@ main .Content--Container .Conversiones--Grafica article div input{
     transition: .1s linear;
     color: var(--ColorNavigatorBar);
 }
+
 main .Content--Container .Conversiones--Grafica article div input::placeholder{
     color: var(--ColorNavigatorBar);
 }
@@ -169,7 +170,6 @@ main .Content--Container .Conversiones--Grafica article:nth-child(2){
     border: 1px solid #aaa;
     width: 260px;
     height: 155px;
-    background-color: var(--ColorNavigatorBar);
     color: var(--PrimaryColor);
 }
 

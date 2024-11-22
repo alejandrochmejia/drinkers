@@ -486,3 +486,11 @@ document.querySelector('form[action="/admin/inventario/modificar"]').onsubmit = 
     })
 
 }
+
+document.querySelector('form[action="/admin/inventario/create"]').onsubmit = async (e) => {
+    await modalAgregar.close(),
+    await Toast.fire({
+        icon: 'info',
+        title: 'Producto creado'
+    })
+}

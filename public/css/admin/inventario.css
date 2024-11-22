@@ -282,7 +282,7 @@ dialog form .input--Container label{
 }
 dialog form .input--Container textarea{
     border: none;
-    padding: 2px 10px;
+    padding: 10px;
     border-right: 2px solid #aaa;
     border-bottom: 2px solid #aaa;
     border-radius: 15px;
@@ -290,6 +290,7 @@ dialog form .input--Container textarea{
     max-lines: 2;
     outline: none;
     resize: none;
+    width: 100%;
 }
 dialog form .input--Container textarea::placeholder{
     color: var(--ColorNavigatorBar);
