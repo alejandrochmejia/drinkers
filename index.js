@@ -576,7 +576,7 @@ app.post('/payment', async (req, res) => {
         }
 
         
-        await dbController.create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, destino: direccion, entrega, tipo, id_factura: id});
+        await dbController.create(process.env.MYSQL_DATABASE + '.ENVIOS', {id: id_envio, destino: direccion, entrega: entrega, tipo: tipo, id_factura: id});
     }
 
 
