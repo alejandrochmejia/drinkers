@@ -26,10 +26,11 @@ export async function verifyCompras(){
         const proveedor = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.PROVEEDORES WHERE id = ${compra.id_proveedor}`);
         const producto = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.INVENTARIO WHERE id = ${proveedor[0].id_producto}`);
         await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.INVENTARIO SET stock = stock + ${compra.cantidad_paquete} WHERE id = ${producto[0].id}`);
+        //Falta generar un envio de proveedor
     }
 }
 export async function verifyEnvios(){
-    const envios = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.ENVIOS WHERE fecha_entrega <= CURDATE()`);
+    const envios = await dbController.customQuery(`SELECT * FROM ${process.env.MYSQL_DATABASE}.ENVIOS WHERE entrega <= CURDATE()`);
     for (const envio of envios) {
         await dbController.customQuery(`UPDATE ${process.env.MYSQL_DATABASE}.ENVIOS SET status = delivered WHERE id = ${envio[0].id}`);
     }
