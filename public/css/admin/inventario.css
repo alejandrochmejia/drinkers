@@ -324,4 +324,6 @@ dialog form button:hover{
     height: 505px;
 }
 
-
+#selectModifyProduct {
+    width: 15em;
+}

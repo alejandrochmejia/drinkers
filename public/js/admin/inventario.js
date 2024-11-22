@@ -417,7 +417,6 @@ submit_modificar.addEventListener('click',()=>{
     }
 })
 
-
 document.querySelector('#selectModifyProduct').onchange = async (e) => {
     const tabla = document.querySelector('.Table--inventario table tbody');
     const name = e.target.value; // Nombre seleccionado del select

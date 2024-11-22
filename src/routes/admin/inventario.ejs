@@ -154,7 +154,7 @@
                         <label for="Modificar--producto">Id</label>
                         <input type="text" placeholder="Ingrese el id del producto Modificar" id="Modificar--producto" name="id" required maxlength="3">
                         <select id="selectModifyProduct">
-                            <option selected disabled value="">Seleccione un producto</option>
+                            <option disabled selected>Seleccione el Producto</option>
                             <% inventario.forEach(producto => { %>
                                 <option value="<%= producto.id %>"><%= producto.nombre_producto %></option>
                             <% }); %>
