@@ -561,7 +561,7 @@ app.post('/payment', async (req, res) => {
 
     console.log(entrega)
     // Crear Envio
-    if(entrega.length > 0 || !entrega) {
+    if(entrega.length > 0 || entrega) {
         const envios = await dbController.getAll(process.env.MYSQL_DATABASE + '.ENVIOS');
         const id_envio = envios.length + 1;
         let cantidad = 0;
