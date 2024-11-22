@@ -103,10 +103,11 @@ buscar.addEventListener('keyup',(e)=>{
     let tabla = document.querySelector('.Table--inventario table tbody');
     let filas = tabla.querySelectorAll('tr');
     filas.forEach((fila)=>{
+        let id = fila.children[0].textContent.toLowerCase();
         let nombre = fila.children[1].textContent.toLowerCase();
-        if(nombre.indexOf(valor) !== -1){
+        if (id.indexOf(valor) !== -1 || nombre.indexOf(valor) !== -1) {
             fila.style.display = 'table-row';
-        }else{
+        } else {
             fila.style.display = 'none';
         }
     })
