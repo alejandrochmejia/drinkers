@@ -157,11 +157,9 @@ Ubiprov.addEventListener('input',()=>{
 //Evento del boton de agregar en la ventana modal de agregar proveedor
 let submitAgregar = document.getElementById('SubmitAgregar');
 submitAgregar.addEventListener('click',()=>{
-    if(Nombreprov.value == 0 && RIFprov.value == 0 && Tlfprov.value == 0 && Productoprov.value == 0 && fechaCompra.value == 0 
-        && fechaEntrega.value == 0){
+    if(Nombreprov.value == 0 && RIFprov.value == 0 && Tlfprov.value == 0 && Productoprov.value == 0){
             alert("Tiene que llenar todos los campos para poder agregar al proveedor")
-    }else if(Nombreprov.value == 0 || RIFprov.value == 0 || Tlfprov.value == 0 || Productoprov.value == 0 || fechaCompra.value == 0 
-        || fechaEntrega.value == 0){
+    }else if(Nombreprov.value == 0 || RIFprov.value == 0 || Tlfprov.value == 0 || Productoprov.value == 0){
             alert("Hay campos que no esta completos, por favor complete los campos faltantes para poder continuar")
     }else{
         const pregunta = confirm("Esta seguro que quiere agregar este proveedor a la tabla?")
@@ -172,8 +170,6 @@ submitAgregar.addEventListener('click',()=>{
             RIFprov.value = ""
             Tlfprov.value = ""
             Productoprov.value = ""
-            fechaCompra.value = ""
-            fechaEntrega.value = ""
             Ubiprov.value = ""
         }
     }
@@ -271,12 +267,10 @@ Ubiprov__modificar.addEventListener('click',()=>{
 let submitModificar = document.getElementById('SubmitModificar');
 submitModificar.addEventListener('click', ()=>{
     if(IDprov.value == 0 && Nombreprov__modificar.value == 0 && RIFprov__modificar.value == 0 
-        && Tlfprov__modificar.value == 0 && Productoprov__modificar == 0 && fechaCompra__modificar.value == 0
-        && fechaEntrega__modificar.value == 0 && Ubiprov__modificar.value == 0){
+        && Tlfprov__modificar.value == 0 && Productoprov__modificar == 0 && Ubiprov__modificar.value == 0){
             alert("Tiene que llenar todos los campos para poder modificar un proveedor")
     }else if(IDprov.value == 0 || Nombreprov__modificar.value == 0 || RIFprov__modificar.value == 0 
-        || Tlfprov__modificar.value == 0 || Productoprov__modificar == 0 || fechaCompra__modificar.value == 0
-        || fechaEntrega__modificar.value == 0 || Ubiprov__modificar.value == 0){
+        || Tlfprov__modificar.value == 0 || Productoprov__modificar == 0 ||  Ubiprov__modificar.value == 0){
             alert("Hay algunos campos que no esta completos , por favor complete los campos faltantes para poder continuar")
     }else{
         const pregunta = confirm("Esta seguro que quiere modificar a este proveedor?")
@@ -288,8 +282,6 @@ submitModificar.addEventListener('click', ()=>{
             RIFprov__modificar.value = ""
             Tlfprov__modificar.value = ""
             Productoprov__modificar.value = ""
-            fechaCompra__modificar.value = ""
-            fechaCompra__modificar.value = ""
             Ubiprov__modificar.value = ""
         }
     }
@@ -337,3 +329,61 @@ rows.forEach(row => {
     });
     }
 );
+
+document.querySelector('#selectModifyProveedor').onchange = async (e) => {
+    const tabla = document.querySelector('#tbodyProveedores');
+    const name = e.target.value; // Nombre seleccionado del select
+
+    // Obtener todas las filas de la tabla
+    const filas = tabla.querySelectorAll('tr');
+
+    // Inicializar una variable para almacenar los datos encontrados
+    let data = null;
+
+    // Iterar sobre las filas de la tabla
+    filas.forEach((fila) => {
+        const celdas = fila.querySelectorAll('td');
+
+        // Suponiendo que el nombre está en la primera celda (índice 0)
+        const nombreCelda = celdas[0].innerText; // Cambia el índice si el nombre está en otra columna
+
+        // Comparar el nombre de la celda con el nombre seleccionado
+        if (nombreCelda === name) {
+            // Si coincide, almacenar los valores en el objeto data
+            data = {
+                id: name,
+                nombre: celdas[1].innerText, // Ajusta el índice según la posición de los datos
+                tlf: celdas[2].innerText,
+                id_producto: celdas[3].innerText,
+                rif: celdas[4].innerText,
+                ubicacion: celdas[5].innerText,
+            };
+        }
+    });
+
+
+    if (data) {
+        IDprov.value = data.id
+        Nombreprov__modificar.value = data.nombre;
+        Tlfprov__modificar.value = data.tlf
+        RIFprov__modificar.value = data.rif
+        Ubiprov__modificar.value = data.ubicacion
+        Productoprov__modificar.value = data.id_producto
+    } else {
+        IDprov.value == ""
+        Nombreprov__modificar.value = ""
+        Tlfprov__modificar.value = ""
+        RIFprov__modificar.value = ""
+        Ubiprov__modificar.value = ""
+        Productoprov__modificar.value = ""
+    }
+};
+
+document.querySelector('form[action="/admin/proveedor/modificar"]').onsubmit = async (e) => {
+    await modalModificar.close(),
+    await Toast.fire({
+        icon: 'info',
+        title: 'Proveedor Modificado'
+    })
+
+}

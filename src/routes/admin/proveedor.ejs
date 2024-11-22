@@ -16,19 +16,19 @@
                 <h1>Vista de proveedor</h1>
                 <article class="Nombre--proveedor">
                     <span>Nombre del Proveedor</span>
-                    <h3><%= proveedor[0].nombre ? proveedor[0].nombre : 'No hay proveedor' %></h3>
+                    <h3><%= proveedores[0].nombre ? proveedores[0].nombre : 'No hay proveedor' %></h3>
                 </article>
                 <article class="Tlf--proveedor">
                     <span>Telefono del proveedor</span>
-                    <h3><%= proveedor[0].telefono ? proveedor[0].telefono : 'No hay telefono' %></h3>
+                    <h3><%= proveedores[0].telefono ? proveedores[0].telefono : 'No hay telefono' %></h3>
                 </article>
                 <article class="Ubi--proveedor">
                     <span>Ubicación</span>
-                    <h3><%= proveedor[0].ubicacion ? proveedor[0].ubicacion : 'No hay ubicacion' %></h3>
+                    <h3><%= proveedores[0].ubicacion ? proveedores[0].ubicacion : 'No hay ubicacion' %></h3>
                 </article>
                 <article class="Rif--proveedor">
                     <span>RIF</span>
-                    <h3><%= proveedor[0].rif ? proveedor[0].rif : 'No hay RIF' %></h3>
+                    <h3><%= proveedores[0].rif ? proveedores[0].rif : 'No hay RIF' %></h3>
                 </article>
                 <article class="Icon--proveedor">
                     <img src="/images/icons/Añadir--white.png" alt="Agregar" title="Agregar proveedor" id="Agregar">
@@ -56,17 +56,15 @@
                         </tr>
                     </thead>
                     <tbody id="tbodyProveedores">
-                        <% proveedor.forEach((proveedor) => { %>
-                            <% if(proveedor.status === 'active'){ %>
+                        <% proveedores.forEach((proveedores) => { %>
                             <tr>
-                                <td><%= proveedor.id %></td>
-                                <td><%= proveedor.nombre %></td>
-                                <td><%= proveedor.telefono %></td>
-                                <td><%= proveedor.id_producto %></td>
-                                <td><%= proveedor.rif %></td>
-                                <td><%= proveedor.ubicacion %></td>
+                                <td><%= proveedores.id %></td>
+                                <td><%= proveedores.nombre %></td>
+                                <td><%= proveedores.telefono %></td>
+                                <td><%= proveedores.id_producto %></td>
+                                <td><%= proveedores.rif %></td>
+                                <td><%= proveedores.ubicacion %></td>
                             </tr>
-                            <% } %>
                         <% }) %>
                     </tbody>
                 </table>
@@ -111,15 +109,22 @@
             <form action="/admin/proveedor/modificar" method="POST">
                 <div class="Input--Container">
                     <div>
-                        <label for="ID">Id</label>
+                        <label for="ID--proveedor">Id</label>
                         <input placeholder="Ingrese el id del proveedor que quiere modificar" required id="ID--proveedor" name="id" maxlength="3">
                     </div>
+
                 </div>
                 <div class="Input--Container">
                     <div>
                         <label for="Nombre--modificar">Nombre del Proveedor</label>
                         <input placeholder="Ingrese el nombre del proveedor" required id="Nombre--modificar" name="nombre" maxlength="25">
                     </div>
+                    <select id="selectModifyProveedor">
+                        <option selected disabled value="">Seleccione un proveedor</option>
+                        <% proveedores.forEach(proveedor => { %>
+                            <option value="<%= proveedor.id %>"><%= proveedor.nombre %></option>
+                        <% }); %>
+                    </select>
                 </div>
                 <div class="Input--Container">
                     <div>

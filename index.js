@@ -293,7 +293,7 @@ app.get('/admin/estadistica',authenticate.authenticateOTP, async (req, res) => {
 
 //Proveedor
 app.get('/admin/proveedor',authenticate.authenticateOTP, async (req, res) => {
-    res.render('admin/proveedor', {proveedor: await dbController.getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')});
+    res.render('admin/proveedor', {proveedores: await dbController.getAll(process.env.MYSQL_DATABASE+'.PROVEEDORES')});
 });
 
 //Avisos o Reportes

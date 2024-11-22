@@ -409,7 +409,6 @@ submit_modificar.addEventListener('click',()=>{
             Paquetes__modificar.value = ""
             precio__detal__modificar.value = ""
             precio__mayorista__modificar.value = ""
-            descripcion__modificar.value = ""
             stock__modificar.value = ""
         }
     }
@@ -476,3 +475,12 @@ document.querySelector('#selectModifyProduct').onchange = async (e) => {
         stock__modificar.value = '';
     }
 };
+
+document.querySelector('form[action="/admin/inventario/modificar"]').onsubmit = async (e) => {
+    await modalModificar.close(),
+    await Toast.fire({
+        icon: 'info',
+        title: 'Producto Modificado'
+    })
+
+}
