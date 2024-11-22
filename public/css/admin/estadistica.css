@@ -65,13 +65,10 @@ main .Content--table .Table--Container div table{
     border-radius: 15px;
     border-spacing: 0;
     overflow-y: auto;
-    padding: 5px;
+    padding: 0.5em;
 }
-main .Content--table .Table--Container div table::-webkit-scrollbar{
-    width: 10px;
-    background-color: #aaa;
-    border-radius: 20px;
-}
+
+
 main .Content .Table--Container div table::-webkit-scrollbar-thumb{
     border-radius: 15px;
     background-color: var(--ColorNavigatorBar);

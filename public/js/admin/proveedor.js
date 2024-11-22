@@ -384,6 +384,15 @@ document.querySelector('form[action="/admin/proveedor/modificar"]').onsubmit = a
 
 }
 
+document.querySelector('form[action="/admin/proveedor/create"]').onsubmit = async (e) => {
+    await modalAgregar.close(),
+    await Toast.fire({
+        icon: 'info',
+        title: 'Proveedor agregado'
+    })
+
+}
+
 document.addEventListener('DOMContentLoaded',async (e)=>{
     let primeraFila = tabla.rows[0].cells;
 
