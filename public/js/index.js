@@ -1,3 +1,18 @@
+//Declaracion del Toast
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    customClass: {
+      popup: 'colored-toast',
+    },
+    showConfirmButton: false,
+    background: '#001752',
+    color: '#fff',
+    timer: 1500,
+    timerProgressBar: true,
+})
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const cartMenu = document.querySelector("aside");
     cartMenu.style.right = '-110%';
@@ -120,6 +135,11 @@ async function addProduct(button) {
     sessionStorage.setItem(producto, JSON.stringify(productStorage));
 
     document.getElementById('cart-length').innerText = sessionStorage.length;
+
+    Toast.fire({
+        icon: 'success',
+        title: 'Producto Agregado'
+    })
 
     cargarCarrito();
 }
