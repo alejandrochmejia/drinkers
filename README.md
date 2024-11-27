@@ -18,8 +18,7 @@ La vista del usuario está diseñada para proporcionar una experiencia de compra
 
 ##### Capturas de Pantalla
 
-![User Dashboard video](https://i.ibb.co/gg5jjWd/Captura-de-Pantalla-2024-11-27-a-la-s-12-17-01-p-m.png)
-*Descripción del User Dashboard*
+<img width="100%" src="https://i.ibb.co/gg5jjWd/Captura-de-Pantalla-2024-11-27-a-la-s-12-17-01-p-m.png">
 
 **Características Principales:**
 
@@ -32,8 +31,7 @@ La vista del administrador proporciona herramientas avanzadas para la gestión y
 
 ##### Capturas de Pantalla
 
-![Admin Dashboard](https://i.ibb.co/ydSRnrY/Captura-de-Pantalla-2024-11-27-a-la-s-12-17-50-p-m.png)
-*Descripción del Admin Dashboard*
+<img width="100%" src="https://i.ibb.co/ydSRnrY/Captura-de-Pantalla-2024-11-27-a-la-s-12-17-50-p-m.png">
 
 **Características Principales:**
 
