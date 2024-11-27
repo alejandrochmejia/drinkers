@@ -1,0 +1,84 @@
+<header>
+    <section>
+        <img onclick="window.location.href='/'" src="/images/Logo/logo-landing.png">
+        <datalist id="catalogo">
+            <option value="SantaTeresa">SantaTeresa</option>
+            <option value="BajoCero">BajoCero</option>
+            <option value="OldPar">OldPar</option>
+            <option value="Buchanan">Buchanan</option>
+            <option value="AnisCartujo">AnisCartujo</option>
+            <option value="Cartacho">Cartacho</option>
+        </datalist>
+        <input autocomplete="off" placeholder="Buscar por Nombre..." type="search" list="catalogo" id="search-bar">
+        <section>
+            <img id="user-photo" src="https://picsum.photos/200/300">
+            <button id="logButton" onclick="actionButtonLog()">Iniciar sesión</button>
+            <div id="cart-length"></div>
+            <img id="cart" src="/images/icons/store.svg">
+        </section>
+    </section>
+    <nav>
+        <ul>
+            <li><a href="/catalogo?type=Ron">RON</a></li>
+            <li><a href="/catalogo?type=Whisky">WHISKY</a></li>
+            <li><a href="/catalogo?type=Vinos">VINOS</a></li>
+            <li><a href="/catalogo?type=Baseron">BASE DE RON</a></li>
+            <li><a href="/catalogo?type=Vodka">VODKA</a></li>
+            <li><a href="/catalogo?type=Sangria">SANGRIA</a></li>
+            <li><a href="/catalogo?type=Anis">ANIS</a></li>
+            <li><a href="/catalogo?type=Aguardiente">AGUARDIENTE</a></li>
+        </ul>
+    </nav>
+</header>
+<script>
+    document.getElementById('cart-length').innerText = sessionStorage.length;
+
+    document.querySelector('#search-bar').onchange = function() {
+        window.location.href = `/catalogo?search=${this.value}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const photo = document.getElementById('user-photo')
+        const logButton = document.getElementById('logButton')
+        const response = await fetch('/getUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(res => res.json());
+        if(response.mensaje) {
+            photo.style.display = 'block'
+            logButton.innerText = 'Cerrar sesión'
+        }
+        else {
+            photo.style.display = 'none'
+            logButton.innerText = 'Iniciar sesión'
+        }
+    });
+
+    async function actionButtonLog(){
+        const logButton = document.getElementById('logButton')
+        if(logButton.innerText === 'Cerrar sesión') {
+            await leaveAdmin();
+        }
+        else {
+            window.location.href = '/login';
+        }
+    }
+
+    async function leaveAdmin() {
+        await fetch('/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(res => res.json()).then(response => {
+            if(response.mensaje) {
+                window.location.href = '/';
+            }
+        });
+    }
+
+</script>

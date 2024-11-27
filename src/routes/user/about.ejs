@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers</title>
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/user/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('../partials/user-header') %>
+
+    <%- include('../partials/chat') %>
+
+    <%- include('../partials/cart') %>
+
+    <main>
+
+        <section class="main-background">
+            <h1>DRINKERS</h1>
+            <h3>El elixir perfecto, la entrega perfecta</h3>
+        </section>
+
+        <section class="qualities">
+            <h2>¿Por qué somos diferentes?</h2>
+            <ul>
+                <li>Compra cuando y donde quieras</li>
+                <li>Web fácil e intuitiva disponible las 24 horas del día</li>
+                <li>Amplio horario de entrega. De lunes a domingo de 9:00 am a 10:00pm</li>
+                <li>Paga con tu tarjeta o transferencias bancarias</li>
+                <li>Entrega en la puerta de tu casa u oficina a la hora que te convenga</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section class="steps">
+            <h2>Desde <span>Drinkers</span> hasta donde te encuentres</h2>
+            <div class="steps-container">
+                <div>
+                    <img src="/images/icons/step1.svg">
+                    <h3>PASO 1</h3>
+                    <p>Realiza tu pedido</p>
+                </div>
+                <div>
+                    <img src="/images/icons/step2.svg">
+                    <h3>PASO 2</h3>
+                    <p>Empacamos tu elixir</p>
+                </div>
+                <div>
+                    <img src="/images/icons/step3.svg">
+                    <h3>PASO 3</h3>
+                    <p>Transportamos</p>
+                </div>
+                <div>
+                    <img src="/images/icons/step4.svg">
+                    <h3>PASO 4</h3>
+                    <p>Entregamos</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="aboutRepartos" class="delivery-areas">
+            <img src="/images/icons/location.svg" style="grid-column: 1/2; grid-row: 1/2; align-self: center;">
+            <h3 style="grid-column: 2/7; grid-row: 1/2; margin: 0; align-self: center;">
+                Repartimos hasta tu zona
+            </h3>
+            <p style="grid-column: 1/7; grid-row: 2/3; align-self: self-end;">
+                Drinkers trabaja en diferentes zonas. Disponemos de los mejores repartidores para que tu compra llegue tal y como tú esperas, también estamos abriendo nuevas rutas y pronto esperamos ofrecerte nuestros servicios. ¡No nos pierdas de vista y serás el primero en enterarte de todo lo que Drinkers tiene para ofrecer!
+            </p>
+            <h4 style="grid-column: 1/7; grid-row: 3/4; margin: 0; align-self: self-end; margin-bottom: 1vmin;">
+                Zonas
+            </h4>
+            <ul style="grid-column: 1/7; grid-row: 4/5; margin: 0;">
+                <li>Valencia Norte</li>
+                <li>Valencia Centro-Sur</li>
+                <li>San Diego</li>
+                <li>Naguanagua</li>
+                <li>La Isabelica</li>
+            </ul>
+            <img src="/images/icons/time.svg" style="grid-column: 1/2; grid-row: 5/6; align-self: center;">
+            <h3 style="grid-column: 2/7; grid-row: 5/6; align-self: center;">
+                Horario de reparto
+            </h3>
+            <h5 style="grid-column: 3/5; grid-row: 6/7; margin: 0;">
+                Mañana: 9am a 12pm
+            </h5>
+            <h5 style="grid-column: 5/7; grid-row: 6/7; margin: 0;">
+                Tarde: 12pm a 10pm
+            </h5>
+        </section>
+
+        <section class="how-to-buy">
+            <h2>¿Cómo comprar?</h2>
+            <div class="how-to-buy-container">
+                <div>
+                    <img src="/images/icons/howto1.svg">
+                    <h5>Por categorias</h5>
+                    <p>
+                        Navega a través de la barra de categorías que encontrarás en la parte superior
+                    </p>
+                </div>
+                <div>
+                    <img src="/images/icons/howto2.svg">
+                    <h5>Con el buscador</h5>
+                    <p>
+                        Con esta herramienta podrás escribir el producto que necesites y de inmediato te propondremos productos y marcas
+                    </p>
+                </div>
+                <div><img src="/images/icons/howto3.svg">
+                    <h5>Nuestras Recomendaciones</h5>
+                    <p>
+                        Nos basamos en tus gustos y preferencias, ademas te mostramos los productos mas populares de Drinkers
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <%- include('../partials/footer') %>
+    <script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/admin/header.css">
+<header>
+    <div class="Content__header">
+        <img style="cursor: pointer;" onclick="window.location.href='/admin/dashboard'" alt="Logo" src="/images/Logo/Logo.png">
+        <a style="cursor: pointer;" onclick="leaveAdmin()">Salir</a>
+    </div>
+</header>
+<script>
+    async function leaveAdmin() {
+        const response  = await fetch('/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include' 
+        }).then(res => res.json());
+        if(response.mensaje) {
+            window.location.href = '/';
+        }
+    }
+</script>

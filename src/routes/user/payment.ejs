@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers | Payment</title>
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/user/payment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="main">
+        <h1>Pasarela de Pago</h1>
+        <article id="firstStep" class="selectedArrow steps">
+            <h3>Paso 1</h3>
+            <p>¿Deseas recoger tu pedido (Pickup) o prefieres que te lo enviemos a domicilio (Delivery)?</p>
+            <select required>
+                <option value="pickup">Pickup</option>
+                <option value="delivery">Delivery</option>
+            </select>
+            <div id="controlBtns">
+                <button class="backStep">Regresar</button>
+                <button class="nextStep">Siguiente</button>
+            </div>
+        </article>
+        <article id="addressStep" class="selectedArrow steps">
+            <p>Ingrese su direccion y dia de entrega</p>
+            <input type="text" placeholder="Direccion" id="addressInput">
+            <input type="date" id="dateInput" min="<%= new Date().toISOString().split('T')[0] %>">
+            <div id="controlBtns">
+                <button class="backStep">Regresar</button>
+                <button class="nextStep">Siguiente</button>
+            </div>
+        </article>
+        <article id="secondStep" class="selectedArrow steps">
+            <h3>Paso 2</h3>
+            <h4>Facturacion</h4>
+            <div>
+                <p id="nameFactura"><span>Nombre:</span> <%= usuario.nombre %></p>
+                <p id="apellidoFactura"><span>Apellido:</span> <%= usuario.apellido %></p>
+                <p id="cedulaFactura"><span>Cedula:</span> <%= usuario.cedula %></p>
+                <p id="emailFactura"><span>Email:</span> <%= usuario.email %></p>
+                <p id="numeroFactura"><span>Numero Telefonico:</span> <span class="paymentValue" id="phone"></span> </p>
+                <p id="envioFactura"><span>Direccion:</span> <span class="paymentValue" id="address"><%= usuario.direccion %></span></p>
+            </div>
+            <div>
+                <p>IVA: <span id="iva" class="paymentValue"><%= iva.tasa %></span> %</p>
+                <p>Base Imponible: <span id="baseImponible" class="paymentValue"></span> $</p>
+                <h4>Total (IVA):  <span id="total"></span> $</h4>
+            </div>
+            <div id="controlBtns">
+                <button class="backStep">Regresar</button>
+                <button class="nextStep">Siguiente</button>
+            </div>
+        </article>
+
+        <article id="thirdStep" class="selectedArrow steps">
+            <h3>Paso 3</h3>
+            <h4>Metodo de Pago</h4>
+            <section id="payMethodContainer">
+                <article>
+                    <span>Tarjeta</span>
+                    <div id="tarjeta">
+                        <div id="tarjetaDatos">
+                            <input type="number" placeholder="Número de Tarjeta" class="number-input inputs">
+                            <input type="date" class="inputs">
+                            <input type="password" placeholder="Codigo de Seguridad" class="inputs">
+                        </div>
+                        <div>
+                            <img src="/images/icons/visa.svg" alt="">
+                            <img src="/images/icons/mastercard.svg" alt="">
+                            <img src="/images/icons/maestro.svg" alt="">
+                            <img src="/images/icons/americanexpress.svg" alt="">
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <span id="movilTitle">Pago Movil</span>
+                    <div id="movilDatos">
+                        <p>Cedula: 30.640.838</p>
+                        <p>Numero: 0414-4019911</p>
+                        <p>Banco: BNC</p>
+                        <input type="number" placeholder="Ultimos 4 Digitos" class="inputs">
+                    </div>
+                </article>
+            </section>
+            <div id="controlBtns">
+                <button class="backStep">Regresar</button>
+                <button class="nextStep">Concretar Pago</button>
+            </div>
+        </article>
+    </section>
+    <script src="/js/user/payment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

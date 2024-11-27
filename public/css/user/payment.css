@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#main {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+}
+
+#main h1 {
+    font-size: 2rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+    width: clamp(300px, 50%, 450px);
+}
+
+.steps h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 1em;
+    clip-path: polygon(91% 0, 100% 50%, 90% 100%, 0% 100%, 8% 52%, 0% 0%);
+    background-color: #F1F6FD;
+    color: #040C5D;
+}
+
+.steps p {
+    text-align: center;
+}
+
+.steps input {
+    border: solid 1px #B1CEF4;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    padding: 1em;
+    font-family: Montserrat;
+    transition: border 0.3s;
+}
+
+.steps input:focus {
+    border: solid 1px #040C5D;
+}
+
+.steps #controlBtns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.steps button {
+    border-radius: 5px;
+    background-color: #040C5D;
+    color: #EBEBEB;
+    border: none;
+    cursor: pointer;
+    padding: 1em;
+    font-family: Montserrat;
+}
+
+.steps .backStep {
+    background-color: #ff5757;
+}
+
+.steps .backStep:hover {
+    background-color: #ff9494;
+}
+
+.steps .nextStep:hover {
+    background-color: #0b18aa;
+}
+
+.steps select {
+    border: solid 1px #B1CEF4;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    padding: 1em;
+    font-family: Montserrat;
+    transition: border 0.3s;
+}
+
+.steps h4 {
+    font-size: 1.5rem;
+}
+
+.steps p span {
+    font-weight: bold;
+}
+
+.steps .paymentValue {
+    font-weight: normal;
+}
+
+.steps #payMethodContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.steps #payMethodContainer article {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.steps #payMethodContainer article > #movilDatos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: end;
+    height: 100%;
+    font-weight: bold;
+}
+
+.steps #movilTitle {
+    text-align: end;
+}
+
+.steps #payMethodContainer article > #movilDatos p{
+    text-align: end;
+}
+
+.steps #tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.steps #tarjetaDatos {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers</title>
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <%- include('./partials/user-header') %>
+
+    <%- include('./partials/chat') %>
+
+    <%- include('./partials/convert') %>
+
+    <%- include('./partials/cart') %>
+
+    <div id="modalBackground">
+        <div id="modalContainer">
+            <img src="/images/Logo/Logo.png">
+            <h3>¿Eres mayor de edad?</h3>
+            <div>
+                <button onclick="location.href='https://www.youtube.com/watch?v=XqZsoesa55w'">NO</button>
+                <button onclick=AdultQuestionButton()>SI</button>
+            </div>
+            <p>
+                "Al ingresar a este sitio, confirmas que eres mayor de 18 años y aceptas nuestros <a href="/terms">términos y condiciones.</a>"
+            </p>
+        </div>
+    </div>
+
+    <main>
+        <div id="background-main">
+        <h1>DRINKERS</h1>
+        <p id="slogan">
+            El elixir perfecto, la entrega perfecta
+        </p>
+        </div>
+
+        <div>
+            <section>
+                <h3 class="subtitle">Popular en Drinkers</h3>
+                    <ul class="productSection">
+                        <% top5ProductosConNombres.forEach(producto => { %>
+                            
+                            <%- include('./partials/product', {producto}) %>
+                        <% }) %>
+                    </ul>
+            </section>
+            <section>
+                <h3 class="subtitle">Ron</h3>
+                <ul class="productSection">
+                    <% ron.forEach(producto => { %>
+                            <%- include('./partials/product', {producto}) %>
+                    <% }) %>
+                </ul>
+            </section>
+            <section>
+                <h3 class="subtitle">Whisky</h3>
+                <ul class="productSection">
+                    <% whisky.forEach(producto => { %>
+                            <%- include('./partials/product', {producto}) %>
+                    <% }) %>
+                </ul>
+            </section>
+            <div id="space"></div>
+        </div>
+    </main>
+
+
+    <%- include('./partials/footer') %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

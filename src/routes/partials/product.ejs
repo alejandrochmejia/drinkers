@@ -1,0 +1,10 @@
+<li>
+    <div class="productView">
+        <img loading="lazy" class="productImg" src="<%= producto.imagen %>">
+        <input type="number" class="productCant">
+        <button onclick="addProduct(this)">Agregar</button>
+    </div>
+    <h4><%= producto.nombre_producto %></h4>
+    <h5 class="product-price">Desde <%= producto.precio_detal %> $</h5>
+    <a href="/product?name=<%= producto.nombre_producto %>" class="product-detail">Mas Detalles</a>
+</li>

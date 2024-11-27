@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+.main-background{
+    width: 100dvw;
+    height: 44dvh;
+    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.main-background > h1{
+    font-family: Zen dots;
+    font-size: 10vmin;
+    margin: 0;
+}
+
+.main-background > h3{
+    font-weight: lighter;
+    margin: 0;
+    font-size: 3vmin;
+}
+
+.qualities{
+    width: 100dvw;
+    height: 44dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.qualities > h2{
+    margin: 0;
+    font-weight: normal;
+    margin-left: 20vmin;
+}
+
+.qualities > ul{
+    margin-left: 20vmin;
+}
+
+.steps{
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.steps > h2{
+    font-weight: normal;
+}
+
+.steps > h2 > span{
+    font-family: Zen Dots;
+}
+
+.steps-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5vmin;
+}
+
+.steps-container > div{
+    width: 30vmin;
+    height: 30vmin;
+    border-radius: 20px;
+    border: solid 1px #B1CEF4;
+    color: #040C5D;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+}
+
+.steps-container > div > img{
+    width: 10vmin;
+    height: 10vmin;
+}
+
+.steps-container > div > h3, .steps-container > div > p{
+    margin: 0;
+}
+
+.delivery-areas{
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #1E1E1E;
+    color: white;
+    display: grid;
+    grid-template-columns: 10vmin 20vmin 20vmin 20vmin 20vmin 40vmin;
+    grid-template-rows: 10vmin 10vmin 6vmin 5vmin 10vmin 5vmin;
+    justify-content: center;
+    align-content: center;
+}
+
+.delivery-areas > ul {
+    display: flex;
+    flex-direction: row;
+    gap: 5vmin;
+}
+
+.delivery-areas > h3{
+    font-size: 3.5vmin;
+}
+
+.delivery-areas > h5{
+    color: #B1CEF4;
+    font-size: 3vmin;
+    font-weight: normal;
+}
+
+.how-to-buy{
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-to-buy > h2{
+    color: #040C5D;
+}
+
+.how-to-buy-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5vmin;
+}
+
+.how-to-buy-container > div{
+    width: 40vmin;
+    height: 30vmin;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vmin;
+    cursor: default;
+}
+
+.how-to-buy-container > div > p{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s linear;
+    width: 35vmin;
+    text-align: center;
+}
+
+.how-to-buy-container > div > h5{
+    font-size: 3vmin;
+    margin: 0;
+    text-align: center;
+    transition: opacity 0.5s linear;
+}
+
+.how-to-buy-container > div > img{
+    transition: opacity 0.5s linear;
+}
+
+.how-to-buy-container > div:hover > p{
+    opacity: 1;
+}
+
+.how-to-buy-container > div:hover > h5{
+    opacity: 0;
+}
+
+.how-to-buy-container > div:hover > img{
+    opacity: 0;
+}
+
+.how-to-buy-container > div:nth-child(1){
+    box-sizing: border-box;
+    border: solid 5px #B1CEF4;
+    color: #040C5D;
+}
+
+.how-to-buy-container > div:nth-child(2){
+    background: rgb(4,12,93);
+    background: linear-gradient(120deg, rgba(4,12,93,1) 0%, rgba(35,35,38,1) 100%);
+    color: white;
+}
+
+.how-to-buy-container > div:nth-child(3){
+    background: rgb(177,206,244);
+    background: linear-gradient(120deg, rgba(177,206,244,1) 0%, rgba(255,255,255,1) 100%);
+    color: #040C5D;
+}
+
+@media only screen and (max-width: 600px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .qualities {
+        width: 80%;
+        padding: 1em;
+    }
+
+    .qualities * {
+        width: 100%;
+        margin-left: -10dvw;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        gap: 2vmin;
+    }
+
+    .steps-container > div {
+        width: 80vmin;
+    }
+
+    .steps h2 {
+        text-align: center;
+    }
+
+    .how-to-buy-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .how-to-buy-container > div {
+        width: 80vmin;
+        height: 40vmin;
+    }
+
+    .how-to-buy-container > div > p {
+        width: 70vmin;
+    }
+
+    .delivery-areas * {
+        display: flex;
+    }
+}

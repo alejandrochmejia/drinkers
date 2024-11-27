@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login || Drinkers</title>
+    <link rel="stylesheet" href="/css/auth/register.css">
+</head>
+<body>
+    <header>
+        <div class="Content">
+            <div class="Login__Title">
+                <img src="/images/Logo/Logo.png" alt="Logo">
+                <h2>Bienvenido a Drinkers</h2>
+            </div>
+            <form class="Form-register">
+                <div class="Input--Container">
+                    <div>
+                        <label for="Nombre">Nombre</label>
+                        <input name="nombre" type="text" id="Nombre" placeholder="Ingrese su nombre">
+                        <label for="Nombre">
+                            <img src="/images/icons/person.png" id="Nombre" alt="Logo">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="Apellido">Apellido</label>
+                        <input name="apellido" type="text" id="Apellido" placeholder="Ingrese su apellido">
+                        <label for="Apellido">
+                            <img src="/images/icons/Pencil--white.png" id="Apellido" alt="Logo">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="Cedula">Cedula</label>
+                        <input name="cedula" minlength="7" maxlength="8" type="number" id="Cedula" placeholder="Ingrese su cedula">
+                    </div>
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="Correo">Correo</label>
+                        <input name="email" type="email" id="Correo" placeholder="Ingrese su correo">
+                        <label for="Correo">
+                            <img src="/images/icons/mail.png" alt="Logo">
+                    </div>
+                    <div>
+                        <label for="Password">Contraseña</label>
+                        <input name="password" type="password" id="Password" placeholder="Ingrese su contraseña">
+                        <label for="Password">
+                            <img src="/images/icons/lock.png" alt="Logo">
+                        </label>
+                    </div>
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="Nacimiento">F.Nacimiento</label>
+                        <input name="nacimiento" type="date" id="Nacimiento">
+                    </div>
+                    <div>
+                        <label for="Direccion">Direccion</label>
+                        <input name="direccion" type="text" id="Direccion" placeholder="Estado,Ciudad,Ubicación">
+                        <label for="Direccion">
+                            <img src="/images/icons/Envios.svg" alt="Logo">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="Username">Username</label>
+                        <input name="username" type="text" id="Username" placeholder="Ingrese su username">
+                        <label for="Username">
+                            <img src="/images/icons/person.png"  alt="Logo">
+                    </div>
+                </div>
+                <div class="Buttons">
+                    <input class="Submit--From" value="Crear" id ="Cuenta">
+                    <input onclick="window.location.href='/'" class="Submit--From" value="Volver al menu" id="Volver_menu">
+                </div>
+            </form>
+        </div>
+    </header>
+    <script src="/js/auth/register.js"></script>
+</body>
+</html>

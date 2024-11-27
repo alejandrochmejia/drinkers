@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Proveedor</title>
+    <link rel="stylesheet" href="/css/admin/proveedor.css">
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <div class="Content">
+            <section class="Info--Proveedor">
+                <h1>Vista de proveedor</h1>
+                <article class="Nombre--proveedor">
+                    <span>Nombre del Proveedor</span>
+                    <h3><%= proveedores[0].nombre ? proveedores[0].nombre : 'No hay proveedor' %></h3>
+                </article>
+                <article class="Tlf--proveedor">
+                    <span>Telefono del proveedor</span>
+                    <h3><%= proveedores[0].telefono ? proveedores[0].telefono : 'No hay telefono' %></h3>
+                </article>
+                <article class="Ubi--proveedor">
+                    <span>Ubicación</span>
+                    <h3><%= proveedores[0].ubicacion ? proveedores[0].ubicacion : 'No hay ubicacion' %></h3>
+                </article>
+                <article class="Rif--proveedor">
+                    <span>RIF</span>
+                    <h3><%= proveedores[0].rif ? proveedores[0].rif : 'No hay RIF' %></h3>
+                </article>
+                <article class="Icon--proveedor">
+                    <img src="/images/icons/Añadir--white.png" alt="Agregar" title="Agregar proveedor" id="Agregar">
+                    <img src="/images/icons/Pencil--white.png" alt="Modificar" title="Modificar proveedor" id="Modificar">
+                    <img src="/images/icons/Eliminar--white.png" alt="Eliminar" title="Eliminar proveedor" id="Eliminar">
+                </article>
+            </section>
+            <section class="Table--Container">
+                <div class="Input--Container">
+                    <input type="search" placeholder="Buscar proveedor" id="Search">
+                    <label for="Lupa">
+                        <img src="/images/icons/Search.png" alt="Lupa" id="Lupa">
+                    </label>
+                </div>
+                <table>
+                    <caption>Lista de Proveedores</caption>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre del Proveedor</th>
+                            <th>Telefono del Proveedor</th>
+                            <th>Producto</th>
+                            <th>RIF</th>
+                            <th>Ubicación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyProveedores">
+                        <% proveedores.forEach((proveedores) => { %>
+                            <tr>
+                                <td><%= proveedores.id %></td>
+                                <td><%= proveedores.nombre %></td>
+                                <td><%= proveedores.telefono %></td>
+                                <td><%= proveedores.id_producto %></td>
+                                <td><%= proveedores.rif %></td>
+                                <td><%= proveedores.ubicacion %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <dialog id="dialog--1">
+            <span id="CerrarAgregar">X</span>
+            <h2>Agregar Proveedor</h2>
+            <form action="/admin/proveedor/create" method="POST">
+                <div class="Input--Container">
+                    <div>
+                        <label for="Nombre--proveedor">Nombre del Proveedor</label>
+                        <input placeholder="Ingrese el nombre del proveedor" required id="Nombre--proveedor" name="nombre" maxlength="20">
+                    </div>
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="RIF">RIF</label>
+                        <input placeholder="Ingrese el RIF del proveedor" required id="RIF" name="rif" maxlength="8">
+                    </div>
+                    <div>
+                        <label for="Bebida">Producto del Proveedor</label>
+                        <input type="number" placeholder="Ingrese el id del producto que vende" required id="Bebida" name="id_producto" maxlength="4">
+                    </div>
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="Ubicación">Ubicación del Proveedor</label>
+                        <input placeholder="Ingrese la ubcación del proveedor" required id="Ubicación" name="ubicacion" maxlength="40">
+                    </div>
+                    <div>
+                        <label for="Telefono">Telefono del proveedor</label>
+                        <input placeholder="Ingrese el telefono del proveedor" required id="Telefono" name="telefono" maxlength="11">
+                    </div>
+                </div>
+                <button type="submit" id="SubmitAgregar">Agregar</button>
+            </form>
+        </dialog>
+        <dialog id="dialog--2" >
+            <span id="CerrarModificar">X</span>
+            <h2>Modificar Proveedor</h2>
+            <form action="/admin/proveedor/modificar" method="POST">
+                <div class="Input--Container">
+                    <div>
+                        <label for="ID--proveedor">Id</label>
+                        <input placeholder="Ingrese el id del proveedor que quiere modificar" required id="ID--proveedor" name="id" maxlength="3">
+                    </div>
+
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="Nombre--modificar">Nombre del Proveedor</label>
+                        <input placeholder="Ingrese el nombre del proveedor" required id="Nombre--modificar" name="nombre" maxlength="25">
+                    </div>
+                    <select id="selectModifyProveedor">
+                        <option selected disabled value="">Seleccione un proveedor</option>
+                        <% proveedores.forEach(proveedor => { %>
+                            <option value="<%= proveedor.id %>"><%= proveedor.nombre %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="RIF--modificar">RIF</label>
+                        <input placeholder="Ingrese el RIF del proveedor" required id="RIF--modificar" name="rif" maxlength="8">
+                    </div>
+                    <div>
+                        <label for="Bebida--modificar">Producto del Proveedor</label>
+                        <input placeholder="Ingrese el id producto que vende" required id="Bebida--modificar" name="id_producto" maxlength="4">
+                    </div>
+                </div>
+                <div class="Input--Container">
+                    <div>
+                        <label for="Ubicación--modificar">Ubicación del Proveedor</label>
+                        <input placeholder="Ingrese la ubcación del proveedor" required id="Ubicación--modificar" name="ubicacion" maxlength="40">
+                    </div>
+                    <div>
+                        <label for="Telefono--modificar">Telefono del proveedor</label>
+                        <input placeholder="Ingrese el telefono del proveedor" required id="Telefono--modificar" name="telefono" maxlength="11">
+                    </div>
+                </div>
+                <button type="submit" id="SubmitModificar">Modificar</button>
+            </form>
+        </dialog>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/admin/proveedor.js"></script>
+</body>
+</html>

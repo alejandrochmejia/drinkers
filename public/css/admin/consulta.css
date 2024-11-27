@@ -1,0 +1,50 @@
+main #inputConsulta, main #inputUsuario {
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+main #inputConsulta:focus, main #inputUsuario:focus {
+    outline: none;
+}
+
+#lupaConsulta, #lupaUsuario {
+    height: 100%;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+main #containerInputConsulta, main #containerInputUsuario {
+    height: 3em;    
+    display: flex;
+    width: 25%;
+    border: 1px solid #000;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+main p {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+main {
+    gap: 1em;
+}
+
+table {
+    width: 100%;
+    padding: 0.5em;
+    border: 2px solid #000;
+    border-radius: 0.5em;
+}
+
+table th {
+    padding: 1em;
+    text-align: center;
+}
+
+#tbodyConsulta, #tbodyUsuario {
+    text-align: center;
+}

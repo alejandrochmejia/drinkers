@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Gerente</title>
+    <link rel="stylesheet" href="/css/admin/main.css">
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <div class="Content_dashboard">
+            <section class="Distint_article">
+                <article>
+                    <h4>Productos en Inventario</h4>
+                    <div>
+                        <span><%= inventario %></span>
+                        <button onclick="window.location.href='/admin/inventario'">Ver Detalles
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </button>
+                    </div>
+                </article>
+                <article>
+                    <h4>Registro de Ventas</h4>
+                    <div>
+                        <span><%= ventas %></span>
+                        <button onclick="window.location.href='/admin/estadistica'">Ver Detalles
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </button>
+                    </div>
+                </article>
+                <article>
+                    <h4>Pedidos</h4>
+                    <div>
+                        <span><%= envios %></span>
+                        <button onclick="window.location.href='/admin/envios'">Ver Detalles
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                        </button>
+                    </div>
+                    
+                </article>
+            </section>
+            <section class="Productos_vendidos">
+                <h2>Productos mas vendidos</h2>
+                <div class="Grafica"><canvas id="myChart"></canvas></div>
+            </section>
+        </div>
+    </main>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/admin/dashboard.js"></script>
+</body>
+</html>

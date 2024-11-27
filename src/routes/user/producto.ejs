@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers</title>
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/user/producto.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <%- include('../partials/user-header') %>
+
+    <%- include('../partials/chat') %>
+
+    <%- include('../partials/convert') %>
+
+    <%- include('../partials/cart') %>
+
+    <main>
+        <div class="principal-container">
+            <div class="image-container">
+                <img class="productImg" id="example-liquor" src="<%= producto.imagen %>">
+            </div>
+            <div class="info-container">
+                <div>
+                    <p style="font-size: 1.8vmin;">Inicio > <%= producto.nombre_producto %></p>
+                    <h2><%= producto.nombre_producto %></h2>
+                    <p style="line-height: 1.5;">
+                        Unidades Disponibles: <%= producto.stock %><br>
+                        Categoria: <%= producto.tipo %>
+                    </p>
+                    <h5 id="price" class="product-price">Desde <%= producto.precio_detal %> $</h5>
+                    <p id="description">
+                        <%= producto.descripcion %>
+                    </p>
+                </div>
+                <div style="flex-direction: column; display: flex; gap: 3vmin;">
+                    <details>
+                        <summary>FICHA TÉCNICA</summary>
+                        Nombre: <%= producto.nombre_producto %><br>
+                        Unidades por caja: <%= producto.paquete %><br>
+                        Tipo: <%= producto.tipo %><br>
+                        Precio Al mayor (Apartir de 12 Unidades): <%= producto.precio_mayorista %> $<br>
+                        Capacidad: <%= producto.litros %> <br>
+                    </details>
+                    <div id="units">
+                        <input type="number" class="productCant" value="1">
+                        <button onclick="addFromDetail(this)" class="addButton">Añadir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3 class="subtitle">Productos Relacionados</h3>
+        <ul class="productSection">
+            <% relacionados.forEach(producto => { %>
+                <%- include('../partials/product', {producto}) %>
+            <% }) %>
+        </ul>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    <script src="/js/user/producto.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

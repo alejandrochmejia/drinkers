@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers</title>
+    <link rel="stylesheet" href="/css/user/general.css">
+    <link rel="stylesheet" href="/css/user/catalogo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('./user-header') %>
+
+    <%- include('./chat') %>
+
+    <%- include('./convert') %>
+
+    <%- include('./cart') %>
+
+    <main>
+        <p style="padding-left: 3vmin;">Sección > <%= type %></p>
+        <div id="topics">
+            <h3 class="subtitle"><%= type %></h3>
+            <div id="info">
+                <select name="sort" id="sorting">
+                    <option value="menor">Precio de Menor a Mayor</option>
+                    <option value="mayor">Precio de Mayor a Menor</option>
+                    <option value="alfabetico">Alfabético (A-Z)</option>
+                </select>
+                <p>Articulos: <%= productos.length %></p>
+            </div>
+        </div>
+
+        <ul class="productSection">
+            <% productos.forEach(producto => { %>
+                <%- include('./product', {producto}) %>
+            <% }) %>
+        </ul>
+    </section>
+    </main>
+
+    <%- include('./footer') %>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/user/catalogo.js"></script>
+</body>
+</html>

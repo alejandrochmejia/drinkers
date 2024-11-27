@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinkers || Estadistica</title>
+    <link rel="stylesheet" href="/css/admin/estadistica.css">
+    <link rel="shortcut icon" href="/images/Logo/logo-landing.png" type="image/x-icon">
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <%- include('../partials/navbar'); %>
+    <main>
+        <div class="Content--table">
+            <section class="Table--Container">
+                <div>
+                    <input type="text" placeholder="0000" id="Search">
+                    <label for="Search">
+                        <img src="/images/icons/Search.png" alt="lupa" id="Search">
+                    </label>
+                </div>
+                <div class="Tabla-Ventas">
+                    <table>
+                        <caption>Tabla de Ventas</caption>
+                        <thead>
+                            <tr>
+                                <th>Id Factura</th>
+                                <th>Id Bebida</th>
+                                <th>Cantidad</th>
+                                <th>Ingresos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% ventas.forEach(venta => { %>
+                                <tr>
+                                    <td><%= venta.id_factura %></td>
+                                    <td><%= venta.id_producto %></td>
+                                    <td><%= venta.cantidad %></td>
+                                    <td><%= venta.ingresos %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        <div class="Content--Container">
+            <section class="Conversiones--Grafica">
+                <article>
+                    <h2>Conversion Monetaria</h2>
+                    <div>
+                        <label for="Dolar">Dolar</label>
+                        <input type="number" placeholder="$" id="Dolar">
+                        <span>=</span>
+                        <label for="Bolivares">Bolivares</label>
+                        <input type="number" placeholder="Bs" id="Bolivares">
+                    </div>
+                </article>
+                <article>
+                    <div class="Grafica">
+                        <canvas id="myChart">
+                        </canvas>
+                    </div>
+                </article>
+            </section>
+            <section class="Table--Popular">
+                <table>
+                    <caption>Productos Populares</caption>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Ingresos Totales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% vendidos.forEach(producto => { %>
+                            <tr>
+                                <td><%= producto.nombre_producto %></td>
+                                <td><%= producto.ingresos %>$</td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/admin/estadistica.js"></script>
+</body>
+</html>

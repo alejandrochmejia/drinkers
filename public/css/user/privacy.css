@@ -1,0 +1,24 @@
+.faqs{
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+    margin-bottom: 3vmin;
+}
+
+details{
+    width: 75dvw;
+    border: 0.5px solid black;
+}
+
+summary{
+    padding: 1vmin;
+    cursor: pointer;
+}
+
+details[open] summary{
+    border-bottom: 0.5px solid black;
+    font-weight: bold;
+}

@@ -1,0 +1,79 @@
+/* styles.css */
+#chatbot {
+    position: fixed;
+    bottom: 70px; /* Espacio para el ícono */
+    right: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    z-index: 1000;
+    overflow: hidden;
+    border: 2px solid var(--blue);
+}
+
+#chatIcon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: scale 0.5s;
+}
+
+#chatIcon:active {
+    transform: scale(0.90);
+}
+
+#chatIcon svg {
+    stroke: white;
+    stroke-width: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+#chatbox {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+#messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1em;
+}
+
+#messages div {
+    border-bottom: 1px solid #00000050;
+    padding: 0.5em;
+}
+
+#userInput {
+    padding: 10px;
+    border: none;
+    width: calc(100%);
+    outline: none;
+    border-top: 2px solid var(--blue);
+    font-weight: bold;
+}
+
+#sendButton {
+    padding: 10px;
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#sendButton:hover {
+    background-color: var(--blue);
+}
+
+.chatUser {
+    text-decoration: underline;
+}

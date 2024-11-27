@@ -1,0 +1,36 @@
+<div id="values">
+    <section id="dolars" class="value">$</section>
+    <section id="bs" class="value">bs</section>
+</div>
+<script>
+    async function convert() {
+        const response = await fetch("https://ve.dolarapi.com/v1/dolares/oficial");
+        const data = await response.json();
+        const dolar = data.promedio;
+        const bs = document.getElementById('bs');
+        const dolars = document.getElementById('dolars');
+        let currentCurrency = 'dolars'; // Estado para rastrear la moneda actual
+
+        bs.onclick = () => {
+            if (currentCurrency === 'bs') return; // Evitar conversiones innecesarias
+            document.querySelectorAll('.product-price').forEach((price) => {
+                const value = parseFloat(price.innerHTML.split(' ')[1]);
+                const newValue = (value * dolar).toFixed(2);
+                price.innerHTML = 'Desde ' + newValue + " bs";
+            });
+            currentCurrency = 'bs';
+        };
+
+        dolars.onclick = () => {
+            if (currentCurrency === 'dolars') return; // Evitar conversiones innecesarias
+            document.querySelectorAll('.product-price').forEach((price) => {
+                const value = parseFloat(price.innerHTML.split(' ')[1]);
+                const newValue = (value / dolar).toFixed(2);
+                price.innerHTML = 'Desde ' + newValue + " $";
+            });
+            currentCurrency = 'dolars';
+        };
+    }
+
+    document.addEventListener('DOMContentLoaded', convert);
+</script>
